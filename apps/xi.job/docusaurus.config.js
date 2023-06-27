@@ -19,24 +19,21 @@ const config = {
     locales: ["en"],
   },
 
-  presets: [
-    [
-      "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: "/",
-        },
-        blog: {
-          showReadingTime: true,
-        },
-        theme: {
-          customCss: require.resolve("./src/css/custom.css"),
-        },
-      }),
-    ],
-  ],
+  // presets: [
+  //   [
+  //     "classic",
+  //     /** @type {import('@docusaurus/preset-classic').Options} */
+  //     ({
+  //       docs: {
+  //         sidebarPath: require.resolve("./sidebars.js"),
+  //         routeBasePath: "/",
+  //       },
+  //       blog: {
+  //         showReadingTime: true,
+  //       },
+  //     }),
+  //   ],
+  // ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
