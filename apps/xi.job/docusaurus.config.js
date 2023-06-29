@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "xi.team",
-  url: "job.xieffect.ru",
+  url: "https://job.xieffect.ru",
   baseUrl: "/",
   favicon: "img/favicon.ico",
 
