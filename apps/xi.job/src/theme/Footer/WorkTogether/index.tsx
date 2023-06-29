@@ -3,13 +3,13 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 const WorkTogether = () => {
   return (
     <Stack
+      direction="row"
+      justifyContent="space-between"
       sx={{
         margin: "64px 0",
         padding: "64px",
         borderRadius: "32px",
-        flexDirection: "row",
         position: "relative",
-        justifyContent: "space-between",
         backgroundColor: "petersburg.10",
       }}
     >

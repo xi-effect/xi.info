@@ -9,11 +9,11 @@ const Footer = () => {
       <WorkTogether />
 
       <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
         sx={{
           padding: "64px",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
         }}
       >
         <Team />

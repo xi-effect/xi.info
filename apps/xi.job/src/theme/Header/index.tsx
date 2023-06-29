@@ -6,22 +6,16 @@ const Header = () => {
   return (
     <Stack
       component="header"
+      direction="row"
+      justifyContent="space-between"
       sx={{
         padding: "64px",
-        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-between",
       }}
     >
       <Team />
 
-      <Stack
-        component="nav"
-        sx={{
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
+      <Stack component="nav" direction="row" alignItems="center">
         <Typography
           sx={{
             fontSize: "24px",
