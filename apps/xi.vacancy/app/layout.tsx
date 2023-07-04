@@ -1,6 +1,6 @@
 'use client';
 
-import './globals.css';
+import '@xipkg/tailwind/tailwind.css';
 
 import { Inter } from 'next/font/google';
 
