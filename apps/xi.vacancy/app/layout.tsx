@@ -20,7 +20,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${inter.variable}`}>
       <body>
         <ThemeRegistry mode="light">
-          <main className="w-screen h-screen">{children}</main>
+          <main className="w-screen h-screen container max-w-[1920px]  mx-auto px-16 flex flex-col">
+            {children}
+          </main>
         </ThemeRegistry>
       </body>
     </html>
