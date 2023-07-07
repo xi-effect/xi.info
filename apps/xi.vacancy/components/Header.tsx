@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
 const Header = () => (
-  <header className="flex justify-between items-center p-16">
+  <header className="flex justify-between items-center py-16  lg:px-16">
     <Image src="/team.svg" width={219} height={32} alt="logo xi.effect" />
 
-    <nav className="flex items-center">
+    <nav className="flex items-center hidden md:block">
       <a href="#" className="mr-16 t-xl text-gray-60">
         Вакансии
       </a>
