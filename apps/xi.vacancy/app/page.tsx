@@ -1,16 +1,7 @@
 'use client';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import HomeWrapper from '../components/home';
 
-export default function Home() {
-  return (
-    <>
-      <Header />
+const Home = () => <HomeWrapper />;
 
-      <section className="flex-auto ">тук тук</section>
-
-      <Footer />
-    </>
-  );
-}
+export default Home;
