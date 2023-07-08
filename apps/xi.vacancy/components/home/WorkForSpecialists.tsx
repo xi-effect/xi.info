@@ -39,6 +39,7 @@ const WorkForSpecialists = () => {
       <div className="h-[35px] sm:h-[65px] mb-16 overflow-hidden">
         <div className="flex pb-8 mx-[-16px] overflow-x-auto">
           <button
+            type="button"
             onClick={() => setProfession(0)}
             className={`${
               profession === 0 && 'text-brand-80 underline'
@@ -48,6 +49,7 @@ const WorkForSpecialists = () => {
           </button>
 
           <button
+            type="button"
             onClick={() => setProfession(1)}
             className={`${
               profession === 1 && 'text-brand-80 underline'
@@ -57,6 +59,7 @@ const WorkForSpecialists = () => {
           </button>
 
           <button
+            type="button"
             onClick={() => setProfession(2)}
             className={`${
               profession === 2 && 'text-brand-80 underline'
@@ -66,6 +69,7 @@ const WorkForSpecialists = () => {
           </button>
 
           <button
+            type="button"
             onClick={() => setProfession(3)}
             className={`${
               profession === 3 && 'text-brand-80 underline'
@@ -102,7 +106,7 @@ const WorkForSpecialists = () => {
             <h3 className="text-[24px] font-semibold mb-[32px] sm:text-[40px]">Какой нужен опыт</h3>
 
             <p className="text-[16px] sm:text-[32px]">
-              Любой! У нас есть множество задач для {aboutProfession[profession].for} любого уровня
+              {`Любой! У нас есть множество задач для ${aboutProfession[profession].for} любого уровня`}
             </p>
           </div>
         </div>
