@@ -10,7 +10,7 @@ const teamAvatar = [
 
 const FindYourCase = () => (
   <section className="w-fit px-4 py-16 xl:pt-32 xl:pb-16 xl:px-16">
-    <h1 className="mb-12 uppercase font-marker text-[40px] sm:text-[80px] xl:text-[160px] 2xl:text-[180px]">
+    <h1 className="mb-12 uppercase font-marker text-[40px] sm:text-[80px] xl:text-[160px] 2xl:text-[180px] table-caption">
       найди любимое дело
     </h1>
 
