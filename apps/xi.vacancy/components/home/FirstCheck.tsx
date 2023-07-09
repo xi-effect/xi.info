@@ -1,7 +1,8 @@
 const FirstCheck = () => (
   <section className="py-8 px-4 xl:p-16">
     <h2 className="font-semibold mb-[48px] text-[32px] sm:text-[64px] xl:text-[80px]">
-      <span className="block"> Для начала проверь,</span> подходим ли мы тебе
+      <span className="block"> Для начала проверь,</span>
+      подходим ли мы тебе
     </h2>
 
     <div className="flex flex-col xl:flex-row xl:justify-between mb-[48px] sm:mb-16">
