@@ -97,15 +97,21 @@ const WorkForSpecialists = () => {
 
         <div className="2xl:basis-[60%]">
           <div className="p-[24px] sm:p-[48px] rounded-[16px] bg-gray-10 mb-[16px] sm:mb-16">
-            <h3 className="text-[24px] font-semibold mb-[32px] sm:text-[40px]">Что делаем</h3>
+            <h3 className="text-[24px] font-semibold mb-[32px] sm:text-[40px] 2xl:text-[48px]">
+              Что делаем
+            </h3>
 
-            <p className="text-[16px] sm:text-[32px]">{aboutProfession[profession].paragraph}</p>
+            <p className="text-[16px] sm:text-[32px] 2xl:text-[40px]">
+              {aboutProfession[profession].paragraph}
+            </p>
           </div>
 
           <div className="p-[24px] sm:p-[48px] rounded-[16px] bg-gray-10">
-            <h3 className="text-[24px] font-semibold mb-[32px] sm:text-[40px]">Какой нужен опыт</h3>
+            <h3 className="text-[24px] font-semibold mb-[32px] sm:text-[40px] 2xl:text-[48px]">
+              Какой нужен опыт
+            </h3>
 
-            <p className="text-[16px] sm:text-[32px]">
+            <p className="text-[16px] sm:text-[32px] 2xl:text-[40px]">
               {`Любой! У нас есть множество задач для ${aboutProfession[profession].for} любого уровня`}
             </p>
           </div>
