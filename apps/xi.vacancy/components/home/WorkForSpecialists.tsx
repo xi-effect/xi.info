@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 const aboutProfession = [
   {
@@ -91,7 +92,14 @@ const WorkForSpecialists = () => {
             className="text-gray-0 text-[16px] font-medium flex justify-between items-center mx-[12px]"
           >
             Подробнее
-            <img className="w-[36px] h-[36px]" src="/icons/icon-right.svg" alt="More detailed" />
+            <Image
+              width={36}
+              height={36}
+              quality={100}
+              className="w-[36px] h-[36px]"
+              src="/icons/icon-right.svg"
+              alt="More detailed"
+            />
           </a>
         </div>
 

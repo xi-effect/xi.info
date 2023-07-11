@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Footer = () => (
   <footer>
     <div className="my-8 p-8 md:p-16 md:my-16  xl:pr-[650px] bg-gray-10 rounded-[32px] relative">
@@ -16,7 +18,10 @@ const Footer = () => (
         Отправить резюме
       </button>
 
-      <img
+      <Image
+        width={660}
+        height={764}
+        quality={100}
         alt="team working"
         src="/home/work-together.jpg"
         className="absolute top-0 right-0 object-cover w-[600px] h-full rounded-r-3xl hidden xl:block"
@@ -24,7 +29,10 @@ const Footer = () => (
     </div>
 
     <div className="px-4 py-8 md:p-16 flex flex-wrap flex-col md:flex-row md:items-center justify-between">
-      <img
+      <Image
+        width={220}
+        height={32}
+        quality={100}
         src="/icons/team.svg"
         alt="logo xi.effect"
         className="w-[165px] h-[24px] sm:w-[219px] sm:h-[32px]"

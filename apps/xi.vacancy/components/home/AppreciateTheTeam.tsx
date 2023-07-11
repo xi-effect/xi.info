@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const AppreciateTheTeam = () => (
   <section className="my-8 p-8 md:p-16 sm:my-16 bg-gray-10 rounded-[32px]">
     <h2 className="font-semibold mb-16 text-[32px] sm:text-[64px] xl:text-[80px]">
@@ -6,7 +8,10 @@ const AppreciateTheTeam = () => (
     </h2>
 
     <div className="flex flex-col xl:flex-row mb-16">
-      <img
+      <Image
+        width={640}
+        height={520}
+        quality={100}
         className="w-full object-cover rounded-[24px] mb-8 xl:mb-0 h-[250px] sm:h-[520px] xl:mr-[32px] xl:basis-[60%]"
         src="/home/appreciate-the-team-1.jpg"
         alt="appreciate the team"
@@ -25,7 +30,10 @@ const AppreciateTheTeam = () => (
     </div>
 
     <div className="flex flex-col xl:flex-row mb-16">
-      <img
+      <Image
+        width={640}
+        height={520}
+        quality={100}
         className="w-full object-cover rounded-[24px] mb-8 xl:mb-0 h-[250px] sm:h-[520px] xl:basis-[60%] xl:order-2"
         src="/home/appreciate-the-team-2.jpg"
         alt="appreciate the team"
@@ -44,7 +52,10 @@ const AppreciateTheTeam = () => (
     </div>
 
     <div className="flex flex-col xl:flex-row">
-      <img
+      <Image
+        width={640}
+        height={520}
+        quality={100}
         className="w-full object-cover rounded-[24px] mb-8 xl:mb-0 h-[250px] sm:h-[520px] xl:mr-[32px] xl:basis-[60%]"
         src="/home/appreciate-the-team-3.jpg"
         alt="appreciate the team"
