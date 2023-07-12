@@ -1,0 +1,18 @@
+{
+  "name": "xi.land",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@xipkg/tailwind": "^0.2.0"
+  },
+  "devDependencies": {
+    "@xipkg/config.typescript": "^0.3.1",
+    "@xipkg/eslint-config-custom": "^0.0.5"
+  }
+}
