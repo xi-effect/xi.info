@@ -44,7 +44,7 @@ const WorkForSpecialists = () => {
             onClick={() => setProfession(0)}
             className={`${
               profession === 0 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px]`}
+            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
           >
             Разработка
           </button>
@@ -54,7 +54,7 @@ const WorkForSpecialists = () => {
             onClick={() => setProfession(1)}
             className={`${
               profession === 1 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px]`}
+            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
           >
             Дизайн
           </button>
@@ -64,7 +64,7 @@ const WorkForSpecialists = () => {
             onClick={() => setProfession(2)}
             className={`${
               profession === 2 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px]`}
+            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
           >
             Продукт
           </button>
@@ -74,7 +74,7 @@ const WorkForSpecialists = () => {
             onClick={() => setProfession(3)}
             className={`${
               profession === 3 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px]`}
+            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
           >
             Маркетинг
           </button>
