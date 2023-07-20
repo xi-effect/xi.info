@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { ThemeRegistry } from 'pkg.theme';
 import { inter, marker } from 'fonts/fonts';
 
-import '@xipkg/tailwind/tailwind.css';
+import '@xipkg/tailwind/index.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 
