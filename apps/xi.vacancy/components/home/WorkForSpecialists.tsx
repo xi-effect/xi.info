@@ -89,7 +89,7 @@ const WorkForSpecialists = () => {
 
           <a
             href="#"
-            className="text-gray-0 text-[16px] font-medium flex justify-between items-center mx-[12px]"
+            className="text-gray-0 text-[16px] xl:text-[22px] font-medium flex justify-between items-center mx-[12px]"
           >
             Подробнее
             <Image
