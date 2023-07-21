@@ -32,7 +32,7 @@ const nextConfig = {
   },
   transpilePackages: [
     'pkg.theme',
-    '@xipkg/config.typescript',
+    '@xipkg/typescript',
     '@emotion/styled',
     '@emotion/react',
     '@emotion/cache',

@@ -34,7 +34,7 @@ const nextConfig = {
         'pkg.theme',
         'pkg.spinner',
         'pkg.utils',
-        '@xipkg/config.typescript',
+        '@xipkg/typescript',
         'pkg.signin.form',
         '@emotion/styled',
         '@emotion/react',
