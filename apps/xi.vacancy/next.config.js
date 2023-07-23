@@ -1,5 +1,11 @@
 // Не поддавайтесь соблазну использовать здесь import
+
+/** @type {import('next').NextConfig} */
+
 const path = require('path');
+
+const withMDX = require('@next/mdx')();
+
 const runtimeCaching = require('next-pwa/cache');
 
 const plugins = [];
@@ -23,10 +29,11 @@ const withPWA = require('next-pwa')({
   ],
 });
 
-plugins.push(withPWA);
+plugins.push(withPWA, withMDX);
 
 const nextConfig = {
   experimental: {
+    mdxRs: true,
     esmExternals: true,
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
