@@ -1,35 +1,10 @@
 import { useState } from 'react';
 import Image from 'next/image';
-
-const aboutProfession = [
-  {
-    title: 'Разработка',
-    for: 'разработчиков',
-    paragraph:
-      'В Xi.effect продуктовая разработка. Есть куча инженерных задач и технических вызовов для умного человека',
-  },
-  {
-    title: 'Дизайн',
-    for: 'дизайнеров',
-    paragraph:
-      'В Xi.effect продуктовая разработка. Есть множество интересных задач и вызовов для дизайнеров',
-  },
-  {
-    title: 'Продукт',
-    for: 'менеджеров',
-    paragraph:
-      'В Xi.effect продуктовая разработка. Нужно продумывать то, как будет развиваться продукт',
-  },
-  {
-    title: 'Маркетинг',
-    for: 'менеджеров',
-    paragraph:
-      'Xi.effect - продуктовая команда. Необходимо развивать общение с клиентами  позиционирование бренда',
-  },
-];
+import NavOfSpecialties from '../common/NavOfSpecialties';
+import { ProfessionsT, vacancyDescription } from '../common/const';
 
 const WorkForSpecialists = () => {
-  const [profession, setProfession] = useState<number>(0);
+  const [profession, setProfession] = useState<ProfessionsT>('development');
 
   return (
     <section className="py-8 px-4 sm:px-0  xl:p-16">
@@ -37,54 +12,12 @@ const WorkForSpecialists = () => {
         У нас есть работа для разных специалистов
       </h2>
 
-      <div className="h-[35px] sm:h-[65px] mb-16 overflow-hidden">
-        <div className="flex pb-8 mx-[-32px] overflow-x-auto">
-          <button
-            type="button"
-            onClick={() => setProfession(0)}
-            className={`${
-              profession === 0 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
-          >
-            Разработка
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setProfession(1)}
-            className={`${
-              profession === 1 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
-          >
-            Дизайн
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setProfession(2)}
-            className={`${
-              profession === 2 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
-          >
-            Продукт
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setProfession(3)}
-            className={`${
-              profession === 3 && 'text-brand-80 underline'
-            }  mx-[32px] text-[24px] sm:text-[48px] bg-transparent`}
-          >
-            Маркетинг
-          </button>
-        </div>
-      </div>
+      <NavOfSpecialties className="mb-16" setProfession={setProfession} profession={profession} />
 
       <div className="xl:flex">
         <div className="p-[24px] sm:p-[48px] rounded-[16px] bg-brand-80 mb-[16px] xl:mb-0 xl:mr-16 sm:mb-16 xl:flex xl:flex-col xl:justify-between xl:basis-[50%] 2xl:basis-[42%]">
           <h3 className="mb-[128px] text-gray-0 text-[32px] font-bold sm:text-[72px] 2xl:text-[80px]">
-            {aboutProfession[profession].title}
+            {vacancyDescription[profession].title}
           </h3>
 
           <a
@@ -110,7 +43,7 @@ const WorkForSpecialists = () => {
             </h3>
 
             <p className=" leading-[130%] text-[16px] sm:text-[32px] 2xl:text-[40px]">
-              {aboutProfession[profession].paragraph}
+              {vacancyDescription[profession].paragraph}
             </p>
           </div>
 
@@ -120,7 +53,7 @@ const WorkForSpecialists = () => {
             </h3>
 
             <p className="sm:w-[90%]  leading-[130%] text-[16px] sm:text-[32px] 2xl:text-[40px]">
-              {`Любой! У нас есть множество задач для ${aboutProfession[profession].for} любого уровня`}
+              {`Любой! У нас есть множество задач для ${vacancyDescription[profession].for} любого уровня`}
             </p>
           </div>
         </div>
