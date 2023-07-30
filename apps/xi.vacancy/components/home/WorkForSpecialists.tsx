@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import NavOfSpecialties from '../common/NavOfSpecialties';
 import { ProfessionsT, vacancyDescription } from '../common/const';
 
@@ -24,8 +25,8 @@ const WorkForSpecialists = () => {
             {vacancyDescription[profession].title}
           </h3>
 
-          <a
-            href="#"
+          <Link
+            href="/vacancy"
             className="text-gray-0 text-[18px] sm:text-[22px] font-medium flex justify-between items-center mx-[6px] 2xl:mx-0"
           >
             Подробнее
@@ -37,7 +38,7 @@ const WorkForSpecialists = () => {
               alt="More detailed"
               className="w-[24px] h-[24px] 2xl:w-[36px] 2xl:h-[36px]"
             />
-          </a>
+          </Link>
         </div>
 
         <div className="xl:basis-[66%]">
