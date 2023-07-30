@@ -23,7 +23,7 @@ const Vacancy: FC<VacancyT> = (props) => {
     <section className=" px-4 sm:px-8 xl:p-[48px] xl:pb-0">
       <Link
         href="/vacancy"
-        className="leading-[110%] text-brand-80 text-[16px] mb-2 xl:mb-4 sm:text-[24px] xl:text-[32px]"
+        className="leading-[110%] text-brand-80 text-[16px] mb-2 xl:mb-4 sm:text-[24px]"
       >
         {professions[profession]}
       </Link>
@@ -71,12 +71,12 @@ const Vacancy: FC<VacancyT> = (props) => {
                 {author.name}
               </span>
               <span className="leading-[130%] text-[16px] sm:text-[20px] text-gray-80">
-                {author.name}
+                {author.grade}
               </span>
             </div>
           </div>
 
-          <span className="leading-[130%] text-16px sm:text-[20px] block">Телеграм</span>
+          <span className="leading-[130%] text-[16px] sm:text-[20px] block">Телеграм</span>
           <a
             target="_blank"
             rel="noreferrer"
