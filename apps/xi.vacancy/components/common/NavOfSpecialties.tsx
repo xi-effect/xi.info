@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProfessionsT } from './const';
+import { professions, ProfessionsT } from './const';
 
 type NavOfSpecialtiesT = {
   className?: string;
@@ -23,7 +23,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('development')}
           onClick={() => setProfession('development')}
         >
-          Разработка
+          {professions.development}
         </button>
 
         <button
@@ -31,7 +31,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('design')}
           onClick={() => setProfession('design')}
         >
-          Дизайн
+          {professions.design}
         </button>
 
         <button
@@ -39,7 +39,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('product')}
           onClick={() => setProfession('product')}
         >
-          Продукт
+          {professions.product}
         </button>
 
         <button
@@ -47,7 +47,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('marketing')}
           onClick={() => setProfession('marketing')}
         >
-          Маркетинг
+          {professions.marketing}
         </button>
       </div>
     </div>

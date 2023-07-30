@@ -2,6 +2,6 @@
 
 import HomeWrapper from '../components/home';
 
-const Home = () => <HomeWrapper />;
+const Page = () => <HomeWrapper />;
 
-export default Home;
+export default Page;
