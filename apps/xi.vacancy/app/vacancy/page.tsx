@@ -1,5 +1,5 @@
 import VacancyList from 'components/vacancy/VacancyList';
 
-const Vacancy = () => <VacancyList />;
+const Page = () => <VacancyList />;
 
-export default Vacancy;
+export default Page;

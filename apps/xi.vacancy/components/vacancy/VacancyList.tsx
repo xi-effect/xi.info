@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { ProfessionsT, vacancyList } from '../common/const';
 import NavOfSpecialties from '../common/NavOfSpecialties';
@@ -8,19 +9,21 @@ const VacancyList = () => {
   const [profession, setProfession] = useState<ProfessionsT>('development');
 
   const vacancyCard = vacancyList[profession].map((p, i) => (
-    <article className={i !== vacancyList[profession].length - 1 ? 'mb-[32px] sm:mb-[64px]' : ''}>
-      <h2 className="leading-[120%] text-[24px] mb-[8px] sm:text-[32px] xl:text-[64px]">
-        {p.title}
-      </h2>
+    <Link href={`/vacancy/${profession}_${p.id}`}>
+      <article className={i !== vacancyList[profession].length - 1 ? 'mb-[32px] sm:mb-[64px]' : ''}>
+        <h2 className="leading-[120%] text-[24px] mb-[8px] sm:text-[32px] xl:text-[64px]">
+          {p.title}
+        </h2>
 
-      <div className="flex leading-[120%] text-[16px] sm:text-[20px] xl:text-[24px]">
-        <span className="mr-[22px] min-[390px]:mr-[32px]">Удалённо</span>
+        <div className="flex leading-[120%] text-[16px] sm:text-[20px] xl:text-[24px]">
+          <span className="mr-[22px] min-[390px]:mr-[32px]">Удалённо</span>
 
-        <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">{p.date}</time>
+          <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">{p.date}</time>
 
-        <address className="text-gray-60">{p.author}</address>
-      </div>
-    </article>
+          <address className="text-gray-60">{p.author.tg}</address>
+        </div>
+      </article>
+    </Link>
   ));
 
   return (
