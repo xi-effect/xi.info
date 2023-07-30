@@ -6,7 +6,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className="flex justify-between items-center py-8 px-4 sm:py-16 xl:px-16">
+    <header className="flex justify-between items-center py-[24px] px-4 sm:py-[32px] sm:px-8 2xl:py-16 2xl:px-[48px]">
       <Link href="/">
         <Image
           width={219}
@@ -14,22 +14,25 @@ const Header = () => {
           quality={100}
           alt="logo xi.effect"
           src="/icons/team.svg"
-          className="w-[165px] h-[24px] sm:w-[219px] sm:h-[32px]"
+          className="w-[165px] h-[24px]"
         />
       </Link>
 
-      <nav className="flex items-center hidden md:block">
+      <nav className="flex items-center hidden sm:block">
         <Link
           href="/vacancy"
           className={`
           ${pathname === '/vacancy' ? 'text-brand-80' : 'text-gray-60'}
-           transition-colors mr-16 t-xl
+           transition-colors mr-[24px] text-[20px] 2xl:mr-16
            `}
         >
           Вакансии
         </Link>
 
-        <button type="button" className="btn-l bg-brand-80 text-gray-0 text-[22px]">
+        <button
+          type="button"
+          className="rounded-[8px] py-[12px] px-[24px] bg-brand-80 text-gray-0 text-[17.5px]"
+        >
           Отправить резюме
         </button>
       </nav>

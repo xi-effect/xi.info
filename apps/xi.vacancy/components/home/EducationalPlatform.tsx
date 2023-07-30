@@ -1,14 +1,21 @@
-const EducationalPlatform = () => (
-  <section className="my-8 p-8 md:p-16 sm:my-16 bg-gray-10 rounded-[32px]">
-    <h2 className="font-marker mb-[20px] xl:mb-[0] uppercase text-[32px] sm:text-[64px] xl:text-[80px]">
-      xi.effect®
-    </h2>
+import Image from 'next/image';
 
-    <h3 className="mb-[50px] xl:mb-[94px] leading-[110%] font-semibold text-[32px] sm:text-[40px] xl:text-[48px]">
+const EducationalPlatform = () => (
+  <section className="my-[16px] p-[16px] sm:px-8 sm:py-[48px] 2xl:p-[48px] sm:my-0 sm:mb-[64px] bg-gray-10 rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px]">
+    <Image
+      width={200}
+      height={24}
+      quality={100}
+      alt="full logo xi.effect"
+      src="/icons/full.svg"
+      className="mb-[32px]"
+    />
+
+    <h3 className="mb-[64px] leading-[110%] font-semibold text-[24px] sm:text-[40px] 2xl:text-[40px]">
       Цифровая образовательная платформа
     </h3>
 
-    <p className="xl:tracking-[0.5px] 2xl:tracking-[0px] leading-[130%] text-[16px] sm:text-[32px] xl:text-[40px]">
+    <p className="leading-[130%] text-[16px] sm:text-[28px] w-[90%] sm:w-full">
       Она позволяет создавать образовательные сообщества и использовать их в обучении: онлайн,
       смешанного или офлайн. Мы ставим перед собой задачу сделать образование качественнее и
       доступнее с помощью технологий.
