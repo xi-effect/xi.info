@@ -13,11 +13,11 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
   const currentStyles = (p: ProfessionsT) => `
       ${profession === p ? 'text-brand-80 underline' : 'text-gray-100'}
       
-      mx-[20px] xl:mx-[30px]  text-[24px] sm:text-[48px] bg-transparent transition-colors `;
+      mx-[16px] sm:mx-[30px] text-[16px] sm:text-[32px] bg-transparent transition-colors `;
 
   return (
-    <div className={`h-[35px] sm:h-[65px] overflow-hidden ${className}`}>
-      <div className="flex pb-8 mx-[-20px] xl:mx-[-30px] overflow-x-auto">
+    <div className={`h-[20px] sm:h-[40px] overflow-hidden ${className}`}>
+      <div className="flex pb-4 mx-[-16px] sm:mx-[-30px] overflow-x-auto">
         <button
           type="button"
           className={currentStyles('development')}
