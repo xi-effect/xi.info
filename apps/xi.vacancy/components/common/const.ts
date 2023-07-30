@@ -1,24 +1,44 @@
-export type ProfessionsT = keyof typeof vacancyList;
+export type ProfessionsT = keyof typeof professions;
 
-export const vacancyList = {
+export type ProfessionOptionsT = {
+  id: string;
+  date: string;
+  grade: string;
+  title: string;
+  author: {
+    tg: string;
+    name: string;
+    grade: string;
+    src: string;
+  };
+};
+
+type VacancyListT = {
+  [key in ProfessionsT]: ProfessionOptionsT[];
+};
+
+export const professions = {
+  design: 'Дизайн',
+  product: 'Продукт',
+  marketing: 'Маркетинг',
+  development: 'Разработка',
+};
+
+export const vacancyList: VacancyListT = {
   development: [
     {
+      author: {
+        name: 'Игорь Букшев',
+        tg: '@unknownproperty',
+        grade: 'Frontend lead, co-founder',
+        src: '/vacancy/unknownproperty.jpg',
+      },
+      date: '24 мая',
+      grade: 'Junior',
+      id: 'frontend-junior',
       title: 'Frontend разработчик',
-      author: '@unknownproperty',
-      date: '24 мая',
-    },
-    {
-      title: 'Backend разработчик',
-      author: '@niqzart',
-      date: '24 мая',
-    },
-    {
-      title: 'Тестировщик',
-      author: '@unknownproperty',
-      date: '24 мая',
     },
   ],
-
   design: [],
   product: [],
   marketing: [],
