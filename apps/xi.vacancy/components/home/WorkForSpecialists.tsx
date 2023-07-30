@@ -19,7 +19,7 @@ const WorkForSpecialists = () => {
       />
 
       <div className="xl:flex">
-        <div className="p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] bg-brand-80 mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[32%]">
+        <div className="xl:min-w-[460px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] bg-brand-80 mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[32%]">
           <h3 className="mb-[64px] mb-[58px] text-gray-0 text-[24px] sm:text-[48px] font-bold  2xl:text-[64px]">
             {vacancyDescription[profession].title}
           </h3>
@@ -46,7 +46,7 @@ const WorkForSpecialists = () => {
               Что делаем
             </h3>
 
-            <p className="w-[90%] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
+            <p className="h-[95px] xl:h-[110px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
               {vacancyDescription[profession].paragraph}
             </p>
           </div>
@@ -56,7 +56,7 @@ const WorkForSpecialists = () => {
               Какой нужен опыт
             </h3>
 
-            <p className="sm:w-[90%]  leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
+            <p className="h-[95px] xl:h-[110px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
               {`Любой! У нас есть множество задач для ${vacancyDescription[profession].for} любого уровня`}
             </p>
           </div>
