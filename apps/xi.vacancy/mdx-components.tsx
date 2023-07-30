@@ -1,11 +1,11 @@
 import type { MDXComponents } from 'mdx/types';
-import { FC, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
-const H2: FC<PropsWithChildren> = ({ children }) => <h2 className="mdx-h2">{children}</h2>;
+const H2 = ({ children }: PropsWithChildren) => <h2 className="mdx-h2">{children}</h2>;
 
-const P: FC<PropsWithChildren> = ({ children }) => <p className="mdx-p">{children}</p>;
+const P = ({ children }: PropsWithChildren) => <p className="mdx-p">{children}</p>;
 
-const Li: FC<PropsWithChildren> = ({ children }) => <li className="mdx-li">{children}</li>;
+const Li = ({ children }: PropsWithChildren) => <li className="mdx-li">{children}</li>;
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
