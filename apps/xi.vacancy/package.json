@@ -20,7 +20,6 @@
     "@xipkg/tailwind": "0.3.1",
     "next": "^13.4.3",
     "next-pwa": "^5.6.0",
-    "pkg.theme": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -28,8 +27,8 @@
     "@types/node": "^20.3.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@xipkg/eslint-config-custom": "latest",
-    "@xipkg/typescript": "latest",
+    "@xipkg/eslint": "0.0.0",
+    "@xipkg/typescript": "^0.0.2",
     "autoprefixer": "^10.4.14",
     "ignore-loader": "^0.1.2",
     "postcss": "^8.4.24",
