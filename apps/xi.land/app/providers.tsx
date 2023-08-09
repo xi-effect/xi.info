@@ -59,7 +59,7 @@ export function Providers(props) {
   return (
     <>
       {getInitColorSchemeScript()}
-      <ThemeProvider attribute="data-mui-color-scheme">
+      <ThemeProvider enableSystem={false} forcedTheme="light" attribute="data-mui-color-scheme">
         <CacheProvider value={cache}>
           <CssVarsProvider theme={activeTheme}>
             <CssBaseline />

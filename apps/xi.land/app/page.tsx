@@ -1,11 +1,20 @@
-'use client';
+import { Stack } from '@mui/material';
+import Header from 'components/Header';
+import HelloUser from 'components/HelloUser';
+import React from 'react';
 
-import React from "react";
-
-export default function Main() {
+export default function MainPage() {
   return (
-    <div className="p-8 h-full w-full">
-      <h1 className="text-3xl font-bold underline">Main page</h1>
-    </div>
-  );
+    <Stack
+      sx={{
+        width: '100vw',
+        height: '100%',
+        minHeight: '100vh',
+        bgcolor: 'gray.0',
+      }}
+    >
+      <Header />
+      <HelloUser />
+    </Stack>
+  ); 
 }
