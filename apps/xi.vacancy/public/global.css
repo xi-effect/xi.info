@@ -5,7 +5,7 @@
     line-height: 110%;
 }
 
-.mdx-h2:first-child{
+.mdx-h2:first-child {
     margin: 0 0 24px 0;
 }
 
@@ -16,7 +16,7 @@
     font-size: 16px;
 }
 
-.mdx-p{
+.mdx-p {
     line-height: 130%;
     font-size: 16px;
     margin-bottom: 16px;
@@ -28,11 +28,11 @@
         margin: 80px 0 24px 0;
     }
 
-    .mdx-h2:first-child{
+    .mdx-h2:first-child {
         margin: 0 0 24px 0;
     }
 
-    .mdx-li, .mdx-p{
+    .mdx-li, .mdx-p {
         font-size: 24px;
     }
 }
@@ -56,14 +56,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.modal-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100%;
 }
 
 .modal.active {

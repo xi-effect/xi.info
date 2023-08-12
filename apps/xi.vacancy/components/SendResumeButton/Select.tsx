@@ -43,6 +43,8 @@ const Select: React.FC<SelectT> = (props) => {
     }
   };
 
+  const toggleSelect = () => setOpen((v) => !v);
+
   useEffect(() => {
     window.addEventListener('click', listener);
 
@@ -59,7 +61,7 @@ const Select: React.FC<SelectT> = (props) => {
           <button
             type="button"
             aria-expanded={!open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={toggleSelect}
             className={`
             ${currentVacancy ? 'text-gray-100' : `${helperText ? 'text-red-60' : 'text-gray-30'}`}  
             ${error ? 'border-red-20' : 'border-gray-30 '}
@@ -82,19 +84,23 @@ const Select: React.FC<SelectT> = (props) => {
               open ? 'visible opacity-1 top-[83px]' : 'invisible opacity-0 top-[100px]'
             } z-[101] resume-select transition-all absolute w-full  bg-gray-0 p-[12px] rounded-[8px] border-2 border-gray-30`}
           >
-            {selectOptions.map(({ value, title }) => (
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false);
-                  setCurrentVacancy(title);
-                  onChange(value);
-                }}
-                className="rounded-[8px]  p-[12px] transition-colors focus:text-gray-0 focus:bg-brand-80  hover:text-gray-0 hover:bg-brand-80 w-full bg-gray-0 text-left"
-              >
-                {title}
-              </button>
-            ))}
+            {selectOptions.map(({ value, title }) => {
+              const setVacancy = () => {
+                setOpen(false);
+                setCurrentVacancy(title);
+                onChange(value);
+              };
+
+              return (
+                <button
+                  type="button"
+                  onClick={setVacancy}
+                  className="rounded-[8px] p-[12px] transition-colors focus:text-gray-0 focus:bg-brand-80  hover:text-gray-0 hover:bg-brand-80 w-full bg-gray-0 text-left"
+                >
+                  {title}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
