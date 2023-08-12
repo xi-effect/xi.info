@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import SendResumeButton from '../SendResumeButton';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
@@ -23,12 +24,7 @@ const Footer = () => (
           Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
         </p>
 
-        <button
-          type="button"
-          className="bg-brand-80 text-[15px] sm:text-[17px] text-gray-0 rounded-[6px] sm:rounded-[8px] py-[5px] px-4 sm:py-[12px] sm:px-[24px]"
-        >
-          Отправить резюме
-        </button>
+        <SendResumeButton className="bg-brand-80 text-[15px] sm:text-[17px] text-gray-0 rounded-[6px] sm:rounded-[8px] py-[5px] px-4 sm:py-[12px] sm:px-[24px]" />
       </div>
     </div>
 
