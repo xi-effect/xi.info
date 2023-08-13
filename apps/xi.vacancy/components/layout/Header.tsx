@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import SendResumeButton from '../SendResumeButton';
 
 const Header = () => {
   const pathname = usePathname();
@@ -29,12 +32,7 @@ const Header = () => {
           Вакансии
         </Link>
 
-        <button
-          type="button"
-          className="rounded-[8px] py-[12px] px-[24px] bg-brand-80 text-gray-0 text-[17.5px]"
-        >
-          Отправить резюме
-        </button>
+        <SendResumeButton />
       </nav>
     </header>
   );
