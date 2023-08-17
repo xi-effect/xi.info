@@ -26,7 +26,7 @@ const Header = () => {
       sx={{ width: '100%', height: '176px', p: '64px 160px 64px 160px' }}
     >
       <Stack>
-        <Image alt="xieffect logo" src="./xieffectlogo.svg" height={24} width={202} />
+        <Image alt="xieffect logo" src="/xieffectlogo.svg" height={24} width={202} />
       </Stack>
       <Stack direction="row" spacing={4}>
         {arrayOfLinks.map((item, index) => (
