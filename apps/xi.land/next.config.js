@@ -1,29 +1,7 @@
 // Не поддавайтесь соблазну использовать здесь import
 const path = require('path');
-const runtimeCaching = require('next-pwa/cache');
 
 const plugins = [];
-
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  runtimeCaching,
-  mode: 'production',
-  reloadOnOnline: true,
-  cacheOnFrontEndNav: true,
-  disable: process.env.NODE_ENV === 'development',
-  skipWaiting: true,
-  sw: '/sw.js',
-  buildExcludes: [
-    /middleware-manifest\.json$/,
-    /_middleware\.js$/,
-    /_middleware\.js\.map$/,
-    /middleware-runtime\.js$/,
-    /server\/pages\/_middleware\.js$/,
-  ],
-});
-
-plugins.push(withPWA);
 
 const nextConfig = {
   experimental: {

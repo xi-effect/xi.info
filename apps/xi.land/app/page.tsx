@@ -6,15 +6,25 @@ import React from 'react';
 export default function MainPage() {
   return (
     <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="flex-start"
       sx={{
-        width: '100vw',
+        width: '100%',
         height: '100%',
         minHeight: '100vh',
-        bgcolor: 'gray.0',
+        bgcolor: 'var(--xi-gray-0)',
       }}
     >
-      <Header />
-      <HelloUser />
+      <Stack
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        sx={{ maxWidth: '1920px', width: '100%' }}
+      >
+        <Header />
+        <HelloUser />
+      </Stack>
     </Stack>
-  ); 
+  );
 }

@@ -2,6 +2,14 @@ import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import { Providers } from './providers';
 import React from 'react';
+import { Metadata } from 'next';
+
+import 'styles/globals.css';
+
+export const metadata: Metadata = {
+  title: 'xi.effect',
+  description: 'xi.effect - Гибкий образовательный инструмент для репетиторов и малого бизнеса',
+};
 
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
