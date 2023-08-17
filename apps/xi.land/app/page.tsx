@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material';
+import AboutTasks from 'components/AboutTasks';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
 import React from 'react';
@@ -24,6 +25,7 @@ export default function MainPage() {
       >
         <Header />
         <HelloUser />
+        <AboutTasks />
       </Stack>
     </Stack>
   );

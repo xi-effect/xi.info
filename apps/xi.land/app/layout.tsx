@@ -8,7 +8,7 @@ import 'styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
-  description: 'xi.effect - Гибкий образовательный инструмент для репетиторов и малого бизнеса',
+  description: 'Гибкий образовательный инструмент для репетиторов и малого бизнеса',
 };
 
 const inter = Inter({

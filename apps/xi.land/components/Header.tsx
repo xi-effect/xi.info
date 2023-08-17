@@ -18,8 +18,6 @@ const arrayOfLinks = [
 ];
 
 const Header = () => {
-  console.log('Header');
-
   return (
     <Stack
       direction="row"

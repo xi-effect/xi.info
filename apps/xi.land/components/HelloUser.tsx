@@ -19,7 +19,7 @@ const Images = () => (
     <Box
       sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
     />
-    <Image alt="student" src="/assets/studentka.svg" width={512} height={512} />
+    <Image alt="student" src="/assets/Studentka.svg" width={512} height={512} />
     <Box
       sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
     />
