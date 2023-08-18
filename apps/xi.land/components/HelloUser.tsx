@@ -4,29 +4,41 @@ import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
 
-const Images = () => (
-  <Stack
-    direction="column"
-    justifyContent="flex-start"
-    alignItems="flex-start"
-    sx={{
-      position: 'absolute',
-      right: '160px',
-      top: '-558px',
-      width: '512px',
-      height: '1536px',
-      zIndex: 1,
-    }}
-  >
-    <Box
-      sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
-    />
-    <Image alt="student" src="/assets/Studentka.svg" width={512} height={512} />
-    <Box
-      sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
-    />
-  </Stack>
-);
+const Images = () => {
+  const isMobile = useMediaQuery('(max-width:400px)');
+  const isTablet = useMediaQuery('(min-width:800px) and (max-width:1700px)');
+  const isDesktop = useMediaQuery('(min-width:1700px)');
+
+  return (
+    <Stack
+      direction={isDesktop ? "column" : "row"}
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      sx={{
+        position: 'absolute',
+        right: isDesktop ? '160px' : '',
+        top: isDesktop ? '-558px' : '',
+        width: '512px',
+        height: '1536px',
+        zIndex: 1,
+      }}
+    >
+      {!isDesktop && <Box
+        sx={{ width: '196px', height: '196px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+      />}
+      <Box
+        sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+      />
+      <Image alt="student" src="/assets/Studentka.svg" width={512} height={512} />
+      <Box
+        sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+      />
+      {!isDesktop &&<Box
+        sx={{ width: '196px', height: '196px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+      />}
+    </Stack>
+  );
+};
 
 const HelloUser = () => {
   const isMobile = useMediaQuery('(max-width:400px)');
@@ -40,7 +52,7 @@ const HelloUser = () => {
       alignItems="flex-start"
       sx={{ width: '100%', height: '100%', p: '48px 160px 48px 160px', position: 'relative' }}
     >
-      {isDesktop && <Images />}
+      <Images />
       <Typography
         component="h1"
         sx={{
