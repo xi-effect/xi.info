@@ -1,4 +1,6 @@
-import { Box, Stack, Typography } from '@mui/material';
+'use client';
+
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
 
@@ -27,7 +29,9 @@ const Images = () => (
 );
 
 const HelloUser = () => {
-  console.log('Header');
+  const isMobile = useMediaQuery('(max-width:400px)');
+  const isTablet = useMediaQuery('(min-width:800px) and (max-width:1700px)');
+  const isDesktop = useMediaQuery('(min-width:1700px)');
 
   return (
     <Stack
@@ -36,7 +40,7 @@ const HelloUser = () => {
       alignItems="flex-start"
       sx={{ width: '100%', height: '100%', p: '48px 160px 48px 160px', position: 'relative' }}
     >
-      <Images />
+      {isDesktop && <Images />}
       <Typography
         component="h1"
         sx={{

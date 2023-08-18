@@ -15,7 +15,7 @@ const AboutTasks = () => {
       sx={{ width: '100%', p: '160px 160px 64px 160px', bgcolor: 'var(--xi-gray-0)', zIndex: 10 }}
     >
       <Stack>
-        <Image alt="xieffect logo" src="/assets/TasksIcons.svg" height={96} width={282} />
+        <Image alt="xieffect logo" src="/assets/TasksIcons.svg" height={64} width={188} />
       </Stack>
       <Typography
         sx={{
@@ -55,11 +55,15 @@ const AboutTasks = () => {
         }}
       >
         <Image
-          style={{ borderRadius: '24px' }}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
           alt="xieffect logo"
           src="/assets/TasksImage.svg"
           height={900}
           width={1600}
+          priority={false}
         />
       </Stack>
     </Stack>
