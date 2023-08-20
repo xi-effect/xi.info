@@ -48,7 +48,7 @@ const VacancyList = () => {
           vacancyCard
         ) : (
           <>
-            <h3 className="leading-[120%] text-[24px] sm:text-[32px] xl:text-[64px]">
+            <h3 className="leading-[120%] mb-2 text-[32px] xl:text-[64px]">
               Вакансии отсутствуют
             </h3>
 
