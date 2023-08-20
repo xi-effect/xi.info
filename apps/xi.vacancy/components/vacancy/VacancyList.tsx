@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ProfessionsT, vacancyList } from '../common/const';
 import NavOfSpecialties from '../common/NavOfSpecialties';
+import SendResumeButton from '../modal/SendResumeButton';
 
 const VacancyList = () => {
   const [profession, setProfession] = useState<ProfessionsT>('development');
@@ -33,16 +34,33 @@ const VacancyList = () => {
       </h1>
 
       <NavOfSpecialties
-        className="mb-[48px] sm:mb-16 xl:mb-[105px]"
-        setProfession={setProfession}
         profession={profession}
+        setProfession={setProfession}
+        className="mb-[48px] sm:mb-16 xl:mb-[105px]"
       />
 
-      {vacancyList[profession].length ? (
-        vacancyCard
-      ) : (
-        <h3 className="text-[24px] sm:text-[32px] xl:text-[64px]">Вакансии отсутствуют</h3>
-      )}
+      <div
+        className={`${
+          vacancyList[profession].length ? 'max-h-[500px] duration-700' : 'py-[50px] duration-500'
+        } transition-all`}
+      >
+        {vacancyList[profession].length ? (
+          vacancyCard
+        ) : (
+          <>
+            <h3 className="leading-[120%] text-[24px] sm:text-[32px] xl:text-[64px]">
+              Вакансии отсутствуют
+            </h3>
+
+            <span className="text-[24px] leading-[120%]">Посмотрите другие разделы или</span>
+
+            <SendResumeButton
+              label="заполните форму"
+              className="ml-[10px] text-[24px] bg-transparent underline border-none"
+            />
+          </>
+        )}
+      </div>
     </section>
   );
 };
