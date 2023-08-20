@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import SendResumeButton from '../SendResumeButton';
+import SendResumeButton from '../modal/SendResumeButton';
 
 const Header = () => {
   const pathname = usePathname();
