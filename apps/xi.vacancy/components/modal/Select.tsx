@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Control, Controller } from 'react-hook-form';
-import { FormDataT } from './index';
+import { FormDataT } from './SendResumeButton';
 
 type SelectT = {
   error?: boolean;
@@ -64,6 +64,7 @@ const Select: React.FC<SelectT> = (props) => {
             onClick={toggleSelect}
             className={`
             ${currentVacancy ? 'text-gray-100' : `${helperText ? 'text-red-60' : 'text-gray-30'}`}  
+            
             ${error ? 'border-red-20' : 'border-gray-30 '}
             
             sm:p-[12px] resume-select cursor-pointer flex bg-gray-0 justify-between content-center mt-2 inline-block text-[16px] w-full px-[10px] h-[32px] sm:h-[48px] rounded-[8px] border-2`}
@@ -81,8 +82,8 @@ const Select: React.FC<SelectT> = (props) => {
           <div
             aria-hidden={!open}
             className={` ${
-              open ? 'visible opacity-1 top-[83px]' : 'invisible opacity-0 top-[100px]'
-            } z-[101] resume-select transition-all absolute w-full  bg-gray-0 p-[12px] rounded-[8px] border-2 border-gray-30`}
+              open ? 'visible opacity-1 scale-1' : 'invisible opacity-0 scale-50'
+            } drop-shadow-2xl top-[80px] z-[101] resume-select transition-all duration-300 absolute w-full bg-gray-0 p-[3px] rounded-[5px] border-[1px] border-gray-5`}
           >
             {selectOptions.map(({ value, title }) => {
               const setVacancy = () => {
@@ -95,7 +96,9 @@ const Select: React.FC<SelectT> = (props) => {
                 <button
                   type="button"
                   onClick={setVacancy}
-                  className="rounded-[8px] p-[12px] transition-colors focus:text-gray-0 focus:bg-brand-80  hover:text-gray-0 hover:bg-brand-80 w-full bg-gray-0 text-left"
+                  className={`${
+                    currentVacancy === title ? 'bg-[#edf4fb] text-brand-80' : 'bg-gray-0 text-gray-100'
+                  } rounded-[5px] px-[12px] py-[8px] transition-colors focus:outline-0 focus:bg-[#edf4fb] hover:bg-gray-5 w-full text-left`}
                 >
                   {title}
                 </button>

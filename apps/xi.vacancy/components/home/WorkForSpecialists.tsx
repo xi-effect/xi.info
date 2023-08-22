@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavOfSpecialties from '../common/NavOfSpecialties';
-import { ProfessionsT, vacancyDescription } from '../common/const';
+import { ProfessionsT, vacancyDescription, professions } from '../common/const';
 
 const WorkForSpecialists = () => {
   const [profession, setProfession] = useState<ProfessionsT>('development');
@@ -10,7 +10,7 @@ const WorkForSpecialists = () => {
   return (
     <section className="p-4 sm:p-8 2xl:py-16 2xl:px-[48px]">
       <h2 className="leading-[110%] font-semibold text-[24px] mb-4 2xl:mb-8 sm:text-[48px] 2xl:text-[64px]">
-        У нас есть работа для разных специалистов
+        У нас есть работа для разных специалистов
       </h2>
 
       <NavOfSpecialties
@@ -20,7 +20,9 @@ const WorkForSpecialists = () => {
       />
 
       <div className="xl:flex">
-        <div className="xl:min-w-[460px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] bg-brand-80 mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[32%]">
+        <div
+          className={`${professions[profession].colors[0]} transition-colors xl:min-w-[460px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[32%]`}
+        >
           <h3 className="mb-[64px] mb-[58px] text-gray-0 text-[24px] sm:text-[48px] font-bold  2xl:text-[64px]">
             {vacancyDescription[profession].title}
           </h3>
@@ -47,7 +49,7 @@ const WorkForSpecialists = () => {
               Что делаем
             </h3>
 
-            <p className="h-[95px] xl:h-[110px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
+            <p className="h-[95px] xl:h-[100px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
               {vacancyDescription[profession].paragraph}
             </p>
           </div>
@@ -57,8 +59,8 @@ const WorkForSpecialists = () => {
               Какой нужен опыт
             </h3>
 
-            <p className="h-[95px] xl:h-[110px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-              {`Любой! У нас есть множество задач для ${vacancyDescription[profession].for} любого уровня`}
+            <p className="h-[95px] xl:h-[100px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
+              {`Любой! У нас есть множество задач для  ${vacancyDescription[profession].for} любого уровня`}
             </p>
           </div>
         </div>

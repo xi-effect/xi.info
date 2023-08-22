@@ -9,10 +9,11 @@ import Input from '../common/Input';
 import Memoji from '../common/Memoji';
 import Portal from '../common/Portal';
 import Select from './Select';
-import UploadFile from './UploadFile';
+import UploadFile, { FileListT } from './UploadFile';
 
 type SendResumeButtonT = {
   className?: string;
+  label?: string;
 };
 
 export type FormDataT = {
@@ -20,12 +21,12 @@ export type FormDataT = {
   social: string;
   vacancy: string;
   username: string;
-  file: File | null | undefined;
+  file: FileListT[] | null | undefined;
   message: string | null | undefined;
 };
 
 const schema = object().shape({
-  file: mixed<File>().nullable().notRequired(),
+  file: mixed<FileListT[]>().nullable().notRequired(),
   message: string().nullable().notRequired(),
   username: string().required('Введите имя!'),
   social: string().required('Оставьте ссылку на ваши соцсети!'),
@@ -34,7 +35,7 @@ const schema = object().shape({
 });
 
 const SendResumeButton: FC<SendResumeButtonT> = (props) => {
-  const { className } = props;
+  const { className, label } = props;
 
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -87,10 +88,10 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
         className={
           className
             ? `${className} resume-btn`
-            : 'resume-btn rounded-[8px] py-[12px] px-[24px] bg-brand-80 text-gray-0 text-[17.5px]'
+            : 'resume-btn rounded-[8px] py-[12px] px-[24px] bg-brand-80 text-gray-0 text-[16.5px]'
         }
       >
-        Отправить резюме
+        {label || 'Отправить резюме'}
       </button>
 
       <Portal transition={transition} mounted={mounted}>

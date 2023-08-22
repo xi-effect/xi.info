@@ -25,7 +25,7 @@ const Vacancy: FC<VacancyT> = (props) => {
         href="/vacancy"
         className="leading-[110%] text-brand-80 text-[16px] mb-2 xl:mb-4 sm:text-[24px]"
       >
-        {professions[profession]}
+        {professions[profession].label}
       </Link>
 
       <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[96px] mb-[32px] xl:mb-[48px]">

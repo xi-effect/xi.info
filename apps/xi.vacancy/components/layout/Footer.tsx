@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SendResumeButton from '../SendResumeButton';
+import SendResumeButton from '../modal/SendResumeButton';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
@@ -21,7 +21,7 @@ const Footer = () => (
         </h2>
 
         <p className="leading-[130%] mb-[10px] text-[16px] sm:text-[24px] xl:text-[32px] xl:mb-[24px] xl:w-[85%]">
-          Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
+          Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
         </p>
 
         <SendResumeButton className="bg-brand-80 text-[15px] sm:text-[17px] text-gray-0 rounded-[6px] sm:rounded-[8px] py-[5px] px-4 sm:py-[12px] sm:px-[24px]" />
@@ -39,9 +39,9 @@ const Footer = () => (
       />
 
       <div className="flex flex-wrap sm:justify-between sm:content-center text-[12px] xl:text-[16px] text-gray-60  min-[1000px]:basis-[74%]">
-        <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; Xi.effect c 2020 года</span>
+        <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; Xi.effect c 2020 года</span>
         <span className="mr-4 sm:order-2">hello@xieffect.ru</span>
-        <span className="mr-4 sm:order-1">Сделано с ❤️ в Санкт-Петербурге</span>
+        <span className="mr-4 sm:order-1">Сделано с ❤️ в Санкт-Петербурге</span>
       </div>
     </div>
   </footer>

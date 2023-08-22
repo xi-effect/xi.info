@@ -10,20 +10,20 @@ type NavOfSpecialtiesT = {
 const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
   const { profession, setProfession, className } = props;
 
-  const currentStyles = (p: ProfessionsT) => `
-      ${profession === p ? 'text-brand-80 underline' : 'text-gray-100'}
-      
+  const currentStyles = (p: ProfessionsT) => `      
+      ${profession === p ? `${professions[p].colors[1]} underline` : 'text-gray-100'}
+ 
       mx-[16px] sm:mx-[30px] text-[16px] sm:text-[32px] bg-transparent transition-colors `;
 
   return (
-    <div className={`h-[20px] sm:h-[40px] overflow-hidden ${className}`}>
+    <div className={`h-[20px] sm:h-[45px] overflow-hidden ${className}`}>
       <div className="flex pb-4 mx-[-16px] sm:mx-[-30px] overflow-x-auto">
         <button
           type="button"
           className={currentStyles('development')}
           onClick={() => setProfession('development')}
         >
-          {professions.development}
+          {professions.development.label}
         </button>
 
         <button
@@ -31,7 +31,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('design')}
           onClick={() => setProfession('design')}
         >
-          {professions.design}
+          {professions.design.label}
         </button>
 
         <button
@@ -39,7 +39,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('product')}
           onClick={() => setProfession('product')}
         >
-          {professions.product}
+          {professions.product.label}
         </button>
 
         <button
@@ -47,7 +47,7 @@ const NavOfSpecialties: React.FC<NavOfSpecialtiesT> = (props) => {
           className={currentStyles('marketing')}
           onClick={() => setProfession('marketing')}
         >
-          {professions.marketing}
+          {professions.marketing.label}
         </button>
       </div>
     </div>
