@@ -3,7 +3,7 @@ import Image from 'next/image';
 const AppreciateTheTeam = () => (
   <section className="mb-4 p-4 sm:p-8 sm:mb-16 bg-gray-10 rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] 2xl:p-[48px]">
     <h2 className="leading-[110%] font-semibold mb-[32px] sm:mb-[32px] 2xl:mb-[48px] text-[24px] sm:text-[48px] 2xl:text-[64px]">
-      <span className="block mb-[16px]">Xi.effect делают люди</span>
+      <span className="block mb-[16px]">xi.effect делают люди</span>
       Мы ценим коллег и свою команду
     </h2>
 
@@ -67,7 +67,7 @@ const AppreciateTheTeam = () => (
         </h3>
 
         <p className="leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-          В Xi.effect можно расти вертикально, как руководитель, или горизонтально, как эксперт.
+          В xi.effect можно расти вертикально, как руководитель, или горизонтально, как эксперт.
         </p>
       </div>
     </div>
