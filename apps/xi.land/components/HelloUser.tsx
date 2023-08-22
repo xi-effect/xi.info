@@ -1,63 +1,70 @@
 'use client';
 
-import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
 
 const Images = () => {
-  const isMobile = useMediaQuery('(max-width:400px)');
-  const isTablet = useMediaQuery('(min-width:800px) and (max-width:1700px)');
-  const isDesktop = useMediaQuery('(min-width:1700px)');
-
   return (
     <Stack
-      direction={isDesktop ? "column" : "row"}
+      direction={'column'}
       justifyContent="flex-start"
       alignItems="flex-start"
       sx={{
         position: 'absolute',
-        right: isDesktop ? '160px' : '',
-        top: isDesktop ? '-558px' : '',
+        right: '160px',
+        top: '-558px',
         width: '512px',
         height: '1536px',
         zIndex: 1,
       }}
     >
-      {!isDesktop && <Box
-        sx={{ width: '196px', height: '196px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
-      />}
       <Box
-        sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+        sx={{
+          width: `512px`,
+          height: `512px`,
+          borderRadius: '50%',
+          bgcolor: 'var(--xi-gray-10)',
+        }}
       />
       <Image alt="student" src="/assets/Studentka.svg" width={512} height={512} />
       <Box
-        sx={{ width: '512px', height: '512px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
+        sx={{
+          width: `512px`,
+          height: `512px`,
+          borderRadius: '50%',
+          bgcolor: 'var(--xi-gray-10)',
+        }}
       />
-      {!isDesktop &&<Box
-        sx={{ width: '196px', height: '196px', borderRadius: '50%', bgcolor: 'var(--xi-gray-10)' }}
-      />}
     </Stack>
   );
 };
 
 const HelloUser = () => {
-  const isMobile = useMediaQuery('(max-width:400px)');
-  const isTablet = useMediaQuery('(min-width:800px) and (max-width:1700px)');
-  const isDesktop = useMediaQuery('(min-width:1700px)');
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
+  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+
+  const getH1PaddingTop = () => {
+    if (isDesktop) return 0;
+    if (isTablet) return 412;
+    return 296;
+  };
 
   return (
     <Stack
       direction="column"
       justifyContent="flex-start"
       alignItems="flex-start"
-      sx={{ width: '100%', height: '100%', p: '48px 160px 48px 160px', position: 'relative' }}
+      sx={{ width: '100%', height: '100%', p: '48px 160px 96px 160px', position: 'relative' }}
     >
-      <Images />
+      {isDesktop && <Images />}
       <Typography
         component="h1"
         sx={{
+          mt: `${getH1PaddingTop()}px`,
           color: 'var(--xi-gray-100)',
-          fontSize: '64px',
+          fontSize: isDesktop ? '64px' : '40px',
           fontWeight: 700,
           lineHeight: '130%' /* 124.8px */,
           letterSpacing: '-0.96px',
@@ -69,7 +76,7 @@ const HelloUser = () => {
         <Typography
           sx={{
             color: 'var(--xi-gray-50)',
-            fontSize: '64px',
+            fontSize: isDesktop ? '64px' : '40px',
             fontWeight: 500,
             lineHeight: '130%' /* 124.8px */,
             letterSpacing: '-0.96px',

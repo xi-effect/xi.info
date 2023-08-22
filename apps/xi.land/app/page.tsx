@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Stack, useMediaQuery, useTheme } from '@mui/material';
 import AboutTasks from 'components/AboutTasks';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
@@ -14,6 +14,7 @@ export default function MainPage() {
         width: '100%',
         height: '100%',
         minHeight: '100vh',
+        overflowX: 'hidden',
         bgcolor: 'var(--xi-gray-0)',
       }}
     >

@@ -1,6 +1,6 @@
 'use client';
 
-import { Link, Stack, SvgIcon, useMediaQuery } from '@mui/material';
+import { Link, Stack, SvgIcon, useMediaQuery, useTheme } from '@mui/material';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
 
@@ -35,20 +35,29 @@ const arrayOfLinks = [
 ];
 
 const Header = () => {
-  const isMobile = useMediaQuery('(max-width:1200px)');
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
+  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+  // const isDesktopLinks = useMediaQuery(theme.breakpoints.up('lg'));
+
+  const getMainPadding = () => {
+    if (isDesktop) return '64px 160px 64px 160px';
+    if (isTablet) return '32px';
+    return '16px';
+  };
 
   return (
     <Stack
       direction="row"
       justifyContent="space-between"
       alignItems="center"
-      sx={{ width: '100%', height: '176px', p: '64px 160px 64px 160px' }}
+      sx={{ width: '100%', p: getMainPadding() }}
     >
       <Stack>
         <Image alt="xieffect logo" src="/xieffectlogo.svg" height={24} width={202} />
       </Stack>
-      {!isMobile && (
-        <Stack direction="row" spacing={4}>
+      {isTablet && (
+        <Stack sx={{ width: '100%', maxWidth: '398px', p: '0 6px' }} direction="row" justifyContent="space-between">
           {arrayOfLinks.map((item, index) => (
             <Link
               key={index}
@@ -66,12 +75,12 @@ const Header = () => {
         </Stack>
       )}
       <Stack>
-        {!isMobile ? (
+        {isTablet ? (
           <Button sx={{ width: '96px', zIndex: 10 }} href="https://app.xieffect.ru/">
             Войти
           </Button>
         ) : (
-          <Button variant="text" sx={{ width: '32px', height: '32px', zIndex: 10, p: 0, m: 0 }}>
+          <Button variant="text" sx={{ width: '48px', height: '48px', zIndex: 10, p: 0, m: 0 }}>
             <BurgerIcon />
           </Button>
         )}
