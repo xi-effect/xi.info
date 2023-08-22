@@ -56,7 +56,7 @@ const Select: React.FC<SelectT> = (props) => {
       name="vacancy"
       control={control}
       render={({ field: { onChange } }) => (
-        <div className="relative flex flex-col text-[16px] mb-[16px] sm:mb-[24px] relative">
+        <div className="relative flex flex-col text-[16px] mb-[16px] sm:mb-[24px]">
           <span className="leading-[22px]">Интересующая специализация</span>
           <button
             type="button"

@@ -161,7 +161,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
               <textarea
                 id="area"
                 {...register('message')}
-                className="h-[70px] mt-2 resize-none rounded-[8px] border-2 border-gray-30"
+                className="h-[70px] mt-2 p-[12px] resize-none rounded-[8px] border-2 border-gray-30"
               />
             </label>
 

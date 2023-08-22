@@ -5,6 +5,23 @@ import '../public/global.css';
 import { Inter } from 'next/font/google';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'xi.vacancy',
+  description:
+    'Рассказываем о вакансиях стартапа xi.effect - разработка, дизайн, тестирование, менеджмент',
+  keywords: [
+    'xi.effect',
+    'кси эффект',
+    'эффект',
+    'стартап',
+    'вакансии',
+    'работа',
+    'vacancy',
+    'xi.vacancy',
+  ],
+};
 
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
