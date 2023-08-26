@@ -1,4 +1,4 @@
-import { Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Stack } from '@mui/material';
 import AboutTasks from 'components/AboutTasks';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
@@ -7,6 +7,7 @@ import React from 'react';
 export default function MainPage() {
   return (
     <Stack
+      component="main"
       direction="row"
       justifyContent="center"
       alignItems="flex-start"
