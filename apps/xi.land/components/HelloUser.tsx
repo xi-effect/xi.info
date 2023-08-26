@@ -5,6 +5,11 @@ import { Button } from '@xipkg/button';
 import Image from 'next/image';
 
 const Images = () => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
+
+  const size = isDesktop ? 512 : 256;
+
   return (
     <Stack
       direction={'column'}
@@ -13,25 +18,25 @@ const Images = () => {
       sx={{
         position: 'absolute',
         right: '160px',
-        top: '-558px',
-        width: '512px',
+        top: isDesktop ? '-558px' : '-226px',
+        width: `${size}px`,
         height: '1536px',
         zIndex: 1,
       }}
     >
       <Box
         sx={{
-          width: `512px`,
-          height: `512px`,
+          width: `${size}px`,
+          height: `${size}px`,
           borderRadius: '50%',
           bgcolor: 'var(--xi-gray-10)',
         }}
       />
-      <Image alt="student" src="/assets/Studentka.svg" width={512} height={512} />
+      <Image alt="student" src="/assets/Studentka.svg" width={size} height={size} />
       <Box
         sx={{
-          width: `512px`,
-          height: `512px`,
+          width: `${size}px`,
+          height: `${size}px`,
           borderRadius: '50%',
           bgcolor: 'var(--xi-gray-10)',
         }}
@@ -44,11 +49,12 @@ const HelloUser = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
   const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+  const isImages = useMediaQuery('(min-width:1350px)');
 
-  const getH1PaddingTop = () => {
-    if (isDesktop) return 0;
-    if (isTablet) return 412;
-    return 296;
+  const getMainPadding = () => {
+    if (isDesktop) return '64px 160px 64px 160px';
+    if (isTablet) return '32px';
+    return '16px';
   };
 
   return (
@@ -56,13 +62,13 @@ const HelloUser = () => {
       direction="column"
       justifyContent="flex-start"
       alignItems="flex-start"
-      sx={{ width: '100%', height: '100%', p: '48px 160px 96px 160px', position: 'relative' }}
+      sx={{ width: '100%', height: '100%', p: getMainPadding(), position: 'relative' }}
     >
-      {isDesktop && <Images />}
+      {isImages && <Images />}
       <Typography
         component="h1"
         sx={{
-          mt: `${getH1PaddingTop()}px`,
+          mt: 0,
           color: 'var(--xi-gray-100)',
           fontSize: isDesktop ? '64px' : '40px',
           fontWeight: 700,

@@ -1,27 +1,61 @@
 'use client';
 
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
 const AboutTasks = () => {
   const [menuItem, setMenuItem] = React.useState(0);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
+  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+  // const isDesktopLinks = useMediaQuery(theme.breakpoints.up('lg'));
+
+  const getMainPadding = () => {
+    if (isDesktop) return '64px 160px 64px 160px';
+    if (isTablet) return '32px';
+    return '16px';
+  };
+
+  const getImageHeight = () => {
+    if (isDesktop) return 64;
+    if (isTablet) return 48;
+    return 32;
+  };
+
+  const getImageWidth = () => {
+    if (isDesktop) return 188;
+    if (isTablet) return 144;
+    return 91;
+  };
+
+  const getMainTextFS = () => {
+    if (isDesktop) return '64px';
+    if (isTablet) return '32px';
+    return '24px';
+  };
+
+  const getSecondaryTextFS = () => {
+    if (isDesktop) return '40px';
+    if (isTablet) return '20px';
+    return '14px';
+  };
 
   return (
     <Stack
       direction="column"
       justifyContent="flex-start"
       alignItems="flex-start"
-      sx={{ width: '100%', p: '160px 160px 64px 160px', bgcolor: 'var(--xi-gray-0)', zIndex: 10 }}
+      sx={{ width: '100%', p: getMainPadding(), bgcolor: 'var(--xi-gray-0)', zIndex: 10 }}
     >
       <Stack>
-        <Image alt="xieffect logo" src="/assets/TasksIcons.svg" height={64} width={188} />
+        <Image alt="xieffect logo" src="/assets/TasksIcons.svg" height={getImageHeight()} width={getImageWidth()} />
       </Stack>
       <Typography
         sx={{
           mt: '16px',
           color: 'var(--xi-gray-70)',
-          fontSize: '64px',
+          fontSize: getMainTextFS(),
           fontWeight: 500,
           lineHeight: '130%' /* 124.8px */,
           letterSpacing: '-0.96px',
@@ -33,7 +67,7 @@ const AboutTasks = () => {
         sx={{
           mt: '16px',
           color: 'var(--xi-gray-70)',
-          fontSize: '40px',
+          fontSize: getSecondaryTextFS(),
           fontWeight: 400,
           lineHeight: '130%' /* 124.8px */,
           letterSpacing: '-0.96px',
