@@ -57,6 +57,12 @@ const HelloUser = () => {
     return '16px';
   };
 
+  const getTextSize = () => {
+    if (isDesktop) return '64px';
+    if (isTablet) return '40px';
+    return '32px';
+  };
+
   return (
     <Stack
       direction="column"
@@ -70,7 +76,7 @@ const HelloUser = () => {
         sx={{
           mt: 0,
           color: 'var(--xi-gray-100)',
-          fontSize: isDesktop ? '64px' : '40px',
+          fontSize: getTextSize(),
           fontWeight: 700,
           lineHeight: '130%' /* 124.8px */,
           letterSpacing: '-0.96px',
@@ -82,7 +88,7 @@ const HelloUser = () => {
         <Typography
           sx={{
             color: 'var(--xi-gray-50)',
-            fontSize: isDesktop ? '64px' : '40px',
+            fontSize: getTextSize(),
             fontWeight: 500,
             lineHeight: '130%' /* 124.8px */,
             letterSpacing: '-0.96px',
@@ -93,12 +99,12 @@ const HelloUser = () => {
           {`бизнеса`}
         </Typography>
       </Typography>
-      <Stack sx={{ width: '100%', mt: '64px' }} direction="row" spacing={4}>
-        <Button sx={{ p: '12px 32px 12px 32px' }} href="mailto:xieffect@yandex.ru">
+      <Stack sx={{ width: '100%', mt: '64px' }} direction={isTablet ? 'row' : 'column'} spacing={4}>
+        <Button sx={{ p: isTablet ? '12px 32px' : '12px 24px' }} href="mailto:xieffect@yandex.ru">
           Записаться на демонстрацию
         </Button>
         <Button
-          sx={{ p: '12px 32px 12px 32px' }}
+          sx={{ p: isTablet ? '12px 32px' : '12px 24px' }}
           href="https://app.xieffect.ru/signup"
           variant="outlined"
         >

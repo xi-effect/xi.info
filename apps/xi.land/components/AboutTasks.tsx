@@ -14,7 +14,7 @@ const AboutTasks = () => {
   const getMainPadding = () => {
     if (isDesktop) return '64px 160px 64px 160px';
     if (isTablet) return '32px';
-    return '16px';
+    return '32px 16px';
   };
 
   const getImageHeight = () => {
@@ -61,7 +61,7 @@ const AboutTasks = () => {
           letterSpacing: '-0.96px',
         }}
       >
-        Конечно, у нас есть задания и тесты.
+        У нас есть задания и тесты.
       </Typography>
       <Typography
         sx={{
