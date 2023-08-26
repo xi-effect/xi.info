@@ -32,7 +32,7 @@ const Images = () => {
           bgcolor: 'var(--xi-gray-10)',
         }}
       />
-      <Image alt="student" src="/assets/Studentka.svg" width={size} height={size} />
+      <Image alt="student" src="/assets/student-main.svg" width={size} height={size} />
       <Box
         sx={{
           width: `${size}px`,
