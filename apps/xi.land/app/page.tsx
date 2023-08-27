@@ -1,5 +1,8 @@
 import { Stack } from '@mui/material';
+import AboutAnnounce from 'components/AboutAnnounce';
+// import AboutChat from 'components/AboutChat';
 import AboutTasks from 'components/AboutTasks';
+import AboutVideo from 'components/AboutVideo';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
 import React from 'react';
@@ -28,6 +31,9 @@ export default function MainPage() {
         <Header />
         <HelloUser />
         <AboutTasks />
+        <AboutVideo />
+        {/* <AboutChat /> */}
+        <AboutAnnounce />
       </Stack>
     </Stack>
   );

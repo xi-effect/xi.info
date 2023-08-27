@@ -4,7 +4,7 @@ import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 
-const AboutTasks = () => {
+const AboutVideo = () => {
   const [menuItem, setMenuItem] = React.useState(0);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
@@ -21,12 +21,6 @@ const AboutTasks = () => {
     if (isDesktop) return 64;
     if (isTablet) return 48;
     return 32;
-  };
-
-  const getImageWidth = () => {
-    if (isDesktop) return 188;
-    if (isTablet) return 144;
-    return 91;
   };
 
   const getMainTextFS = () => {
@@ -49,7 +43,12 @@ const AboutTasks = () => {
       sx={{ width: '100%', p: getMainPadding(), bgcolor: 'var(--xi-gray-0)', zIndex: 10 }}
     >
       <Stack>
-        <Image alt="xieffect logo" src="/assets/TasksIcon.svg" height={getImageHeight()} width={getImageWidth()} />
+        <Image
+          alt="xieffect logo"
+          src="/assets/VideoIcon.svg"
+          height={getImageHeight()}
+          width={getImageHeight()}
+        />
       </Stack>
       <Typography
         sx={{
@@ -61,7 +60,7 @@ const AboutTasks = () => {
           letterSpacing: '-0.96px',
         }}
       >
-        У нас есть задания и тесты.
+        Нужно совершить видеозвонок?
       </Typography>
       <Typography
         sx={{
@@ -73,9 +72,8 @@ const AboutTasks = () => {
           letterSpacing: '-0.96px',
         }}
       >
-        Создавайте задания и проверяйте ответы студентов, загруженные в виде
-        <br />
-        файлов или созданные во встроенном редакторе.
+        Начинайте видеоконференцию в удобное для вас время, приглашайте до 100 участников,
+        демонстрируйте ваш экран, общайтесь в чате не выходя из браузера.
       </Typography>
       <Stack
         sx={{
@@ -94,7 +92,7 @@ const AboutTasks = () => {
             height: 'auto',
           }}
           alt="xieffect logo"
-          src="/assets/TasksImage.svg"
+          src="/assets/VideoImage.svg"
           height={900}
           width={1600}
           priority={false}
@@ -104,4 +102,4 @@ const AboutTasks = () => {
   );
 };
 
-export default AboutTasks;
+export default AboutVideo;
