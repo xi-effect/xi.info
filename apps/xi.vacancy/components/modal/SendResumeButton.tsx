@@ -121,7 +121,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
             onClick={closeModal}
             className="bg-gray-80 p-2 rounded-full w-[40px] h-[40px] absolute top-[28px] right-[14px] sm:top-[24px] sm:right-[-56px]"
           >
-            <Image width={24} height={24} alt="close modal" src="/icons/close.svg" />
+            <Image width={24} height={24} alt="close modal" src="/iconssite/close.svg" />
           </button>
 
           <div className="p-[16px] sm:p-[24px]  xl:p-[48px] xl:basis-2/4">

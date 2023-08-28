@@ -33,7 +33,7 @@ const Footer = () => (
         width={110}
         height={16}
         quality={100}
-        src="/icons/team.svg"
+        src="/iconssite/team.svg"
         alt="logo xi.effect"
         className="mb-[24px] min-[1000px]:mb-0 w-[110px] h-[16px] sm:w-[165px] sm:h-[24px]"
       />

@@ -74,7 +74,7 @@ const Select: React.FC<SelectT> = (props) => {
             <Image
               width={20}
               height={20}
-              src="/icons/drop.svg"
+              src="/iconssite/drop.svg"
               alt={open ? 'list is open' : 'list is closed'}
               className={`${open ? 'rotate-180' : 'rotate-0'} h-full transition-transform`}
             />

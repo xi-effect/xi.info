@@ -36,7 +36,7 @@ const WorkForSpecialists = () => {
               width={36}
               height={36}
               quality={100}
-              src="/icons/icon-right.svg"
+              src="/iconssite/icon-right.svg"
               alt="More detailed"
               className="w-[24px] h-[24px] 2xl:w-[36px] 2xl:h-[36px]"
             />

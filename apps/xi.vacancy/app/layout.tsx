@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'xi.vacancy',
   description:
     'Рассказываем о вакансиях стартапа xi.effect - разработка, дизайн, тестирование, менеджмент',
+  manifest: '/manifest.webmanifest',
   keywords: [
     'xi.effect',
     'кси эффект',
@@ -21,6 +22,12 @@ export const metadata: Metadata = {
     'vacancy',
     'xi.vacancy',
   ],
+  icons: {
+    icon: [
+      { url: './favicon-for-light.svg' },
+      { url: './favicon-for-dark.svg', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
 };
 
 const inter = Inter({

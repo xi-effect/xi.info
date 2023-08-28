@@ -16,7 +16,7 @@ const Header = () => {
           height={32}
           quality={100}
           alt="logo xi.effect"
-          src="/icons/team.svg"
+          src="/iconssite/team.svg"
           className="w-[165px] h-[24px]"
         />
       </Link>

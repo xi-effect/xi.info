@@ -7,7 +7,7 @@ const EducationalPlatform = () => (
       height={24}
       quality={100}
       alt="full logo xi.effect"
-      src="/icons/full.svg"
+      src="/iconssite/full.svg"
       className="mb-[32px]"
     />
 
