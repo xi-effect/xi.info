@@ -5,10 +5,33 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import 'styles/globals.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
   description: 'Гибкий образовательный инструмент для репетиторов и малого бизнеса',
+  manifest: '/manifest.webmanifest',
+  keywords: [
+    'xi.effect',
+    'кси эффект',
+    'эффект',
+    'стартап',
+    'образование',
+    'репетитору',
+    'инструмент',
+    'бизнес',
+    'онлайн',
+  ],
+  icons: {
+    icon: [
+      { url: './favicon-for-light.svg' },
+      { url: './favicon-for-dark.svg', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
+  verification: {
+    google: 'VAN7yVAfRqd5NWFpUJlz0MVL1wcv0mdhDY-16-d48-U',
+    yandex: '5896c9df498c0cd0',
+  },
 };
 
 const inter = Inter({
@@ -23,6 +46,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body>
+        <Script
+          async
+          defer
+          data-website-id="e9570b38-1176-44ac-854c-5b7ad4380a47"
+          src="https://analytics.xieffect.ru/umami.js"
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
