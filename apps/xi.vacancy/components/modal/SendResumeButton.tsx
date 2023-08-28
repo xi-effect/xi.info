@@ -40,6 +40,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
 
   const {
     register,
+    reset,
     handleSubmit,
     control,
     formState: { errors },
@@ -48,7 +49,30 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormDataT> = (data) => console.log(data);
+  console.log('errors', errors);
+
+  const onSubmit: SubmitHandler<FormDataT> = async (data) => {
+    console.log(data);
+    reset();
+    let response = await fetch('https://xieffect.ru:5000/webhooks/resume/', {
+      method: 'POST',
+      cache: 'no-cache',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      // если HTTP-статус в диапазоне 200-299
+      // получаем тело ответа (см. про этот метод ниже)
+      let json = await response.json();
+      console.log('json', json);
+    } else {
+      alert('Ошибка HTTP: ' + response.status);
+    }
+  };
 
   const openModal = () => {
     setMounted(true);
@@ -118,20 +142,20 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
           >
             <Input
               tabIndex={0}
-              title="Имя"
+              title="Имя *"
               id="name"
               error={!!errors.name}
               className="mb-[16px] sm:mb-[24px]"
-              {...register('name', { required: true })}
+              {...register('name')}
             />
 
             <Input
               id="tg"
-              title="Telegram"
+              title="Telegram *"
               type="link"
               error={!!errors.tg}
               className="mb-[16px] sm:mb-[24px]"
-              {...(register('tg'), { required: true })}
+              {...register('tg')}
             />
 
             <Select
@@ -144,8 +168,8 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
               id="link"
               error={!!errors.link}
               className="mb-[16px] sm:mb-[24px]"
-              title="Ссылка на резюме"
-              {...(register('link'), { required: true })}
+              title="Ссылка на резюме *"
+              {...register('link')}
             />
             <label htmlFor="area" className="flex flex-col text-[16px] mb-4 sm:mb-[24px]">
               Сообщение
