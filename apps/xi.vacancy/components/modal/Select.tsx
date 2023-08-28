@@ -53,7 +53,7 @@ const Select: React.FC<SelectT> = (props) => {
 
   return (
     <Controller
-      name="vacancy"
+      name="position"
       control={control}
       render={({ field: { onChange } }) => (
         <div className="relative flex flex-col text-[16px] mb-[16px] sm:mb-[24px]">
@@ -85,7 +85,7 @@ const Select: React.FC<SelectT> = (props) => {
               open ? 'visible opacity-1 scale-1' : 'invisible opacity-0 scale-50'
             } drop-shadow-2xl top-[80px] z-[101] resume-select transition-all duration-300 absolute w-full bg-gray-0 p-[3px] rounded-[5px] border-[1px] border-gray-5`}
           >
-            {selectOptions.map(({ value, title }) => {
+            {selectOptions.map(({ value, title }, index) => {
               const setVacancy = () => {
                 setOpen(false);
                 setCurrentVacancy(title);
@@ -94,10 +94,13 @@ const Select: React.FC<SelectT> = (props) => {
 
               return (
                 <button
+                  key={index}
                   type="button"
                   onClick={setVacancy}
                   className={`${
-                    currentVacancy === title ? 'bg-[#edf4fb] text-brand-80' : 'bg-gray-0 text-gray-100'
+                    currentVacancy === title
+                      ? 'bg-[#edf4fb] text-brand-80'
+                      : 'bg-gray-0 text-gray-100'
                   } rounded-[5px] px-[12px] py-[8px] transition-colors focus:outline-0 focus:bg-[#edf4fb] hover:bg-gray-5 w-full text-left`}
                 >
                   {title}

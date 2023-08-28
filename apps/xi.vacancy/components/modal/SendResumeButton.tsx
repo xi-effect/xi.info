@@ -9,7 +9,6 @@ import Input from '../common/Input';
 import Memoji from '../common/Memoji';
 import Portal from '../common/Portal';
 import Select from './Select';
-import UploadFile, { FileListT } from './UploadFile';
 
 type SendResumeButtonT = {
   className?: string;
@@ -17,21 +16,19 @@ type SendResumeButtonT = {
 };
 
 export type FormDataT = {
-  email: string;
-  social: string;
-  vacancy: string;
-  username: string;
-  file: FileListT[] | null | undefined;
+  name: string;
+  tg: string;
+  position: string;
+  link: string;
   message: string | null | undefined;
 };
 
 const schema = object().shape({
-  file: mixed<FileListT[]>().nullable().notRequired(),
-  message: string().nullable().notRequired(),
-  username: string().required('Введите имя!'),
-  social: string().required('Оставьте ссылку на ваши соцсети!'),
-  vacancy: string().required('Выберите интересующую вакансию!'),
-  email: string().email('Невалидный адрес!').required('Оставьте вашу почту!'),
+  name: string().nullable().required(),
+  tg: string().required(),
+  position: string().required(),
+  link: string().required(),
+  message: string().notRequired(),
 });
 
 const SendResumeButton: FC<SendResumeButtonT> = (props) => {
@@ -47,7 +44,6 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
     control,
     formState: { errors },
   } = useForm<FormDataT>({
-    defaultValues: { file: null, message: null },
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
@@ -94,7 +90,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
         {label || 'Отправить резюме'}
       </button>
 
-      <Portal transition={transition} mounted={mounted}>
+      <Portal mounted={mounted} transition={transition}>
         <div className="cursor-default my-auto resume-form bg-gray-0 rounded-[24px] w-full relative sm:w-[556px] xl:w-[1000px] xl:flex">
           <button
             type="button"
@@ -123,39 +119,34 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
             <Input
               tabIndex={0}
               title="Имя"
-              id="username"
-              error={!!errors.username}
-              helperText={errors.username?.message}
+              id="name"
+              error={!!errors.name}
               className="mb-[16px] sm:mb-[24px]"
-              {...register('username', { required: true })}
+              {...register('name', { required: true })}
             />
 
             <Input
-              id="email"
-              title="Email"
-              type="email"
-              error={!!errors.email}
+              id="tg"
+              title="Telegram"
+              type="link"
+              error={!!errors.tg}
               className="mb-[16px] sm:mb-[24px]"
-              {...register('email')}
+              {...(register('tg'), { required: true })}
             />
 
             <Select
               control={control}
-              error={!!errors.social}
-              helperText={errors.vacancy?.message}
+              error={!!errors.position}
+              helperText={errors.position?.message}
             />
 
             <Input
-              id="social"
-              error={!!errors.social}
+              id="link"
+              error={!!errors.link}
               className="mb-[16px] sm:mb-[24px]"
-              helperText={errors.social?.message}
-              title="Ссылка на github или соцсети"
-              {...register('social')}
+              title="Ссылка на резюме"
+              {...(register('link'), { required: true })}
             />
-
-            <UploadFile control={control} />
-
             <label htmlFor="area" className="flex flex-col text-[16px] mb-4 sm:mb-[24px]">
               Сообщение
               <textarea
