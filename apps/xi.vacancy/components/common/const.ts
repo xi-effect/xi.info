@@ -1,6 +1,7 @@
 export type ProfessionsT = keyof typeof professions;
 
 export type ProfessionOptionsT = {
+  label: string;
   id: string;
   date: string;
   grade: string;
@@ -11,10 +12,6 @@ export type ProfessionOptionsT = {
     grade: string;
     src: string;
   };
-};
-
-type VacancyListT = {
-  [key in ProfessionsT]: ProfessionOptionsT[];
 };
 
 export const professions = {
@@ -36,25 +33,21 @@ export const professions = {
   },
 };
 
-export const vacancyList: VacancyListT = {
-  development: [
-    {
-      author: {
-        name: 'Игорь Букшев',
-        tg: '@unknownproperty',
-        grade: 'Frontend lead, co-founder',
-        src: '/vacancy/unknownproperty.jpg',
-      },
-      date: '24 мая',
-      grade: 'Junior',
-      id: 'frontend-junior',
-      title: 'Frontend разработчик',
+export const vacancyList: ProfessionOptionsT[] = [
+  {
+    label: 'Разработка',
+    author: {
+      name: 'Игорь Букшев',
+      tg: '@unknownproperty',
+      grade: 'Frontend lead, co-founder',
+      src: '/vacancy/unknownproperty.jpg',
     },
-  ],
-  design: [],
-  product: [],
-  marketing: [],
-};
+    date: '24 мая',
+    grade: 'Junior',
+    id: 'development-frontend-junior',
+    title: 'Frontend разработчик',
+  },
+];
 
 export const vacancyDescription = {
   development: {

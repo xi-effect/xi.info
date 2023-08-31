@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC } from 'react';
 import Image from 'next/image';
-import { ProfessionOptionsT, professions, vacancyList } from '../common/const';
+import { vacancyList } from '../common/const';
 
 type VacancyT = {
   id: string;
@@ -11,13 +11,13 @@ type VacancyT = {
 const Vacancy: FC<VacancyT> = (props) => {
   const { id } = props;
 
-  const [profession, vacancy] = id.split('_');
+  const MDX = dynamic(() => import(`markdown/${id}.mdx`));
 
-  const MDX = dynamic(() => import(`markdown/${vacancy}.mdx`));
+  const vacancy = vacancyList.find((v) => v.id === id);
 
-  const { title, grade, author }: ProfessionOptionsT = vacancyList[profession].find(
-    (v) => v.id === vacancy,
-  );
+  if (!vacancy) return null;
+
+  const { author } = vacancy;
 
   return (
     <section className=" px-4 sm:px-8 xl:p-[48px] xl:pb-0">
@@ -25,11 +25,11 @@ const Vacancy: FC<VacancyT> = (props) => {
         href="/vacancy"
         className="leading-[110%] text-brand-80 text-[16px] mb-2 xl:mb-4 sm:text-[24px]"
       >
-        {professions[profession].label}
+        {vacancy.label}
       </Link>
 
       <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[96px] mb-[32px] xl:mb-[48px]">
-        {title}
+        {vacancy.title}
       </h1>
 
       <div className="xl:flex">
@@ -46,7 +46,7 @@ const Vacancy: FC<VacancyT> = (props) => {
 
             <span className="leading-[130%] text-[16px] sm:text-[20px]">Уровень</span>
             <span className="leading-[130%] text-[20px] sm:text-[24px] font-semibold mb-4 sm:mb-8">
-              {grade}
+              {vacancy.grade}
             </span>
 
             <span className="leading-[130%] text-[16px] sm:text-[20px]">График работы</span>

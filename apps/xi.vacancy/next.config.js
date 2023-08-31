@@ -50,6 +50,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     domains: [
       'cdn.discordapp.com',
       'localhost:3000',
@@ -58,7 +59,7 @@ const nextConfig = {
       'xieffect.ru',
     ],
   },
-  output: 'standalone',
+  output: 'export',
   webpack(config) {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/i,

@@ -9,19 +9,21 @@ import SendResumeButton from '../modal/SendResumeButton';
 const VacancyList = () => {
   const [profession, setProfession] = useState<ProfessionsT>('development');
 
-  const vacancyCard = vacancyList[profession].map((p, i) => (
-    <Link href={`/vacancy/${profession}_${p.id}`}>
-      <article className={i !== vacancyList[profession].length - 1 ? 'mb-[32px] sm:mb-[64px]' : ''}>
+  const listOnType = vacancyList.filter((vacancy) => vacancy.id.includes(profession));
+
+  const vacancyCard = vacancyList.map((vacancy, index) => (
+    <Link key={index} href={`/vacancy/${vacancy.id}`}>
+      <article className={index !== listOnType.length - 1 ? 'mb-[32px] sm:mb-[64px]' : ''}>
         <h2 className="leading-[120%] text-[24px] mb-[8px] sm:text-[32px] xl:text-[64px]">
-          {p.title}
+          {vacancy.title}
         </h2>
 
         <div className="flex leading-[120%] text-[16px] sm:text-[20px] xl:text-[24px]">
           <span className="mr-[22px] min-[390px]:mr-[32px]">Удалённо</span>
 
-          <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">{p.date}</time>
+          <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">{vacancy.date}</time>
 
-          <address className="text-gray-60">{p.author.tg}</address>
+          <address className="text-gray-60">{vacancy.author.tg}</address>
         </div>
       </article>
     </Link>
@@ -41,16 +43,14 @@ const VacancyList = () => {
 
       <div
         className={`${
-          vacancyList[profession].length ? 'max-h-[500px] duration-700' : 'py-[50px] duration-500'
+          listOnType.length ? 'max-h-[500px] duration-700' : 'py-[50px] duration-500'
         } transition-all`}
       >
-        {vacancyList[profession].length ? (
+        {listOnType.length ? (
           vacancyCard
         ) : (
           <>
-            <h3 className="leading-[120%] mb-2 text-[32px] xl:text-[64px]">
-              Вакансии отсутствуют
-            </h3>
+            <h3 className="leading-[120%] mb-2 text-[32px] xl:text-[64px]">Вакансии отсутствуют</h3>
 
             <span className="text-[24px] leading-[120%]">Посмотрите другие разделы или</span>
 
