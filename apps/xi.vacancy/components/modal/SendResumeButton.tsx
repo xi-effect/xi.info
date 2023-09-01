@@ -49,8 +49,6 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
     resolver: yupResolver(schema),
   });
 
-  console.log('errors', errors);
-
   const onSubmit: SubmitHandler<FormDataT> = async (data) => {
     console.log(data);
     reset();
