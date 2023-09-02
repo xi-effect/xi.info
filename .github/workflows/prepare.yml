@@ -1,0 +1,55 @@
+name: Prepare
+
+on:
+  workflow_call:
+    outputs:
+      # xi_land_files:
+      #   description: Will be 'true' xi.land's files have changed
+      #   value: ${{ jobs.analyze_files.outputs.xi_land_files }}
+      # xi_vacancy_files:
+      #   description: Will be 'true' xi.vacancy's files have changed
+      #   value: ${{ jobs.analyze_files.outputs.xi_vacancy_files }}
+      app_name_matrix:
+        description: List of apps that were changed
+        value: ${{ jobs.analyze_files.outputs.app_name_matrix }}
+
+jobs:
+  analyze_files:
+    runs-on: ubuntu-latest
+
+    outputs:
+      # xi_land_files: ${{ steps.path_filter.outputs.xi_land_files }}
+      # xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
+      lintable_files: ${{ steps.path_filter.outputs.lintable_files }}
+      app_name_matrix: ${{ steps.app_name_matrix.outputs.matrix }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Filter paths
+        uses: dorny/paths-filter@v2
+        id: path_filter
+        with:
+          filters: .github/files.yml
+
+      - name: Generate app name matrix
+        id: app_name_matrix
+        run: |
+          matrix=()
+          if [[ "${{ steps.path_filter.outputs.xi_land_files }}" == "true" ]]; then
+            matrix+=("xi.land")
+          fi
+          if [[ "${{ steps.path_filter.outputs.xi_vacancy_files }}" == "true" ]]; then
+            matrix+=("xi.vacancy")
+          fi
+          result=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${matrix[@]}")
+          echo "matrix=${result}"
+          echo "matrix=${result}" >> $GITHUB_OUTPUT
+
+  lint:
+    needs: analyze_files
+    if: needs.analyze_files.outputs.lintable_files == 'true'
+    uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
+    with:
+      node-version: 18
