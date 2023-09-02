@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - devops/setup-ci-cd
   workflow_dispatch:
 
 jobs:
@@ -52,3 +53,39 @@ jobs:
         with:
           name: ${{ matrix.app_name }}
           path: ./out/apps/${{ matrix.app_name }}/out
+
+  deploy:
+    needs:
+      - prepare
+      - build
+    runs-on: ubuntu-latest
+
+    # if: push
+
+    strategy:
+      fail-fast: false
+      matrix:
+        app_name: ${{ fromJSON(needs.prepare.outputs.app_name_matrix) }}
+
+    steps:
+      - name: Download built artefact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ matrix.app_name }}
+          path: out
+
+      - name: Push files via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: 22
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # host: ${{ secrets.HOST }}
+          # port: ${{ secrets.PORT }}
+          # username: ${{ secrets.SERVER_IP }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ./out/*
+          target: ~/xieffect-core/static/${{ matrix.app_name }}/
+          strip_components: 1
+          rm: true
