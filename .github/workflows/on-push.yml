@@ -17,4 +17,5 @@ jobs:
     uses: ./.github/workflows/common.yml
     with:
       app_name: ${{ matrix.app_name }}
+      deploy: ${{ github.ref == github.event.repository.default_branch }}
     secrets: inherit
