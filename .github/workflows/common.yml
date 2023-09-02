@@ -1,0 +1,79 @@
+name: Common
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        type: string
+        required: true
+    secrets:
+      HOST:
+        required: true
+      PORT:
+        required: true
+      USERNAME:
+        required: true
+      SSH_PRIVATE_KEY:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Install npm@9.1.2
+        run: npm install -g npm@9.1.2
+
+      - name: Install turbo
+        run: npm install -g turbo
+
+      - name: Turbo prune
+        run: turbo prune --scope=${{ inputs.app_name }}
+
+      - name: Install dependencies
+        working-directory: ./out
+        run: npm install
+
+      - name: Build application
+        working-directory: ./out
+        run: npm run build --filter==${{ inputs.app_name }}
+
+      - name: Upload build as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.app_name }}
+          path: ./out/apps/${{ inputs.app_name }}/out
+
+  deploy:
+    needs: build
+    # if: inputs.deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download built artefact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.app_name }}
+          path: out
+
+      - name: Push files via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ./out/*
+          target: ~/xieffect-core/static/${{ inputs.app_name }}/
+          strip_components: 1
+          rm: true
