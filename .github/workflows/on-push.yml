@@ -1,17 +1,14 @@
-name: Production
+name: On push
 
 on:
   push:
-    branches:
-      - main
-      - devops/setup-ci-cd
   workflow_dispatch:
 
 jobs:
   prepare:
     uses: ./.github/workflows/prepare.yml
 
-  build:
+  build-deploy:
     needs: prepare
     strategy:
       fail-fast: false
