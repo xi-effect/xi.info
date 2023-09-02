@@ -1,0 +1,54 @@
+name: Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  prepare:
+    uses: ./.github/workflows/prepare.yml
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        app_name: ${{ fromJSON(needs.prepare.outputs.app_name_matrix) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Install npm@9.1.2
+        run: npm install -g npm@9.1.2
+
+      - name: Install turbo
+        run: npm install -g turbo
+
+      - name: Turbo prune
+        run: turbo prune --scope=${{ matrix.app_name }}
+
+      - name: Install dependencies
+        working-directory: ./out
+        run: npm install
+
+      - name: Build application
+        working-directory: ./out
+        run: npm run build --filter==${{ matrix.app_name }}
+
+      - name: Upload build as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.app_name }}
+          path: ./out/apps/${{ matrix.app_name }}/out
