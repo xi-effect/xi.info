@@ -28,7 +28,7 @@ const Vacancy: FC<VacancyT> = (props) => {
         {vacancy.label}
       </Link>
 
-      <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[96px] mb-[32px] xl:mb-[48px]">
+      <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[72px] mb-[32px] xl:mb-[48px]">
         {vacancy.title}
       </h1>
 
