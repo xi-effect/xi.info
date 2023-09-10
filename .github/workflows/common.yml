@@ -6,19 +6,20 @@ on:
       app_name:
         type: string
         required: true
-      deploy:
-        type: boolean
+      deploy_environment:
+        type: string
         required: false
-        default: false
     secrets:
-      HOST:
-        required: true
-      PORT:
-        required: true
-      USERNAME:
-        required: true
+      SSH_USER:
+        required: false
+      SSH_HOST:
+        required: false
+      SSH_PORT:
+        required: false
       SSH_PRIVATE_KEY:
-        required: true
+        required: false
+      SSH_KEY_PASSWORD:
+        required: false
 
 jobs:
   build:
@@ -60,7 +61,8 @@ jobs:
 
   deploy:
     needs: build
-    if: inputs.deploy
+    if: inputs.deploy_environment
+    environment: ${{ inputs.deploy_environment }}
     runs-on: ubuntu-latest
 
     steps:
@@ -73,10 +75,11 @@ jobs:
       - name: Push files via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          username: ${{ secrets.USERNAME }}
+          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_KEY_PASSWORD }}
           source: ./out/*
           target: ~/xieffect-core/static/main/${{ inputs.app_name }}
           strip_components: 1
@@ -85,10 +88,11 @@ jobs:
       - name: Push files via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          username: ${{ secrets.USERNAME }}
+          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_KEY_PASSWORD }}
           source: ./out/*
           target: ~/xieffect-core/static/backup/${{ inputs.app_name }}
           strip_components: 1
