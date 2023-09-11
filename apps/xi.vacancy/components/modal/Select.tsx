@@ -11,8 +11,12 @@ type SelectT = {
 
 const selectOptions = [
   {
-    title: 'Разработка',
-    value: 'development',
+    title: 'Frontend',
+    value: 'frontend-development',
+  },
+  {
+    title: 'Backend',
+    value: 'backend-development',
   },
   {
     title: 'Дизайн',
