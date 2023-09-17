@@ -34,19 +34,19 @@ export const professions = {
 };
 
 export const vacancyList: ProfessionOptionsT[] = [
-  {
-    label: 'Разработка',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'Frontend lead, co-founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '5 сентября',
-    grade: 'Junior, Middle',
-    id: 'development-frontend',
-    title: 'Frontend разработчик',
-  },
+  // {
+  //   label: 'Разработка',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'Frontend lead, co-founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '5 сентября',
+  //   grade: 'Junior, Middle',
+  //   id: 'development-frontend',
+  //   title: 'Frontend разработчик',
+  // },
   {
     label: 'Разработка',
     author: {
