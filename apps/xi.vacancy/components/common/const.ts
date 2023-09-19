@@ -34,19 +34,19 @@ export const professions = {
 };
 
 export const vacancyList: ProfessionOptionsT[] = [
-  {
-    label: 'Разработка',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'Frontend lead, co-founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '5 сентября',
-    grade: 'Junior, Middle',
-    id: 'development-frontend',
-    title: 'Frontend разработчик',
-  },
+  // {
+  //   label: 'Разработка',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'Frontend lead, co-founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '5 сентября',
+  //   grade: 'Junior, Middle',
+  //   id: 'development-frontend',
+  //   title: 'Frontend разработчик',
+  // },
   {
     label: 'Разработка',
     author: {
@@ -59,6 +59,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     grade: 'Junior, Middle',
     id: 'development-backend',
     title: 'Backend разработчик',
+  },
+  {
+    label: 'Дизайн',
+    author: {
+      name: 'Игорь',
+      tg: '@unknownproperty',
+      grade: 'CEO, co-founder',
+      src: '/vacancy/unknownproperty.jpg',
+    },
+    date: '19 сентября',
+    grade: 'Junior',
+    id: 'design-graphic',
+    title: 'Графический дизайнер',
   },
 ];
 

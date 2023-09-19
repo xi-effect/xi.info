@@ -2,35 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Control, Controller } from 'react-hook-form';
 import { FormDataT } from './SendResumeButton';
+import { vacancyList } from 'components/common/const';
 
 type SelectT = {
   error?: boolean;
   helperText?: string;
   control: Control<FormDataT, any>;
 };
-
-const selectOptions = [
-  {
-    title: 'Frontend',
-    value: 'frontend-development',
-  },
-  {
-    title: 'Backend',
-    value: 'backend-development',
-  },
-  {
-    title: 'Дизайн',
-    value: 'design',
-  },
-  {
-    title: 'Продукт',
-    value: 'product',
-  },
-  {
-    title: 'Маркетинг',
-    value: 'marketing',
-  },
-];
 
 const Select: React.FC<SelectT> = (props) => {
   const { control, error, helperText } = props;
@@ -89,11 +67,11 @@ const Select: React.FC<SelectT> = (props) => {
               open ? 'visible opacity-1 scale-1' : 'invisible opacity-0 scale-50'
             } drop-shadow-2xl top-[80px] z-[101] resume-select transition-all duration-300 absolute w-full bg-gray-0 p-[3px] rounded-[5px] border-[1px] border-gray-5`}
           >
-            {selectOptions.map(({ value, title }, index) => {
+            {vacancyList.map(({ id, title }, index) => {
               const setVacancy = () => {
                 setOpen(false);
                 setCurrentVacancy(title);
-                onChange(value);
+                onChange(id);
               };
 
               return (
