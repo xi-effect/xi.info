@@ -59,6 +59,7 @@ main {
   animation: ani 2.5s forwards;
   animation-delay: 0.7s;
 }
+
 @keyframes ani {
   0% {opacity: 0;}
   100% {opacity: 1;}
