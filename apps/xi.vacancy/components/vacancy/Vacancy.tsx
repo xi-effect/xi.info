@@ -51,7 +51,7 @@ const Vacancy: FC<VacancyT> = (props) => {
 
             <span className="leading-[130%] text-[16px] sm:text-[20px]">График работы</span>
             <span className="leading-[130%] text-[20px] sm:text-[24px] font-semibold">
-              Гибридный
+              Гибкий
             </span>
           </div>
 
