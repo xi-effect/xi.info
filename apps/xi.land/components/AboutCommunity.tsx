@@ -68,7 +68,7 @@ const AboutCommunity = () => {
           padding: getImagePadding(),
         }}
         alt="xieffect logo"
-        src="/assets/Innner.svg"
+        src="/assets/Inner.svg"
         height={getImageSize()}
         width={getImageSize()}
         priority={false}
