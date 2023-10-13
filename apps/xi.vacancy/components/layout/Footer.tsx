@@ -3,7 +3,7 @@ import SendResumeButton from '../modal/SendResumeButton';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
-    <div className="p-4 sm:p-8 xl:py-[128px] xl:px-[48px] xl:flex  xl:content-center">
+    <div className="py-4 sm:py-8 xl:py-[128px] xl:px-[48px] xl:flex  xl:content-center">
       <div className="mt-[10px] hidden xl:block relative before:rounded-b-full before:absolute before:top-[-140px] before:bg-gray-10 before:w-[240px] before:h-[140px] after:rounded-t-full after:absolute after:top-[240px] after:bg-gray-10 after:w-[240px] after:h-[140px]">
         <Image
           width={789}
@@ -28,7 +28,7 @@ const Footer = () => (
       </div>
     </div>
 
-    <div className="p-4 sm:p-8 xl:py-16 xl:px-[48px] flex flex-col min-[1000px]:flex-row min-[1000px]:content-center  justify-between">
+    <div className="py-4 sm:py-8 xl:py-16 xl:px-[48px] flex flex-col min-[1000px]:flex-row min-[1000px]:content-center  justify-between">
       <Image
         width={110}
         height={16}
