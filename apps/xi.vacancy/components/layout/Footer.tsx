@@ -46,10 +46,10 @@ const Footer = () => (
             <Image width={32} height={32} alt="vk link" src="/iconssite/vk.svg" />
           </a>
           <a href="https://github.com/xi-effect" target="_blank">
-            <Image width={32} height={32} alt="vk link" src="/iconssite/gh.svg" />
+            <Image width={32} height={32} alt="github link" src="/iconssite/gh.svg" />
           </a>
           <a href="https://t.me/xieffect" target="_blank">
-            <Image width={32} height={32} alt="vk link" src="/iconssite/telegram.svg" />
+            <Image width={32} height={32} alt="telegram link" src="/iconssite/telegram.svg" />
           </a>
         </div>
       </div>
