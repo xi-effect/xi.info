@@ -29,7 +29,7 @@ const Footer = () => (
     </div>
 
     <div className="py-4 sm:py-8 xl:py-16 xl:px-[48px] flex flex-col min-[1000px]:flex-row min-[1000px]:content-center  justify-between">
-      <a href="https://vacancy.xieffect.ru/">
+      <a href="/">
         <Image
           width={110}
           height={16}
