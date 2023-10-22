@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import SendResumeButton from '../modal/SendResumeButton';
+import Link from 'next/link';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
@@ -29,7 +30,7 @@ const Footer = () => (
     </div>
 
     <div className="py-4 sm:py-8 xl:py-16 xl:px-[48px] flex flex-col min-[1000px]:flex-row min-[1000px]:content-center  justify-between">
-      <a href="/">
+      <Link href="/">
         <Image
           width={110}
           height={16}
@@ -38,7 +39,7 @@ const Footer = () => (
           alt="logo xi.effect"
           className="mb-[24px] min-[1000px]:mb-0 w-[110px] h-[16px] sm:w-[165px] sm:h-[24px]"
         />
-      </a>
+      </Link>
       <div className="flex flex-wrap items-start flex-col sm:items-center sm:flex-row sm:justify-between sm:content-center text-[12px] xl:text-[16px] text-gray-100 min-[1000px]:basis-[74%]">
         <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; Xi.effect c 2022 года</span>
         <span className="mr-4 mb-6 sm:mb-0">Сделано с ❤️ в Санкт-Петербурге</span>
