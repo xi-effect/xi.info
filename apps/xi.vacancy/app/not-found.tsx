@@ -11,7 +11,7 @@ export default function NotFound() {
       <body className="overflow-x-hidden">
         <main
           className={
-            "bg-[url('/not-found/background.png')] bg-no-repeat bg-cover"
+            "h-screen overflow-auto bg-[url('/not-found/background.png')] bg-no-repeat bg-cover"
           }
         >
           {' '}
