@@ -11,22 +11,22 @@ export default function NotFound() {
       <body className="overflow-x-hidden">
         <main
           className={
-            "h-screen overflow-auto bg-[url('/not-found/background.png')] bg-no-repeat bg-cover"
+            "h-screen overflow-auto bg-[url('/not-found/background.png')] bg-no-repeat bg-auto xl:bg-cover"
           }
         >
           {' '}
-          <div className='w-screen container max-w-[1920px] mx-auto px-4 sm:px-8 2xl:px-[160px]'>
+          <div className="w-screen container max-w-[1920px] mx-auto px-4 sm:px-8 2xl:px-[160px]">
             <Header />
-            <div className="py-32 flex flex-col items-start justify-center"> 
-              <div className="flex items-start gap-x-1 mb-4">
-                <h1 className="text-h1 text-gray-100">Страница затерялась в облаках</h1>
-                <span className="text-h5 font-bold text-gray-30">404</span>
-              </div>
-              <div className="text-[30px] leading-9 text-gray-80">
+            <div className="py-32 flex flex-col items-start justify-center">
+              <h1 className="flex flex-col-reverse gap-x-1 sm:inline-block text-[40px] leading-[48px] sm:text-[48px] sm:leading-[62px] lg:text-[64px] font-medium text-gray-100 mb-4">
+                Страница затерялась в облаках{' '}
+                <span className="inline-block text-l leading-[100%] align-super lg:text-h5 font-bold text-gray-30">404</span>
+              </h1>
+
+              <div className="text-[20px] leading-[26px] lg:text-[30px] lg:leading-9 text-gray-80">
                 В адресе есть ошибка или страница удалена
               </div>
               <div className="my-16">
-                {' '}
                 <div>Если ошибка повторяется — напишите нам об этом</div>
                 <div>
                   в{' '}
