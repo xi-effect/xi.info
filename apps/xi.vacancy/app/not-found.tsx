@@ -1,7 +1,7 @@
 'use client';
 import Header from 'components/layout/Header';
 import Link from 'next/link';
-import { Telegram, Mail } from '@xipkg/icons';
+import { Mail } from '@xipkg/icons';
 import { useRouter } from 'next/navigation';
 
 export default function NotFound() {
