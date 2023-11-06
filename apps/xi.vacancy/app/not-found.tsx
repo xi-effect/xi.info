@@ -42,7 +42,7 @@ export default function NotFound() {
               <div>
                 Вернитесь{' '}
                 <button
-                  className='inline-block border-none outline-none relative text-brand-80 after:block after:content-[""] after:left-0 after:bottom-0 after:w-full after:h-[1px] after:bg-brand-20'
+                  className='inline-block border-none outline-none bg-transparent relative text-brand-80 after:block after:content-[""] after:left-0 after:bottom-0 after:w-full after:h-[1px] after:bg-brand-20'
                   onClick={router.back}
                 >
                   назад
