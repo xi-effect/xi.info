@@ -9,8 +9,8 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className="py-[24px] px-4 sm:py-[32px] sm:px-8 2xl:py-16 2xl:px-[48px]">
-      <div className='container mx-auto flex justify-between items-center'>
+    <header className="py-[24px] sm:py-[32px] 2xl:py-16">
+      <div className='max-w-[1920px] px-8 sm:px-16 2xl:px-40 mx-auto flex justify-between items-center'>
         <Link href="/">
           <Image
             width={219}
