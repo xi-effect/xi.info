@@ -22,7 +22,7 @@ export default function NotFound() {
         <div className="my-16">
           <div>
             Если ошибка повторяется — напишите нам об этом{' '}
-            <Link className="text-brand-80" href="xieffect@yandex.ru">
+            <Link className="text-brand-80" href="mailto:xieffect@yandex.ru">
               <Mail className="inline-block fill-brand-80" />
               <span className='inline-block relative ml-1 after:block after:content-[""] after:left-0 after:bottom-0 after:w-full after:h-[1px] after:bg-brand-20'>
                 на электронную почту
