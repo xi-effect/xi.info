@@ -41,13 +41,7 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden">
-        <main className="w-screen h-screen container max-w-[1920px] mx-auto px-4 sm:px-8 2xl:px-[112px]">
-          <Header />
-          {children}
-          <Footer />
-        </main>
-      </body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }
