@@ -52,7 +52,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
   const onSubmit: SubmitHandler<FormDataT> = async (data) => {
     console.log(data);
     reset();
-    let response = await fetch('https://xieffect.ru:5000/webhooks/resume/', {
+    let response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/webhooks/resume/`, {
       method: 'POST',
       cache: 'no-cache',
       credentials: 'include',

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Vacancy from 'components/vacancy/Vacancy';
 import React from 'react';
 import { vacancyList } from 'components/common/const';
+import Layout from 'components/layout/Layout';
 
 export const dynamicParams = false; // true | false,
 
@@ -20,7 +21,11 @@ const Page: FC<PageT> = (props) => {
     params: { id },
   } = props;
 
-  return <Vacancy id={id} />;
+  return (
+    <Layout>
+      <Vacancy id={id} />
+    </Layout>
+  );
 };
 
 export default Page;
