@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 export default function NotFound() {
   const router = useRouter();
+
   return (
     <div className="h-screen overflow-auto bg-[url('/not-found/background.png')] bg-no-repeat bg-auto xl:bg-cover">
       <Header />
