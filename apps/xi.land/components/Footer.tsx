@@ -52,6 +52,7 @@ const sections: Section[] = [
 ];
 
 const email = 'hello@xieffect.ru';
+const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
   const renderSection = (section: Section) => (
@@ -62,7 +63,7 @@ const Footer = () => {
       <Stack component={'ul'} direction={'column'} sx={{ p: 0, m: 0, mt: '24px', gap: '24px' }}>
         {section.links.map((link) => (
           <Stack sx={{ display: 'inline' }} component={'li'} key={link.title}>
-            <Link underline="none" sx={{ color: 'inherit' }} href={link.link}>
+            <Link target={'_blank'} underline="hover" sx={{ color: 'inherit' }} href={link.link}>
               {link.title}
             </Link>
           </Stack>
@@ -109,10 +110,15 @@ const Footer = () => {
           flexWrap={'wrap'}
           justifyContent={{ md: 'space-between' }}
         >
-          <span>&copy; xieffect 2020 года</span>
-          <Box sx={{ order: { xs: 1, md: 0 } }}>Сделано с ❤ в Санкт-Петербурге</Box>
+          <span>&copy; xieffect {copyrightYear} года</span>
+          <Box sx={{ order: { xs: 1, md: 0 } }}>Сделано с ❤️ в Санкт-Петербурге</Box>
           <span>
-            <Link underline="none" sx={{ color: 'inherit' }} href={`mailto:${email}`}>
+            <Link
+              target={'_blank'}
+              underline="hover"
+              sx={{ color: 'inherit' }}
+              href={`mailto:${email}`}
+            >
               {email}
             </Link>
           </span>
