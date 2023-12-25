@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'xi.vacancy',
@@ -41,7 +42,15 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        <Script
+          async
+          defer
+          data-website-id="89ce725a-1b31-457a-a5cb-b3bbbded1748"
+          src="https://analytics.xieffect.ru/umami.js"
+        />
+        {children}
+      </body>
     </html>
   );
 }

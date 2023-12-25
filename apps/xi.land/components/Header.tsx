@@ -76,7 +76,7 @@ const Header = () => {
       )}
       <Stack>
         {isTablet ? (
-          <Button sx={{ width: '96px', zIndex: 10 }} href="https://app.xieffect.ru/">
+          <Button id="to-signin-button" data-umami-event="to-signin-button" sx={{ width: '96px', zIndex: 10 }} href="https://app.xieffect.ru/">
             Войти
           </Button>
         ) : (
