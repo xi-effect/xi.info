@@ -2,7 +2,6 @@
 
 import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
 
 const AboutCommunity = () => {
   const theme = useTheme();

@@ -4,9 +4,9 @@ import AboutChat from 'components/AboutChat';
 import AboutCommunity from 'components/AboutCommunity';
 import AboutTasks from 'components/AboutTasks';
 import AboutVideo from 'components/AboutVideo';
+import Footer from 'components/Footer';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
-import React from 'react';
 
 export default function MainPage() {
   return (
@@ -36,6 +36,7 @@ export default function MainPage() {
         <AboutChat />
         <AboutAnnounce />
         <AboutCommunity />
+        <Footer />
       </Stack>
     </Stack>
   );
