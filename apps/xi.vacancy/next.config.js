@@ -44,6 +44,8 @@ const nextConfig = {
     '@emotion/react',
     '@emotion/cache',
     '@mui/material',
+    '@xipkg/icons',
+    '@xipkg/utils'
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

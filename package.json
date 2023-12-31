@@ -18,5 +18,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@xipkg/icons": "^0.7.2",
+    "@xipkg/utils": "^1.0.1",
+    "class-variance-authority": "^0.7.0"
+  }
 }
