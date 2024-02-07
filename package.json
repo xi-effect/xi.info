@@ -7,7 +7,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@turbo/gen": "^1.9.7",
+    "@turbo/gen": "^1.12.3",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",
@@ -18,10 +18,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "@xipkg/icons": "^0.7.2",
-    "@xipkg/utils": "^1.0.1",
-    "class-variance-authority": "^0.7.0"
-  }
+  ]
 }

@@ -6,30 +6,9 @@ const path = require('path');
 
 const withMDX = require('@next/mdx')();
 
-const runtimeCaching = require('next-pwa/cache');
-
 const plugins = [];
 
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  runtimeCaching,
-  mode: 'production',
-  reloadOnOnline: true,
-  cacheOnFrontEndNav: true,
-  disable: process.env.NODE_ENV === 'development',
-  skipWaiting: true,
-  sw: '/sw.js',
-  buildExcludes: [
-    /middleware-manifest\.json$/,
-    /_middleware\.js$/,
-    /_middleware\.js\.map$/,
-    /middleware-runtime\.js$/,
-    /server\/pages\/_middleware\.js$/,
-  ],
-});
-
-plugins.push(withPWA, withMDX);
+plugins.push(withMDX);
 
 const nextConfig = {
   experimental: {
@@ -37,11 +16,7 @@ const nextConfig = {
     esmExternals: true,
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
-  transpilePackages: [
-    '@xipkg/typescript',
-    '@xipkg/icons',
-    '@xipkg/utils'
-  ],
+  transpilePackages: ['@xipkg/typescript', '@xipkg/icons', '@xipkg/utils'],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',
   },

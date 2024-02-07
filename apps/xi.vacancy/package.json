@@ -17,7 +17,6 @@
     "@types/mdx": "^2.0.5",
     "@xipkg/tailwind": "0.3.6",
     "next": "^14.0.4",
-    "next-pwa": "^5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.2",
