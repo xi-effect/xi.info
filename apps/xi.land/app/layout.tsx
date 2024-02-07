@@ -1,10 +1,9 @@
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { Providers } from './providers';
 import React from 'react';
 import { Metadata } from 'next';
 
-import 'styles/globals.css';
+import '@xipkg/tailwind/index.css';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -52,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           data-website-id="e9570b38-1176-44ac-854c-5b7ad4380a47"
           src="https://analytics.xieffect.ru/umami.js"
         />
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

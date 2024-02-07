@@ -38,12 +38,7 @@ const nextConfig = {
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   transpilePackages: [
-    'pkg.theme',
     '@xipkg/typescript',
-    '@emotion/styled',
-    '@emotion/react',
-    '@emotion/cache',
-    '@mui/material',
     '@xipkg/icons',
     '@xipkg/utils'
   ],
