@@ -67,7 +67,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
       // получаем тело ответа (см. про этот метод ниже)
       let json = await response.json();
       console.log('json', json);
-      alert('Спасибо, мы получили ваше резюме!')
+      alert('Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.')
     } else {
       alert('Ошибка HTTP: ' + response.status);
     }
