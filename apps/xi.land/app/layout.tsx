@@ -43,7 +43,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <body>
         <Script
           async

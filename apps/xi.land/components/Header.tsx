@@ -31,7 +31,7 @@ const arrayOfLinks = [
 
 const Header = () => {
   const router = useRouter();
-  const isTablet = useMedia('(min-width: 720px)');
+  const isTablet = useMedia('(min-width: 720px)', true);
 
   return (
     <div className="flex flex-row w-full justify-between items-center p-4 sm:p-8 3xl:py-16 3xl:px-[160px]">
@@ -50,10 +50,10 @@ const Header = () => {
       <div>
         {isTablet ? (
           <Button
-
+            variant="default"
             className="w-24 z-10"
-            id="to-signin-button"
-            data-umami-event="to-signin-button"
+            // id="to-signin-button"
+            // data-umami-event="to-signin-button"
             // onClick={() => router.push('https://app.xieffect.ru/')}
           >
             Войти
