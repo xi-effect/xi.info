@@ -34,7 +34,7 @@ const Header = () => {
   const isTablet = useMedia('(min-width: 720px)', true);
 
   return (
-    <div className="flex flex-row w-full justify-between items-center p-4 sm:p-8 3xl:py-16 3xl:px-[160px]">
+    <div className="p-4 sm:p-8 3xl:py-16 3xl:px-[160px] flex flex-row w-full justify-between items-center">
       <div>
         <Image alt="xieffect logo" src="/xieffectlogo.svg" height={24} width={202} />
       </div>
