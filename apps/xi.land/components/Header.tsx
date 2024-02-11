@@ -1,5 +1,6 @@
 'use client';
 
+import NextLink from 'next/link';
 import { Button } from '@xipkg/button';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
@@ -34,7 +35,7 @@ const Header = () => {
   const isTablet = useMedia('(min-width: 720px)', true);
 
   return (
-    <div className="p-4 sm:p-8 3xl:py-16 3xl:px-[160px] flex flex-row w-full justify-between items-center">
+    <div className="p-4 sm:p-8 3xl:py-16 3xl:px-[160px] flex flex-row w-full justify-between items-center z-10">
       <div>
         <Image alt="xieffect logo" src="/xieffectlogo.svg" height={24} width={202} />
       </div>
@@ -48,21 +49,18 @@ const Header = () => {
         </div>
       )}
       <div>
-        {isTablet ? (
-          <Button
-            variant="default"
-            className="w-24 z-10"
-            // id="to-signin-button"
-            // data-umami-event="to-signin-button"
-            // onClick={() => router.push('https://app.xieffect.ru/')}
-          >
-            Войти
-          </Button>
-        ) : (
-          <Button variant="ghost" className="h-12 w-12 z-10 p-0 m-0">
-            <BurgerIcon />
-          </Button>
-        )}
+        <Button
+          variant="default"
+          className="w-24 z-10 max-sm:hidden"
+          id="to-signin-button"
+          data-umami-event="to-signin-button"
+          asChild
+        >
+          <NextLink href="https://app.xieffect.ru/">Войти</NextLink>
+        </Button>
+        <Button variant="ghost" className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
+          <BurgerIcon />
+        </Button>
       </div>
     </div>
   );
