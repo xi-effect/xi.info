@@ -3,7 +3,7 @@ import AboutChat from 'components/AboutChat';
 // import AboutCommunity from 'components/AboutCommunity';
 import AboutTasks from 'components/AboutTasks';
 import AboutVideo from 'components/AboutVideo';
-import Footer from 'components/Footer';
+import { Footer } from 'pkg.footer';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
 

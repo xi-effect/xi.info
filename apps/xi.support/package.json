@@ -1,44 +1,42 @@
 {
-  "name": "xi.land",
-  "version": "0.1.0",
+  "name": "xi.support",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3300",
+    "dev": "next dev --port 3900",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@xipkg/button": "^1.1.3",
-    "@xipkg/icons": "^0.8.4",
-    "@xipkg/link": "^0.2.0",
+    "@hookform/resolvers": "^3.2.0",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.4.12",
+    "@types/mdx": "^2.0.5",
+    "@xipkg/tailwind": "0.3.6",
+    "@xipkg/icons": "0.8.4",
     "pkg.footer": "*",
     "next": "^13.5.6",
-    "next-themes": "^0.2.1",
-    "pkg.utils": "*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.2",
+    "uuid": "^9.0.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@xipkg/eslint": "latest",
-    "@xipkg/tailwind": "0.3.6",
-    "@xipkg/typescript": "latest",
+    "@xipkg/eslint": "0.4.0",
+    "@xipkg/typescript": "^0.0.2",
     "autoprefixer": "^10.4.14",
     "ignore-loader": "^0.1.2",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
-    "ts-loader": "^9.4.4",
     "typescript": "^5.1.3"
   },
   "main": ".eslintrc.js",
   "author": "xi.effect",
-  "license": "ISC",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ]
+  "license": "ISC"
 }
