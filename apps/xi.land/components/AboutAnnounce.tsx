@@ -5,7 +5,7 @@ import React from 'react';
 
 const AboutAnnounce = () => {
   return (
-    <div className="flex flex-col justify-start items-start py-8 px-4 sm:p-8 xl:p-[160px] xl:pb-20 w-full bg-gray-0 z-10">
+    <div className="flex flex-col justify-start items-start py-8 px-4 sm:p-8 xl:p-[160px] xl:pb-20 w-full bg-[#F7F7F7] z-10">
       <div>
         <Image
           alt="xieffect logo"
