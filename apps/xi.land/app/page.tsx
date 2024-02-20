@@ -6,6 +6,7 @@ import AboutVideo from 'components/AboutVideo';
 import { Footer } from 'pkg.footer';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
+import AboutEase from 'components/AboutEase';
 
 export default function MainPage() {
   return (
@@ -18,6 +19,7 @@ export default function MainPage() {
         <AboutChat />
         <AboutAnnounce />
         <AboutCommunity />
+        <AboutEase />
         <Footer />
       </div>
     </main>
