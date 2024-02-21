@@ -7,6 +7,8 @@ import { Footer } from 'pkg.footer';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
 import AboutEase from 'components/AboutEase';
+import AboutTrust from 'components/AboutTrust';
+import { AboutDemoRegistration } from 'components/AboutDemoRegistration';
 
 export default function MainPage() {
   return (
@@ -20,6 +22,8 @@ export default function MainPage() {
         <AboutAnnounce />
         <AboutCommunity />
         <AboutEase />
+        <AboutTrust />
+        <AboutDemoRegistration />
         <Footer />
       </div>
     </main>
