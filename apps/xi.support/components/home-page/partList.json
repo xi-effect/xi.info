@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Начало работы",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "start-working.svg"
+  },
+  {
+    "title": "Чат",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "chat.svg"
+  },
+  {
+    "title": "Расписание",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "schedule.svg"
+  },
+  {
+    "title": "Задания",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "assignments.svg"
+  },
+  {
+    "title": "Видеоконференции",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "video.svg"
+  },
+  {
+    "title": "Управление и настройки",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "settings.svg"
+  },
+  {
+    "title": "Тесты",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "tests.svg"
+  },
+  {
+    "title": "Объявления",
+    "links": [
+      { "linkTitle": "Создание", "linkUrl": "#" },
+      { "linkTitle": "Редактирование", "linkUrl": "#" },
+      { "linkTitle": "Удаление", "linkUrl": "#" }
+    ],
+    "showAllLink": "#",
+    "icon": "announcements.svg"
+  }
+]
