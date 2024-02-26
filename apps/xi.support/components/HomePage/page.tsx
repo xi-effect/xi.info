@@ -2,6 +2,7 @@
 
 import { Button } from '@xipkg/button';
 import { Input } from '@xipkg/input';
+import { TelegramFilled, ChevronRight } from '@xipkg/icons';
 import partList from './partList.json';
 import Image from 'next/image';
 
@@ -61,7 +62,7 @@ const Parts = () => {
                 ))}
                 <div className="mt-4 flex items-center ">
                   <p>Показать все</p>
-                  <span className="bg-[url('/iconssite/arrow-right.svg')] bg-no-repeat bg-center bg-contain size-4 sm:size-5 inline-block mt-[4px]" />
+                  <ChevronRight className="size-4 sm:size-5 mt-[4px]" />
                 </div>
               </ul>
             </div>
@@ -80,7 +81,7 @@ const CallToAction = () => {
       </h3>
       <Button className="h-8 sm:h-[56px] xl:h-[84px] font-medium text-sm sm:text-xl xl:text-[30px] xl:leading-[42px] rounded-md sm:rounded-xl xl:rounded-[18px] pl-3 sm:pl-6 xl:pl-9 pr-2 sm:pr-3 xl:pr-[18px] mt-4 sm:mt-8">
         Написать в телеграм
-        <span className="bg-[url('/iconssite/telegram-no-circle.svg')] bg-no-repeat bg-center bg-contain size-4 sm:size-8 xl:size-12 inline-block ml-[6px] sm:ml-4 xl:ml-6" />
+        <TelegramFilled className="fill-gray-0 size-4 sm:size-8 xl:size-12 ml-[6px] sm:ml-4 xl:ml-6" />
       </Button>
     </section>
   );
