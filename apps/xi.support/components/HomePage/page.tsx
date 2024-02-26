@@ -60,9 +60,9 @@ const Parts = () => {
                     {link.linkTitle}
                   </li>
                 ))}
-                <div className="mt-4 flex items-center ">
+                <div className="mt-4 flex items-center gap-1">
                   <p>Показать все</p>
-                  <ChevronRight className="!size-4 !sm:size-5 mt-[1px] sm:mt-[4px]" />
+                  <ChevronRight className="!size-4 sm:!size-5 mt-[1px] sm:mt-[4px]" />
                 </div>
               </ul>
             </div>
@@ -81,7 +81,7 @@ const CallToAction = () => {
       </h3>
       <Button className="h-8 sm:h-[56px] xl:h-[84px] font-medium text-sm sm:text-xl xl:text-[30px] xl:leading-[42px] rounded-md sm:rounded-xl xl:rounded-[18px] pl-3 sm:pl-6 xl:pl-9 pr-2 sm:pr-3 xl:pr-[18px] mt-4 sm:mt-8">
         Написать в телеграм
-        <TelegramFilled className="fill-gray-0 !size-4 !sm:size-8 !xl:size-12 ml-[6px] sm:ml-4 xl:ml-6" />
+        <TelegramFilled className="fill-gray-0 !size-4 sm:!size-8 xl:!size-12 ml-[6px] sm:ml-4 xl:ml-6" />
       </Button>
     </section>
   );
