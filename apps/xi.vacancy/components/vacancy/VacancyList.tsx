@@ -12,7 +12,7 @@ const VacancyList = () => {
   const listOnType = vacancyList.filter((vacancy) => vacancy.id.includes(profession));
 
   const vacancyCard = listOnType.map((vacancy, index) => (
-    <Link className='group' key={index} href={`/vacancy/${vacancy.id}`}>
+    <Link className="group" key={index} href={`/vacancy/${vacancy.id}`}>
       <article className={index !== listOnType.length - 1 ? 'mb-[32px] sm:mb-[64px]' : ''}>
         <h2 className="leading-[120%] text-[24px] mb-[8px] sm:text-[32px] xl:text-[64px] group-hover:underline transition-all ease-in decoration-3 duration-500">
           {vacancy.title}
