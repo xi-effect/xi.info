@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="py-[24px] sm:py-[32px] 2xl:py-16">
-      <div className='max-w-[1920px] px-8 sm:px-16 2xl:px-40 mx-auto flex justify-between items-center'>
+      <div className="max-w-[1920px] px-8 sm:px-16 2xl:px-40 mx-auto flex justify-between items-center">
         <Link href="/">
           <Image
             width={219}

@@ -59,7 +59,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
 
     if (response.ok) {
@@ -67,7 +67,9 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
       // получаем тело ответа (см. про этот метод ниже)
       let json = await response.json();
       console.log('json', json);
-      alert('Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.')
+      alert(
+        'Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.',
+      );
     } else {
       alert('Ошибка HTTP: ' + response.status);
     }

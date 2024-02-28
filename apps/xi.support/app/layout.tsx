@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'поддержка',
     'support',
     'xi.support',
-    'инструмент'
+    'инструмент',
   ],
   icons: {
     icon: [

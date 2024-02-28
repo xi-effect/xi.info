@@ -13,7 +13,6 @@ const Li = ({ children }: PropsWithChildren) => <li className="mdx-li">{children
 
 const Ul = ({ children }: PropsWithChildren) => <ul className="mdx-ul">{children}</ul>;
 
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: H1,
