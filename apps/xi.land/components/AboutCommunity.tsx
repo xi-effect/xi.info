@@ -13,7 +13,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(0%-(41px/2))] right-[calc(50%-(41px/2))]
       sm:top-[calc(0%-(68px/2))] sm:right-[calc(50%-(68px/2))]
-      xl:top-[calc(0%-(128px/2))] xl:right-[calc(50%-(128px/2))]
+      2xl:top-[calc(0%-(128px/2))] 2xl:right-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -22,7 +22,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(5%-(41px/2))] right-[calc(25%-(41px/2))]
       sm:top-[calc(7%-(68px/2))] sm:right-[calc(25%-(68px/2))]
-      xl:top-[calc(7%-(128px/2))] xl:right-[calc(25%-(128px/2))]
+      2xl:top-[calc(7%-(128px/2))] 2xl:right-[calc(25%-(128px/2))]
       `,
   },
   {
@@ -31,7 +31,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(25%-(41px/2))] right-[calc(5%-(41px/2))]
       sm:top-[calc(25%-(68px/2))] sm:right-[calc(5%-(68px/2))]
-      xl:top-[calc(25%-(128px/2))] xl:right-[calc(5%-(128px/2))]
+      2xl:top-[calc(25%-(128px/2))] 2xl:right-[calc(5%-(128px/2))]
       `,
   },
   {
@@ -40,7 +40,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       right-[calc(0%-(41px/2))] top-[calc(50%-(41px/2))]
       sm:right-[calc(0%-(68px/2))] sm:top-[calc(50%-(68px/2))]
-      xl:right-[calc(0%-(128px/2))] xl:top-[calc(50%-(128px/2))]
+      2xl:right-[calc(0%-(128px/2))] 2xl:top-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -49,7 +49,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       right-[calc(5%-(41px/2))] bottom-[calc(25%-(41px/2))]
       sm:right-[calc(7%-(68px/2))] sm:bottom-[calc(25%-(68px/2))]
-      xl:right-[calc(7%-(128px/2))] xl:bottom-[calc(25%-(128px/2))]
+      2xl:right-[calc(7%-(128px/2))] 2xl:bottom-[calc(25%-(128px/2))]
       `,
   },
   {
@@ -58,7 +58,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       right-[calc(25%-(41px/2))] bottom-[calc(5%-(41px/2))]
       sm:right-[calc(25%-(68px/2))] sm:bottom-[calc(5%-(68px/2))]
-      xl:right-[calc(25%-(128px/2))] xl:bottom-[calc(5%-(128px/2))]
+      2xl:right-[calc(25%-(128px/2))] 2xl:bottom-[calc(5%-(128px/2))]
       `,
   },
   {
@@ -67,7 +67,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       bottom-[calc(0%-(41px/2))] right-[calc(50%-(41px/2))]
       sm:bottom-[calc(0%-(68px/2))] sm:right-[calc(50%-(68px/2))]
-      xl:bottom-[calc(0%-(128px/2))] xl:right-[calc(50%-(128px/2))]
+      2xl:bottom-[calc(0%-(128px/2))] 2xl:right-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -76,7 +76,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       left-[calc(25%-(41px/2))] bottom-[calc(5%-(41px/2))]
       sm:left-[calc(25%-(68px/2))] sm:bottom-[calc(5%-(68px/2))]
-      xl:left-[calc(25%-(128px/2))] xl:bottom-[calc(5%-(128px/2))]
+      2xl:left-[calc(25%-(128px/2))] 2xl:bottom-[calc(5%-(128px/2))]
       `,
   },
   {
@@ -85,7 +85,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       left-[calc(5%-(41px/2))] bottom-[calc(25%-(41px/2))]
       sm:left-[calc(7%-(68px/2))] sm:bottom-[calc(25%-(68px/2))]
-      xl:left-[calc(7%-(128px/2))] xl:bottom-[calc(25%-(128px/2))]
+      2xl:left-[calc(7%-(128px/2))] 2xl:bottom-[calc(25%-(128px/2))]
       `,
   },
   {
@@ -94,7 +94,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       left-[calc(0%-(41px/2))] top-[calc(50%-(41px/2))]
       sm:left-[calc(0%-(68px/2))] sm:top-[calc(50%-(68px/2))]
-      xl:left-[calc(0%-(128px/2))] xl:top-[calc(50%-(128px/2))]
+      2xl:left-[calc(0%-(128px/2))] 2xl:top-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -103,7 +103,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(25%-(41px/2))] left-[calc(5%-(41px/2))]
       sm:top-[calc(25%-(68px/2))] sm:left-[calc(5%-(68px/2))]
-      xl:top-[calc(25%-(128px/2))] xl:left-[calc(5%-(128px/2))]
+      2xl:top-[calc(25%-(128px/2))] 2xl:left-[calc(5%-(128px/2))]
       `,
   },
   {
@@ -112,7 +112,7 @@ const outerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(5%-(41px/2))] left-[calc(25%-(41px/2))]
       sm:top-[calc(7%-(68px/2))] sm:left-[calc(25%-(68px/2))]
-      xl:top-[calc(7%-(128px/2))] xl:left-[calc(25%-(128px/2))]
+      2xl:top-[calc(7%-(128px/2))] 2xl:left-[calc(25%-(128px/2))]
       `,
   },
 ];
@@ -124,7 +124,7 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(0%-(41px/2))] right-[calc(50%-(41px/2))]
       sm:top-[calc(0%-(68px/2))] sm:right-[calc(50%-(68px/2))]
-      xl:top-[calc(0%-(128px/2))] xl:right-[calc(50%-(128px/2))]
+      2xl:top-[calc(0%-(128px/2))] 2xl:right-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -133,7 +133,7 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(25%-(41px/2))] right-[calc(7%-(41px/2))]
       sm:top-[calc(25%-(68px/2))] sm:right-[calc(7%-(68px/2))]
-      xl:top-[calc(25%-(128px/2))] xl:right-[calc(7%-(128px/2))]
+      2xl:top-[calc(25%-(128px/2))] 2xl:right-[calc(7%-(128px/2))]
       `,
   },
   {
@@ -142,7 +142,7 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       bottom-[calc(25%-(41px/2))] right-[calc(7%-(41px/2))]
       sm:bottom-[calc(25%-(68px/2))] sm:right-[calc(7%-(68px/2))]
-      xl:bottom-[calc(25%-(128px/2))] xl:right-[calc(7%-(128px/2))]
+      2xl:bottom-[calc(25%-(128px/2))] 2xl:right-[calc(7%-(128px/2))]
       `,
   },
   {
@@ -151,7 +151,7 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       bottom-[calc(0%-(41px/2))] right-[calc(50%-(41px/2))]
       sm:bottom-[calc(0%-(68px/2))] sm:right-[calc(50%-(68px/2))]
-      xl:bottom-[calc(0%-(128px/2))] xl:right-[calc(50%-(128px/2))]
+      2xl:bottom-[calc(0%-(128px/2))] 2xl:right-[calc(50%-(128px/2))]
       `,
   },
   {
@@ -160,7 +160,7 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       bottom-[calc(25%-(41px/2))] left-[calc(7%-(41px/2))]
       sm:bottom-[calc(25%-(68px/2))] sm:left-[calc(7%-(68px/2))]
-      xl:bottom-[calc(25%-(128px/2))] xl:left-[calc(7%-(128px/2))]
+      2xl:bottom-[calc(25%-(128px/2))] 2xl:left-[calc(7%-(128px/2))]
       `,
   },
   {
@@ -169,21 +169,21 @@ const innerCircleList: OuterAndInnerCircle[] = [
     className: `
       top-[calc(25%-(41px/2))] left-[calc(7%-(41px/2))]
       sm:top-[calc(25%-(68px/2))] sm:left-[calc(7%-(68px/2))]
-      xl:top-[calc(25%-(128px/2))] xl:left-[calc(7%-(128px/2))]
+      2xl:top-[calc(25%-(128px/2))] 2xl:left-[calc(7%-(128px/2))]
       `,
   },
 ];
 
 const AboutCommunity = () => {
   return (
-    <div className="flex flex-col gap-10 justify-start items-start mb-[50px] xl:mb-[144px] px-4 sm:p-8 xl:p-[160px] xl:pb-20 w-full z-10">
-      <div className="flex w-full  sm:pb-[35px] xl:pb-[112px]">
-        <h2 className="text-[24px] sm:text-[32px] xl:text-[64px] text-center w-full text-gray-70 font-medium leading-[130%] p-5">
+    <div className="flex flex-col gap-10 justify-start items-start mb-[50px] 2xl:mb-[144px] px-4 sm:p-8 2xl:p-[160px] 2xl:pb-20 w-full z-10">
+      <div className="flex w-full sm:pb-[35px] 2xl:pb-[112px]">
+        <h2 className="text-[24px] sm:text-[32px] 2xl:text-[64px] text-center w-full text-gray-70 font-medium leading-[130%] p-5">
           А главное — <span className="text-brand-80">сообщество.</span>
         </h2>
       </div>
       <div className="w-full flex items-center justify-center">
-        <div className="left-0 size-[260px] sm:size-[430px] xl:size-[820px] animate-[spin_30s_linear_infinite]  rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] xl:border-4 border-solid relative border-gray-30 flex justify-center items-center">
+        <div className="left-0 size-[260px] sm:size-[430px] 2xl:size-[820px] animate-[spin_30s_linear_infinite]  rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] 2xl:border-4 border-solid relative border-gray-30 flex justify-center items-center">
           {outerCircleList.map((item: OuterAndInnerCircle) => (
             <Image
               width={0}
@@ -191,13 +191,13 @@ const AboutCommunity = () => {
               height={0}
               alt={item.alt}
               src={item.src}
-              className={`size-[41px] sm:size-[68px] xl:size-[128px] absolute ${item.className} animate-[spin_30s_linear_infinite_reverse]`}
+              className={`size-[41px] sm:size-[68px] 2xl:size-[128px] absolute ${item.className} animate-[spin_30s_linear_infinite_reverse]`}
               priority={false}
             />
           ))}
         </div>
         <div className="absolute">
-          <div className="left-0 size-[160px] sm:size-[270px] xl:size-[512px] animate-[spin_30s_linear_infinite_reverse] rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] xl:border-4 border-solid border-gray-30 relative ">
+          <div className="left-0 size-[160px] sm:size-[270px] 2xl:size-[512px] animate-[spin_30s_linear_infinite_reverse] rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] 2xl:border-4 border-solid border-gray-30 relative">
             {innerCircleList.map((item: OuterAndInnerCircle) => (
               <Image
                 key={item.alt}
@@ -205,7 +205,7 @@ const AboutCommunity = () => {
                 height={0}
                 alt={item.alt}
                 src={item.src}
-                className={`size-[41px] sm:size-[68px] xl:size-[128px] absolute ${item.className} animate-[spin_30s_linear_infinite]`}
+                className={`size-[41px] sm:size-[68px] 2xl:size-[128px] absolute ${item.className} animate-[spin_30s_linear_infinite]`}
                 priority={false}
               />
             ))}
@@ -215,7 +215,7 @@ const AboutCommunity = () => {
           <Image
             width={0}
             height={0}
-            className="size-[80px] sm:size-[133px] xl:size-[250px]  "
+            className="size-[80px] sm:size-[133px] 2xl:size-[250px]"
             alt="xieffect logo"
             src="/assets/InnerLogo.svg"
           />
