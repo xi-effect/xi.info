@@ -4,13 +4,11 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { vacancyList } from '../common/const';
 
-type VacancyT = {
+type PageT = {
   id: string;
 };
 
-const Vacancy: FC<VacancyT> = (props) => {
-  const { id } = props;
-
+export const Page = ({ id }: PageT) => {
   const MDX = dynamic(() => import(`markdown/${id}.mdx`));
 
   const vacancy = vacancyList.find((v) => v.id === id);
@@ -50,9 +48,7 @@ const Vacancy: FC<VacancyT> = (props) => {
             </span>
 
             <span className="leading-[130%] text-[16px] sm:text-[20px]">График работы</span>
-            <span className="leading-[130%] text-[20px] sm:text-[24px] font-semibold">
-              Гибкий
-            </span>
+            <span className="leading-[130%] text-[20px] sm:text-[24px] font-semibold">Гибкий</span>
           </div>
 
           <span className="leading-[130%] text-[16px] sm:text-[20px] mb-2">Кто ищет</span>
@@ -90,5 +86,3 @@ const Vacancy: FC<VacancyT> = (props) => {
     </section>
   );
 };
-
-export default Vacancy;

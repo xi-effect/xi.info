@@ -1,5 +1,4 @@
-import { FC } from 'react';
-import Vacancy from 'components/vacancy/Vacancy';
+import { Page } from 'components/document/Page';
 import React from 'react';
 import { vacancyList } from 'components/common/const';
 import Layout from 'components/layout/Layout';
@@ -16,16 +15,14 @@ type PageT = {
   params: { id: string };
 };
 
-const Page: FC<PageT> = (props) => {
-  const {
-    params: { id },
-  } = props;
+const MDXPage = ({ params }: PageT) => {
+  const { id } = params;
 
   return (
     <Layout>
-      <Vacancy id={id} />
+      <Page id={id} />
     </Layout>
   );
 };
 
-export default Page;
+export default MDXPage;
