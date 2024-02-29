@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Control, Controller } from 'react-hook-form';
 import { FormDataT } from './SendResumeButton';
-import { vacancyList } from 'components/common/const';
+import { vacancyList } from 'components/common/pageConfig';
 
 type SelectT = {
   error?: boolean;

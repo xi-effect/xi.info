@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ProfessionsT, vacancyList } from '../common/const';
+import { ProfessionsT, vacancyList } from '../common/pageConfig';
 import NavOfSpecialties from '../common/NavOfSpecialties';
 import SendResumeButton from '../modal/SendResumeButton';
 

@@ -1,12 +1,12 @@
-[
+export const pageConfig = [
   {
     "title": "Начало работы",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "/work-begining/first" },
+      { "linkTitle": "Редактирование", "linkUrl": "/work-begining/second" },
+      { "linkTitle": "Удаление", "linkUrl": "/work-begining/third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "/work-begining",
     "icon": "start-working.svg"
   },
   {
