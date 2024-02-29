@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Link } from "@xipkg/link";
-import Image from "next/image";
+import { Link } from '@xipkg/link';
+import Image from 'next/image';
 
 interface SectionLink {
   link: string;
@@ -15,52 +15,50 @@ interface Section {
 
 const sections: Section[] = [
   {
-    title: "Продукт",
+    title: 'Продукт',
     links: [
-      { link: "#", title: "Задания" },
-      { link: "#", title: "Тесты" },
-      { link: "#", title: "Видеоконференции" },
-      { link: "#", title: "Чаты" },
-      { link: "#", title: "Объявления" },
-      { link: "#", title: "Расписание" },
+      { link: '#', title: 'Задания' },
+      { link: '#', title: 'Тесты' },
+      { link: '#', title: 'Видеоконференции' },
+      { link: '#', title: 'Чаты' },
+      { link: '#', title: 'Объявления' },
+      { link: '#', title: 'Расписание' },
     ],
   },
   {
-    title: "Клиентам",
+    title: 'Клиентам',
     links: [
-      { link: "#", title: "Тарифы" },
-      { link: "#", title: "Руководства" },
-      { link: "#", title: "Поддержка" },
+      { link: '#', title: 'Тарифы' },
+      { link: '#', title: 'Руководства' },
+      { link: '#', title: 'Поддержка' },
     ],
   },
   {
-    title: "Компания",
+    title: 'Компания',
     links: [
-      { link: "#", title: "О нас" },
-      { link: "#", title: "Блог" },
-      { link: "#", title: "Документы" },
-      { link: "https://vacancy.xieffect.ru/", title: "Вакансии" },
+      { link: '#', title: 'О нас' },
+      { link: '#', title: 'Блог' },
+      { link: '#', title: 'Документы' },
+      { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },
     ],
   },
   {
-    title: "Социальные сети",
+    title: 'Социальные сети',
     links: [
-      { link: "https://vk.com/xieffect", title: "VK" },
-      { link: "https://t.me/xieffect", title: "Telegram" },
+      { link: 'https://vk.com/xieffect', title: 'VK' },
+      { link: 'https://t.me/xieffect', title: 'Telegram' },
     ],
   },
 ];
 
-const email = "hello@xieffect.ru";
+const email = 'hello@xieffect.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
   const renderSection = (section: Section) => (
-    <div key={section.title} className="flex flex-col text-[16px] w-full grow">
-      <h3 className="m-0 opacity-40 text-[16px] sm:text-[20px]">
-        {section.title}
-      </h3>
-      <ul className="flex flex-col p-0 m-0 mt-6 gap-6">
+    <div key={section.title} className="flex w-full grow flex-col text-[16px]">
+      <h3 className="m-0 text-[16px] opacity-40 sm:text-[20px]">{section.title}</h3>
+      <ul className="m-0 mt-6 flex flex-col gap-6 p-0">
         {section.links.map((link, index) => (
           <li key={index}>
             <Link
@@ -78,32 +76,23 @@ const Footer = () => {
   );
 
   return (
-    <footer className="flex flex-col lg:flex-row w-full text-gray-100 py-8 px-4 sm:p-8 xl:p-[160px] xl:pb-20">
+    <footer className="flex w-full flex-col px-4 py-8 text-gray-100 sm:p-8 lg:flex-row xl:p-[160px] xl:pb-20">
       <div>
         <Image
           alt="xieffect logo"
           src="/xieffectlogo.svg"
-          className="w-[202px] h-[24px] lg:w-[336px] lg:h-[40px]"
+          className="h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]"
           height={0}
           width={0}
         />
       </div>
-      <div className="lg:ml-[72px] max-lg:mt-8 flex flex-col w-full">
-        <div className="flex flex-col sm:flex-row w-full gap-8">
-          {sections.map(renderSection)}
-        </div>
-        <div className="flex flex-col sm:flex-row justify-between mt-16 gap-2">
+      <div className="flex w-full flex-col max-lg:mt-8 lg:ml-[72px]">
+        <div className="flex w-full flex-col gap-8 sm:flex-row">{sections.map(renderSection)}</div>
+        <div className="mt-16 flex flex-col justify-between gap-2 sm:flex-row">
           <span>&copy; xieffect с {copyrightYear} года</span>
-          <span className="order-1 sm:order-none">
-            Сделано с ❤️ в Санкт-Петербурге
-          </span>
+          <span className="order-1 sm:order-none">Сделано с ❤️ в Санкт-Петербурге</span>
           <span>
-            <Link
-              className="text-[16px]"
-              target="_blank"
-              variant="hover"
-              href={`mailto:${email}`}
-            >
+            <Link className="text-[16px]" target="_blank" variant="hover" href={`mailto:${email}`}>
               {email}
             </Link>
           </span>

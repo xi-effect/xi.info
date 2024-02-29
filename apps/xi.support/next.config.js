@@ -16,7 +16,7 @@ const nextConfig = {
     esmExternals: true,
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
-  transpilePackages: ['@xipkg/typescript', '@xipkg/icons', '@xipkg/utils', 'pkg.footer', '@xipkg/link'],
+  transpilePackages: ['@xipkg/typescript', '@xipkg/icons', '@xipkg/button', '@xipkg/input', '@xipkg/utils', 'pkg.footer', '@xipkg/link'],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',
   },

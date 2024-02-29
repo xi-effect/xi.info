@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC } from 'react';
 import Image from 'next/image';
-import { vacancyList } from '../common/const';
+import { vacancyList } from '../common/pageConfig';
 
 type PageT = {
   id: string;

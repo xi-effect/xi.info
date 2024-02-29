@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 import '@xipkg/tailwind/index.css';
 import '../public/global.css';
 import { Inter } from 'next/font/google';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+// import Header from '../components/layout/Header';
+// import Footer from '../components/layout/Footer';
 import { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'поддержка',
     'support',
     'xi.support',
-    'инструмент'
+    'инструмент',
   ],
   icons: {
     icon: [

@@ -1,6 +1,6 @@
 import { Page } from 'components/document/Page';
 import React from 'react';
-import { vacancyList } from 'components/common/const';
+import { vacancyList } from 'components/common/pageConfig';
 import Layout from 'components/layout/Layout';
 
 export const dynamicParams = false; // true | false,

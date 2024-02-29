@@ -5,7 +5,7 @@ import { Footer } from 'pkg.footer';
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
     <Header />
-    <main className="w-screen container max-w-[1920px] mx-auto px-4 sm:px-8 2xl:px-[112px]">
+    <main className="w-screen">
       {children}
     </main>
     <Footer />
