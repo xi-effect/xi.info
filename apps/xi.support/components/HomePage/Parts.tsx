@@ -23,13 +23,21 @@ export const Parts = () => {
               <ul className="font-normal text-gray-90 text-[16px] sm:text-[20px] leading-[20.8px] sm:leading-[26px]">
                 {item.links.map((link, index) => (
                   <li className="mt-2" key={index}>
-                    <Link className="text-[20px] leading-[26px]" variant="hover" href="#">
+                    <Link
+                      className="text-[20px] leading-[26px]"
+                      variant="hover"
+                      href={`/${item.showAllLink}/${link.linkUrl}`}
+                    >
                       {link.linkTitle}
                     </Link>
                   </li>
                 ))}
                 <div className="mt-4 flex items-stretch gap-1">
-                  <Link className="text-[20px] leading-[26px]" variant="hover" href="#">
+                  <Link
+                    className="text-[20px] leading-[26px]"
+                    variant="hover"
+                    href={`/${item.showAllLink}`}
+                  >
                     Показать все
                   </Link>
                   <ChevronRight className="!size-4 sm:!size-5 mt-[1px] sm:mt-[4px]" />

@@ -2,81 +2,81 @@ export const pageConfig = [
   {
     "title": "Начало работы",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "/work-begining/first" },
-      { "linkTitle": "Редактирование", "linkUrl": "/work-begining/second" },
-      { "linkTitle": "Удаление", "linkUrl": "/work-begining/third" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "/work-begining",
+    "showAllLink": "work-begining",
     "icon": "start-working.svg"
   },
   {
     "title": "Задания",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "tasks",
     "icon": "assignments.svg"
   },
   {
     "title": "Тесты",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "tests",
     "icon": "tests.svg"
   },
   {
     "title": "Чат",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "chats",
     "icon": "chat.svg"
   },
   {
     "title": "Видеоконференции",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "videoconference",
     "icon": "video.svg"
   },
   {
     "title": "Объявления",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "announcements",
     "icon": "announcements.svg"
   },
   {
     "title": "Расписание",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "schedule",
     "icon": "schedule.svg"
   },
   {
     "title": "Управление и настройки",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "#" },
-      { "linkTitle": "Редактирование", "linkUrl": "#" },
-      { "linkTitle": "Удаление", "linkUrl": "#" }
+      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Редактирование", "linkUrl": "second" },
+      { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
-    "showAllLink": "#",
+    "showAllLink": "settings",
     "icon": "settings.svg"
   }
 ]

@@ -31,7 +31,7 @@ const nextConfig = {
       'xieffect.ru',
     ],
   },
-  output: 'export',
+  output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   webpack(config) {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
