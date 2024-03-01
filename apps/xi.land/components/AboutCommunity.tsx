@@ -1,11 +1,12 @@
 'use client';
 import Image from 'next/image';
 
-interface OuterAndInnerCircle {
+type OuterAndInnerCircle = {
   src: string;
   alt: string;
   className: string;
-}
+};
+
 const outerCircleList: OuterAndInnerCircle[] = [
   {
     src: '/assets/OuterCircle/User_1.svg',
@@ -183,7 +184,7 @@ const AboutCommunity = () => {
         </h2>
       </div>
       <div className="w-full flex items-center justify-center">
-        <div className="left-0 size-[260px] sm:size-[430px] 2xl:size-[820px] animate-[spin_30s_linear_infinite]  rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] 2xl:border-4 border-solid relative border-gray-30 flex justify-center items-center">
+        <div className="left-0 size-[260px] sm:size-[430px] 2xl:size-[820px] animate-[spin_30s_linear_infinite] rounded-full bg-transparent border-[1.5px] sm:border-[2.5px] 2xl:border-4 border-solid relative border-gray-30 flex justify-center items-center">
           {outerCircleList.map((item: OuterAndInnerCircle) => (
             <Image
               width={0}

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const AboutTrust = () => {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleClickSlide = (id: number) => {
     const element = document.getElementById(`${id}`) as HTMLElement;
