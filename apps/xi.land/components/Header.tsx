@@ -35,14 +35,20 @@ const Header = () => {
   const isTablet = useMedia('(min-width: 720px)', true);
 
   return (
-    <div className="p-4 sm:p-8 3xl:py-16 3xl:px-[160px] flex flex-row w-full justify-between items-center z-10">
+    <div className="w-full h-[176px] py-16 px-40 flex bg-brand-80 flex-row justify-between items-center z-10">
       <div>
-        <Image alt="xieffect logo" src="/xieffectlogo.svg" height={24} width={202} />
+        <Image alt="xieffect logo" src="/xieffect.webp" height={24} width={202} />
       </div>
       {isTablet && (
         <div className="flex flex-row justify-between w-full max-w-[398px] py-0 px-1.5">
           {arrayOfLinks.map((item, index) => (
-            <Link href="#" key={index} variant="hover" className="text-gray-60 text-xl pointer">
+            <Link
+              href="#"
+              key={index}
+              variant="hover"
+              theme="white"
+              // className="text-xl pointer"
+            >
               {item.label}
             </Link>
           ))}
@@ -51,7 +57,7 @@ const Header = () => {
       <div>
         <Button
           variant="default"
-          className="w-24 z-10 max-sm:hidden"
+          className="w-24 z-10 max-sm:hidden text-gray-100 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
           id="to-signin-button"
           data-umami-event="to-signin-button"
           asChild
