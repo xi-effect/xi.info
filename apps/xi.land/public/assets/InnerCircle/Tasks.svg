@@ -1,0 +1,45 @@
+<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_ii_4008_8428)">
+<rect x="0.949707" y="0.988281" width="40.9254" height="40.9254" rx="20.4627" fill="#445AFF"/>
+<g filter="url(#filter1_di_4008_8428)">
+<path d="M18.2152 15.5778C17.9209 15.5778 17.6823 15.8164 17.6823 16.1107V17.1765C17.6823 17.4708 17.9209 17.7094 18.2152 17.7094H24.6098C24.9041 17.7094 25.1427 17.4708 25.1427 17.1765V16.1107C25.1427 15.8164 24.9041 15.5778 24.6098 15.5778H18.2152Z" fill="white"/>
+<path d="M17.6823 19.308C17.6823 19.0137 17.9209 18.7751 18.2152 18.7751H24.6098C24.9041 18.7751 25.1427 19.0137 25.1427 19.308V20.3738C25.1427 20.6681 24.9041 20.9067 24.6098 20.9067H18.2152C17.9209 20.9067 17.6823 20.6681 17.6823 20.3738V19.308Z" fill="white"/>
+<path d="M18.2152 21.9724C17.9209 21.9724 17.6823 22.211 17.6823 22.5053V23.5711C17.6823 23.8654 17.9209 24.104 18.2152 24.104H24.6098C24.9041 24.104 25.1427 23.8654 25.1427 23.5711V22.5053C25.1427 22.211 24.9041 21.9724 24.6098 21.9724H18.2152Z" fill="white"/>
+<path d="M17.6823 25.7026C17.6823 25.4083 17.9209 25.1697 18.2152 25.1697H21.4125C21.7068 25.1697 21.9454 25.4083 21.9454 25.7026V26.7684C21.9454 27.0627 21.7068 27.3013 21.4125 27.3013H18.2152C17.9209 27.3013 17.6823 27.0627 17.6823 26.7684V25.7026Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.9521 15.045C13.9521 13.2791 15.3836 11.8477 17.1494 11.8477H25.6756C27.4414 11.8477 28.8729 13.2791 28.8729 15.045V27.8341C28.8729 29.6 27.4414 31.0314 25.6756 31.0314H17.1494C15.3836 31.0314 13.9521 29.6 13.9521 27.8341V15.045ZM17.1494 13.9792H25.6756C26.2642 13.9792 26.7413 14.4563 26.7413 15.045V27.8341C26.7413 28.4227 26.2642 28.8999 25.6756 28.8999H17.1494C16.5608 28.8999 16.0837 28.4227 16.0837 27.8341V15.045C16.0837 14.4563 16.5608 13.9792 17.1494 13.9792Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_ii_4008_8428" x="-2.88705" y="-2.84847" width="48.5989" height="48.5993" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-3.83676" dy="-3.83676"/>
+<feGaussianBlur stdDeviation="1.91838"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_4008_8428"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3.83676" dy="3.83676"/>
+<feGaussianBlur stdDeviation="1.91838"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow_4008_8428" result="effect2_innerShadow_4008_8428"/>
+</filter>
+<filter id="filter1_di_4008_8428" x="10.1154" y="8.0109" width="22.5942" height="26.8571" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1.91838"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4008_8428"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4008_8428" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-0.639459" dy="-0.639459"/>
+<feGaussianBlur stdDeviation="0.959189"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0 0.105882 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_4008_8428"/>
+</filter>
+</defs>
+</svg>
