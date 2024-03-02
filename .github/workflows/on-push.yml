@@ -16,6 +16,7 @@ jobs:
 
   build-deploy:
     needs: prepare
+    if: fromJSON(needs.prepare.outputs.app_name_matrix)
     strategy:
       fail-fast: false
       matrix:
