@@ -43,6 +43,9 @@ jobs:
           if [[ "${{ steps.path_filter.outputs.xi_vacancy_files }}" == "true" ]]; then
             matrix+=("xi.vacancy")
           fi
+          if [[ "${{ steps.path_filter.outputs.xi_support_files }}" == "true" ]]; then
+            matrix+=("xi.support")
+          fi
           result=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${matrix[@]}")
           echo "matrix=${result}"
           echo "matrix=${result}" >> $GITHUB_OUTPUT
