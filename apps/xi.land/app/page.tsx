@@ -1,14 +1,9 @@
-import AboutAnnounce from 'components/AboutAnnounce';
-import AboutChat from 'components/AboutChat';
-import AboutCommunity from 'components/AboutCommunity';
-import AboutTasks from 'components/AboutTasks';
-import AboutVideo from 'components/AboutVideo';
 import { Footer } from 'pkg.footer';
 import Header from 'components/Header';
 import HelloUser from 'components/HelloUser';
-import AboutEase from 'components/AboutEase';
-import AboutTrust from 'components/AboutTrust';
 import { AboutDemoRegistration } from 'components/AboutDemoRegistration';
+import AboutAllIn from 'components/AboutAllIn';
+import AboutChangeWorld from 'components/AboutChangeWorld';
 
 export default function MainPage() {
   return (
@@ -16,13 +11,8 @@ export default function MainPage() {
       <div className="flex flex-col w-full justify-start items-start">
         <Header />
         <HelloUser />
-        <AboutTasks />
-        <AboutVideo />
-        <AboutChat />
-        <AboutAnnounce />
-        <AboutCommunity />
-        <AboutEase />
-        <AboutTrust />
+        <AboutAllIn />
+        <AboutChangeWorld />
         <AboutDemoRegistration />
         <Footer />
       </div>

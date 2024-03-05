@@ -77,13 +77,12 @@ const Footer = () => {
 
   return (
     <footer className="flex w-full flex-col px-4 py-8 text-gray-100 sm:p-8 lg:flex-row xl:p-[160px] xl:pb-20">
-      <div>
+      <div className="relative h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]">
         <Image
           alt="xieffect logo"
-          src="/xieffectlogo.svg"
-          className="h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]"
-          height={0}
-          width={0}
+          src="/xieffectlight.webp"
+          height={40}
+          width={336}
         />
       </div>
       <div className="flex w-full flex-col max-lg:mt-8 lg:ml-[72px]">

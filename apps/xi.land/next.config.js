@@ -15,6 +15,7 @@ const nextConfig = {
     '@xipkg/tailwind',
     '@xipkg/utils',
     '@xipkg/icons',
+    '@xipkg/tabs',
     'pkg.footer',
   ],
   compiler: {
