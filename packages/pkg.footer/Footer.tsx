@@ -76,25 +76,29 @@ const Footer = () => {
   );
 
   return (
-    <footer className="flex w-full flex-col px-4 py-8 text-gray-100 sm:p-8 lg:flex-row xl:p-[160px] xl:pb-20">
-      <div className="relative h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]">
-        <Image
-          alt="xieffect logo"
-          src="/xieffectlight.webp"
-          height={40}
-          width={336}
-        />
-      </div>
-      <div className="flex w-full flex-col max-lg:mt-8 lg:ml-[72px]">
-        <div className="flex w-full flex-col gap-8 sm:flex-row">{sections.map(renderSection)}</div>
-        <div className="mt-16 flex flex-col justify-between gap-2 sm:flex-row">
-          <span>&copy; xieffect с {copyrightYear} года</span>
-          <span className="order-1 sm:order-none">Сделано с ❤️ в Санкт-Петербурге</span>
-          <span>
-            <Link className="text-[16px]" target="_blank" variant="hover" href={`mailto:${email}`}>
-              {email}
-            </Link>
-          </span>
+    <footer className="flex w-full items-center justify-center px-4 py-8 text-gray-100 sm:p-8 xl:p-[160px] xl:pb-20">
+      <div className="flex w-full w-full max-w-[1920px] flex-col text-gray-100 lg:flex-row">
+        <div className="relative h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]">
+          <Image alt="xieffect logo" src="/xieffectlight.webp" height={40} width={336} />
+        </div>
+        <div className="flex w-full flex-col max-lg:mt-8 lg:ml-[72px]">
+          <div className="flex w-full flex-col gap-8 sm:flex-row">
+            {sections.map(renderSection)}
+          </div>
+          <div className="mt-16 flex flex-col justify-between gap-2 sm:flex-row">
+            <span>&copy; xieffect с {copyrightYear} года</span>
+            <span className="order-1 sm:order-none">Сделано с ❤️ в Санкт-Петербурге</span>
+            <span>
+              <Link
+                className="text-[16px]"
+                target="_blank"
+                variant="hover"
+                href={`mailto:${email}`}
+              >
+                {email}
+              </Link>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
