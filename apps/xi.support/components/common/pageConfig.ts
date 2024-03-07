@@ -2,7 +2,7 @@ export const pageConfig = [
   {
     "title": "Начало работы",
     "links": [
-      { "linkTitle": "Создание", "linkUrl": "first" },
+      { "linkTitle": "Создание", "linkUrl": "signup" },
       { "linkTitle": "Редактирование", "linkUrl": "second" },
       { "linkTitle": "Удаление", "linkUrl": "third" }
     ],
