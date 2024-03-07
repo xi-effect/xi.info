@@ -1,5 +1,6 @@
 import { Button } from '@xipkg/button';
 import React from 'react';
+import NextLink from 'next/link';
 
 export const AboutDemoRegistration = () => {
   return (
@@ -16,12 +17,15 @@ export const AboutDemoRegistration = () => {
               То, что вам нужно? Создайте бесплатный аккаунт или запишитесь на демонстрацию
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-              <Button className="xl:px-8">Записаться на демонстрацию</Button>
+              <Button className="xl:px-8" asChild>
+                <NextLink href="mailto:xieffect@yandex.ru"> Записаться на демонстрацию</NextLink>
+              </Button>
               <Button
                 variant="secondary"
                 className="bg-transparent text-gray-0 hover:text-gray-80 border-gray-80 hover:border-transparent 2xl:px-8"
+                asChild
               >
-                Стать пользователем
+                <NextLink href="https://app.xieffect.ru/signup">Стать пользователем</NextLink>
               </Button>
             </div>
           </div>
