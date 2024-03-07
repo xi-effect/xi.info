@@ -7,6 +7,7 @@ import { Caveat } from 'next/font/google';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import React from 'react';
+import ContactUsModal from './ContactUsModal';
 
 export const caveat = Caveat({ subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'latin-ext'] });
 
@@ -168,12 +169,14 @@ const HelloUser = () => {
         transition={{ delay: 3, duration: 1 }}
         className="w-full md:w-fit flex flex-col sm:flex-row gap-4 mt-8 "
       >
-        <Button
-          className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
-          size="l"
-        >
-          <NextLink href="mailto:xieffect@yandex.ru">Записаться на тестирование</NextLink>
-        </Button>
+        <ContactUsModal>
+          <Button
+            className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
+            size="l"
+          >
+            Записаться на тестирование
+          </Button>
+        </ContactUsModal>
         {/* <Button size="l" variant="secondary">
           <NextLink href="https://app.xieffect.ru/signup">Стать пользователем</NextLink>
         </Button> */}

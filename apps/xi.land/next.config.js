@@ -16,6 +16,10 @@ const nextConfig = {
     '@xipkg/utils',
     '@xipkg/icons',
     '@xipkg/tabs',
+    '@xipkg/modal',
+    '@xipkg/form',
+    '@xipkg/input',
+    '@xipkg/label',
     'pkg.footer',
   ],
   compiler: {
