@@ -122,7 +122,7 @@ const HelloUser = () => {
   }, [isInView, index]);
 
   return (
-    <div className="h-[480px] 2xl:h-[820px] bg-brand-80 flex flex-col w-full justify-center items-center p-4 sm:p-8 xl:py-16 xl:px-[96px]">
+    <div className="h-[400px] md:h-[480px] 2xl:h-[720px] bg-brand-80 flex flex-col w-full justify-center items-center p-4 sm:p-8 xl:py-16 xl:px-[96px]">
       <h1 className="sr-only">Приложение для репетиторов и малого бизнеса</h1>
       <motion.h1
         ref={ref}
