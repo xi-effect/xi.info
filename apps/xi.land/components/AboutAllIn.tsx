@@ -99,7 +99,7 @@ const AboutAllIn = () => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className={`w-full h-full min-h-[471px] md:min-h-[678px] flex flex-col xl:flex-row p-4 md:p-8 2xl:p-16 rounded-[8px] md:rounded-[16px] 2xl:rounded-[64px] ${selectedTab.color}`}
+              className={`w-full h-full min-h-[470px] md:min-h-[678px] flex flex-col lg:flex-row p-4 md:p-8 2xl:p-16 rounded-[8px] md:rounded-[16px] 2xl:rounded-[64px] ${selectedTab.color}`}
             >
               <div className="w-full flex flex-col">
                 <span className="text-[20px] md:text-[32px] 2xl:text-[56px] fomt-medium text-gray-100">
