@@ -68,7 +68,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
       // если HTTP-статус в диапазоне 200-299
       // получаем тело ответа (см. про этот метод ниже)
       toast.success('Спасибо, мы получили Ваш контакт', {
-        position: "top-center"
+        position: 'top-center',
       });
       form.reset();
     } else {
@@ -80,7 +80,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
   return (
     <Modal>
       <ModalTrigger asChild>{children}</ModalTrigger>
-      <ModalContent className="flex flex-col lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px]">
+      <ModalContent className="flex flex-col max-h-[100svh] lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px] max-lg:overflow-auto">
         <ModalCloseButton breakpoint="lg">
           <Close className="fill-gray-80 lg:fill-gray-0" />
         </ModalCloseButton>
