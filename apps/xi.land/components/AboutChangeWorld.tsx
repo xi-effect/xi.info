@@ -90,7 +90,7 @@ const AboutChangeWorld = () => {
               width={550}
               height={260}
               quality={100}
-              src={'/assets/aboutChangeWorld/chat.webp'}
+              src={'/assets/aboutChangeWorld/support.webp'}
               alt="chat image"
             />
           </div>
