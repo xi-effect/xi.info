@@ -80,7 +80,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
   return (
     <Modal>
       <ModalTrigger asChild>{children}</ModalTrigger>
-      <ModalContent className="flex flex-col max-h-[100svh] lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px] max-lg:overflow-auto">
+      <ModalContent className="flex flex-col max-h-full lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px] max-lg:overflow-auto">
         <ModalCloseButton breakpoint="lg">
           <Close className="fill-gray-80 lg:fill-gray-0" />
         </ModalCloseButton>
