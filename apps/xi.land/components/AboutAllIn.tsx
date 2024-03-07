@@ -102,7 +102,7 @@ const AboutAllIn = () => {
               className={`w-full h-full min-h-[470px] md:min-h-[678px] flex flex-col lg:flex-row p-4 md:p-8 2xl:p-16 rounded-[8px] md:rounded-[16px] 2xl:rounded-[64px] ${selectedTab.color}`}
             >
               <div className="w-full flex flex-col">
-                <span className="text-[20px] md:text-[32px] 2xl:text-[56px] fomt-medium text-gray-100">
+                <span className="text-[20px] md:text-[24px] 2xl:text-[56px] fomt-medium text-gray-100">
                   {selectedTab.title}
                 </span>
                 <span className="text-[14px] md:text-[24px] 2xl:text-[32px] text-gray-80">
