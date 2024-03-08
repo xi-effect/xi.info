@@ -105,7 +105,7 @@ const AboutAllIn = () => {
                 <span className="text-[20px] md:text-[24px] 2xl:text-[56px] fomt-medium text-gray-100">
                   {selectedTab.title}
                 </span>
-                <span className="text-[14px] md:text-[24px] 2xl:text-[32px] text-gray-80">
+                <span className="text-[14px] md:text-[16px] 2xl:text-[32px] text-gray-80">
                   {selectedTab.content}
                 </span>
                 <Button
