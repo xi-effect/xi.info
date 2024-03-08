@@ -11,11 +11,9 @@ import * as z from 'zod';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
   useForm,
 } from '@xipkg/form';
 import { ArrowRight, Close } from '@xipkg/icons';
@@ -88,7 +86,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
           <span className="font-medium text-[32px] w-[80%] md:w-full">Тестирование xi.effect</span>
           <span className="mt-4 font-medium text-[16px]">
             В ближайшие месяцы команда проекта запустит первое тестирование, Вы сможете внести свой
-            вклад:
+            вклад, а также:
           </span>
           <div className="mt-4 flex flex-row">
             <div className="h-4 w-4 mt-1">
