@@ -27,7 +27,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    formats: ['image/webp', 'image/png'],
+    formats: ['image/webp'],
   },
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   webpack(config) {
