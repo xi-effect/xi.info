@@ -16,7 +16,7 @@
     "@types/mdx": "^2.0.5",
     "@xipkg/tailwind": "0.3.6",
     "@xipkg/icons": "0.8.6",
-    "@xipkg/link": "0.2.0",
+    "@xipkg/link": "0.3.0",
     "@xipkg/button": "1.1.3",
     "@xipkg/input": "0.1.1",
     "pkg.footer": "*",

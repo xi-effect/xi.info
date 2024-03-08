@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 
 import '@xipkg/tailwind/index.css';
 import Script from 'next/script';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           data-website-id="e9570b38-1176-44ac-854c-5b7ad4380a47"
           src="https://analytics.xieffect.ru/umami.js"
         />
+        <Toaster />
         {children}
       </body>
     </html>

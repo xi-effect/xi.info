@@ -15,6 +15,11 @@ const nextConfig = {
     '@xipkg/tailwind',
     '@xipkg/utils',
     '@xipkg/icons',
+    '@xipkg/tabs',
+    '@xipkg/modal',
+    '@xipkg/form',
+    '@xipkg/input',
+    '@xipkg/label',
     'pkg.footer',
   ],
   compiler: {
@@ -30,7 +35,7 @@ const nextConfig = {
       'xieffect.ru',
     ],
   },
-  output: 'export',
+  output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   webpack(config) {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
