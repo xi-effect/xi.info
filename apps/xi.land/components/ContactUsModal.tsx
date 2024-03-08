@@ -85,8 +85,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
         <div className="flex flex-col w-full p-6 lg:p-12">
           <span className="font-medium text-[32px] w-[80%] md:w-full">Тестирование xi.effect</span>
           <span className="mt-4 font-medium text-[16px]">
-            В ближайшие месяцы команда проекта запустит первое тестирование, Вы сможете внести свой
-            вклад, а также:
+            В ближайшие месяцы команда проекта запустит первое тестирование, записавшись на участие в нём, вы сможете:
           </span>
           <div className="mt-4 flex flex-row">
             <div className="h-4 w-4 mt-1">
