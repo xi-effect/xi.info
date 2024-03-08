@@ -27,13 +27,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: [
-      'cdn.discordapp.com',
-      'localhost:3000',
-      'localhost:5000',
-      'xieffect.ru:5000',
-      'xieffect.ru',
-    ],
+    formats: ['image/webp', 'image/png'],
   },
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   webpack(config) {
