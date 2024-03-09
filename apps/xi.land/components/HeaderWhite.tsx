@@ -68,7 +68,7 @@ const HeaderWhite = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="hidden md:flex flex-row justify-center gap-8 w-full max-w-[398px] py-0 px-1.5"
+          className="hidden md:flex flex-row justify-center gap-8"
         >
           {arrayOfLinks.map((item, index) => (
             <Link

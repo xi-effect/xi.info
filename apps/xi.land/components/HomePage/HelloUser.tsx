@@ -124,63 +124,65 @@ const HelloUser = () => {
 
   return (
     <div className="h-[400px] md:h-[480px] 2xl:h-[720px] bg-brand-80 flex flex-col w-full justify-center items-center p-4 sm:p-8 xl:py-16 xl:px-[96px]">
-      <h1 className="sr-only">Приложение для репетиторов и малого бизнеса</h1>
-      <motion.h1
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={{
-          visible: { transition: { staggerChildren: 0.1 } },
-          hidden: {},
-        }}
-        aria-hidden
-        className="flex flex-col md:flex-row text-[32px] md:text-[48px] 2xl:text-[80px] text-gray-0 items-center md:items-baseline"
-      >
-        {textArray[index].map((line, lineIndex) => (
-          <span className="" key={`${line}-${lineIndex}`}>
-            {line.text.split(' ').map((word, wordIndex) => (
-              <span className={line.className} key={`${word}-${wordIndex}`}>
-                {word.split('').map((char, charIndex) => (
-                  <motion.span
-                    key={`${char}-${charIndex}`}
-                    className=""
-                    variants={defaultAnimations}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-                <span className="inline-block">&nbsp;</span>
-              </span>
-            ))}
-          </span>
-        ))}
-      </motion.h1>
-      <motion.h2
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        className="mt-2 md:mt-4 text-[20px] md:text-[24px] 2xl:text-[32px] sm:text-[32px] text-center text-gray-10"
-      >
-        Приложение для репетиторов и малого бизнеса
-      </motion.h2>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 1 }}
-        className="w-full md:w-fit flex flex-col sm:flex-row gap-4 mt-8 "
-      >
-        <ContactUsModal>
-          <Button
-            className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
-            size="l"
-          >
-            Записаться на тестирование
-          </Button>
-        </ContactUsModal>
-        {/* <Button size="l" variant="secondary">
+      <div className="w-full max-w-[1920px] flex flex-col justify-center items-center">
+        <h1 className="sr-only">Приложение для репетиторов и малого бизнеса</h1>
+        <motion.h1
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+            hidden: {},
+          }}
+          aria-hidden
+          className="flex flex-col md:flex-row text-[32px] md:text-[48px] 2xl:text-[80px] text-gray-0 items-center md:items-baseline"
+        >
+          {textArray[index].map((line, lineIndex) => (
+            <span className="" key={`${line}-${lineIndex}`}>
+              {line.text.split(' ').map((word, wordIndex) => (
+                <span className={line.className} key={`${word}-${wordIndex}`}>
+                  {word.split('').map((char, charIndex) => (
+                    <motion.span
+                      key={`${char}-${charIndex}`}
+                      className=""
+                      variants={defaultAnimations}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  <span className="inline-block">&nbsp;</span>
+                </span>
+              ))}
+            </span>
+          ))}
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5, duration: 1 }}
+          className="mt-2 md:mt-4 text-[20px] md:text-[24px] 2xl:text-[32px] sm:text-[32px] text-center text-gray-10"
+        >
+          Приложение для репетиторов и малого бизнеса
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3, duration: 1 }}
+          className="w-full md:w-fit flex flex-col sm:flex-row gap-4 mt-8 "
+        >
+          <ContactUsModal>
+            <Button
+              className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
+              size="l"
+            >
+              Записаться на тестирование
+            </Button>
+          </ContactUsModal>
+          {/* <Button size="l" variant="secondary">
           <NextLink href="https://app.xieffect.ru/signup">Стать пользователем</NextLink>
         </Button> */}
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

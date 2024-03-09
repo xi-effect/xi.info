@@ -15,7 +15,7 @@ const tabs = [
     title: 'Задавайте тесты',
     content:
       'Создавайте свои тесты из разных блоков, проверяйте их в ручном или автоматическом режиме, управляйте доступом и оценивайте знания ваших студентов',
-    link: '',
+    link: '/product#tasksAndTests',
     image: '/assets/aboutAllIn/testsTabs.webp',
   },
   {
@@ -24,7 +24,7 @@ const tabs = [
     title: 'Удобные задания',
     content:
       'Задавайте задания в удобном для вас формате, проверяйте загруженные студентами файлы или прикрепленные ими документы из встроенного редактора',
-    link: '',
+    link: '/product#tasksAndTests',
     image: '/assets/aboutAllIn/tasksTabs.webp',
   },
   {
@@ -33,7 +33,7 @@ const tabs = [
     title: 'Живое общение',
     content:
       'Начинайте видеоконференцию в удобное для вас время, приглашайте до 100 участников, демонстрируйте ваш экран, общайтесь в чате не выходя из браузера',
-    link: '',
+    link: '/product#videocalls',
     image: '/assets/aboutAllIn/videoconferenceTabs.webp',
   },
   {
@@ -42,7 +42,7 @@ const tabs = [
     title: 'Мгновенные сообщения',
     content:
       'Пишите сообщения, прикрепляйте файлы, оставляйте ответы и реакции, не переходя в сторонние мессенджеры',
-    link: '',
+    link: '/product#chats',
     image: '/assets/aboutAllIn/chatsTabs.webp',
   },
   {
@@ -51,7 +51,7 @@ const tabs = [
     title: 'Быстрые объявления',
     content:
       'Свободно публикуйте любую необходимую информацию в текстовом формате, прикрепляйте фото и видео, вставляйте цитаты и важные заметки. Все для вашей удобной работы',
-    link: '',
+    link: '/product#announces',
     image: '/assets/aboutAllIn/announcesTabs.webp',
   },
 ];

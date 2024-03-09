@@ -19,12 +19,11 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
-      { link: '#', title: 'Задания' },
-      { link: '#', title: 'Тесты' },
-      { link: '#', title: 'Видеоконференции' },
-      { link: '#', title: 'Чаты' },
-      { link: '#', title: 'Объявления' },
-      { link: '#', title: 'Расписание' },
+      { link: '/product#tasksAndTests', title: 'Задания' },
+      { link: '/product#tasksAndTests', title: 'Тесты' },
+      { link: '/product#videocalls', title: 'Видеоконференции' },
+      { link: '/product#chats', title: 'Чаты' },
+      { link: '/product#announces', title: 'Объявления' },
     ],
   },
   {
@@ -69,13 +68,7 @@ const Footer = () => {
       <ul className="m-0 mt-6 flex flex-col gap-6 p-0">
         {section.links.map((link, index) => (
           <li key={index}>
-            <Link
-              className="text-[16px] sm:text-[20px]"
-              // target="_blank"
-              variant="hover"
-              onClick={() => handleSonner(link.link)}
-              href="/"
-            >
+            <Link className="text-[16px] sm:text-[20px]" variant="hover" href={link.link}>
               {link.title}
             </Link>
           </li>

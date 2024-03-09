@@ -1,9 +1,9 @@
 import { Footer } from 'pkg.footer';
 import HeaderWhite from 'components/HeaderWhite';
-import HelloUser from 'components/HelloUser';
-import { AboutDemoRegistration } from 'components/AboutDemoRegistration';
-import AboutAllIn from 'components/AboutAllIn';
-import AboutChangeWorld from 'components/AboutChangeWorld';
+import HelloUser from 'components/HomePage/HelloUser';
+import { AboutDemoRegistration } from 'components/HomePage/AboutDemoRegistration';
+import AboutAllIn from 'components/HomePage/AboutAllIn';
+import AboutChangeWorld from 'components/HomePage/AboutChangeWorld';
 
 export default function MainPage() {
   return (
