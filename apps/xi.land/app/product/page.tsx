@@ -16,30 +16,40 @@ const featchersData = [
       {
         title: 'Управление доступом',
         content: 'Доступ к тесту можно открывать и закрывать в определённое время автоматически',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Выбор модели оценивания',
         content:
           'Выбирайте удобную модель оценивания — 5-бальная шкала, 100-бальная шкала, или любая другая — по вашему желанию',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/2.webp',
+        width: 200,
+        height: 190,
       },
       {
         title: '3 типа вопросов',
         content:
           'Создавайте вопросы с коротким ответом, развёрнутым ответом или с выбором вариантов ответа',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/3.webp',
+        width: 200,
+        height: 156,
       },
       {
         title: 'Коментарии',
         content: 'Общайтесь со студентами по поводу заданий в коментариях к заданиям и тестам',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/4.webp',
+        width: 444,
+        height: 168,
       },
       {
         title: 'Автоматическая проверка',
         content:
           'Настройте возможность автоматической проверки заданий с коротким ответом или выбором вариантов ответа',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/5.webp',
+        width: 264,
+        height: 98,
       },
     ],
   },
@@ -52,22 +62,30 @@ const featchersData = [
       {
         title: 'Молниеносное начало',
         content: 'Начинайте видеоконференцию в любой момент по вашему желанию',
-        image: '',
+        image: '/assets/productPage/videoconference/1.webp',
+        width: 340,
+        height: 234,
       },
       {
         title: 'Чат',
         content: 'Используйте чаты не выходя из видеоконференции',
-        image: '',
+        image: '/assets/productPage/videoconference/2.webp',
+        width: 382,
+        height: 198,
       },
       {
         title: 'Демонстрация экрана',
         content: 'Демонстрируйте свой экран студентам',
-        image: '',
+        image: '/assets/productPage/videoconference/3.webp',
+        width: 72,
+        height: 72,
       },
       {
         title: 'Реакции',
         content: 'Добавьте возможность поднять руку вашим студентам',
-        image: '',
+        image: '/assets/productPage/videoconference/4.webp',
+        width: 377,
+        height: 200,
       },
     ],
   },
@@ -81,46 +99,62 @@ const featchersData = [
         title: 'Отправка файлов',
         content:
           'У нас можно загрузить сразу несколько файлов и быстро выгрузить их по одному клику',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 442,
+        height: 114,
       },
       {
         title: 'Закреплённые сообщения',
         content: 'В каждом чате можно закреплять сообщения и посмотреть их в отдельном окне',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Реакции на сообщения',
         content:
           'Если сообщение не требует развёрнутого ответа, то достаточно поставить реакцию-эмоджи на него, чтобы дать свою обратную связь',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 298,
+        height: 76,
       },
       {
         title: 'Теги',
         content:
           'Если вы хотите адресовать сообщение конкретному человеку, то вам достаточно написать @ и выбрать пользователя',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 437,
+        height: 144,
       },
       {
         title: 'Форматирование сообщений',
         content: 'Можно сделать текст жирным, курсивом или вставить в него ссылку',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 382,
+        height: 144,
       },
       {
         title: 'Ответы на сообщения',
         content: 'На каждое сообщение можно ответить и процитировать сообщение',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 404,
+        height: 86,
       },
       {
         title: 'Редактирование и удаление сообщений',
         content:
           'Опечатались, ошиблись или изменились вводные? Ничего страшного, сообщения можно редактировать и удалять',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 200,
+        height: 56,
       },
       {
         title: 'Ссылка на сообщение',
         content:
           'У каждого сообщения можно скопировать ссылку и отправить студенту или коллеге. Он сможет посмотреть его только если имееет доступ к чату',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 190,
+        height: 128,
       },
     ],
   },
@@ -133,17 +167,23 @@ const featchersData = [
       {
         title: 'Форматирование',
         content: 'Можно сделать текст жирным, курсивом или вставить в него ссылку',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Файлы',
         content: 'Прикрепите важные файлы к вашей записи',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Редактор',
         content: 'Создавайте свой контент в удобном редакторе',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
     ],
   },
@@ -156,17 +196,23 @@ const featchersData = [
         title: 'Настройка ролей',
         content:
           'Вы можете создать неограниченное количество ролей и настроить по своим потребностям',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Права пользователей',
         content: 'Настраивайте права для каждой роли отдельно',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Массовое добавление пользователей',
         content: 'Приглашайте студентов и коллег через ссылки, выдавая сразу необходимые роли',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
     ],
   },
@@ -178,12 +224,16 @@ const featchersData = [
       {
         title: 'Все по категориям',
         content: 'Группируйте каналы по категориям',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Приватные категории',
         content: 'Настройте категории с доступом определённым группам',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
     ],
   },
@@ -195,22 +245,30 @@ const featchersData = [
       {
         title: 'Тёмная тема',
         content: 'Для сов, ценителей ночной продуктивности и просто эстетов:)',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Прямой чат с поддержкой в Telegram',
         content: 'Каждый пользователь может быстро связаться с нами в чате поддержки',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Журнал обновлений',
         content: 'После каждого обновления мы покажем вам модальное окно с рассказом о нём',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
       {
         title: 'Кастомизация сообществ',
         content: 'Настраивайте сообщество по вашему вкусу',
-        image: '',
+        image: '/assets/productPage/tasksAndTests/1.webp',
+        width: 377,
+        height: 200,
       },
     ],
   },
@@ -265,11 +323,11 @@ export default function ProductPage() {
                 <span className="text-[16px] md:text-[24px] 2xl:text-[32px] mt-2">
                   {group.subtitle}
                 </span>
-                <div className="mt-12 grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-12 2xl:gap-8">
+                <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-12 2xl:gap-8">
                   {group.items.map((item, i) => (
                     <div className="flex flex-col" key={i.toString()}>
-                      <div className="flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px]">
-                        <Image alt={item.title} src="" />
+                      <div className="flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px] p-1">
+                        <Image alt={item.title} src={item.image} width={item.width} height={item.height}/>
                       </div>
                       <span className="mt-4 font-medium text-[16px] md:text-[24px] 2xl:text-[32px]">
                         {item.title}
