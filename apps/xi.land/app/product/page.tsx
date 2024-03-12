@@ -283,7 +283,7 @@ export default function ProductPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0, duration: 1 }}
-          className="py-4 md:py-8 px-4 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
+          className="py-4 px-4 md:py-8 md:px-8 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
         >
           <div className="w-full max-w-[1920px]">
             <span className="font-medium text-[32px] md:text-[48px] 2xl:text-[80px]">
@@ -295,7 +295,7 @@ export default function ProductPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="py-8 px-4 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
+          className="p-4 md:p-8 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
         >
           <div className="flex flex-col w-full max-w-[1920px] mt-0 2xl:mt-[64px] gap-[64px] 2xl:gap-[256px]">
             {featchersData.map((group, index) => (
