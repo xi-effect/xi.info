@@ -1,4 +1,5 @@
 import { HeaderDoc, Layout } from 'components/Layout';
+import Sections from 'components/SectionPage/Sections';
 import Title from 'components/SectionPage/Title';
 import { sectionsConfig } from 'config/sectionsConfig';
 
@@ -21,6 +22,7 @@ const SectionPage = ({ params: { section } }) => {
     <Layout>
       <HeaderDoc />
       <Title title={sectionItem.title} />
+      <Sections sections={sectionItem.links} />
     </Layout>
   );
 };
