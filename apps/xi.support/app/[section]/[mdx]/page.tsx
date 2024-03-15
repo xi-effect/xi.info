@@ -1,7 +1,7 @@
 import React from 'react';
 import { sectionsConfig } from 'config/sectionsConfig';
 import { MdxPage } from 'components/MdxPage';
-import { Layout, HeaderDoc } from 'components/Layout';
+import { Layout, HeaderDoc } from 'components/Common';
 import { Link } from '@xipkg/link';
 import { CallToAction } from 'components/HomePage';
 

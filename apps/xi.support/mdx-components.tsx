@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 import { PropsWithChildren } from 'react';
+import { Link } from '@xipkg/link';
 
 const H1 = ({ children }: PropsWithChildren) => <h1 className="mdx-h1">{children}</h1>;
 

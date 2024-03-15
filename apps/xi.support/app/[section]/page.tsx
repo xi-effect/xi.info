@@ -1,4 +1,4 @@
-import { HeaderDoc, Layout } from 'components/Layout';
+import { HeaderDoc, Layout } from 'components/Common';
 import Sections from 'components/SectionPage/Sections';
 import Title from 'components/SectionPage/Title';
 import { sectionsConfig } from 'config/sectionsConfig';
