@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Footer } from 'pkg.footer';
 
-const Layout = ({ children }: { children: ReactNode }) => (
+export const Layout = ({ children }: { children: ReactNode }) => (
   <>
     <main className="w-screen">
       {children}
@@ -9,5 +9,3 @@ const Layout = ({ children }: { children: ReactNode }) => (
     <Footer />
   </>
 );
-
-export default Layout;

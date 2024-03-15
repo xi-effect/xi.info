@@ -1,8 +1,7 @@
 'use client';
 
 import { CallToAction, Hero, Parts } from 'components/HomePage';
-import HeaderMain from 'components/Layout/HeaderMain';
-import Layout from 'components/Layout/Layout';
+import { Layout, HeaderMain } from 'components/Layout';
 
 const Page = () => (
   <Layout>

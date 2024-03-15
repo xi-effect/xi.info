@@ -1,4 +1,5 @@
 'use client';
+
 import Header from 'components/Layout/HeaderMain';
 import Link from 'next/link';
 import { Mail } from '@xipkg/icons';

@@ -1,5 +1,4 @@
-import HeaderDoc from 'components/Layout/HeaderDoc';
-import Layout from 'components/Layout/Layout';
+import { HeaderDoc, Layout } from 'components/Layout';
 import Title from 'components/SectionPage/Title';
 import { sectionsConfig } from 'config/sectionsConfig';
 
@@ -16,7 +15,7 @@ const SectionPage = ({ params: { section } }) => {
 
   if (!sectionItem) return;
 
-  console.log("section", sectionItem);
+  console.log('section', sectionItem);
 
   return (
     <Layout>
