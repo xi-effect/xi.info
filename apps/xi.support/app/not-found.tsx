@@ -1,5 +1,5 @@
 'use client';
-import Header from 'components/layout/HeaderMain';
+import Header from 'components/Layout/HeaderMain';
 import Link from 'next/link';
 import { Mail } from '@xipkg/icons';
 import { useRouter } from 'next/navigation';

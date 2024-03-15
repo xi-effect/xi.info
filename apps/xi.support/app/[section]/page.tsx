@@ -1,11 +1,27 @@
-import { pageConfig } from 'components/common/pageConfig';
-import HeaderMain from 'components/layout/HeaderMain';
-import Layout from 'components/layout/Layout';
+import HeaderDoc from 'components/Layout/HeaderDoc';
+import Layout from 'components/Layout/Layout';
+import Title from 'components/SectionPage/Title';
+import { sectionsConfig } from 'config/sectionsConfig';
 
-const SectionPage = () => {
+export const dynamicParams = false; // true | false,
+
+export async function generateStaticParams() {
+  return sectionsConfig.map((item) => ({
+    section: item.sectionName,
+  }));
+}
+
+const SectionPage = ({ params: { section } }) => {
+  const sectionItem = sectionsConfig.find((item) => item.sectionName === section);
+
+  if (!sectionItem) return;
+
+  console.log("section", sectionItem);
+
   return (
     <Layout>
-      <HeaderMain />
+      <HeaderDoc />
+      <Title title={sectionItem.title} />
     </Layout>
   );
 };

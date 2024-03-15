@@ -1,8 +1,8 @@
 import React from 'react';
-import { pageConfig } from 'components/common/pageConfig';
+import { sectionsConfig } from 'config/sectionsConfig';
 import { MdxPage } from 'components/MdxPage';
-import Layout from 'components/layout/Layout';
-import HeaderDoc from 'components/layout/HeaderDoc';
+import Layout from 'components/Layout/Layout';
+import HeaderDoc from 'components/Layout/HeaderDoc';
 import { Link } from '@xipkg/link';
 import { CallToAction } from 'components/HomePage';
 
@@ -14,9 +14,9 @@ type MdXPageT = {
 
 export async function generateStaticParams() {
   const itemsArray: { sectionId: string; mdxId: string }[] = [];
-  pageConfig.forEach((item) => {
+  sectionsConfig.forEach((item) => {
     item.links.forEach((link) =>
-      itemsArray.push({ sectionId: item.showAllLink, mdxId: link.linkUrl }),
+      itemsArray.push({ sectionId: item.sectionName, mdxId: link.pageUrl }),
     );
   });
 
@@ -41,7 +41,7 @@ const page = {
     },
     {
       title: 'Тесты',
-      link: '#',
+      link: '#Какунасдела?',
     },
     {
       title: 'Чат',
@@ -106,11 +106,10 @@ export default function Page({ params }: MdXPageT) {
           </div>
         </div>
         <div>
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
           <MdxPage sectionId={params.section} mdxId={params.mdx} />
           <span className="font-medium text-[20px] text-gray-60 mt-4 md:mt-8">
-            {' '}
-            {`Обновлено ${page.updateData}`}{' '}
+            {`Обновлено ${page.updateData}`}
           </span>
           <div className="mt-4 md:mt-8 rounded-2xl flex flex-col p-4 md:p-8 2xl:p-16 bg-gray-5">
             <span className="font-medium text-[24px]"> Все статьи по теме </span>
