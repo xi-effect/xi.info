@@ -8,21 +8,25 @@ export const sectionsConfig = [
             title: "Страница Регистрации",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -32,21 +36,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -56,21 +64,53 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
+          },
+        ]
+      },
+      {
+        "pageTitle": "Обзор интерфейса", "pageUrl": "about-interface", "items": [
+          {
+            title: "Что такое Xi.effect",
+            image: "",
+            description: "Пара слов о  образовательной платформе",
+            link: "",
+          },
+          {
+            title: "Что такое Xi.effect",
+            image: "",
+            description: "Пара слов о  образовательной платформе",
+            link: "",
+          },
+          {
+            title: "Что такое Xi.effect",
+            image: "",
+            description: "Пара слов о  образовательной платформе",
+            link: "",
+          },
+          {
+            title: "Что такое Xi.effect",
+            image: "",
+            description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -87,21 +127,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -111,21 +155,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -135,21 +183,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -166,21 +218,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -190,21 +246,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -214,21 +274,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -245,21 +309,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -269,21 +337,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -293,21 +365,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -324,21 +400,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -348,21 +428,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -372,21 +456,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -403,21 +491,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -427,21 +519,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -451,21 +547,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -482,21 +582,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -506,21 +610,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -530,21 +638,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -561,21 +673,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -585,21 +701,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -609,21 +729,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
@@ -640,21 +764,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -664,21 +792,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       },
@@ -688,21 +820,25 @@ export const sectionsConfig = [
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
           {
             title: "Что такое Xi.effect",
             image: "",
             description: "Пара слов о  образовательной платформе",
+            link: "",
           },
         ]
       }
