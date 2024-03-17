@@ -89,8 +89,8 @@ export default function Page({ params }: MdXPageT) {
     <Layout>
       <HeaderDoc />
       <div className="flex flex-col w-screen justify-center items-center px-4 md:px-[32px] 2xl:px-[160px]">
-        <div className="flex flex-row gap-8 max-w-[1920px]">
-          <div className="sticky top-[-32px] h-fit min-w-[376px] hidden xl:flex flex-col">
+        <div className="flex flex-row justify-center items-start gap-8 max-w-[1920px] w-full">
+          <div className="sticky top-[-32px] h-fit min-w-[376px] hidden lg:flex flex-col">
             <span className="font-medium text-[24px] mt-16 text-gray-100"> Категории </span>
             <div className="w-full flex flex-col gap-4 mt-6">
               {page.anchors.map((item, index) => (
@@ -105,7 +105,7 @@ export default function Page({ params }: MdXPageT) {
               ))}
             </div>
           </div>
-          <div>
+          <div className="w-full">
             {/* <Breadcrumbs /> */}
             <MdxPage sectionId={params.section} mdxId={params.mdx} />
             <span className="font-medium text-[20px] text-gray-60 mt-4 md:mt-8">

@@ -7,6 +7,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     '../../packages/**/*.{js,ts,jsx,tsx,mdx}',
+    './mdx-components.tsx',
     '../../node_modules/@xipkg/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   presets: [require('@xipkg/tailwind/design-system-preset.js')],
