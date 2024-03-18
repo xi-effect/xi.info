@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { object, string, mixed } from 'yup';
+import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Input from '../common/Input';
 import Memoji from '../common/Memoji';
@@ -18,7 +18,7 @@ type SendResumeButtonT = {
 
 export type FormDataT = {
   name: string;
-  tg: string;
+  telegram: string;
   position: string;
   link: string;
   message: string | null | undefined;
@@ -26,7 +26,7 @@ export type FormDataT = {
 
 const schema = object().shape({
   name: string().nullable().required(),
-  tg: string().required(),
+  telegram: string().required(),
   position: string().required(),
   link: string().required(),
   message: string().notRequired(),
@@ -53,7 +53,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
   const onSubmit: SubmitHandler<FormDataT> = async (data) => {
     console.log(data);
     reset();
-    let response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/webhooks/resume/`, {
+    let response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/vacancy-applications/`, {
       method: 'POST',
       cache: 'no-cache',
       credentials: 'include',
@@ -64,10 +64,6 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
     });
 
     if (response.ok) {
-      // если HTTP-статус в диапазоне 200-299
-      // получаем тело ответа (см. про этот метод ниже)
-      let json = await response.json();
-      console.log('json', json);
       alert(
         'Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.',
       );
@@ -152,12 +148,12 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
             />
 
             <Input
-              id="tg"
+              id="telegram"
               title="Telegram *"
               type="link"
-              error={!!errors.tg}
+              error={!!errors.telegram}
               className="mb-[16px] sm:mb-[24px]"
-              {...register('tg')}
+              {...register('telegram')}
             />
 
             <Select
