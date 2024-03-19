@@ -37,6 +37,7 @@ export const MobileMenu = ({ links, toggleBurgerMenu }: IPropMobileHeader) => {
           {links &&
             links.map((item) => (
               <motion.div
+                key={item.link}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 1 }}
