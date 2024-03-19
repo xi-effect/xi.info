@@ -1,4 +1,6 @@
 import {Button} from '@xipkg/button';
+import Stack from '@mui/material/Stack';
+
 import {
     ModalContent,
     ModalFooter,
@@ -22,8 +24,8 @@ export default function MobileHeader({links, handleSonner}: PropMobileHeader) {
     return (
         <>
             <div className={'sm:relative'}>
-                <ModalContent variant="full">
-                    <ModalHeader>
+                <ModalContent variant="full" >
+                    <ModalHeader className={'border-none'}>
                         <ModalCloseButton onClick={() => handleSonner()}
                                           className="h-10 w-10 ml-auto sm:absolute bg-transparent flex p-2 sm:top-0 xl:top-0 right-[16px] sm:right-0 xl:right-[-56px]"
                                           variant="full"
@@ -55,10 +57,17 @@ export default function MobileHeader({links, handleSonner}: PropMobileHeader) {
                             </motion.div>
                         )}
                     </div>
-                    <ModalFooter>
-                        <Button size="m" type="submit">
-                            Save changes
-                        </Button>
+                    <ModalFooter className={'border-none'}>
+                        <Stack direction="row" width={'100%'}  spacing={2}>
+                            <div> <Button size="s" type="submit">
+                                Войти
+                            </Button></div>
+                            <div className={''}>
+                                <Button size="s" variant="secondary">
+                                    Зарегистрироваться
+                                </Button>
+                            </div>
+                        </Stack>
                     </ModalFooter>
                 </ModalContent>
             </div>
