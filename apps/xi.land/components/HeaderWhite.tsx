@@ -6,6 +6,9 @@ import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
+import MobileHeader from "./MobileHeader";
+import {useState} from "react";
+import {Modal, ModalTrigger} from "@xipkg/modal";
 
 const BurgerIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +32,7 @@ const BurgerIcon = () => (
   </svg>
 );
 
-type LinkMenuItem = {
+export type LinkMenuItem = {
   label: string;
   link: string;
 };
@@ -50,8 +53,9 @@ const arrayOfLinks: LinkMenuItem[] = [
 ];
 
 const HeaderWhite = () => {
+  const [burgerIsOpen , setBurgerIsOpen] = useState<boolean>(false)
   const handleSonner = () => {
-    toast('Тут пока ничего нет, но мы работаем над этим');
+    setBurgerIsOpen(!burgerIsOpen)
   };
 
   return (
@@ -96,9 +100,14 @@ const HeaderWhite = () => {
           >
             <NextLink href="https://app.xieffect.ru/signin/">Войти</NextLink>
           </Button>
-          <Button onClick={handleSonner} className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
-            <BurgerIcon />
-          </Button>
+          <Modal open={burgerIsOpen}>
+            <MobileHeader handleSonner={handleSonner} links={arrayOfLinks}/>
+            <ModalTrigger asChild>
+              <Button onClick={handleSonner} className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
+                <BurgerIcon />
+              </Button>
+            </ModalTrigger>
+          </Modal>
         </motion.div>
       </div>
     </div>
