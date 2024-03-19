@@ -1,6 +1,7 @@
 import { Button } from '@xipkg/button';
 import React from 'react';
 import NextLink from 'next/link';
+import ContactUsModal from './ContactUsModal';
 
 export const AboutDemoRegistration = () => {
   return (
@@ -14,12 +15,14 @@ export const AboutDemoRegistration = () => {
         <div className="w-full py-8 xl:py-[160px]">
           <div className="flex flex-col gap-8 2xl:gap-16">
             <h2 className="text-[24px] leading-[31px] sm:text-[32px] sm:leading-[41px] 2xl:text-[64px] 2xl:leading-[83px] text-gray-0 font-medium">
-              То, что вам нужно? Создайте бесплатный аккаунт или запишитесь на демонстрацию
+              То, что вам нужно? <br />
+              Запишитесь на тестирование и получите доступ бесплатно
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-              <Button className="xl:px-8" asChild>
-                <NextLink href="mailto:xieffect@yandex.ru"> Записаться на демонстрацию</NextLink>
-              </Button>
+              <ContactUsModal>
+                <Button className="xl:px-8">Записаться на тестирование</Button>
+              </ContactUsModal>
+
               <Button
                 variant="secondary"
                 className="bg-transparent text-gray-0 hover:text-gray-80 border-gray-80 hover:border-transparent 2xl:px-8"
