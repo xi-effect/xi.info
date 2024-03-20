@@ -5,7 +5,9 @@ import { Button } from '@xipkg/button';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { toast } from 'sonner';
+import { useState } from 'react';
+import { Modal, ModalTrigger } from '@xipkg/modal';
+import { MobileMenu } from './MobileMenu';
 
 const BurgerIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +31,7 @@ const BurgerIcon = () => (
   </svg>
 );
 
-type LinkMenuItem = {
+export type LinkMenuItem = {
   label: string;
   link: string;
 };
@@ -50,8 +52,9 @@ const arrayOfLinks: LinkMenuItem[] = [
 ];
 
 const HeaderWhite = () => {
-  const handleSonner = () => {
-    toast('Тут пока ничего нет, но мы работаем над этим');
+  const [burgerIsOpen, setBurgerIsOpen] = useState(false);
+  const toggleBurgerMenu = () => {
+    setBurgerIsOpen((prev) => !prev);
   };
 
   return (
@@ -96,9 +99,14 @@ const HeaderWhite = () => {
           >
             <NextLink href="https://app.xieffect.ru/signin/">Войти</NextLink>
           </Button>
-          <Button onClick={handleSonner} className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
-            <BurgerIcon />
-          </Button>
+          <Modal open={burgerIsOpen}>
+            <MobileMenu toggleBurgerMenu={toggleBurgerMenu} links={arrayOfLinks} />
+            <ModalTrigger asChild>
+              <Button onClick={toggleBurgerMenu} className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
+                <BurgerIcon />
+              </Button>
+            </ModalTrigger>
+          </Modal>
         </motion.div>
       </div>
     </div>
