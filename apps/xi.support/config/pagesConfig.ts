@@ -1,11 +1,13 @@
 export const pagesConfig = [
   {
     "section": "work-begining",
-    "page": "first",
+    "page": "signup",
     "anchors": [
-      { "title": "Создание", "link": "first" },
-      { "title": "Редактирование", "link": "second" },
-      { "title": "Удаление", "link": "third" }
+      { "title": "Регистрация", "link": "signup" },
+      { "title": "Ошибки", "link": "errors" },
+      { "title": "Такое имя пользователя уже занято", "link": "username-error" },
+      { "title": "Аккаунт с такой почтой уже зарегистрирован", "link": "email-error" },
+      { "title": "Такой пароль легко взломать", "link": "password-error" }
     ],
     "relatedLinks": [
       { "title": "Создание", "link": "first" },
