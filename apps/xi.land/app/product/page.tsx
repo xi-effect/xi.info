@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+
 'use client';
 
 import { Footer } from 'pkg.footer';
@@ -327,7 +329,12 @@ export default function ProductPage() {
                   {group.items.map((item, i) => (
                     <div className="flex flex-col" key={i.toString()}>
                       <div className="flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px] p-1">
-                        <Image alt={item.title} src={item.image} width={item.width} height={item.height}/>
+                        <Image
+                          alt={item.title}
+                          src={item.image}
+                          width={item.width}
+                          height={item.height}
+                        />
                       </div>
                       <span className="mt-4 font-medium text-[16px] md:text-[24px] 2xl:text-[32px]">
                         {item.title}

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import SendResumeButton from '../modal/SendResumeButton';
 import Link from 'next/link';
+import SendResumeButton from '../modal/SendResumeButton';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
@@ -44,13 +44,13 @@ const Footer = () => (
           <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; Xi.effect c 2022 года</span>
           <span className="mr-4 mb-6 sm:mb-0">Сделано с ❤️ в Санкт-Петербурге</span>
           <div className="flex gap-x-4 2xl:w-[250px]">
-            <a href="https://vk.com/xieffect" target="_blank">
+            <a href="https://vk.com/xieffect" target="_blank" rel="noreferrer">
               <Image width={32} height={32} alt="vk link" src="/iconssite/vk.svg" />
             </a>
-            <a href="https://github.com/xi-effect" target="_blank">
+            <a href="https://github.com/xi-effect" target="_blank" rel="noreferrer">
               <Image width={32} height={32} alt="github link" src="/iconssite/gh.svg" />
             </a>
-            <a href="https://t.me/xieffect" target="_blank">
+            <a href="https://t.me/xieffect" target="_blank" rel="noreferrer">
               <Image width={32} height={32} alt="telegram link" src="/iconssite/telegram.svg" />
             </a>
           </div>

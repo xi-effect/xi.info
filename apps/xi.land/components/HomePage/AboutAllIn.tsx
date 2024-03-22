@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import React from 'react';
 import { Tabs } from '@xipkg/tabs';
 import Image from 'next/image';
 import { Button } from '@xipkg/button';

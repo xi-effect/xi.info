@@ -1,41 +1,13 @@
 'use client';
 
-import NextLink from 'next/link';
 import { Button } from '@xipkg/button';
 
 import { Caveat } from 'next/font/google';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ContactUsModal from './ContactUsModal';
 
 export const caveat = Caveat({ subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'latin-ext'] });
-
-const words = [
-  [
-    {
-      text: 'Проводите',
-    },
-    {
-      text: ' онлайн ',
-    },
-    {
-      text: 'занятия',
-    },
-  ],
-  [
-    {
-      text: 'Общайстесь ',
-      className: `${caveat.className} text-[48px] md:text-[72px] 2xl:text-[120px]`,
-    },
-    {
-      text: ' с ',
-    },
-    {
-      text: 'учениками',
-    },
-  ],
-];
 
 const defaultAnimations = {
   hidden: {
@@ -99,7 +71,7 @@ const HelloUser = () => {
   const [index, setIndex] = React.useState(0);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout;
     const show = () => {
       controls.start('visible');
       if (repeatDelay) {

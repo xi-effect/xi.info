@@ -28,10 +28,6 @@ export async function generateStaticParams() {
   }));
 }
 
-const Breadcrumbs = () => {
-  return <div className="flex flex-row mt-[48px]"> 1 </div>;
-};
-
 export default function Page({ params }: MdXPageT) {
   const pageData = pagesConfig.find(
     (item) => item.page === params.mdx && item.section === params.section,

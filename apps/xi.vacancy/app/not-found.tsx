@@ -1,4 +1,5 @@
 'use client';
+
 import Header from 'components/layout/Header';
 import Link from 'next/link';
 import { Mail } from '@xipkg/icons';
@@ -34,6 +35,7 @@ export default function NotFound() {
         <div>
           Вернитесь{' '}
           <button
+            type="button"
             className='inline-block border-none outline-none bg-transparent relative text-brand-80 after:block after:content-[""] after:left-0 after:bottom-0 after:w-full after:h-[1px] after:bg-brand-20'
             onClick={router.back}
           >

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Control, Controller } from 'react-hook-form';
-import { FormDataT } from './SendResumeButton';
 import { vacancyList } from 'components/common/const';
+import { FormDataT } from './SendResumeButton';
 
 type SelectT = {
   error?: boolean;
@@ -49,7 +49,7 @@ const Select: React.FC<SelectT> = (props) => {
             
             ${error ? 'border-red-20' : 'border-gray-30 '}
             
-            sm:p-[12px] resume-select cursor-pointer flex bg-gray-0 justify-between content-center mt-2 inline-block text-[16px] w-full px-[10px] h-[32px] sm:h-[48px] rounded-[8px] border-2`}
+            sm:p-[12px] resume-select cursor-pointer flex bg-gray-0 justify-between content-center mt-2 text-[16px] w-full px-[10px] h-[32px] sm:h-[48px] rounded-[8px] border-2`}
           >
             {helperText || currentVacancy || 'Выберите'}
 

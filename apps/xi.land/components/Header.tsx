@@ -6,7 +6,6 @@ import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
-import { Url } from 'url';
 
 const BurgerIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -6,7 +6,7 @@
     "dev": "next dev --port 3800",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
@@ -27,7 +27,7 @@
     "@types/node": "^20.3.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@xipkg/eslint": "0.4.0",
+    "@xipkg/eslint": "1.4.0",
     "@xipkg/typescript": "^0.0.2",
     "autoprefixer": "^10.4.14",
     "ignore-loader": "^0.1.2",

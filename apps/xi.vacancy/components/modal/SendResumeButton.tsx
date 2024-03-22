@@ -1,4 +1,6 @@
+/* eslint-disable no-alert */
 // @ts-nocheck
+
 'use client';
 
 import Image from 'next/image';
@@ -53,22 +55,25 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
   const onSubmit: SubmitHandler<FormDataT> = async (data) => {
     console.log(data);
     reset();
-    let response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/vacancy-applications/`, {
-      method: 'POST',
-      cache: 'no-cache',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/vacancy-applications/`,
+      {
+        method: 'POST',
+        cache: 'no-cache',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
 
     if (response.ok) {
       alert(
         'Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.',
       );
     } else {
-      alert('Ошибка HTTP: ' + response.status);
+      alert(`Ошибка HTTP: ${response.status}`);
     }
   };
 

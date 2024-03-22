@@ -22,7 +22,7 @@ const Header = () => {
           />
         </Link>
 
-        <nav className="flex items-center hidden sm:block">
+        <nav className="items-center hidden sm:block">
           <Link
             href="/vacancy"
             className={`
@@ -32,7 +32,6 @@ const Header = () => {
           >
             Вакансии
           </Link>
-
           <SendResumeButton />
         </nav>
       </div>

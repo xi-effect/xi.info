@@ -2,8 +2,6 @@
 
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
 
 interface SectionLink {
   link: string;
@@ -55,13 +53,6 @@ const email = 'hello@xieffect.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
-  const router = useRouter();
-
-  const handleSonner = (link: string) => {
-    if (link === '#') return toast('Тут пока ничего нет, но мы работаем над этим');
-    router.push(link);
-  };
-
   const renderSection = (section: Section) => (
     <div key={section.title} className="flex w-full grow flex-col text-[16px]">
       <h3 className="m-0 text-[16px] opacity-40 sm:text-[20px]">{section.title}</h3>

@@ -1,6 +1,5 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Vacancy from 'components/vacancy/Vacancy';
-import React from 'react';
 import { vacancyList } from 'components/common/const';
 import Layout from 'components/layout/Layout';
 

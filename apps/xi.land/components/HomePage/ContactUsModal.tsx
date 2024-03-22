@@ -1,21 +1,13 @@
 'use client';
 
-import { ReactNode } from 'react';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Button } from '@xipkg/button';
 
 import { Modal, ModalContent, ModalTrigger, ModalCloseButton } from '@xipkg/modal';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  useForm,
-} from '@xipkg/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xipkg/form';
 import { ArrowRight, Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import { toast } from 'sonner';
@@ -43,7 +35,7 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
       name: data.name,
       contacts: [data.contact],
     });
-    let response = await fetch(
+    const response = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/demo-applications/`,
       {
         method: 'POST',
@@ -70,8 +62,8 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
       });
       form.reset();
     } else {
-      console.error('Ошибка HTTP: ' + response.status);
-      toast('Ошибка HTTP: ' + response.status);
+      console.error(`Ошибка HTTP: ${response.status}`);
+      toast(`Ошибка HTTP: ${response.status}`);
     }
   };
 
@@ -85,7 +77,8 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
         <div className="flex flex-col w-full p-6 lg:p-12">
           <span className="font-medium text-[32px] w-[80%] md:w-full">Тестирование xi.effect</span>
           <span className="mt-4 font-medium text-[16px]">
-            В ближайшие месяцы команда проекта запустит первое тестирование, записавшись на участие в нём, вы сможете:
+            В ближайшие месяцы команда проекта запустит первое тестирование, записавшись на участие
+            в нём, вы сможете:
           </span>
           <div className="mt-4 flex flex-row">
             <div className="h-4 w-4 mt-1">

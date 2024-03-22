@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+
 import { Inter } from 'next/font/google';
-import { ReactNode, Suspense } from 'react';
-import React from 'react';
+import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
 import '@xipkg/tailwind/index.css';
+
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 import YandexMetrika from 'components/YandexMetrika';
