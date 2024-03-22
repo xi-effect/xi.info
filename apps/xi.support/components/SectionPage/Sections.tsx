@@ -32,12 +32,12 @@ const Sections = ({ sections }: SectionsT) => (
                   {item.description}
                 </span>
               </div>
-              ))}
+            ))}
           </div>
         </section>
-        ))}
+      ))}
     </div>
   </div>
-  );
+);
 
 export default Sections;

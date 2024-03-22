@@ -1,8 +1,8 @@
 module.exports = {
-  endOfLine: "auto",
+  endOfLine: 'auto',
   printWidth: 100,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   bracketSpacing: true,
   jsxBracketSameLine: false,
   tabWidth: 2,

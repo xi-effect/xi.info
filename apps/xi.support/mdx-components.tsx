@@ -22,11 +22,15 @@ const Li = ({ children }: PropsWithChildren) => (
 );
 
 const Ul = ({ children }: PropsWithChildren) => (
-  <ul className="my-4 text-gray-100 text-[16px] 2xl:text-[20px] list-disc list-inside">{children}</ul>
+  <ul className="my-4 text-gray-100 text-[16px] 2xl:text-[20px] list-disc list-inside">
+    {children}
+  </ul>
 );
 
 const Ol = ({ children }: PropsWithChildren) => (
-  <ol className="my-4 text-gray-100 text-[16px] 2xl:text-[20px] list-decimal list-inside">{children}</ol>
+  <ol className="my-4 text-gray-100 text-[16px] 2xl:text-[20px] list-decimal list-inside">
+    {children}
+  </ol>
 );
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

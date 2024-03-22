@@ -27,7 +27,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   webpack(config) {

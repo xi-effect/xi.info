@@ -22,4 +22,4 @@ export const HeaderDoc = () => (
       </Button>
     </div>
   </div>
-  );
+);

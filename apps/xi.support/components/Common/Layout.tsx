@@ -3,9 +3,7 @@ import { Footer } from 'pkg.footer';
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   <>
-    <main className="w-screen">
-      {children}
-    </main>
+    <main className="w-screen">{children}</main>
     <Footer />
   </>
 );

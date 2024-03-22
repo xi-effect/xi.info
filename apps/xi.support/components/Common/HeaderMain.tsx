@@ -26,6 +26,6 @@ export const HeaderMain = () => (
       </Button>
     </div>
   </div>
-  );
+);
 
 export default HeaderMain;
