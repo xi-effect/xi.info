@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 export const Hero = () => (
-  <section className="relative overflow-hidden flex items-center justify-center py-8 px-4 sm:px-8 lg:px-40 w-full sm:h-[600px]">
+  <section className="relative overflow-hidden flex items-center justify-center py-8 px-4 sm:px-8 lg:px-40 w-full sm:h-[600px] bg-brand-20">
     <Image
       src="/assets/home-page/home-page-bg.webp"
       alt="Задний фон"

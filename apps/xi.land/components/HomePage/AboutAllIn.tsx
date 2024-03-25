@@ -36,7 +36,7 @@ const tabs = [
     image: '/assets/aboutAllIn/videoconferenceTabs.webp',
   },
   {
-    label: 'Чат',
+    label: 'Чаты',
     color: 'bg-yellow-20',
     title: 'Мгновенные сообщения',
     content:
@@ -45,13 +45,22 @@ const tabs = [
     image: '/assets/aboutAllIn/chatsTabs.webp',
   },
   {
-    label: 'Объявления',
+    label: 'Библиотека',
     color: 'bg-violet-20',
-    title: 'Быстрые объявления',
+    title: 'Учебные материалы',
     content:
       'Свободно публикуйте любую необходимую информацию в текстовом формате, прикрепляйте фото и видео, вставляйте цитаты и важные заметки. Все для вашей удобной работы',
-    link: '/product#announces',
-    image: '/assets/aboutAllIn/announcesTabs.webp',
+    link: '/product#library',
+    image: '/assets/aboutAllIn/libraryTabs.webp',
+  },
+  {
+    label: 'Интерактивная доска',
+    color: 'bg-cyan-20',
+    title: 'Интерактивная доска',
+    content:
+      'Используйте инструменты интерактивной доски для продуктивного донесения материалов, командной работы студентов, оформления материалов занятия и других задач',
+    link: '/product#whiteboard',
+    image: '/assets/aboutAllIn/whiteboardTabs.webp',
   },
 ];
 
