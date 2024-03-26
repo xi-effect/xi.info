@@ -1,7 +1,9 @@
 import { Button } from '@xipkg/button';
 import React from 'react';
 import NextLink from 'next/link';
-import ContactUsModal from './ContactUsModal';
+import dynamic from 'next/dynamic';
+
+const ContactUsModal = dynamic(() => import('./ContactUsModal'), { ssr: false });
 
 export const AboutDemoRegistration = () => (
   <div className="flex justify-center h-full bg-gray-100 px-4 sm:px-8 xl:px-[160px] w-full z-10">

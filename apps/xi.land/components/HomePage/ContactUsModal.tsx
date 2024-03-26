@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 import { Button } from '@xipkg/button';
 
 import { Modal, ModalContent, ModalTrigger, ModalCloseButton } from '@xipkg/modal';
@@ -14,14 +14,14 @@ import { toast } from 'sonner';
 
 type ContactUsModalProps = {
   children: ReactNode;
-};
+} & ComponentProps<typeof Modal>;
 
 const FormSchema = z.object({
   name: z.string().min(2),
   contact: z.string().min(2),
 });
 
-const ContactUsModal = ({ children }: ContactUsModalProps) => {
+const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -67,8 +67,10 @@ const ContactUsModal = ({ children }: ContactUsModalProps) => {
     }
   };
 
+  // const router = useRouter();
+
   return (
-    <Modal>
+    <Modal {...props}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent className="flex flex-col max-h-full lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px] max-lg:overflow-auto">
         <ModalCloseButton breakpoint="lg">
