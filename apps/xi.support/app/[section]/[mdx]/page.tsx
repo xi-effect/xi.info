@@ -61,21 +61,23 @@ export default function Page({ params }: MdXPageT) {
             <span className="font-medium text-[20px] text-gray-60 mt-4 md:mt-8">
               {`Обновлено ${pageData.updateDate}`}
             </span>
-            <div className="mt-4 md:mt-8 rounded-2xl flex flex-col p-4 md:p-8 2xl:p-16 bg-gray-5">
-              <span className="font-medium text-[24px]"> Все статьи по теме </span>
-              <div className="grid grid-cols-1 xl:grid-cols-2 mt-4 md:mt-8 gap-4">
-                {pageData.relatedLinks.map((item, index) => (
-                  <Link
-                    variant="hover"
-                    key={index.toString()}
-                    className="xl:basis-1/2 font-medium text-[14px] md:text-[20px] text-gray-80"
-                    href={item.link}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+            {pageData.relatedLinks.length !== 0 && (
+              <div className="mt-4 md:mt-8 rounded-2xl flex flex-col p-4 md:p-8 2xl:p-16 bg-gray-5">
+                <span className="font-medium text-[24px]"> Все статьи по теме </span>
+                <div className="grid grid-cols-1 xl:grid-cols-2 mt-4 md:mt-8 gap-4">
+                  {pageData.relatedLinks.map((item, index) => (
+                    <Link
+                      variant="hover"
+                      key={index.toString()}
+                      className="xl:basis-1/2 font-medium text-[14px] md:text-[20px] text-gray-80"
+                      href={item.link}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
             <CallToAction />
           </div>
         </div>

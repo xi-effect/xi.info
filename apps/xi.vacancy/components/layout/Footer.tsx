@@ -41,7 +41,7 @@ const Footer = () => (
           />
         </Link>
         <div className="flex flex-wrap items-start flex-col sm:items-center sm:flex-row sm:justify-between sm:content-center text-[12px] xl:text-[16px] text-gray-100 min-[1000px]:basis-[74%]">
-          <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; Xi.effect c 2022 года</span>
+          <span className="mr-4 mb-2 min-[1000px]:mb-0">&copy; xi.effect c 2024 года</span>
           <span className="mr-4 mb-6 sm:mb-0">Сделано с ❤️ в Санкт-Петербурге</span>
           <div className="flex gap-x-4 2xl:w-[250px]">
             <a href="https://vk.com/xieffect" target="_blank" rel="noreferrer">
