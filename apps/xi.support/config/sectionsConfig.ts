@@ -12,24 +12,6 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
         ],
       },
       {
@@ -42,24 +24,6 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
         ],
       },
       {
@@ -72,48 +36,12 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
         ],
       },
       {
-        pageTitle: 'Обзор интерфейса',
-        pageUrl: 'about-interface',
+        pageTitle: 'С каких устройств можно пользоваться платформой?',
+        pageUrl: 'device-info',
         items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
           {
             title: 'Что такое Xi.effect',
             image: '',
@@ -127,30 +55,12 @@ export const sectionsConfig = [
     icon: 'start-working.svg',
   },
   {
-    title: 'Управление и настройки',
+    title: 'Аккаунт',
     links: [
       {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
+        pageTitle: 'Настройки пользователя',
+        pageUrl: 'user-settings',
         items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
           {
             title: 'Что такое Xi.effect',
             image: '',
@@ -160,27 +70,9 @@ export const sectionsConfig = [
         ],
       },
       {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
+        pageTitle: 'Где найти настройки аккаунта пользователя?',
+        pageUrl: 'where-i-can-find-user-settings',
         items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
           {
             title: 'Что такое Xi.effect',
             image: '',
@@ -190,27 +82,9 @@ export const sectionsConfig = [
         ],
       },
       {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
+        pageTitle: 'Как поменять почту, привязанную к аккаунту?',
+        pageUrl: 'how-change-email',
         items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
           {
             title: 'Что такое Xi.effect',
             image: '',
@@ -220,7 +94,7 @@ export const sectionsConfig = [
         ],
       },
     ],
-    sectionName: 'settings',
+    sectionName: 'account',
     icon: 'settings.svg',
   },
   {
@@ -230,24 +104,6 @@ export const sectionsConfig = [
         pageTitle: 'Создание',
         pageUrl: 'first',
         items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
           {
             title: 'Что такое Xi.effect',
             image: '',
@@ -266,24 +122,6 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
         ],
       },
       {
@@ -296,28 +134,10 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
         ],
       },
     ],
-    sectionName: 'settings',
+    sectionName: 'community',
     icon: 'settings.svg',
   },
   {
