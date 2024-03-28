@@ -61,13 +61,13 @@ export const MobileMenu = ({ links, toggleBurgerMenu }: IPropMobileHeader) => (
         className="flex items-center w-full gap-10"
       >
         <div className="w-2/6">
-          <Button className="w-full p-5" size="s" type="submit">
-            Войти
+          <Button className="w-full p-5" size="s" asChild>
+            <NextLink href="https://app.xieffect.ru/signin/">Войти</NextLink>
           </Button>
         </div>
         <div className="w-4/6">
-          <Button size="s" className="w-full p-5" variant="secondary">
-            Зарегистрироваться
+          <Button size="s" className="w-full p-5" variant="secondary" asChild>
+            <NextLink href="https://app.xieffect.ru/signup/">Зарегистрироваться</NextLink>
           </Button>
         </div>
       </motion.div>
