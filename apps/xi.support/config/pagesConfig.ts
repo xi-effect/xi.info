@@ -2,8 +2,8 @@ type PageConfigItemT = {
   section: string;
   page: string;
   updateDate: string;
-  anchors: { title: string, link: string }[];
-  relatedLinks: { title: string, link: string }[];
+  anchors: { title: string; link: string }[];
+  relatedLinks: { title: string; link: string }[];
 };
 
 export const pagesConfig: PageConfigItemT[] = [
