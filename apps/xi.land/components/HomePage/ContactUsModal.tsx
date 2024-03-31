@@ -11,9 +11,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xip
 import { ArrowRight, Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import { toast } from 'sonner';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { createQueryString } from './tempUtils/createQueryString';
 
 type ContactUsModalProps = {
   children: ReactNode;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & ComponentProps<typeof Modal>;
 
 const FormSchema = z.object({
@@ -67,13 +70,21 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
     }
   };
 
-  // const router = useRouter();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const onClose = () => {
+    const updatedParams = createQueryString(searchParams, 'contact-us', String(!props.open));
+    router.push(`${pathname}?${updatedParams}`);
+    props.setModalOpen(false);
+  };
 
   return (
     <Modal {...props}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent className="flex flex-col max-h-full lg:flex-row lg:max-w-[1000px] lg:min-h-[414px] rounded-[24px] max-lg:overflow-auto">
-        <ModalCloseButton breakpoint="lg">
+        <ModalCloseButton breakpoint="lg" onClick={onClose}>
           <Close className="fill-gray-80 lg:fill-gray-0" />
         </ModalCloseButton>
         <div className="flex flex-col w-full p-6 lg:p-12">
