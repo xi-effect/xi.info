@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ComponentProps, ReactNode } from 'react';
+import React, { ComponentProps, ReactNode, useEffect } from 'react';
 import { Button } from '@xipkg/button';
 
 import { Modal, ModalContent, ModalTrigger, ModalCloseButton } from '@xipkg/modal';
@@ -12,7 +12,7 @@ import { ArrowRight, Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import { toast } from 'sonner';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { createQueryString } from './tempUtils/createQueryString';
+import { createQueryString } from '@xipkg/routerurl';
 
 type ContactUsModalProps = {
   children: ReactNode;
@@ -74,11 +74,20 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  // При закрытии окна изменять значение в параметрах URL на false
   const onClose = () => {
-    const updatedParams = createQueryString(searchParams, 'contact-us', String(!props.open));
+    const updatedParams = createQueryString(searchParams, 'contact-us', String(false));
     router.push(`${pathname}?${updatedParams}`);
     props.setModalOpen(false);
   };
+
+  // При открытии окна изменять параметры в URL на true
+  useEffect(() => {
+    if (props.open) {
+      const updatedParams = createQueryString(searchParams, 'contact-us', String(true));
+      router.push(`${pathname}?${updatedParams}`);
+    }
+  }, [props.open]);
 
   return (
     <Modal {...props}>
