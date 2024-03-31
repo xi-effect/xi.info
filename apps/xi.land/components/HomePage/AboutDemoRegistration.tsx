@@ -4,14 +4,12 @@ import React, { useState } from 'react';
 import { Button } from '@xipkg/button';
 import NextLink from 'next/link';
 import dynamic from 'next/dynamic';
-import { useSearchParams } from 'next/navigation';
 
 const ContactUsModal = dynamic(() => import('./ContactUsModal'), { ssr: false });
 
 export const AboutDemoRegistration = () => {
-  // Чтение параметров из url и открытие/закрытие модалки
-  const searchParams = useSearchParams();
-  const [modalOpen, setModalOpen] = useState(searchParams.get('contact-us') !== 'false');
+  //  Открытие/закрытие модалки
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="flex justify-center h-full bg-gray-100 px-4 sm:px-8 xl:px-[160px] w-full z-10">
