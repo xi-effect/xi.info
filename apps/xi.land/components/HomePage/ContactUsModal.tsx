@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 'use client';
 
 import React, { ComponentProps, ReactNode } from 'react';
@@ -53,6 +55,9 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
     );
 
     console.log('response', response);
+
+    // @ts-ignore
+    _tmr.push({ type: 'reachGoal', id: 3498815, goal: 'demo' });
 
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
