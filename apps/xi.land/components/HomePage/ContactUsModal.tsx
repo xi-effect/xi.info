@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 
 'use client';
@@ -57,6 +58,7 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
     console.log('response', response);
 
     // @ts-ignore
+    const _tmr = window._tmr || (window._tmr = []);
     _tmr.push({ type: 'reachGoal', id: 3498815, goal: 'demo' });
 
     if (response.ok) {
