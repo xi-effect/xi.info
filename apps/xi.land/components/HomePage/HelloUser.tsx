@@ -99,7 +99,7 @@ const HelloUser = () => {
 
   // Чтение параметров из url и открытие/закрытие модалки
   const searchParams = useSearchParams();
-  const [modalOpen, setModalOpen] = useState(searchParams.get('contact-us') !== 'false');
+  const [modalOpen, setModalOpen] = useState(searchParams.get('contact-us') === 'true');
 
   return (
     <div className="h-[400px] md:h-[480px] 2xl:h-[720px] bg-brand-80 flex flex-col w-full justify-center items-center p-4 sm:p-8 xl:py-16 xl:px-[96px]">

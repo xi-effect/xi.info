@@ -12,7 +12,7 @@ import { ArrowRight, Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import { toast } from 'sonner';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { createQueryString } from '@xipkg/routerurl';
+import { createQueryString, deleteQuery } from '@xipkg/routerurl';
 
 type ContactUsModalProps = {
   children: ReactNode;
@@ -76,7 +76,7 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
 
   // При закрытии окна изменять значение в параметрах URL на false
   const onClose = () => {
-    const updatedParams = createQueryString(searchParams, 'contact-us', String(false));
+    const updatedParams = deleteQuery(searchParams, 'contact-us');
     router.push(`${pathname}?${updatedParams}`);
     props.setModalOpen(false);
   };
