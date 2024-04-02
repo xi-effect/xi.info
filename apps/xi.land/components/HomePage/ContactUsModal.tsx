@@ -84,7 +84,7 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
   // При открытии окна изменять параметры в URL на true
   useEffect(() => {
     if (props.open) {
-      const updatedParams = createQueryString(searchParams, 'contact-us', String(true));
+      const updatedParams = createQueryString(searchParams, 'contact-us', 'true');
       router.push(`${pathname}?${updatedParams}`);
     }
   }, [props.open]);
