@@ -20,6 +20,7 @@ const nextConfig = {
     '@xipkg/form',
     '@xipkg/input',
     '@xipkg/label',
+    '@xipkg/routerurl',
     'pkg.footer',
   ],
   compiler: {

@@ -2,11 +2,11 @@
 
 import { Button } from '@xipkg/button';
 
+import React, { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Caveat } from 'next/font/google';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { useSearchParams } from 'next/navigation';
 
 const ContactUsModal = dynamic(() => import('./ContactUsModal'), { ssr: false });
 
@@ -97,9 +97,9 @@ const HelloUser = () => {
     return () => clearTimeout(timeout);
   }, [isInView, index]);
 
+  // Чтение параметров из url и открытие/закрытие модалки
   const searchParams = useSearchParams();
-
-  const [modalOpen, setModalOpen] = React.useState(searchParams.has('contact-us'));
+  const [modalOpen, setModalOpen] = useState(searchParams.get('contact-us') === 'true');
 
   return (
     <div className="h-[400px] md:h-[480px] 2xl:h-[720px] bg-brand-80 flex flex-col w-full justify-center items-center p-4 sm:p-8 xl:py-16 xl:px-[96px]">
@@ -149,7 +149,7 @@ const HelloUser = () => {
           transition={{ delay: 3, duration: 1 }}
           className="w-full md:w-fit flex flex-col sm:flex-row gap-4 mt-8 "
         >
-          <ContactUsModal open={modalOpen} onOpenChange={setModalOpen}>
+          <ContactUsModal open={modalOpen} setModalOpen={setModalOpen} onOpenChange={setModalOpen}>
             <Button
               className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
               size="l"
