@@ -12,6 +12,12 @@ export const sectionsConfig = [
             description: 'Пара слов о  образовательной платформе',
             link: '',
           },
+          {
+            title: 'Возможные ошибки',
+            image: '',
+            description: 'Пара слов о  образовательной платформе',
+            link: '',
+          },
         ],
       },
       {
@@ -19,7 +25,13 @@ export const sectionsConfig = [
         pageUrl: 'signin',
         items: [
           {
-            title: 'Что такое Xi.effect',
+            title: 'Страница Входа',
+            image: '',
+            description: 'Пара слов о  образовательной платформе',
+            link: '',
+          },
+          {
+            title: 'Возможные ошибки',
             image: '',
             description: 'Пара слов о  образовательной платформе',
             link: '',
@@ -140,586 +152,586 @@ export const sectionsConfig = [
     sectionName: 'community',
     icon: 'settings.svg',
   },
-  {
-    title: 'Задания',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'tasks',
-    icon: 'assignments.svg',
-  },
-  {
-    title: 'Тесты',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'tests',
-    icon: 'tests.svg',
-  },
-  {
-    title: 'Чат',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'chats',
-    icon: 'chat.svg',
-  },
-  {
-    title: 'Видеоконференции',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'videoconference',
-    icon: 'video.svg',
-  },
-  {
-    title: 'Объявления',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'announcements',
-    icon: 'announcements.svg',
-  },
-  {
-    title: 'Расписание',
-    links: [
-      {
-        pageTitle: 'Создание',
-        pageUrl: 'first',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Редактирование',
-        pageUrl: 'second',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление',
-        pageUrl: 'third',
-        items: [
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-          {
-            title: 'Что такое Xi.effect',
-            image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
-          },
-        ],
-      },
-    ],
-    sectionName: 'schedule',
-    icon: 'schedule.svg',
-  },
+  // {
+  //   title: 'Задания',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'tasks',
+  //   icon: 'assignments.svg',
+  // },
+  // {
+  //   title: 'Тесты',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'tests',
+  //   icon: 'tests.svg',
+  // },
+  // {
+  //   title: 'Чат',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'chats',
+  //   icon: 'chat.svg',
+  // },
+  // {
+  //   title: 'Видеоконференции',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'videoconference',
+  //   icon: 'video.svg',
+  // },
+  // {
+  //   title: 'Объявления',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'announcements',
+  //   icon: 'announcements.svg',
+  // },
+  // {
+  //   title: 'Расписание',
+  //   links: [
+  //     {
+  //       pageTitle: 'Создание',
+  //       pageUrl: 'first',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Редактирование',
+  //       pageUrl: 'second',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       pageTitle: 'Удаление',
+  //       pageUrl: 'third',
+  //       items: [
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //         {
+  //           title: 'Что такое Xi.effect',
+  //           image: '',
+  //           description: 'Пара слов о  образовательной платформе',
+  //           link: '',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   sectionName: 'schedule',
+  //   icon: 'schedule.svg',
+  // },
 ];

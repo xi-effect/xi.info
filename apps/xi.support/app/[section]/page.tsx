@@ -24,7 +24,7 @@ const SectionPage = ({ params: { section } }) => {
     <Layout>
       <HeaderDoc />
       <Title title={sectionItem.title} />
-      <Sections sections={sectionItem.links} />
+      <Sections sections={sectionItem.links} sectionName={sectionItem.sectionName} />
     </Layout>
   );
 };

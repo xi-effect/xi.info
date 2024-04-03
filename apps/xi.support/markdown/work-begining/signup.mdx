@@ -1,7 +1,8 @@
 import Link from 'mdxComponents/Link';
 import AnchorHeading from 'mdxComponents/AnchorHeading';
+import Image from 'mdxComponents/Image';
 
-<AnchorHeading type="h2" id="signup">
+<AnchorHeading type="h1" id="signup">
   Регистрация
 </AnchorHeading>
 
@@ -17,23 +18,30 @@ import AnchorHeading from 'mdxComponents/AnchorHeading';
 В случае, если после нажатия на кнопку “Зарегистрироваться” один или несколько полей подсвечены красным цветом,
 исправьте значения красного поля (полей) в соответствии с требованиями и нажмите “Зарегистрироваться” еще раз.
 
-<AnchorHeading type="h2" id="errors">
+<AnchorHeading type="h1" id="errors">
   Ошибки
 </AnchorHeading>
 
-<AnchorHeading type="h3" id="username-error">
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/signup-error.png"
+  alt="signup errors"
+/>
+
+<AnchorHeading type="h2" id="username-error">
   Такое имя пользователя уже занято
 </AnchorHeading>
 
 Ошибка “Такое имя пользователя уже занято” означает, что пользователь с указанным именем пользователя уже существует. Придумайте другое имя пользователя.
 
-<AnchorHeading type="h3" id="email-error">
+<AnchorHeading type="h2" id="email-error">
   Аккаунт с такой почтой уже зарегистрирован
 </AnchorHeading>
 
 Ошибка “Аккаунт с такой почтой уже зарегистрирован” означает, что на портале уже существует личный кабинет, привязанный к указанной вами электронной почте. Используйте адрес другой электронной почты.
 
-<AnchorHeading type="h3" id="password-error">
+<AnchorHeading type="h2" id="password-error">
   Такой пароль легко взломать
 </AnchorHeading>
 

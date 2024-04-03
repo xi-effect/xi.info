@@ -5,16 +5,21 @@ import Image from 'next/image';
 
 type SectionsT = {
   sections: any;
+  sectionName: string;
 };
 
-const Sections = ({ sections }: SectionsT) => (
+const Sections = ({ sections, sectionName }: SectionsT) => (
   <div className="w-full p-4 md:p-8 2xl:py-16 2xl:px-40 flex justify-center items-center flex-row z-10">
     <div className="flex flex-col w-full max-w-[1920px] gap-[64px]">
       {sections.map((section, index) => (
         <section id={section.link} className="flex flex-col" key={index.toString()}>
-          <span className="font-medium text-[24px] md:text-[32px] 2xl:text-[48px]">
+          <Link
+            variant="hover"
+            href={`/${sectionName}/${section.pageUrl}`}
+            className="font-medium text-[24px] md:text-[32px] 2xl:text-[48px]"
+          >
             {section.pageTitle}
-          </span>
+          </Link>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-12 2xl:gap-8">
             {section.items.map((item, i) => (
               <div className="flex flex-col" key={i.toString()}>
