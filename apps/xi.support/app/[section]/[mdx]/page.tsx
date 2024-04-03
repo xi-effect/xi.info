@@ -5,6 +5,7 @@ import { Layout, HeaderDoc } from 'components/Common';
 import { Link } from '@xipkg/link';
 import { CallToAction } from 'components/HomePage';
 import { pagesConfig } from 'config/pagesConfig';
+import { Breadcrumbs } from 'components/MdxPage/Breadcrumbs';
 
 export const dynamicParams = false; // true | false,
 
@@ -33,7 +34,12 @@ export default function Page({ params }: MdXPageT) {
     (item) => item.page === params.mdx && item.section === params.section,
   );
 
-  if (!pageData) return 404;
+  const sectionData = sectionsConfig.find((item) => item.sectionName === pageData?.section);
+
+  const pageFromSection =
+    sectionData && pageData && sectionData.links.find((item) => item.pageUrl === pageData.page);
+
+  if (!pageData || !sectionData || !pageFromSection) return 404;
 
   return (
     <Layout>
@@ -56,7 +62,12 @@ export default function Page({ params }: MdXPageT) {
             </div>
           </div>
           <div className="w-full">
-            {/* <Breadcrumbs /> */}
+            <Breadcrumbs
+              sectionName={sectionData.title}
+              sectionLink={pageData.section}
+              pageName={pageFromSection.pageTitle}
+              pageLink={pageData.page}
+            />
             <MdxPage sectionId={params.section} mdxId={params.mdx} />
             <span className="font-medium text-[20px] text-gray-60 mt-4 md:mt-8">
               {`Обновлено ${pageData.updateDate}`}
