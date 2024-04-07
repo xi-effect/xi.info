@@ -28,9 +28,11 @@ export const pagesConfig: PageConfigItemT[] = [
     section: 'work-begining',
     page: 'signin',
     anchors: [
-      { title: 'Создание', link: 'first' },
-      { title: 'Редактирование', link: 'second' },
-      { title: 'Удаление', link: 'third' },
+      { title: 'Вход в приложение', link: 'signin' },
+      { title: 'Возможные проблемы', link: 'errors' },
+      { title: 'Не удалось найти аккаунт', link: 'username-error' },
+      { title: 'Неправильный пароль', link: 'password-error' },
+      { title: 'Ошибка сервера', link: 'server-error' },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },

@@ -1,1 +1,52 @@
-### Страница в разработке
+import Link from 'mdxComponents/Link';
+import AnchorHeading from 'mdxComponents/AnchorHeading';
+import Image from 'mdxComponents/Image';
+
+<AnchorHeading type="h1" id="signin">
+  Вход в приложение
+</AnchorHeading>
+
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/signin-form.png"
+  alt="signin form"
+/>
+
+<AnchorHeading type="h1" id="errors">
+  Возможные проблемы
+</AnchorHeading>
+
+<AnchorHeading type="h2" id="username-error">
+  Не удалось найти аккаунт
+</AnchorHeading>
+
+Если при попытке войти в личный кабинет возникает ошибка “Не удалось войти в аккаунт”, значит,
+указанная почта не зарегистрирована на портале. Проверьте правильность написания почты или <Link href="https://app.xieffect.ru/signup">зарегистрируйтесь</Link>.
+
+<AnchorHeading type="h2" id="password-error">
+  Неправильный пароль
+</AnchorHeading>
+
+Если при попытке войти в личный кабинет возникает ошибка “Неправильный пароль”, значит, пароль был введен неверно.
+Проверьте правильность написания пароля или сбросьте пароль.
+
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/signin-errors.png"
+  alt="signin errors"
+/>
+
+<AnchorHeading type="h2" id="server-error">
+  Ошибка сервера
+</AnchorHeading>
+
+Если при попытке войти в личный кабинет возникает “Ошибка сервера”, повторите попытку позже.
+
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/signin-server-error.png"
+  alt="signin server errors"
+/>

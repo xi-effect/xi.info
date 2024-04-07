@@ -13,9 +13,7 @@ const H3 = ({ children }: PropsWithChildren) => (
   <h3 className="my-4 font-bold text-gray-100 text-[20px] 2xl:text-[24px]">{children}</h3>
 );
 
-// const P = ({ children }: PropsWithChildren) => (
-//   <p className="my-4 text-gray-100 text-[16px] 2xl:text-[20px]">{children}</p>
-// );
+const P = ({ children }: PropsWithChildren) => <p className="my-4 text-gray-100">{children}</p>;
 
 const Li = ({ children }: PropsWithChildren) => (
   <li className="my-1 text-gray-100 text-[16px] 2xl:text-[20px]">{children}</li>
@@ -39,6 +37,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: H2,
     h3: H3,
     li: Li,
+    p: P,
     ul: Ul,
     ol: Ol,
     ...components,

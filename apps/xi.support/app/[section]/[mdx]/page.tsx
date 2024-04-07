@@ -61,7 +61,7 @@ export default function Page({ params }: MdXPageT) {
               ))}
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full text-gray-100 text-[16px] 2xl:text-[20px]">
             <Breadcrumbs
               sectionName={sectionData.title}
               sectionLink={pageData.section}
