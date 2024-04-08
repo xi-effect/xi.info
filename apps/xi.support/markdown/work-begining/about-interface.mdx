@@ -1,1 +1,75 @@
-### Страница в разработке
+import Link from 'mdxComponents/Link';
+import AnchorHeading from 'mdxComponents/AnchorHeading';
+import Image from 'mdxComponents/Image';
+
+<AnchorHeading type="h1" id="about-interface">
+  Обзор интерфейса
+</AnchorHeading>
+
+<AnchorHeading type="h2" id="main-menu">
+  Главное меню
+</AnchorHeading>
+
+Главное располагается в левой части экрана. Ниже представлена схема элементов меню.
+Они рассмотрены подробнее далее в статье.
+
+<Image
+  width={568}
+  height={1016}
+  src="/assets/markdown/work-begining/about-interface-main-menu.png"
+  alt="about interface main menu"
+/>
+
+<AnchorHeading type="h2" id="community-menu">
+  Меню сообщества
+</AnchorHeading>
+
+В верхнем левом углу вы видите название и фото текущего сообщетсва.
+
+Чтобы открыть меню сообщества, нажмите на стрелку вниз:
+
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/about-interface-community-menu.png"
+  alt="about interface community menu"
+/>
+
+Меню сообщества содержит несколько опций.
+В зависимости от вашей роли в сообществе могут быть доступны следующие пункты:
+
+- Пригласить людей - создание ссылки-приглашения в сообщество;
+- Настройки сообщества - изменение названия, изображения сообщества, настройка ролей, просмотр истории активности и приглашений. Здесь также можно удалить сообщество;
+- Создать канал - создание канала;
+- Создать категорию - создание категории;
+- Покинуть сообщество - выход из сообщества.
+
+<AnchorHeading type="h2" id="categories">
+  Категории
+</AnchorHeading>
+
+В сообществе можно создавать, редактировать и удалять категории. Категорий может быть несколько,
+однако их названия в рамках одного сообщества не должны повторяться. В категории есть каналы.
+
+На примере ниже: категория B1.2, каналы - объявления, задания, чат, видеоконференция.
+
+<Image
+  width={368}
+  height={516}
+  src="/assets/markdown/work-begining/about-interface-channels.png"
+  alt="about interface channels"
+/>
+
+<AnchorHeading type="h2" id="channels">
+  Каналы
+</AnchorHeading>
+
+В каждой категории можно создавать и удалять каналы. Каналов одного типа (например,
+”задания”) в одной категории может быть несколько.
+
+<AnchorHeading type="h2" id="user-settings">
+  Настойки пользователя
+</AnchorHeading>
+
+В нижнем левом углу находятся настройки текущего пользователя. В настройках можно найти и изменить личные данные, параметры персонализации и настройки безопасности.
+Подробнее о настройках пользователя здесь.

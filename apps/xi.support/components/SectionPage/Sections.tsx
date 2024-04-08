@@ -28,7 +28,7 @@ const Sections = ({ sections, sectionName }: SectionsT) => (
                 </div>
                 <Link
                   variant="hover"
-                  href={item.link}
+                  href={`/${sectionName}/${section.pageUrl}#${item.link}`}
                   className="mt-4 font-medium text-[16px] md:text-[24px] 2xl:text-[32px]"
                 >
                   {item.title}

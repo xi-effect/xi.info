@@ -41,9 +41,12 @@ export const pagesConfig: PageConfigItemT[] = [
     section: 'work-begining',
     page: 'about-interface',
     anchors: [
-      { title: 'Создание', link: 'first' },
-      { title: 'Редактирование', link: 'second' },
-      { title: 'Удаление', link: 'third' },
+      { title: 'Обзор интерфейса', link: 'about-interface' },
+      { title: 'Главное меню', link: 'main-menu' },
+      { title: 'Меню сообщества', link: 'community-menu' },
+      { title: 'Категории', link: 'categories' },
+      { title: 'Каналы', link: 'channels' },
+      { title: 'Настойки пользователя', link: 'user-settings' },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
