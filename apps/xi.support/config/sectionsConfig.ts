@@ -39,6 +39,30 @@ export const sectionsConfig = [
         ],
       },
       {
+        pageTitle: 'Восстановление пароля',
+        pageUrl: 'password-recovery',
+        items: [
+          {
+            title: 'Восстановление пароля',
+            image: '',
+            description: 'Пара слов о  образовательной платформе',
+            link: '',
+          },
+          {
+            title: 'Не удалось найти аккаунт',
+            image: '',
+            description: 'Пара слов о  образовательной платформе',
+            link: '',
+          },
+          {
+            title: 'Сброс пароля',
+            image: '',
+            description: 'Пара слов о  образовательной платформе',
+            link: '',
+          },
+        ],
+      },
+      {
         pageTitle: 'Обзор интерфейса',
         pageUrl: 'about-interface',
         items: [

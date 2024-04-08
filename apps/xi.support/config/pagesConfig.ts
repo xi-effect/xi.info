@@ -19,8 +19,6 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
   },
@@ -36,8 +34,6 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
   },
@@ -50,8 +46,6 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Удаление', link: 'third' },
     ],
     relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
@@ -66,7 +60,18 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'work-begining',
+    page: 'password-recovery',
+    anchors: [
+      { title: 'Восстановление пароля', link: 'password-recovery' },
+      { title: 'Не удалось найти аккаунт', link: 'username-error' },
+      { title: 'Сброс пароля', link: 'password-reset' },
+    ],
+    relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
