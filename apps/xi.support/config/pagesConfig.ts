@@ -57,9 +57,15 @@ export const pagesConfig: PageConfigItemT[] = [
     section: 'work-begining',
     page: 'device-info',
     anchors: [
-      { title: 'Создание', link: 'first' },
-      { title: 'Редактирование', link: 'second' },
-      { title: 'Удаление', link: 'third' },
+      { title: 'Информация об устройствах', link: 'device-info' },
+      { title: 'Использование с ноутбука или компьютера', link: 'laptop-pc-use' },
+      { title: 'Установка приложения на ноутбук или компьютер', link: 'laptop-pc-install' },
+      { title: 'Использование со cмартфона или планшета', link: 'mobile-use' },
+      { title: 'Установка приложения на cмартфон или планшет', link: 'mobile-install' },
+      {
+        title: 'Политика устранения ошибок в зависимости от версии браузера',
+        link: 'bug-fix-policy',
+      },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },

@@ -127,10 +127,40 @@ export const sectionsConfig = [
         pageUrl: 'device-info',
         items: [
           {
-            title: 'Что такое Xi.effect',
+            title: 'Информация об устройствах',
             image: '',
-            description: 'Пара слов о  образовательной платформе',
-            link: '',
+            description: '',
+            link: 'device-info',
+          },
+          {
+            title: 'Использование с ноутбука или компьютера',
+            image: '',
+            description: '',
+            link: 'laptop-pc-use',
+          },
+          {
+            title: 'Установка приложения на ноутбук или компьютер',
+            image: '',
+            description: '',
+            link: 'laptop-pc-install',
+          },
+          {
+            title: 'Использование со cмартфона или планшета',
+            image: '',
+            description: '',
+            link: 'mobile-use',
+          },
+          {
+            title: 'Установка приложения на cмартфон или планшет',
+            image: '',
+            description: '',
+            link: 'mobile-install',
+          },
+          {
+            title: 'Политика устранения ошибок в зависимости от версии браузера',
+            image: '',
+            description: '',
+            link: 'bug-fix-policy',
           },
         ],
       },
