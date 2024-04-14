@@ -55,6 +55,45 @@ export const pagesConfig: PageConfigItemT[] = [
   },
   {
     section: 'work-begining',
+    page: 'signup-invite',
+    anchors: [
+      { title: 'Страница Регистрации', link: 'signup-invite' },
+      { title: 'Сообщества', link: 'community' },
+      { title: 'Приглашение не действительно', link: 'errors' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'work-begining',
+    page: 'welcome',
+    anchors: [
+      {
+        title: 'Профиль',
+        link: 'profile',
+      },
+      {
+        title: 'Создание сообщества',
+        link: 'community-create',
+      },
+      {
+        title: 'Присоединение к сообществу',
+        link: 'community-invite',
+      },
+      {
+        title: 'Окончание настройки профиля',
+        link: 'final',
+      },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'work-begining',
     page: 'device-info',
     anchors: [
       { title: 'Информация об устройствах', link: 'device-info' },
