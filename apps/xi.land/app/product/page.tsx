@@ -323,6 +323,11 @@ const featchersData = [
   },
 ];
 
+export const metadata = {
+  title: 'продукт | xi.effect',
+  description: 'Приложение для репетиторов и малого бизнеса',
+};
+
 export default function ProductPage() {
   return (
     <main className="flex flex-row h-full w-full min-h-[100vh] justify-center items-start bg-gray-0 overflow-x-hidden">

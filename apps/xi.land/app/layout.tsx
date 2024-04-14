@@ -12,7 +12,7 @@ import YandexMetrika from 'components/YandexMetrika';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
-  description: 'Гибкий образовательный инструмент для репетиторов и малого бизнеса',
+  description: 'Приложение для репетиторов и малого бизнеса',
   manifest: '/manifest.webmanifest',
   keywords: [
     'xi.effect',
@@ -40,6 +40,20 @@ export const metadata: Metadata = {
   verification: {
     google: 'VAN7yVAfRqd5NWFpUJlz0MVL1wcv0mdhDY-16-d48-U',
     yandex: '5896c9df498c0cd0',
+  },
+  openGraph: {
+    title: 'xi.effect',
+    description: 'Приложение для репетиторов и малого бизнеса',
+    url: 'https://xieffect.ru',
+    siteName: 'xi.effect',
+    images: [
+      {
+        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        width: 512,
+        height: 512,
+      },
+    ],
+    type: 'website',
   },
 };
 
