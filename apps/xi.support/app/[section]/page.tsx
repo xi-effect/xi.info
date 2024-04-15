@@ -18,8 +18,6 @@ const SectionPage = ({ params: { section } }) => {
 
   if (!sectionItem) return;
 
-  console.log('section', sectionItem);
-
   return (
     <Layout>
       <HeaderDoc />

@@ -21,8 +21,6 @@ export async function generateStaticParams() {
     );
   });
 
-  console.log('itemsArray', itemsArray);
-
   return itemsArray.map((item) => ({
     section: item.sectionId,
     mdx: item.mdxId,
