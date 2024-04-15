@@ -20,17 +20,20 @@ const Sections = ({ sections, sectionName }: SectionsT) => (
           >
             {section.pageTitle}
           </Link>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-12 2xl:gap-8">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-y-6 md:gap-x-8">
             {section.items.map((item, i) => (
               <div className="flex flex-col" key={i.toString()}>
-                <div className="relative flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px] p-1">
+                <Link
+                  href={`/${sectionName}/${section.pageUrl}#${item.link}`}
+                  className="relative flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px] p-1"
+                >
                   <Image
                     alt={item.title}
                     src={`/assets/sections/work-begining/${item.image}`}
                     width={item.width ?? 0}
                     height={item.height ?? 0}
                   />
-                </div>
+                </Link>
                 <Link
                   variant="hover"
                   href={`/${sectionName}/${section.pageUrl}#${item.link}`}
