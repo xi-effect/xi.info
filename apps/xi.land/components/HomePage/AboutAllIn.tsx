@@ -77,7 +77,7 @@ const AboutAllIn = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 1 }}
-      className="py-8 px-4 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
+      className="py-8 px-4 2xl:py-16 2xl:px-24 mt-4 md:mt-8 2xl:mt-16 flex justify-center items-center flex-col w-screen"
     >
       <div className="w-full max-w-[1920px]">
         <h2 className="text-[24px] md:text-[32px] 2xl:text-[64px] font-medium ml-4 md:ml-8 2xl:ml-16">
