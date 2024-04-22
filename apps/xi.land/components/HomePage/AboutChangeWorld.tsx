@@ -15,9 +15,9 @@ const AboutChangeWorld = () => (
       </h2>
       <div className="flex flex-col xl:flex-row gap-4 md:gap-8 mt-4 md:mt-8">
         <motion.div
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
           viewport={{ once: true }}
           className={`${cardsStyles} flex-col  md:flex-row xl:flex-col 2xl:flex-row w-full xl:w-[55%] min-h-[442px] md:min-h-[592px] 2xl:min-h-[546px]`}
         >
@@ -40,9 +40,9 @@ const AboutChangeWorld = () => (
           </div>
         </motion.div>
         <motion.div
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={{ delay: 0.6, duration: 0.3 }}
           viewport={{ once: true }}
           className={`${cardsStyles} flex-col md:flex-row xl:flex-col w-full xl:w-[45%] min-h-[368px] md:min-h-[468px] 2xl:min-h-[546px]`}
         >
@@ -67,9 +67,9 @@ const AboutChangeWorld = () => (
       </div>
       <div className="flex flex-col xl:flex-row gap-4 md:gap-8 mt-4 md:mt-8">
         <motion.div
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.5, duration: 0.3 }}
           viewport={{ once: true }}
           className={`${cardsStyles} flex-col md:flex-row xl:flex-col w-full xl:w-[45%] min-h-[246px] md:min-h-[422px] 2xl:min-h-[500px]`}
         >
@@ -92,9 +92,9 @@ const AboutChangeWorld = () => (
           </div>
         </motion.div>
         <motion.div
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={{ delay: 1, duration: 0.3 }}
           viewport={{ once: true }}
           className={`${cardsStyles} flex-col md:flex-row xl:flex-col w-full xl:w-[55%] min-h-[216px] md:min-h-[376px] 2xl:min-h-[500px]`}
         >
