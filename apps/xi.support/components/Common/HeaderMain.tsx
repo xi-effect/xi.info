@@ -11,12 +11,7 @@ export const HeaderMain = () => (
         <Image src="/xisupport.webp" alt="xi.support logo" height={24} width={243} />
       </NextLink>
       <NextLink className="flex sm:hidden" href="/">
-        <Image
-          src="/assets/home-page/xisupportlight.webp"
-          alt="xi.support logo"
-          height={24}
-          width={243}
-        />
+        <Image src="/xisupportlight.webp" alt="xi.support logo" height={24} width={243} />
       </NextLink>
       <Button variant="default" className="ml-auto w-24 z-10 max-sm:hidden" asChild>
         <NextLink href="https://app.xieffect.ru/signin">Войти</NextLink>
