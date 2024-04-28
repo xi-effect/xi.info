@@ -113,7 +113,7 @@ export const vacancyList: ProfessionOptionsT[] = [
     title: 'Marketing-specialist',
   },
   {
-    label: 'Copywriter',
+    label: 'Copywriter/Editor',
     author: {
       name: 'Игорь',
       tg: '@unknownproperty',
@@ -122,8 +122,8 @@ export const vacancyList: ProfessionOptionsT[] = [
     },
     date: '28 апреля',
     grade: 'Intern, Junior',
-    id: 'marketing-copywriter',
-    title: 'Copywriter',
+    id: 'marketing-copywriter-editor',
+    title: 'Copywriter/Editor',
   },
 ];
 
