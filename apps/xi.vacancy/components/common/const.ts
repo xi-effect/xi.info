@@ -122,7 +122,7 @@ export const vacancyList: ProfessionOptionsT[] = [
     },
     date: '28 апреля',
     grade: 'Intern, Junior',
-    id: 'marketing-copywriter-editor',
+    id: 'marketing-copywriter',
     title: 'Copywriter/Editor',
   },
 ];
