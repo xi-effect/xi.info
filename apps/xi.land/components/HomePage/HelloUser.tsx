@@ -138,7 +138,7 @@ const HelloUser = () => {
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 1 }}
+          transition={{ delay: 1, duration: 1 }}
           className="mt-2 md:mt-4 text-[20px] md:text-[24px] 2xl:text-[32px] sm:text-[32px] text-center text-gray-10"
         >
           Приложение для репетиторов и малого бизнеса
@@ -146,12 +146,12 @@ const HelloUser = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
           className="w-full md:w-fit flex flex-col sm:flex-row gap-4 mt-8 "
         >
           <ContactUsModal open={modalOpen} setModalOpen={setModalOpen} onOpenChange={setModalOpen}>
             <Button
-              className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
+              className="w-full md:w-fit border-0 text-brand-80 bg-gray-0 shadow-2xl hover:bg-gray-5 focus:bg-gray-5 active:bg-gray-5"
               size="l"
             >
               Записаться на тестирование
