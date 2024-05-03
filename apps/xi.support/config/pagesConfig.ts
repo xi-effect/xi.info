@@ -215,19 +215,36 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     updateDate: '07.05.2024',
   },
+  // community
   {
     section: 'community',
-    page: 'how-change-email',
+    page: 'add-community',
     anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
+      { title: 'Как создать сообщество?', link: 'add-community' },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '03.05.2024',
+  },
+  {
+    section: 'community',
+    page: 'community-settings',
+    anchors: [
+      { title: 'Как настроить сообщество?', link: 'community-settings' },
+      { title: 'Обзор', link: 'review' },
+      { title: 'Роли', link: 'roles' },
+      { title: 'История активности', link: 'activity-history' },
+      { title: 'Участники', link: 'members' },
+      { title: 'Классы', link: 'classes' },
+      { title: 'Категории', link: 'categories' },
+      { title: 'Приглашения', link: 'invitations' },
+      { title: 'Пример настроенного сообщества', link: 'community-sample' },
+      { title: 'Удалить сообщество', link: 'delete-community' },
+    ],
+    relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '03.05.2024',
   },
 ];
