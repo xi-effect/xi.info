@@ -217,18 +217,16 @@ export const pagesConfig: PageConfigItemT[] = [
   },
   // community
   {
-    section: 'community',
+    section: 'communities',
     page: 'add-community',
-    anchors: [
-      { title: 'Как создать сообщество?', link: 'add-community' },
-    ],
+    anchors: [{ title: 'Как создать сообщество?', link: 'add-community' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '03.05.2024',
   },
   {
-    section: 'community',
+    section: 'communities',
     page: 'community-settings',
     anchors: [
       { title: 'Как настроить сообщество?', link: 'community-settings' },

@@ -411,7 +411,7 @@ export const sectionsConfig = [
         ],
       },
     ],
-    sectionName: 'community',
+    sectionName: 'communities',
     icon: 'settings.svg',
   },
   // {
