@@ -280,49 +280,51 @@ export const sectionsConfig = [
     sectionName: 'work-begining',
     icon: 'start-working.svg',
   },
-  // {
-  //   title: 'Аккаунт',
-  //   links: [
-  //     {
-  //       pageTitle: 'Настройки пользователя',
-  //       pageUrl: 'user-settings',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Где найти настройки аккаунта пользователя?',
-  //       pageUrl: 'where-i-can-find-user-settings',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Как поменять почту, привязанную к аккаунту?',
-  //       pageUrl: 'how-change-email',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   sectionName: 'account',
-  //   icon: 'settings.svg',
-  // },
+  {
+    title: 'Аккаунт',
+    links: [
+      // {
+      //   pageTitle: 'Настройки пользователя',
+      //   pageUrl: 'user-settings',
+      //   items: [
+      //     {
+      //       title: 'Что такое Xi.effect',
+      //       image: '',
+      //       description: 'Пара слов о  образовательной платформе',
+      //       link: '',
+      //     },
+      //   ],
+      // },
+      // {
+      //   pageTitle: 'Где найти настройки аккаунта пользователя?',
+      //   pageUrl: 'where-i-can-find-user-settings',
+      //   items: [
+      //     {
+      //       title: 'Что такое Xi.effect',
+      //       image: '',
+      //       description: 'Пара слов о  образовательной платформе',
+      //       link: '',
+      //     },
+      //   ],
+      // },
+      {
+        pageTitle: 'Изменение адреса электронной почты',
+        pageUrl: 'how-change-email',
+        items: [
+          {
+            title: 'Как поменять почту, привязанную к аккаунту?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'how-change-email',
+          },
+        ],
+      },
+    ],
+    sectionName: 'account',
+    icon: 'settings.svg',
+  },
   {
     title: 'Сообщества',
     links: [

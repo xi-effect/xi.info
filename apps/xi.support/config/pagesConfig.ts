@@ -125,71 +125,71 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   // account
-  {
-    section: 'account',
-    page: 'user-settings',
-    anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
-    ],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '07.05.2024',
-  },
-  {
-    section: 'account',
-    page: 'user-settings',
-    anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
-    ],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '07.05.2024',
-  },
-  {
-    section: 'account',
-    page: 'where-i-can-find-user-settings',
-    anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
-    ],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '07.05.2024',
-  },
-  {
-    section: 'account',
-    page: 'where-i-can-find-user-settings',
-    anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
-    ],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '07.05.2024',
-  },
+  // {
+  //   section: 'account',
+  //   page: 'user-settings',
+  //   anchors: [
+  //     { title: 'Создание', link: 'first' },
+  //     // { title: 'Редактирование', link: 'second' },
+  //     // { title: 'Удаление', link: 'third' },
+  //   ],
+  //   relatedLinks: [
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //   ],
+  //   updateDate: '07.05.2024',
+  // },
+  // {
+  //   section: 'account',
+  //   page: 'user-settings',
+  //   anchors: [
+  //     { title: 'Создание', link: 'first' },
+  //     // { title: 'Редактирование', link: 'second' },
+  //     // { title: 'Удаление', link: 'third' },
+  //   ],
+  //   relatedLinks: [
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //   ],
+  //   updateDate: '07.05.2024',
+  // },
+  // {
+  //   section: 'account',
+  //   page: 'where-i-can-find-user-settings',
+  //   anchors: [
+  //     { title: 'Создание', link: 'first' },
+  //     // { title: 'Редактирование', link: 'second' },
+  //     // { title: 'Удаление', link: 'third' },
+  //   ],
+  //   relatedLinks: [
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //   ],
+  //   updateDate: '07.05.2024',
+  // },
+  // {
+  //   section: 'account',
+  //   page: 'where-i-can-find-user-settings',
+  //   anchors: [
+  //     { title: 'Создание', link: 'first' },
+  //     // { title: 'Редактирование', link: 'second' },
+  //     // { title: 'Удаление', link: 'third' },
+  //   ],
+  //   relatedLinks: [
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //     // { title: 'Создание', link: 'first' },
+  //   ],
+  //   updateDate: '07.05.2024',
+  // },
   {
     section: 'account',
     page: 'how-change-email',
     anchors: [
-      { title: 'Создание', link: 'first' },
+      { title: 'Как поменять почту, привязанную к аккаунту?', link: 'how-change-email' },
       // { title: 'Редактирование', link: 'second' },
       // { title: 'Удаление', link: 'third' },
     ],
