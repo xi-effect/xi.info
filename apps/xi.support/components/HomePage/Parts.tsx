@@ -25,14 +25,15 @@ export const Parts = () => (
                 {item.title}
               </Link>
               <ul className="font-normal text-gray-90 text-[16px] sm:text-[20px] leading-[20.8px] sm:leading-[26px]">
-                {item.links.map((elem, index) => (
+                {[0, 1, 2].map((index) => (
+                  item.links[index] &&
                   <li className="mt-2" key={index}>
                     <Link
                       className="text-[20px] leading-[26px]"
                       variant="hover"
-                      href={`/${item.sectionName}/${elem.pageUrl}`}
+                      href={`/${item.sectionName}/${item.links[index].pageUrl}`}
                     >
-                      {elem.pageTitle}
+                      {item.links[index].pageTitle}
                     </Link>
                   </li>
                 ))}
