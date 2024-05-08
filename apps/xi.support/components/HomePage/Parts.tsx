@@ -36,7 +36,7 @@ export const Parts = () => (
                     </Link>
                   </li>
                 ))}
-                <div className="mt-4 flex items-stretch gap-1">
+                <div className="mt-4 flex items-center gap-1">
                   <Link
                     className="text-[20px] leading-[26px]"
                     variant="hover"
@@ -44,7 +44,7 @@ export const Parts = () => (
                   >
                     Показать все
                   </Link>
-                  <ChevronRight className="!size-4 sm:!size-5 mt-[1px] sm:mt-[4px]" />
+                  <ChevronRight className="!size-4 sm:!size-5 mt-[4px]" />
                 </div>
               </ul>
             </div>
