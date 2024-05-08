@@ -283,33 +283,69 @@ export const sectionsConfig = [
   {
     title: 'Аккаунт',
     links: [
-      // {
-      //   pageTitle: 'Настройки пользователя',
-      //   pageUrl: 'user-settings',
-      //   items: [
-      //     {
-      //       title: 'Что такое Xi.effect',
-      //       image: '',
-      //       description: 'Пара слов о  образовательной платформе',
-      //       link: '',
-      //     },
-      //   ],
-      // },
-      // {
-      //   pageTitle: 'Где найти настройки аккаунта пользователя?',
-      //   pageUrl: 'where-i-can-find-user-settings',
-      //   items: [
-      //     {
-      //       title: 'Что такое Xi.effect',
-      //       image: '',
-      //       description: 'Пара слов о  образовательной платформе',
-      //       link: '',
-      //     },
-      //   ],
-      // },
+      {
+        pageTitle: 'Настройка профиля пользователя',
+        pageUrl: 'user-settings',
+        items: [
+          {
+            title: 'Настройка профиля',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'user-settings',
+          },
+          {
+            title: 'Личные данные',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'personal-data',
+          },
+          {
+            title: 'Персонализация',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'personalization',
+          },
+          {
+            title: 'Безопасность',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'security',
+          },
+          {
+            title: 'Звук и видео',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'sound-video',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Редактирование аватара пользователя',
+        pageUrl: 'profile-photo-settings',
+        items: [
+          {
+            title: 'Как редактировать аватар пользователя?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'profile-photo-settings',
+          },
+        ],
+      },
       {
         pageTitle: 'Изменение адреса электронной почты',
-        pageUrl: 'how-change-email',
+        pageUrl: 'change-email',
         items: [
           {
             title: 'Как поменять почту, привязанную к аккаунту?',
@@ -317,7 +353,49 @@ export const sectionsConfig = [
             width: 316,
             height: 126,
             description: '',
-            link: 'how-change-email',
+            link: 'change-email',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Подтверждение адреса электронной почты',
+        pageUrl: 'confirm-email',
+        items: [
+          {
+            title: 'Как поменять почту, привязанную к аккаунту?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'confirm-email',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Смена пароля',
+        pageUrl: 'change-password',
+        items: [
+          {
+            title: 'Как поменять пароль?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'change-password',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Удаление аккаунта',
+        pageUrl: 'delete-account',
+        items: [
+          {
+            title: 'Как удалить аккаунт?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'delete-account',
           },
         ],
       },

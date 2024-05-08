@@ -125,92 +125,75 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   // account
-  // {
-  //   section: 'account',
-  //   page: 'user-settings',
-  //   anchors: [
-  //     { title: 'Создание', link: 'first' },
-  //     // { title: 'Редактирование', link: 'second' },
-  //     // { title: 'Удаление', link: 'third' },
-  //   ],
-  //   relatedLinks: [
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //   ],
-  //   updateDate: '07.05.2024',
-  // },
-  // {
-  //   section: 'account',
-  //   page: 'user-settings',
-  //   anchors: [
-  //     { title: 'Создание', link: 'first' },
-  //     // { title: 'Редактирование', link: 'second' },
-  //     // { title: 'Удаление', link: 'third' },
-  //   ],
-  //   relatedLinks: [
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //   ],
-  //   updateDate: '07.05.2024',
-  // },
-  // {
-  //   section: 'account',
-  //   page: 'where-i-can-find-user-settings',
-  //   anchors: [
-  //     { title: 'Создание', link: 'first' },
-  //     // { title: 'Редактирование', link: 'second' },
-  //     // { title: 'Удаление', link: 'third' },
-  //   ],
-  //   relatedLinks: [
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //   ],
-  //   updateDate: '07.05.2024',
-  // },
-  // {
-  //   section: 'account',
-  //   page: 'where-i-can-find-user-settings',
-  //   anchors: [
-  //     { title: 'Создание', link: 'first' },
-  //     // { title: 'Редактирование', link: 'second' },
-  //     // { title: 'Удаление', link: 'third' },
-  //   ],
-  //   relatedLinks: [
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //     // { title: 'Создание', link: 'first' },
-  //   ],
-  //   updateDate: '07.05.2024',
-  // },
   {
     section: 'account',
-    page: 'how-change-email',
+    page: 'user-settings',
     anchors: [
-      { title: 'Как поменять почту, привязанную к аккаунту?', link: 'how-change-email' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
+      { title: 'Настройка профиля пользователя', link: 'user-settings' },
+      { title: 'Вкладка «Главная»', link: 'main' },
+      { title: 'Личные данные', link: 'personal-data' },
+      { title: 'Персонализация', link: 'personalization' },
+      { title: 'Безопасность', link: 'security' },
+      { title: 'Звук и видео', link: 'sound-video' },
+      { title: 'Выйти', link: 'logout' },
     ],
     relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-      // { title: 'Создание', link: 'first' },
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
   },
   {
     section: 'account',
-    page: 'how-change-email',
+    page: 'profile-photo-settings',
     anchors: [
-      { title: 'Создание', link: 'first' },
-      // { title: 'Редактирование', link: 'second' },
-      // { title: 'Удаление', link: 'third' },
+      { title: 'Как редактировать аватар пользователя?', link: 'profile-photo-settings' },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'account',
+    page: 'delete-account',
+    anchors: [
+      { title: 'Как удалить аккаунт?', link: 'delete-account' },
+    ],
+    relatedLinks: [
       // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'account',
+    page: 'change-email',
+    anchors: [
+      { title: 'Как поменять почту, привязанную к аккаунту?', link: 'change-email' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'account',
+    page: 'confirm-email',
+    anchors: [
+      { title: 'Для чего нужно подтверждать адрес электронной почты?', link: 'why-confirm-email' },
+      { title: 'Как подтвердить адрес электронной почты?', link: 'confirm-email' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'account',
+    page: 'change-password',
+    anchors: [
+      { title: 'Как поменять пароль?', link: 'change-password' },
+    ],
+    relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '07.05.2024',
