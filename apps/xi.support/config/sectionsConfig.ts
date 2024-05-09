@@ -785,103 +785,49 @@ export const sectionsConfig = [
   //   sectionName: 'chats',
   //   icon: 'chat.svg',
   // },
-  // {
-  //   title: 'Видеоконференции',
-  //   links: [
-  //     {
-  //       pageTitle: 'Создание',
-  //       pageUrl: 'first',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Редактирование',
-  //       pageUrl: 'second',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Удаление',
-  //       pageUrl: 'third',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   sectionName: 'videoconference',
-  //   icon: 'video.svg',
-  // },
+  {
+    title: 'Видеоконференции',
+    links: [
+      {
+        pageTitle: 'О видеоконференциях',
+        pageUrl: 'about',
+        items: [
+          {
+            title: 'Что такое сервис видеоконференций?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'about',
+          },
+          {
+            title: 'Основные функции сервиса видеоконференций',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'functionality',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Присоединиться к видеоконференции',
+        pageUrl: 'join-videoconference',
+        items: [
+          {
+            title: 'Как присоединиться к видеоконференции?',
+            image: 'signup-1.png',
+            width: 316,
+            height: 126,
+            description: '',
+            link: 'join-videoconference',
+          },
+        ],
+      },
+    ],
+    sectionName: 'videoconference',
+    icon: 'video.svg',
+  },
   // {
   //   title: 'Объявления',
   //   links: [

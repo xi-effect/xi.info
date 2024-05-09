@@ -7,6 +7,7 @@ type PageConfigItemT = {
 };
 
 export const pagesConfig: PageConfigItemT[] = [
+  // work-begining
   {
     section: 'work-begining',
     page: 'signup',
@@ -145,9 +146,7 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'account',
     page: 'profile-photo-settings',
-    anchors: [
-      { title: 'Как редактировать аватар пользователя?', link: 'profile-photo-settings' },
-    ],
+    anchors: [{ title: 'Как редактировать аватар пользователя?', link: 'profile-photo-settings' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
@@ -156,9 +155,7 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'account',
     page: 'delete-account',
-    anchors: [
-      { title: 'Как удалить аккаунт?', link: 'delete-account' },
-    ],
+    anchors: [{ title: 'Как удалить аккаунт?', link: 'delete-account' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
@@ -167,9 +164,7 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'account',
     page: 'change-email',
-    anchors: [
-      { title: 'Как поменять почту, привязанную к аккаунту?', link: 'change-email' },
-    ],
+    anchors: [{ title: 'Как поменять почту, привязанную к аккаунту?', link: 'change-email' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
@@ -190,9 +185,7 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'account',
     page: 'change-password',
-    anchors: [
-      { title: 'Как поменять пароль?', link: 'change-password' },
-    ],
+    anchors: [{ title: 'Как поменять пароль?', link: 'change-password' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
@@ -227,5 +220,29 @@ export const pagesConfig: PageConfigItemT[] = [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '03.05.2024',
+  },
+  // videoconference
+  {
+    section: 'videoconference',
+    page: 'about',
+    anchors: [
+      { title: 'Что такое сервис видеоконференций?', link: 'about' },
+      { title: 'Основные функции сервиса видеоконференций', link: 'functionality' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '08.05.2024',
+  },
+  {
+    section: 'videoconference',
+    page: 'join-videoconference',
+    anchors: [
+      { title: 'Как присоединиться к видеоконференции?', link: 'join-videoconference' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '08.05.2024',
   },
 ];
