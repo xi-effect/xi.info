@@ -213,7 +213,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Классы', link: 'classes' },
       { title: 'Категории', link: 'categories' },
       { title: 'Приглашения', link: 'invitations' },
-      { title: 'Пример настроенного сообщества', link: 'community-sample' },
+      { title: 'Пример настроенного сообщества', link: 'community-home' },
       { title: 'Удалить сообщество', link: 'delete-community' },
     ],
     relatedLinks: [
@@ -237,9 +237,7 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'videoconference',
     page: 'join-videoconference',
-    anchors: [
-      { title: 'Как присоединиться к видеоконференции?', link: 'join-videoconference' },
-    ],
+    anchors: [{ title: 'Как присоединиться к видеоконференции?', link: 'join-videoconference' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
