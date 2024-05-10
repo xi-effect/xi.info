@@ -29,7 +29,7 @@ const Sections = ({ sections, sectionName }: SectionsT) => (
                 >
                   <Image
                     alt={item.title}
-                    src={`/assets/sections/work-begining/${item.image}`}
+                    src={`/assets/sections/${sectionName}/${item.image}`}
                     width={item.width ?? 0}
                     height={item.height ?? 0}
                   />

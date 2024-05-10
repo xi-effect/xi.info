@@ -412,7 +412,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как создать сообщество?',
-            image: 'signup-1.png',
+            image: 'add-community-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -426,7 +426,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как настроить сообщество?',
-            image: 'signup-1.png',
+            image: 'communities-settings-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -434,7 +434,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Роли',
-            image: 'signup-1.png',
+            image: 'communities-roles-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -442,7 +442,7 @@ export const sectionsConfig = [
           },
           {
             title: 'История активности',
-            image: 'signup-1.png',
+            image: 'communities-activity-history-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -450,7 +450,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Участники',
-            image: 'signup-1.png',
+            image: 'community-members-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -458,7 +458,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Классы',
-            image: 'signup-1.png',
+            image: 'communities-classes-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -466,7 +466,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Категории',
-            image: 'signup-1.png',
+            image: 'communities-categories-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -474,7 +474,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Приглашения',
-            image: 'signup-1.png',
+            image: 'communities-invitations-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -482,7 +482,7 @@ export const sectionsConfig = [
           },
           {
             title: 'Удалить сообщество',
-            image: 'signup-1.png',
+            image: 'delete-community-cover.png',
             width: 316,
             height: 126,
             description: '',
