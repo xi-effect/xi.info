@@ -289,41 +289,41 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Настройка профиля',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'user-settings-cover.png',
+            width: 314,
+            height: 84,
             description: '',
             link: 'user-settings',
           },
           {
             title: 'Личные данные',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'personal-data-cover.png',
+            width: 270,
+            height: 84,
             description: '',
             link: 'personal-data',
           },
           {
             title: 'Персонализация',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'personalization-cover.png',
+            width: 280,
+            height: 84,
             description: '',
             link: 'personalization',
           },
           {
             title: 'Безопасность',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'security-cover.png',
+            width: 250,
+            height: 84,
             description: '',
             link: 'security',
           },
           {
             title: 'Звук и видео',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'sound-video-cover.png',
+            width: 240,
+            height: 84,
             description: '',
             link: 'sound-video',
           },
@@ -335,9 +335,9 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как редактировать аватар пользователя?',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'profile-photo-settings-cover.png',
+            width: 116,
+            height: 116,
             description: '',
             link: 'profile-photo-settings',
           },
@@ -349,7 +349,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как поменять почту, привязанную к аккаунту?',
-            image: 'signup-1.png',
+            image: 'change-email-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -363,7 +363,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как поменять почту, привязанную к аккаунту?',
-            image: 'signup-1.png',
+            image: 'confirm-email-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -377,7 +377,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как поменять пароль?',
-            image: 'signup-1.png',
+            image: 'change-password-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -391,7 +391,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как удалить аккаунт?',
-            image: 'signup-1.png',
+            image: 'delete-account-cover.png',
             width: 316,
             height: 126,
             description: '',
