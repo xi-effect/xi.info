@@ -794,7 +794,7 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Что такое сервис видеоконференций?',
-            image: 'signup-1.png',
+            image: 'about-cover.png',
             width: 316,
             height: 126,
             description: '',
@@ -802,9 +802,9 @@ export const sectionsConfig = [
           },
           {
             title: 'Основные функции сервиса видеоконференций',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'functionality-cover.png',
+            width: 160,
+            height: 53,
             description: '',
             link: 'functionality',
           },
@@ -816,9 +816,9 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как присоединиться к видеоконференции?',
-            image: 'signup-1.png',
-            width: 316,
-            height: 126,
+            image: 'join-videoconference-cover.png',
+            width: 219,
+            height: 53,
             description: '',
             link: 'join-videoconference',
           },
