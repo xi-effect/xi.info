@@ -630,6 +630,28 @@ export const sectionsConfig = [
           },
         ],
       },
+      {
+        pageTitle: 'Модель оценивания',
+        pageUrl: 'evaluation-system',
+        items: [
+          {
+            title: 'Что такое Модель оценивания?',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'evaluation-system',
+          },
+          {
+            title: 'Отметки',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'grades',
+          },
+        ],
+      },
     ],
     sectionName: 'tests',
     icon: 'tests.svg',
