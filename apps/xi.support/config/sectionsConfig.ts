@@ -631,6 +631,20 @@ export const sectionsConfig = [
         ],
       },
       {
+        pageTitle: 'Удаление заданий и тестов',
+        pageUrl: 'delete-test',
+        items: [
+          {
+            title: 'Как удалить задание/тест?',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'add-test',
+          },
+        ],
+      },
+      {
         pageTitle: 'Модель оценивания',
         pageUrl: 'evaluation-system',
         items: [

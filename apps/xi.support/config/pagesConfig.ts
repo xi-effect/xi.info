@@ -269,6 +269,15 @@ export const pagesConfig: PageConfigItemT[] = [
   },
   {
     section: 'tests',
+    page: 'delete-test',
+    anchors: [{ title: 'Как удалить задание/тест?', link: 'delete-test' }],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '19.05.2024',
+  },
+  {
+    section: 'tests',
     page: 'evaluation-system',
     anchors: [
       { title: 'Что такое Модель оценивания?', link: 'evaluation-system' },
