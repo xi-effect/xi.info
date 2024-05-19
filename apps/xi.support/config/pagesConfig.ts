@@ -243,4 +243,19 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     updateDate: '08.05.2024',
   },
+  // test
+  {
+    section: 'tests',
+    page: 'add-test',
+    anchors: [
+      { title: 'Как создать тест?', link: 'add-test' },
+      { title: 'Создание теста', link: 'add-new-test' },
+      { title: 'Выбор ответа на вопрос', link: 'choose-answer' },
+      { title: 'Настройки', link: 'settings' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.05.2024',
+  },
 ];

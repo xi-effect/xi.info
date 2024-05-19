@@ -591,103 +591,35 @@ export const sectionsConfig = [
   //   sectionName: 'tasks',
   //   icon: 'assignments.svg',
   // },
-  // {
-  //   title: 'Тесты',
-  //   links: [
-  //     {
-  //       pageTitle: 'Создание',
-  //       pageUrl: 'first',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Редактирование',
-  //       pageUrl: 'second',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Удаление',
-  //       pageUrl: 'third',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   sectionName: 'tests',
-  //   icon: 'tests.svg',
-  // },
+  {
+    title: 'Тесты',
+    links: [
+      {
+        pageTitle: 'Создание теста',
+        pageUrl: 'add-test',
+        items: [
+          {
+            title: 'Как создать тест?',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'add-test',
+          },
+          {
+            title: 'Настройки',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'settings',
+          },
+        ],
+      },
+    ],
+    sectionName: 'tests',
+    icon: 'tests.svg',
+  },
   // {
   //   title: 'Чат',
   //   links: [
