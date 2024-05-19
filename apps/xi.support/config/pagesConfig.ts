@@ -258,4 +258,15 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     updateDate: '18.05.2024',
   },
+  {
+    section: 'tests',
+    page: 'edit-test',
+    anchors: [
+      { title: 'Как редактировать задание/тест?', link: 'edit-test' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '19.05.2024',
+  },
 ];

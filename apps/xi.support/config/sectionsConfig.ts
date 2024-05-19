@@ -616,6 +616,20 @@ export const sectionsConfig = [
           },
         ],
       },
+      {
+        pageTitle: 'Редактирование заданий и тестов',
+        pageUrl: 'edit-test',
+        items: [
+          {
+            title: 'Как редактировать задание/тест?',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'add-test',
+          },
+        ],
+      },
     ],
     sectionName: 'tests',
     icon: 'tests.svg',
