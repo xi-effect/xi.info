@@ -592,7 +592,7 @@ export const sectionsConfig = [
   //   icon: 'assignments.svg',
   // },
   {
-    title: 'Тесты',
+    title: 'Задания и тесты',
     links: [
       {
         pageTitle: 'Создание теста',
@@ -600,6 +600,36 @@ export const sectionsConfig = [
         items: [
           {
             title: 'Как создать тест?',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'add-test',
+          },
+          {
+            title: 'Выбор ответа на вопрос',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'choose-answer',
+          },
+          {
+            title: 'Настройки',
+            image: 'temporary.png',
+            width: 252,
+            height: 80,
+            description: '',
+            link: 'settings',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Создание задания',
+        pageUrl: 'add-task',
+        items: [
+          {
+            title: 'Как создать задание?',
             image: 'temporary.png',
             width: 252,
             height: 80,
@@ -618,7 +648,7 @@ export const sectionsConfig = [
       },
       {
         pageTitle: 'Редактирование заданий и тестов',
-        pageUrl: 'edit-test',
+        pageUrl: 'edit',
         items: [
           {
             title: 'Как редактировать задание/тест?',
@@ -626,21 +656,7 @@ export const sectionsConfig = [
             width: 252,
             height: 80,
             description: '',
-            link: 'add-test',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Удаление заданий и тестов',
-        pageUrl: 'delete-test',
-        items: [
-          {
-            title: 'Как удалить задание/тест?',
-            image: 'temporary.png',
-            width: 252,
-            height: 80,
-            description: '',
-            link: 'add-test',
+            link: 'edit',
           },
         ],
       },
@@ -667,7 +683,7 @@ export const sectionsConfig = [
         ],
       },
     ],
-    sectionName: 'tests',
+    sectionName: 'tests-and-tasks',
     icon: 'tests.svg',
   },
   // {

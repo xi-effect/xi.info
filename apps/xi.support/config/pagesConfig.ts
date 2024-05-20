@@ -245,7 +245,7 @@ export const pagesConfig: PageConfigItemT[] = [
   },
   // test
   {
-    section: 'tests',
+    section: 'tests-and-tasks',
     page: 'add-test',
     anchors: [
       { title: 'Как создать тест?', link: 'add-test' },
@@ -259,25 +259,28 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '18.05.2024',
   },
   {
-    section: 'tests',
-    page: 'edit-test',
-    anchors: [{ title: 'Как редактировать задание/тест?', link: 'edit-test' }],
+    section: 'tests-and-tasks',
+    page: 'add-task',
+    anchors: [
+      { title: 'Как создать задание?', link: 'add-task' },
+      { title: 'Настройки', link: 'settings' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.05.2024',
+  },
+  {
+    section: 'tests-and-tasks',
+    page: 'edit',
+    anchors: [{ title: 'Как редактировать задание/тест?', link: 'edit' }],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '19.05.2024',
   },
   {
-    section: 'tests',
-    page: 'delete-test',
-    anchors: [{ title: 'Как удалить задание/тест?', link: 'delete-test' }],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '19.05.2024',
-  },
-  {
-    section: 'tests',
+    section: 'tests-and-tasks',
     page: 'evaluation-system',
     anchors: [
       { title: 'Что такое Модель оценивания?', link: 'evaluation-system' },
