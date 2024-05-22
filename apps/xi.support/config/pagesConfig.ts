@@ -250,7 +250,7 @@ export const pagesConfig: PageConfigItemT[] = [
     anchors: [
       { title: 'Как создать тест?', link: 'add-test' },
       { title: 'Создание теста', link: 'add-new-test' },
-      { title: 'Выбор ответа на вопрос', link: 'choose-answer' },
+      { title: 'Выбор ответа на вопрос', link: 'questions' },
       { title: 'Настройки', link: 'settings' },
     ],
     relatedLinks: [
