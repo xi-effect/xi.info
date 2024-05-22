@@ -591,103 +591,101 @@ export const sectionsConfig = [
   //   sectionName: 'tasks',
   //   icon: 'assignments.svg',
   // },
-  // {
-  //   title: 'Тесты',
-  //   links: [
-  //     {
-  //       pageTitle: 'Создание',
-  //       pageUrl: 'first',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Редактирование',
-  //       pageUrl: 'second',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       pageTitle: 'Удаление',
-  //       pageUrl: 'third',
-  //       items: [
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //         {
-  //           title: 'Что такое Xi.effect',
-  //           image: '',
-  //           description: 'Пара слов о  образовательной платформе',
-  //           link: '',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   sectionName: 'tests',
-  //   icon: 'tests.svg',
-  // },
+  {
+    title: 'Задания и тесты',
+    links: [
+      {
+        pageTitle: 'Создание теста',
+        pageUrl: 'add-test',
+        items: [
+          {
+            title: 'Как создать тест?',
+            image: 'add-test.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'add-test',
+          },
+          {
+            title: 'Выбор ответа на вопрос',
+            image: 'questions.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'questions',
+          },
+          {
+            title: 'Настройки',
+            image: 'test-settings.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'settings',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Создание задания',
+        pageUrl: 'add-task',
+        items: [
+          {
+            title: 'Как создать задание?',
+            image: 'add-task.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'add-task',
+          },
+          {
+            title: 'Настройки',
+            image: 'task-settings.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'settings',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Редактирование заданий и тестов',
+        pageUrl: 'edit',
+        items: [
+          {
+            title: 'Как редактировать задание/тест?',
+            image: 'edit.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'edit',
+          },
+        ],
+      },
+      {
+        pageTitle: 'Модель оценивания',
+        pageUrl: 'evaluation-system',
+        items: [
+          {
+            title: 'Что такое Модель оценивания?',
+            image: 'evaluation-system.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'evaluation-system',
+          },
+          {
+            title: 'Отметки',
+            image: 'grades.png',
+            width: 288,
+            height: 93,
+            description: '',
+            link: 'grades',
+          },
+        ],
+      },
+    ],
+    sectionName: 'tests-and-tasks',
+    icon: 'tests.svg',
+  },
   // {
   //   title: 'Чат',
   //   links: [
