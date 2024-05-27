@@ -19,7 +19,7 @@ const AppreciateTheTeam = () => (
 
       <div className="lg:basis-[49%] lg:my-auto">
         <h3 className="leading-[110%] font-semibold mb-2 sm:mb-4 text-[20px] sm:text-[32px] 2xl:text-[32px]">
-          Ассинхронное взаимодействие
+          Асинхронное взаимодействие
         </h3>
 
         <p className="w-[90%] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px] lg:w-full">
