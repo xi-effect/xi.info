@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
+import { Button } from '@xipkg/button';
+import SendResumeModal from 'components/modal/SendResumeModal';
 import Memoji from '../common/Memoji';
-import SendResumeButton from '../modal/SendResumeButton';
 
 const FindYourCase = () => {
   const router = useRouter();
@@ -23,8 +24,9 @@ const FindYourCase = () => {
       >
         Смотреть вакансии
       </button>
-
-      <SendResumeButton className="bg-transparent text-[16px] text-gray-100 rounded-[8px] 2xl:rounded-[12px] w-full py-[10px] border-[3px] border-gray-30 sm:w-[46%] sm:max-w-[299px] 2xl:text-[25px] 2xl:h-[72px]" />
+      <SendResumeModal>
+        <Button variant="secondary">Отправить резюме</Button>
+      </SendResumeModal>
     </section>
   );
 };
