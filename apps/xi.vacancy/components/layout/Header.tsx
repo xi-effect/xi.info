@@ -3,7 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import SendResumeButton from '../modal/SendResumeButton';
+import { Button } from '@xipkg/button';
+import SendResumeModal from '../modal/SendResumeModal';
 
 const Header = () => {
   const pathname = usePathname();
@@ -26,13 +27,15 @@ const Header = () => {
           <Link
             href="/vacancy"
             className={`
-          ${pathname === '/vacancy' ? 'text-brand-80' : 'text-gray-60'}
-           transition-colors mr-[24px] text-[20px] 2xl:mr-16
-           `}
+              ${pathname === '/vacancy' ? 'text-brand-80' : 'text-gray-60'}
+              transition-colors mr-[24px] text-[20px] 2xl:mr-16
+            `}
           >
             Вакансии
           </Link>
-          <SendResumeButton />
+          <SendResumeModal>
+            <Button className="w-[200px]">Отправить резюме</Button>
+          </SendResumeModal>
         </nav>
       </div>
     </header>
