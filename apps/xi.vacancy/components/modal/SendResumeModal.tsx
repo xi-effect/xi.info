@@ -69,9 +69,12 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
       // получаем тело ответа (см. про этот метод ниже)
-      toast.success('Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.', {
-        position: 'top-center',
-      });
+      toast.success(
+        'Спасибо, мы получили ваше резюме! В ближайшее время мы с ним ознакомимся и при необходимости свяжемся с Вами.',
+        {
+          position: 'top-center',
+        },
+      );
       form.reset();
     } else {
       console.error(`Ошибка HTTP: ${response.status}`);
@@ -86,13 +89,11 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
         className="flex flex-col xl:flex-row w-full max-w-[calc(100%-32px)] sm:max-w-[556px] sm:-w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-transparent rounded-3xl"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col gap-2 sm:gap-4 p-[16px] sm:p-[24px] xl:p-[48px] xl:basis-2/4 rounded-t-3xl xl:rounded-l-3xl xl:rounded-r-none">
+        <div className="flex flex-col gap-4 p-[16px] sm:p-[24px] xl:p-[48px] xl:basis-2/4 rounded-t-3xl xl:rounded-l-3xl xl:rounded-r-none">
           <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
           <ModalHeader className="border-b-transparent p-0 flex flex-col gap-2 sm:gap-4">
             <ModalTitle>
-              <span className="text-[24px] font-medium sm:text-[32px]">
-                Отправить резюме
-              </span>
+              <span className="flex text-[24px] leading-8 font-medium sm:text-[32px]">Отправить резюме</span>
             </ModalTitle>
             <ModalDescription className="text-[16px] font-medium w-[90%] leading-[130%] sm:w-full !mt-0">
               Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
@@ -102,15 +103,15 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="p-[16px] bg-[#F7F7F7] rounded-b-3xl xl:rounded-r-3xl xl:rounded-l-none sm:p-[24px] xl:p-[48px] xl:basis-2/4"
+            className="flex flex-col gap-4 p-[16px] bg-[#F7F7F7] rounded-b-3xl xl:rounded-r-3xl xl:rounded-l-none sm:p-[24px] xl:p-[48px] xl:basis-2/4"
           >
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="mb-[16px] sm:mb-[24px]">
-                  <FormLabel>Имя *</FormLabel>
-                  <FormControl className="mt-2 focus:border-brand-80 active:border-brand-80 hover:border-gray-30">
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel className="flex">Имя *</FormLabel>
+                  <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px]">
                     <Input {...field} />
                   </FormControl>
                 </FormItem>
@@ -120,9 +121,9 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               control={form.control}
               name="telegram"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Telegram *</FormLabel>
-                  <FormControl className="mb-[16px] sm:mb-[24px] mt-2 focus:border-brand-80 active:border-brand-80 hover:border-gray-30">
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel className="flex">Telegram *</FormLabel>
+                  <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px]">
                     <Input {...field} />
                   </FormControl>
                 </FormItem>
@@ -132,17 +133,19 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               control={form.control}
               name="position"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Интересующая специализация *</FormLabel>
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel className="flex">Интересующая специализация *</FormLabel>
                   <FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="mb-[16px] sm:mb-[24px] w-full data-[placeholder]:text-gray-30 mt-2 hover:border-gray-30 focus:border-gray-30 active:border-gray-30">
+                      <SelectTrigger className="w-full data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px]">
                         <SelectValue placeholder="Выберите специализацию" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
                           {vacancyList.map((item) => (
-                            <SelectItem value={item.title} key={item.id}>{item.title}</SelectItem>
+                            <SelectItem value={item.title} key={item.id}>
+                              {item.title}
+                            </SelectItem>
                           ))}
                         </SelectGroup>
                       </SelectContent>
@@ -155,9 +158,9 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               control={form.control}
               name="link"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Ссылка на резюме *</FormLabel>
-                  <FormControl className="mb-[16px] sm:mb-[24px] mt-2 focus:border-brand-80 active:border-brand-80 hover:border-gray-30">
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel className="flex">Ссылка на резюме *</FormLabel>
+                  <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px]">
                     <Input {...field} />
                   </FormControl>
                 </FormItem>
@@ -167,9 +170,11 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Сообщение <span className="text-gray-30">Не обязательно</span></FormLabel>
-                  <FormControl className="mb-[14px] sm:mb-[20px] mt-2 focus:border-brand-80 active:border-brand-80 hover:border-gray-30">
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel className="flex gap-0.5">
+                    Сообщение <span className="text-gray-30">Не обязательно</span>
+                  </FormLabel>
+                  <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[70px]">
                     <textarea
                       {...field}
                       className=" w-full h-[70px] resize-none rounded-[8px] border-2 border-gray-30 p-[12px]"
@@ -179,7 +184,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                 </FormItem>
               )}
             />
-            <Button className="w-full" type="submit">
+            <Button className="w-full h-[32px]" type="submit">
               Отправить резюме
             </Button>
           </form>
