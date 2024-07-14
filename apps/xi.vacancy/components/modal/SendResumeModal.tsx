@@ -87,114 +87,116 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     <Modal {...props}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent
-        className="flex flex-col xl:flex-row overflow:auto w-full max-h-[calc(100%-32px)] max-w-[calc(100%-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-transparent rounded-3xl"
+        className="w-[calc(100vh-32px)] max-h-[calc(100%-32px)] max-w-[calc(100%-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-transparent rounded-3xl"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col xl:justify-start gap-4 p-4 sm:p-6 xl:p-12 xl:basis-2/4 rounded-t-3xl xl:rounded-l-3xl xl:rounded-r-none">
-          <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
-          <ModalHeader className="border-b-transparent p-0 flex flex-col gap-2 sm:gap-4">
-            <ModalTitle>
-              <span className="flex text-[24px] leading-8 sm:leading-[42px] font-medium sm:text-[32px]">
-                Отправить резюме
-              </span>
-            </ModalTitle>
-            <ModalDescription className="text-[16px] font-medium w-[90%] leading-[130%] sm:w-full !mt-0">
-              Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
-            </ModalDescription>
-          </ModalHeader>
-        </div>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="p-4 bg-gray-5 rounded-b-3xl xl:rounded-r-3xl xl:rounded-l-none sm:p-[24px] xl:p-[48px] xl:basis-2/4"
-          >
-            <div className="overflow-y-auto max-h-[calc(100vh-326px)] flex flex-col gap-4 sm:gap-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Имя *</FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="telegram"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Telegram *</FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="position"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Интересующая специализация *</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange}>
-                        <SelectTrigger className="w-full data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] sm:!h-[48px]">
-                          <SelectValue placeholder="Выбери специализацию" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectGroup>
-                            {vacancyList.map((item) => (
-                              <SelectItem value={item.title} key={item.id}>
-                                {item.title}
-                              </SelectItem>
-                            ))}
-                          </SelectGroup>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="link"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Ссылка на резюме *</FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex gap-0.5">
-                      Сообщение <span className="text-gray-30">Не обязательно</span>
-                    </FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[70px] !sm:h-[48px]">
-                      <textarea
-                        {...field}
-                        className=" w-full h-[70px] resize-none rounded-[8px] border-2 border-gray-30 p-[12px]"
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
+        <div className="overflow-hidden rounded-3xl">
+          <div className="max-h-[calc(100vh-32px)] overflow-y-auto flex flex-col xl:flex-row w-full">
+            <div className="flex flex-col xl:justify-start gap-4 p-4 sm:p-6 xl:p-12 xl:basis-2/4">
+              <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
+              <ModalHeader className="border-b-transparent p-0 flex flex-col gap-2 sm:gap-4">
+                <ModalTitle>
+                  <span className="flex text-[24px] leading-8 sm:leading-[42px] font-medium sm:text-[32px]">
+                    Отправить резюме
+                  </span>
+                </ModalTitle>
+                <ModalDescription className="text-[16px] font-medium w-[90%] leading-[130%] sm:w-full !mt-0">
+                  Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
+                </ModalDescription>
+              </ModalHeader>
             </div>
-            <ModalFooter className="border-t-transparent p-0 mt-4 sm:mt-6">
-              <Button className="w-full h-[32px] sm:h-[48px]" type="submit">
-                Отправить резюме
-              </Button>
-            </ModalFooter>
-          </form>
-        </Form>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="p-4 bg-gray-5 sm:p-[24px] xl:p-[48px] xl:basis-2/4 flex flex-col gap-4 sm:gap-6"
+              >
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex">Имя *</FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
+                        <Input {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="telegram"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex">Telegram *</FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
+                        <Input {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="position"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex">Интересующая специализация *</FormLabel>
+                      <FormControl>
+                        <Select onValueChange={field.onChange}>
+                          <SelectTrigger className="w-full data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] sm:!h-[48px]">
+                            <SelectValue placeholder="Выбери специализацию" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              {vacancyList.map((item) => (
+                                <SelectItem value={item.title} key={item.id}>
+                                  {item.title}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="link"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex">Ссылка на резюме *</FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
+                        <Input {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex gap-0.5">
+                        Сообщение <span className="text-gray-30">Не обязательно</span>
+                      </FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[70px] !sm:h-[48px]">
+                        <textarea
+                          {...field}
+                          className=" w-full h-[70px] resize-none rounded-[8px] border-2 border-gray-30 p-[12px]"
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <ModalFooter className="border-t-transparent p-0">
+                  <Button className="w-full h-[32px] sm:h-[48px]" type="submit">
+                    Отправить резюме
+                  </Button>
+                </ModalFooter>
+              </form>
+            </Form>
+          </div>
+        </div>
         <ModalCloseButton className="top-4 xs:top-[28px]">
           <Close className="fill-gray-90 sm:fill-gray-0" />
         </ModalCloseButton>
