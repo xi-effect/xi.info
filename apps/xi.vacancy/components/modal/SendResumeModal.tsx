@@ -87,7 +87,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     <Modal {...props}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent
-        className="w-[calc(100vh-32px)] max-h-[calc(100%-32px)] max-w-[calc(100%-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-transparent rounded-3xl"
+        className="w-[calc(100vh-32px)] max-h-[calc(100%-32px)] max-w-[calc(100%-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-none rounded-3xl"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <div className="overflow-hidden rounded-3xl">
@@ -188,7 +188,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                     </FormItem>
                   )}
                 />
-                <ModalFooter className="border-t-transparent p-0">
+                <ModalFooter className="border-t-none p-0">
                   <Button className="w-full h-[32px] sm:h-[48px]" type="submit">
                     Отправить резюме
                   </Button>
