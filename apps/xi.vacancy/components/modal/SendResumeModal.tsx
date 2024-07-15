@@ -87,10 +87,10 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     <Modal {...props}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent
-        className="overflow-y-auto scrollbar scrollbar-thumb-brand-40 w-[calc(100%-32px)] max-h-[calc(100%-32px)] max-w-[calc(100%-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] border-none rounded-3xl"
+        className="w-[calc(100%-32px)] max-w-[calc(100vh-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] rounded-3xl max-h-dvh"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col xl:flex-row w-full">
+        <div className="flex flex-col xl:flex-row w-full max-h-dvh rounded-3xl overflow-auto">
           <div className="flex flex-col xl:justify-start gap-4 p-4 sm:p-6 xl:p-12 xl:basis-2/4">
             <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
             <ModalHeader className="border-b-transparent p-0 flex flex-col gap-2 sm:gap-4">
@@ -107,7 +107,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="p-4 bg-gray-5 sm:p-[24px] xl:p-[48px] xl:basis-2/4 flex flex-col gap-4 sm:gap-6 rounded-b-3xl"
+              className="p-4 bg-gray-5 sm:p-[24px] xl:p-[48px] xl:basis-2/4 flex flex-col gap-4 sm:gap-6"
             >
               <FormField
                 control={form.control}
