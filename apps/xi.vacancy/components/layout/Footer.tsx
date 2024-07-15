@@ -24,11 +24,11 @@ const Footer = () => (
           </h2>
 
           <p className="leading-[130%] mb-[10px] text-[16px] sm:text-[24px] xl:text-[32px] xl:mb-[24px] xl:w-[85%]">
-            Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
+            Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
           </p>
 
           <SendResumeModal>
-            <Button className="w-[165px] sm:w-[200px]">Отправить резюме</Button>
+            <Button className="w-[165px] xs:w-[200px] text-sm xs:text-base h-8 xs:h-12">Отправить резюме</Button>
           </SendResumeModal>
         </div>
       </div>
