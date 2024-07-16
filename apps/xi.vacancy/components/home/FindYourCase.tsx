@@ -20,12 +20,14 @@ const FindYourCase = () => {
         <button
           type="button"
           onClick={() => router.push('/vacancy')}
-          className="bg-brand-80 text-[16px] text-gray-0 rounded-[8px] 2xl:rounded-[12px] mb-[16px] w-full py-[12px] sm:w-[46%] sm:mb-0 sm:mr-[32px] sm:max-w-[307px] 2xl:text-[24px] 2xl:h-[72px]"
+          className="bg-brand-80 text-[16px] text-gray-0 rounded-[8px] 2xl:rounded-[12px] mb-[16px] w-full py-[12px] sm:w-[46%] sm:mb-0 sm:mr-[32px] sm:max-w-[306px] 2xl:text-[24px] 2xl:h-[72px]"
         >
           Смотреть вакансии
         </button>
         <SendResumeModal>
-          <Button variant="secondary" className="w-full 2xl:h-[72px] 2xl:text-[24px] sm:w-[299px]">Отправить резюме</Button>
+          <Button variant="secondary" className="w-full 2xl:h-[72px] 2xl:text-[24px] sm:w-[300px]">
+            Отправить резюме
+          </Button>
         </SendResumeModal>
       </div>
     </section>
