@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import SendResumeButton from '../modal/SendResumeButton';
+import { Button } from '@xipkg/button';
+import SendResumeModal from '../modal/SendResumeModal';
 
 const Footer = () => (
   <footer className="mt-4 sm:mt-16">
@@ -23,10 +24,12 @@ const Footer = () => (
           </h2>
 
           <p className="leading-[130%] mb-[10px] text-[16px] sm:text-[24px] xl:text-[32px] xl:mb-[24px] xl:w-[85%]">
-            Напиши пару слов о себе и о том, какая вакансия может быть вам интересна
+            Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
           </p>
 
-          <SendResumeButton className="bg-brand-80 text-[15px] sm:text-[17px] text-gray-0 rounded-[6px] sm:rounded-[8px] py-[5px] px-4 sm:py-[12px] sm:px-[24px]" />
+          <SendResumeModal>
+            <Button className="w-[165px] xs:w-[200px] text-sm xs:text-base h-8 xs:h-12">Отправить резюме</Button>
+          </SendResumeModal>
         </div>
       </div>
       <div className="py-4 sm:py-8 xl:py-16 sm:px-8 xl:px-[48px] flex flex-col min-[1000px]:flex-row min-[1000px]:content-center  justify-between">

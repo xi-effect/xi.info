@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
+import { Button } from '@xipkg/button';
+import SendResumeModal from 'components/modal/SendResumeModal';
 import Memoji from '../common/Memoji';
-import SendResumeButton from '../modal/SendResumeButton';
 
 const FindYourCase = () => {
   const router = useRouter();
@@ -15,16 +16,20 @@ const FindYourCase = () => {
       <h1 className="mb-[16px] text-[32px] font-bold leading-[130%] tracking-[-0.32px] sm:text-[48px] 2xl:text-[96px] 2xl:mb-[48px] sm:mb-[28px]">
         Найди любимое дело
       </h1>
-
-      <button
-        type="button"
-        onClick={() => router.push('/vacancy')}
-        className="bg-brand-80 text-[16px] text-gray-0 rounded-[8px] 2xl:rounded-[12px] mb-[16px] w-full py-[12px] sm:w-[46%] sm:mb-0 sm:mr-[32px] sm:max-w-[307px] 2xl:text-[25px] 2xl:h-[72px]"
-      >
-        Смотреть вакансии
-      </button>
-
-      <SendResumeButton className="bg-transparent text-[16px] text-gray-100 rounded-[8px] 2xl:rounded-[12px] w-full py-[10px] border-[3px] border-gray-30 sm:w-[46%] sm:max-w-[299px] 2xl:text-[25px] 2xl:h-[72px]" />
+      <div className="flex flex-col sm:flex-row">
+        <button
+          type="button"
+          onClick={() => router.push('/vacancy')}
+          className="bg-brand-80 text-[16px] text-gray-0 rounded-[8px] 2xl:rounded-[12px] mb-[16px] w-full py-[12px] sm:w-[46%] sm:mb-0 sm:mr-[32px] sm:max-w-[306px] 2xl:text-[24px] 2xl:h-[72px]"
+        >
+          Смотреть вакансии
+        </button>
+        <SendResumeModal>
+          <Button variant="secondary" className="w-full 2xl:h-[72px] 2xl:text-[24px] sm:w-[300px]">
+            Отправить резюме
+          </Button>
+        </SendResumeModal>
+      </div>
     </section>
   );
 };
