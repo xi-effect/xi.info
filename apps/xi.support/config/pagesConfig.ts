@@ -9,7 +9,7 @@ type PageConfigItemT = {
 export const pagesConfig: PageConfigItemT[] = [
   // work-begining
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'signup',
     anchors: [
       { title: 'Регистрация', link: 'signup' },
@@ -24,7 +24,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'signin',
     anchors: [
       { title: 'Вход в приложение', link: 'signin' },
@@ -39,7 +39,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'about-interface',
     anchors: [
       { title: 'Обзор интерфейса', link: 'about-interface' },
@@ -55,7 +55,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'signup-invite',
     anchors: [
       { title: 'Страница Регистрации', link: 'signup-invite' },
@@ -68,7 +68,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'welcome',
     anchors: [
       {
@@ -94,7 +94,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'device-info',
     anchors: [
       { title: 'Информация об устройствах', link: 'device-info' },
@@ -113,7 +113,7 @@ export const pagesConfig: PageConfigItemT[] = [
     updateDate: '07.05.2024',
   },
   {
-    section: 'work-begining',
+    section: 'work-beginning',
     page: 'password-recovery',
     anchors: [
       { title: 'Восстановление пароля', link: 'password-recovery' },
@@ -125,12 +125,36 @@ export const pagesConfig: PageConfigItemT[] = [
     ],
     updateDate: '07.05.2024',
   },
+  {
+    section: 'work-beginning',
+    page: 'nickname',
+    anchors: [
+      { title: 'Что такое имя пользователя?', link: 'nickname' },
+      { title: 'Как изменить имя пользователя?', link: 'change-nickname' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.07.2024',
+  },
+  {
+    section: 'work-beginning',
+    page: 'username',
+    anchors: [
+      { title: 'Что такое отображаемое имя?', link: 'username' },
+      { title: 'Как изменить отображаемое имя?', link: 'change-username' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.07.2024',
+  },
   // account
   {
     section: 'account',
     page: 'user-settings',
     anchors: [
-      { title: 'Настройка профиля пользователя', link: 'user-settings' },
+      { title: 'Где найти настройки аккаунта пользователя?', link: 'user-settings' },
       { title: 'Вкладка «Главная»', link: 'main' },
       { title: 'Личные данные', link: 'personal-data' },
       { title: 'Персонализация', link: 'personalization' },
@@ -141,7 +165,7 @@ export const pagesConfig: PageConfigItemT[] = [
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '18.07.2024',
   },
   {
     section: 'account',
@@ -211,15 +235,40 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'История активности', link: 'activity-history' },
       { title: 'Участники', link: 'members' },
       { title: 'Классы', link: 'classes' },
-      { title: 'Категории', link: 'categories' },
-      { title: 'Приглашения', link: 'invitations' },
       { title: 'Пример настроенного сообщества', link: 'community-home' },
       { title: 'Удалить сообщество', link: 'delete-community' },
     ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
-    updateDate: '03.05.2024',
+    updateDate: '18.07.2024',
+  },
+  {
+    section: 'communities',
+    page: 'category',
+    anchors: [
+      { title: 'Как создать категорию?', link: 'add-category' },
+      { title: 'Настройки', link: 'category-settings' },
+      { title: 'Классы', link: 'classes' },
+      { title: 'Участники', link: 'category-members' },
+      { title: 'Как добавить каналы в категорию?', link: 'category-add-channel' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.07.2024',
+  },
+  {
+    section: 'communities',
+    page: 'invitation',
+    anchors: [
+      { title: 'Как создать ссылку-приглашение?', link: 'add-invitation' },
+      { title: 'Как стать участником сообщества по ссылке-приглашению?', link: 'join-community' },
+    ],
+    relatedLinks: [
+      // { title: 'Создание', link: 'first' },
+    ],
+    updateDate: '18.07.2024',
   },
   // videoconference
   {
@@ -256,7 +305,7 @@ export const pagesConfig: PageConfigItemT[] = [
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
-    updateDate: '18.05.2024',
+    updateDate: '18.07.2024',
   },
   {
     section: 'tests-and-tasks',
@@ -268,7 +317,7 @@ export const pagesConfig: PageConfigItemT[] = [
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
-    updateDate: '18.05.2024',
+    updateDate: '18.07.2024',
   },
   {
     section: 'tests-and-tasks',
