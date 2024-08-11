@@ -43,7 +43,7 @@ const VacancyList = () => {
 
       <div
         className={`${
-          listOnType.length ? 'max-h-[500px] duration-700' : 'py-[50px] duration-500'
+          listOnType.length ? 'max-h-[640px] duration-700' : 'py-[50px] duration-500'
         } transition-all`}
       >
         {listOnType.length ? (
