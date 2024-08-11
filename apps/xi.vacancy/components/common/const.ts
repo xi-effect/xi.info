@@ -74,6 +74,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     title: 'QA Engineer (Тестировщик)',
   },
   {
+    label: 'Разработка',
+    author: {
+      name: 'Николай',
+      tg: '@niqzart',
+      grade: 'Backend Lead, Сo-Founder',
+      src: '/vacancy/niqzart.jpg',
+    },
+    date: '12 августа',
+    grade: 'Junior, Middle, Senior',
+    id: 'development-automation-qa',
+    title: 'Automation QA (Автотестер)',
+  },
+  {
     label: 'Дизайн',
     author: {
       name: 'Игорь',
