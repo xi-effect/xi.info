@@ -28,6 +28,7 @@ const nextConfig = {
     '@xipkg/label',
     '@xipkg/select',
     '@xipkg/tabs',
+    '@xipkg/tailwind',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

@@ -19,11 +19,21 @@ const WorkForSpecialists = () => {
         У нас есть работа для разных специалистов
       </h2>
 
-      <div className="mt-8 overflow-auto pb-6">
+      <div className="mt-8 overflow-auto pb-2 md:pb-6">
         <Tabs.Root onValueChange={(value) => setTabsValue(value)} defaultValue="development">
-          <Tabs.List className="border-0 gap-12" classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}>
+          <Tabs.List
+            className="border-0 gap-6 md:gap-12"
+            classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}
+          >
             {professions.map((el, index) => (
-              <Tabs.Trigger style={{ color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '' }} className="text-[32px] leading-[35.2px] grow-0 pb-2 transition-colors" key={index} value={el.type}>
+              <Tabs.Trigger
+                style={{
+                  color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '',
+                }}
+                className="text-[16px] md:leading-[17.6px] md:text-[32px] leading-[35.2px] grow-0 pb-0 md:pb-2 transition-colors"
+                key={index}
+                value={el.type}
+              >
                 {el.label}
               </Tabs.Trigger>
             ))}
@@ -35,15 +45,13 @@ const WorkForSpecialists = () => {
         <Link
           href={`/vacancy?type=${currentProfession[0].type}`}
           style={{ backgroundColor: `var(--xi-${currentProfession[0].color})` }}
-          className="transition-colors xl:min-w-[480px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[36%]"
+          className="transition-colors xl:min-w-[480px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 flex flex-col xl:justify-between xl:basis-[36%]"
         >
           <h3 className="mb-[64px] text-gray-0 text-[24px] sm:text-[48px] font-bold  2xl:text-[64px]">
             {vacancyDescription[tabsValue].title}
           </h3>
 
-          <span
-            className="text-gray-0 text-[18px] sm:text-[22px] font-medium flex justify-between items-center mx-[6px] 2xl:mx-0"
-          >
+          <span className="text-gray-0 text-[18px] sm:text-[22px] font-medium flex justify-between items-center mx-[6px] 2xl:mx-0">
             Подробнее
             <Image
               width={36}

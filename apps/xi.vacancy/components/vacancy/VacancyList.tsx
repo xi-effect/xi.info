@@ -39,15 +39,21 @@ const VacancyList = () => {
         Вакансии
       </h1>
 
-      <div className="mt-8 overflow-auto pb-6">
-        <Tabs.Root
-          onValueChange={(value) => setTabsValue(value)}
-          value={tabsValue}
-          defaultValue={tabsValue}
-        >
-          <Tabs.List className="border-0 gap-12" classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}>
+      <div className="mt-8 overflow-auto pb-2 md:pb-6">
+        <Tabs.Root onValueChange={(value) => setTabsValue(value)} defaultValue="development">
+          <Tabs.List
+            className="border-0 gap-6 md:gap-12"
+            classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}
+          >
             {professions.map((el, index) => (
-              <Tabs.Trigger style={{ color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '' }} className="text-[32px] leading-[35.2px] grow-0 pb-2 transition-colors" key={index} value={el.type}>
+              <Tabs.Trigger
+                style={{
+                  color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '',
+                }}
+                className="text-[16px] md:leading-[17.6px] md:text-[32px] leading-[35.2px] grow-0 pb-0 md:pb-2 transition-colors"
+                key={index}
+                value={el.type}
+              >
                 {el.label}
               </Tabs.Trigger>
             ))}
@@ -55,8 +61,9 @@ const VacancyList = () => {
         </Tabs.Root>
       </div>
       <div
-        className={`${listOnType.length ? 'max-h-[640px] duration-700' : 'py-[50px] duration-500'
-          } transition-all`}
+        className={`${
+          listOnType.length ? 'max-h-[640px] duration-700' : 'py-[50px] duration-500'
+        } transition-all`}
       >
         {listOnType.length ? (
           vacancyCard

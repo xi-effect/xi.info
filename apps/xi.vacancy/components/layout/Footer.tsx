@@ -28,7 +28,9 @@ const Footer = () => (
           </p>
 
           <SendResumeModal>
-            <Button className="w-[165px] xs:w-[200px] text-sm xs:text-base h-8 xs:h-12">Отправить резюме</Button>
+            <Button className="w-[165px] xs:w-[200px] text-sm xs:text-base h-8 xs:h-12">
+              Отправить резюме
+            </Button>
           </SendResumeModal>
         </div>
       </div>

@@ -14,7 +14,7 @@
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.12",
     "@types/mdx": "^2.0.5",
-    "@xipkg/tailwind": "0.3.8",
+    "@xipkg/tailwind": "0.5.0",
     "@xipkg/icons": "^0.9.3",
     "@xipkg/link": "0.3.0",
     "@xipkg/button": "1.1.3",
