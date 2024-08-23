@@ -40,7 +40,7 @@ const VacancyList = () => {
       </h1>
 
       <div className="mt-8 overflow-auto pb-2 md:pb-6">
-        <Tabs.Root onValueChange={(value) => setTabsValue(value)} defaultValue="development">
+        <Tabs.Root onValueChange={(value) => setTabsValue(value)} value={tabsValue}>
           <Tabs.List
             className="border-0 gap-6 md:gap-12"
             classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}
