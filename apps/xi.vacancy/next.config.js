@@ -27,6 +27,7 @@ const nextConfig = {
     '@xipkg/routerurl',
     '@xipkg/label',
     '@xipkg/select',
+    '@xipkg/tabs',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

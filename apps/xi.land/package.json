@@ -17,7 +17,7 @@
     "@xipkg/link": "^0.3.0",
     "@xipkg/modal": "^1.4.0",
     "@xipkg/routerurl": "^0.2.0",
-    "@xipkg/tabs": "0.2.2",
+    "@xipkg/tabs": "1.1.0",
     "@xipkg/tailwind": "0.3.8",
     "framer-motion": "11.0.8",
     "next": "^13.5.6",

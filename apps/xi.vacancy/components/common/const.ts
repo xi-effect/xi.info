@@ -14,24 +14,33 @@ export type ProfessionOptionsT = {
   };
 };
 
-export const professions = {
-  design: {
-    label: 'Дизайн',
-    colors: ['bg-green-80', 'text-green-80'],
-  },
-  product: {
-    label: 'Продукт',
-    colors: ['bg-red-80', 'text-red-80'],
-  },
-  marketing: {
-    label: 'Маркетинг',
-    colors: ['bg-orange-80', 'text-orange-80'],
-  },
-  development: {
+export const professions = [
+  {
+    type: 'development',
     label: 'Разработка',
-    colors: ['bg-brand-80', 'text-brand-80'],
+    color: 'brand-80',
   },
-};
+  {
+    type: 'qa',
+    label: 'Тестирование',
+    color: 'violet-100',
+  },
+  {
+    type: 'design',
+    label: 'Дизайн',
+    color: 'green-80',
+  },
+  {
+    type: 'product',
+    label: 'Продукт',
+    color: 'red-80',
+  },
+  {
+    type: 'marketing',
+    label: 'Маркетинг',
+    color: 'orange-80',
+  },
+];
 
 export const vacancyList: ProfessionOptionsT[] = [
   {
@@ -159,6 +168,12 @@ export const vacancyDescription = {
     for: 'разработчиков',
     paragraph:
       'В xi.effect продуктовая разработка. Есть куча инженерных задач и технических вызовов для умного человека',
+  },
+  qa: {
+    title: 'Тестирование',
+    for: 'дизайнеров',
+    paragraph:
+      'В xi.effect продуктовая разработка. Есть множество интересных задач и вызовов для тестирования',
   },
   design: {
     title: 'Дизайн',

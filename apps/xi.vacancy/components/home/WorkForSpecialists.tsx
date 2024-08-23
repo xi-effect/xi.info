@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import NavOfSpecialties from '../common/NavOfSpecialties';
-import { ProfessionsT, vacancyDescription, professions } from '../common/const';
+import { Tabs } from '@xipkg/tabs';
+import { vacancyDescription, professions } from '../common/const';
 
 const WorkForSpecialists = () => {
-  const [profession, setProfession] = useState<ProfessionsT>('development');
+  const [tabsValue, setTabsValue] = useState('development');
+  console.log('professions', professions);
+
+  const currentProfession = professions.filter((el) => el.type === tabsValue);
+
+  console.log('currentProfession', currentProfession);
+  console.log('currentProfession[0].color', currentProfession[0].color);
 
   return (
     <section className="p-4 sm:p-8 2xl:py-16 2xl:px-[48px]">
@@ -13,22 +19,29 @@ const WorkForSpecialists = () => {
         У нас есть работа для разных специалистов
       </h2>
 
-      <NavOfSpecialties
-        profession={profession}
-        setProfession={setProfession}
-        className="mb-[34px] sm:mb-[38px]"
-      />
+      <div className="mt-8 overflow-auto pb-6">
+        <Tabs.Root onValueChange={(value) => setTabsValue(value)} defaultValue="development">
+          <Tabs.List className="border-0 gap-12" classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}>
+            {professions.map((el, index) => (
+              <Tabs.Trigger style={{ color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '' }} className="text-[32px] leading-[35.2px] grow-0 pb-2 transition-colors" key={index} value={el.type}>
+                {el.label}
+              </Tabs.Trigger>
+            ))}
+          </Tabs.List>
+        </Tabs.Root>
+      </div>
 
-      <div className="xl:flex">
-        <div
-          className={`${professions[profession].colors[0]} transition-colors xl:min-w-[460px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[32%]`}
+      <div className="xl:flex mt-4">
+        <Link
+          href={`/vacancy?type=${currentProfession[0].type}`}
+          style={{ backgroundColor: `var(--xi-${currentProfession[0].color})` }}
+          className="transition-colors xl:min-w-[480px] p-4 sm:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] mb-[16px] xl:mb-0 xl:mr-8 sm:mb-8 xl:flex xl:flex-col xl:justify-between xl:basis-[36%]"
         >
-          <h3 className="mb-[64px] mb-[58px] text-gray-0 text-[24px] sm:text-[48px] font-bold  2xl:text-[64px]">
-            {vacancyDescription[profession].title}
+          <h3 className="mb-[64px] text-gray-0 text-[24px] sm:text-[48px] font-bold  2xl:text-[64px]">
+            {vacancyDescription[tabsValue].title}
           </h3>
 
-          <Link
-            href="/vacancy"
+          <span
             className="text-gray-0 text-[18px] sm:text-[22px] font-medium flex justify-between items-center mx-[6px] 2xl:mx-0"
           >
             Подробнее
@@ -40,8 +53,8 @@ const WorkForSpecialists = () => {
               alt="More detailed"
               className="w-[24px] h-[24px] 2xl:w-[36px] 2xl:h-[36px]"
             />
-          </Link>
-        </div>
+          </span>
+        </Link>
 
         <div className="xl:basis-[66%]">
           <div className="p-4 sm:p-[24px] 2xl:p-[48px] rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] bg-gray-10 mb-[16px] sm:mb-8">
@@ -50,7 +63,7 @@ const WorkForSpecialists = () => {
             </h3>
 
             <p className="h-[95px] xl:h-[100px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-              {vacancyDescription[profession].paragraph}
+              {vacancyDescription[tabsValue].paragraph}
             </p>
           </div>
 
@@ -60,7 +73,7 @@ const WorkForSpecialists = () => {
             </h3>
 
             <p className="h-[95px] xl:h-[100px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-              {`Любой! У нас есть множество задач для  ${vacancyDescription[profession].for} любого уровня`}
+              {`Любой! У нас есть множество задач для  ${vacancyDescription[tabsValue].for} любого уровня`}
             </p>
           </div>
         </div>

@@ -2,14 +2,16 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ProfessionsT, vacancyList } from '../common/const';
-import NavOfSpecialties from '../common/NavOfSpecialties';
+import { Tabs } from '@xipkg/tabs';
+import { useSearchParams } from 'next/navigation';
+import { professions, vacancyList } from '../common/const';
 import SendResumeButton from '../modal/SendResumeButton';
 
 const VacancyList = () => {
-  const [profession, setProfession] = useState<ProfessionsT>('development');
+  const searchParams = useSearchParams();
+  const [tabsValue, setTabsValue] = useState(searchParams.get('type') ?? 'development');
 
-  const listOnType = vacancyList.filter((vacancy) => vacancy.id.includes(profession));
+  const listOnType = vacancyList.filter((vacancy) => vacancy.id.includes(tabsValue ?? ''));
 
   const vacancyCard = listOnType.map((vacancy, index) => (
     <Link className="group" key={index} href={`/vacancy/${vacancy.id}`}>
@@ -29,22 +31,32 @@ const VacancyList = () => {
     </Link>
   ));
 
+  const currentProfession = professions.filter((el) => el.type === tabsValue);
+
   return (
     <section className="px-4 py-[20px] sm:p-8 sm:pb-0 xl:p-[48px] xl:pb-0">
       <h1 className="leading-[130%] font-bold mb-[24px] xl:mb-[40px] text-[32px] sm:text-[48px] xl:text-[96px]">
         Вакансии
       </h1>
 
-      <NavOfSpecialties
-        profession={profession}
-        setProfession={setProfession}
-        className="mb-[48px] sm:mb-16 xl:mb-[105px]"
-      />
-
+      <div className="mt-8 overflow-auto pb-6">
+        <Tabs.Root
+          onValueChange={(value) => setTabsValue(value)}
+          value={tabsValue}
+          defaultValue={tabsValue}
+        >
+          <Tabs.List className="border-0 gap-12" classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}>
+            {professions.map((el, index) => (
+              <Tabs.Trigger style={{ color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '' }} className="text-[32px] leading-[35.2px] grow-0 pb-2 transition-colors" key={index} value={el.type}>
+                {el.label}
+              </Tabs.Trigger>
+            ))}
+          </Tabs.List>
+        </Tabs.Root>
+      </div>
       <div
-        className={`${
-          listOnType.length ? 'max-h-[640px] duration-700' : 'py-[50px] duration-500'
-        } transition-all`}
+        className={`${listOnType.length ? 'max-h-[640px] duration-700' : 'py-[50px] duration-500'
+          } transition-all`}
       >
         {listOnType.length ? (
           vacancyCard
