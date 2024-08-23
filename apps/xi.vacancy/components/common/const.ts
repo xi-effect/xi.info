@@ -79,7 +79,7 @@ export const vacancyList: ProfessionOptionsT[] = [
     },
     date: '12 августа',
     grade: 'Junior, Middle, Senior',
-    id: 'development-manual-qa',
+    id: 'qa-manual',
     title: 'QA Engineer (Тестировщик)',
   },
   {
@@ -92,7 +92,7 @@ export const vacancyList: ProfessionOptionsT[] = [
     },
     date: '12 августа',
     grade: 'Junior, Middle, Senior',
-    id: 'development-automation-qa',
+    id: 'qa-automation',
     title: 'Automation QA (Автотестер)',
   },
   {
