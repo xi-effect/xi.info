@@ -107,9 +107,9 @@ li {
 }
 
 .bg-violet-100 {
-  background-color: var(--xi-violet-100);
+  background-color: var(--xi-violet-100) !important;
 }
 
 .bg-orange-80 {
-  background-color: var(--xi-orange-80);
+  background-color: var(--xi-orange-80) !important;
 }
