@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import '@xipkg/tailwind/index.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'xi.support',
@@ -41,15 +40,7 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden">
-        <Script
-          async
-          defer
-          data-website-id="26669b29-eea8-41e3-9189-3cfb4cba7966"
-          src="https://analytics.xieffect.ru/umami.js"
-        />
-        {children}
-      </body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }

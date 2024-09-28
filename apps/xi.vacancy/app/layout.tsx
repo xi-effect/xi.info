@@ -4,7 +4,6 @@ import '@xipkg/tailwind/index.css';
 import '../public/global.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
@@ -42,12 +41,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="overflow-x-hidden">
-        <Script
-          async
-          defer
-          data-website-id="89ce725a-1b31-457a-a5cb-b3bbbded1748"
-          src="https://analytics.xieffect.ru/umami.js"
-        />
         <Toaster />
         {children}
       </body>
