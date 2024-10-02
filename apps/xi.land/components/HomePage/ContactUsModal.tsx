@@ -81,18 +81,19 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // При закрытии окна изменять значение в параметрах URL на false
   const onClose = () => {
-    const updatedParams = deleteQuery(searchParams, 'contact-us');
-    router.push(`${pathname}?${updatedParams}`);
     props.setModalOpen(false);
   };
 
   // При открытии окна изменять параметры в URL на true
+  // При закрытии окна изменять значение в параметрах URL на false
   useEffect(() => {
     if (props.open) {
       const updatedParams = createQueryString(searchParams, 'contact-us', 'true');
-      router.push(`${pathname}?${updatedParams}`);
+      router.push(`${pathname}?${updatedParams}`, { scroll: false });
+    } else {
+      const updatedParams = deleteQuery(searchParams, 'contact-us');
+      router.replace(`${pathname}?${updatedParams}`, { scroll: false });
     }
   }, [props.open]);
 
