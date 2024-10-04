@@ -89,9 +89,11 @@ const ContactUsModal = ({ children, ...props }: ContactUsModalProps) => {
   // При закрытии окна изменять значение в параметрах URL на false
   useEffect(() => {
     if (props.open) {
+      // @ts-ignore
       const updatedParams = createQueryString(searchParams, 'contact-us', 'true');
       router.push(`${pathname}?${updatedParams}`, { scroll: false });
     } else {
+      // @ts-ignore
       const updatedParams = deleteQuery(searchParams, 'contact-us');
       router.replace(`${pathname}?${updatedParams}`, { scroll: false });
     }

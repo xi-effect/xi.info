@@ -1,9 +1,12 @@
 import { Footer } from 'pkg.footer';
 import HeaderWhite from 'components/HeaderWhite';
-import HelloUser from 'components/HomePage/HelloUser';
+// import HelloUser from 'components/HomePage/HelloUser';
 import { AboutDemoRegistration } from 'components/HomePage/AboutDemoRegistration';
 import AboutAllIn from 'components/HomePage/AboutAllIn';
 import AboutChangeWorld from 'components/HomePage/AboutChangeWorld';
+import dynamic from 'next/dynamic';
+
+const HelloUser = dynamic(() => import('components/HomePage/HelloUser'), { ssr: false });
 
 export const metadata = {
   title: 'xi.effect',

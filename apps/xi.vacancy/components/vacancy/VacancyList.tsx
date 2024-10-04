@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { Tabs } from '@xipkg/tabs';
 import { useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
 import { professions, vacancyList } from '../common/const';
 import SendResumeButton from '../modal/SendResumeButton';
 

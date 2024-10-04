@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "next": "^13.5.6",
+    "next": "^14.2.14",
     "sonner": "1.4.3",
     "@xipkg/link": "0.3.0"
   },
