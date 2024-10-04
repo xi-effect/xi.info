@@ -20,7 +20,7 @@
     "@xipkg/button": "1.1.3",
     "@xipkg/input": "0.1.1",
     "pkg.footer": "*",
-    "next": "^13.5.6",
+    "next": "^14.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.2",
