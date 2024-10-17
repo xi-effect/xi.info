@@ -11,16 +11,12 @@ const nextConfig = {
   transpilePackages: [
     '@xipkg/link',
     '@xipkg/button',
-    '@xipkg/avatar',
     '@xipkg/tailwind',
     '@xipkg/utils',
     '@xipkg/icons',
     '@xipkg/tabs',
-    '@xipkg/modal',
     '@xipkg/form',
     '@xipkg/input',
-    '@xipkg/label',
-    '@xipkg/routerurl',
     'pkg.footer',
   ],
   compiler: {

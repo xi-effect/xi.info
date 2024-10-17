@@ -9,6 +9,7 @@ import '@xipkg/tailwind/index.css';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 import YandexMetrika from 'components/YandexMetrika';
+import { Footer } from 'pkg.footer';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
         <Toaster />
         {children}
+        <Footer />
       </body>
     </html>
   );
