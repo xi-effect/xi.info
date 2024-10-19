@@ -1,9 +1,5 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-
-import { Footer } from 'pkg.footer';
-import Header from 'components/Header';
-import { Title } from 'components/ProductPage/Title';
-import { Items } from 'components/ProductPage/Items';
+import { Items } from 'components/productPage/Items';
+import { Title } from 'components/productPage/Title';
 
 export const metadata = {
   title: 'продукт | xi.effect',
@@ -14,10 +10,8 @@ export default function ProductPage() {
   return (
     <main className="flex flex-row h-full w-full min-h-[100vh] justify-center items-start bg-gray-0 overflow-x-hidden">
       <div className="flex flex-col w-full justify-start items-start">
-        <Header />
         <Title />
         <Items />
-        <Footer />
       </div>
     </main>
   );
