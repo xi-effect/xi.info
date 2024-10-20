@@ -1,3 +1,5 @@
+'use client';
+
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 
@@ -20,14 +22,12 @@ const sections: Section[] = [
       { link: 'https://xieffect.ru/product#videocalls', title: 'Видеоконференции' },
       { link: 'https://xieffect.ru/product#chats', title: 'Чаты' },
       { link: 'https://xieffect.ru/product#announces', title: 'Объявления' },
-      { link: 'https://xieffect.ru#', title: 'Расписание' },
     ],
   },
   {
     title: 'Клиентам',
     links: [
       { link: '#', title: 'Тарифы' },
-      { link: '#', title: 'Руководства' },
       { link: 'https://support.xieffect.ru/', title: 'Поддержка' },
     ],
   },
@@ -49,22 +49,17 @@ const sections: Section[] = [
   },
 ];
 
-const email = 'hello@xi.effect.ru';
+const email = 'hello@xieffect.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
   const renderSection = (section: Section) => (
-    <div key={section.title} className=" xs:gap-6 flex flex-col gap-4">
-      <h3 className="text-gray-60 text-m-base xs:text-l-base">{section.title}</h3>
-      <ul className="xs:gap-6 flex flex-col gap-4">
+    <div key={section.title} className="flex w-full grow flex-col text-[16px]">
+      <h3 className="m-0 text-[16px] opacity-40 sm:text-[20px]">{section.title}</h3>
+      <ul className="m-0 mt-6 flex flex-col gap-6 p-0">
         {section.links.map((link, index) => (
           <li key={index}>
-            <Link
-              className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0"
-              variant="hover"
-              href={link.link}
-              size="l"
-            >
+            <Link className="text-[16px] sm:text-[20px]" variant="hover" href={link.link}>
               {link.title}
             </Link>
           </li>
@@ -74,29 +69,28 @@ const Footer = () => {
   );
 
   return (
-    <footer className="flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
-      <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-40 xl:py-16">
-        <div className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]">
-          <Image alt="xieffect logo" src="/xieffect.webp" fill priority={false} />
+    <footer className="flex w-full items-center justify-center px-4 py-8 text-gray-100 sm:p-8 xl:p-[160px] xl:pb-20">
+      <div className="flex w-full w-full max-w-[1920px] flex-col text-gray-100 lg:flex-row">
+        <div className="relative h-[24px] w-[202px] lg:h-[40px] lg:w-[336px]">
+          <Image alt="xieffect logo" src="/xieffectlight.webp" height={40} width={336} />
         </div>
-        <div className="flex flex-col gap-8 xl:gap-16">
-          <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
+        <div className="flex w-full flex-col max-lg:mt-8 lg:ml-[72px]">
+          <div className="flex w-full flex-col gap-8 sm:flex-row">
             {sections.map(renderSection)}
           </div>
-          <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
-            <span className="2xl:w-[330px]">&copy; xi.effect с {copyrightYear} года</span>
-            <span className="xs:order-1 2xl:w-[330px]">
+          <div className="mt-16 flex flex-col justify-between gap-2 sm:flex-row">
+            <span>&copy; xieffect с {copyrightYear} года</span>
+            <span className="order-1 sm:order-none">Сделано с ❤️ в Санкт-Петербурге</span>
+            <span>
               <Link
-                className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"
+                className="text-[16px]"
                 target="_blank"
                 variant="hover"
                 href={`mailto:${email}`}
-                size="s"
               >
                 {email}
               </Link>
             </span>
-            <span className="2xl:w-[330px]">Сделано с ♥ в Санкт-Петербурге</span>
           </div>
         </div>
       </div>
