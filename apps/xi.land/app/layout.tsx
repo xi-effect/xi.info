@@ -9,7 +9,7 @@ import '@xipkg/tailwind/index.css';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 import YandexMetrika from 'components/YandexMetrika';
-import { Footer } from 'pkg.footer';
+import { Footer } from 'pkg.landing.footer';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
