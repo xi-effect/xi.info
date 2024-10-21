@@ -20,15 +20,15 @@ const sections: Section[] = [
       { link: '/product#videocalls', title: 'Видеоконференции' },
       { link: '/product#chats', title: 'Чаты' },
       { link: '/product#announces', title: 'Объявления' },
-      { link: '#', title: 'Расписание' },
+      { link: '/product#whiteboard', title: 'Интерактивная доска' },
     ],
   },
   {
     title: 'Клиентам',
     links: [
       { link: '#', title: 'Тарифы' },
-      { link: '#', title: 'Руководства' },
-      { link: 'https://support.xieffect.ru/', title: 'Поддержка' },
+      { link: 'https://support.xieffect.ru/', title: 'Руководства' },
+      { link: 'https://t.me/xieffect_support_bot', title: 'Поддержка' },
     ],
   },
   {
