@@ -10,6 +10,7 @@ import Script from 'next/script';
 import { Toaster } from 'sonner';
 import YandexMetrika from 'components/YandexMetrika';
 import { Footer } from 'pkg.landing.footer';
+import { Header } from 'components/Header';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
@@ -68,7 +69,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.className}`}>
       <body>
         {process.env.NODE_ENV === 'development' ? (
           <></>
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
         <Toaster />
+        <Header />
         {children}
         <Footer />
       </body>
