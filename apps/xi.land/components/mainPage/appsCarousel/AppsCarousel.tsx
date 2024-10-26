@@ -2,10 +2,6 @@
 
 import Image from 'next/image';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './index.css';
 import { useMedia } from 'pkg.utils';
 import { InfiniteSlider } from './InfiniteSlider';
 
