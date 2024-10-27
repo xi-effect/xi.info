@@ -6,7 +6,7 @@ type MenuItemPropsT = {
   setActive: (item: string) => void;
   active?: string | null;
   item: string;
-  isLink?: boolean;
+  href?: string;
   children?: React.ReactNode;
 };
 
@@ -19,13 +19,22 @@ const transition = {
   restSpeed: 0.001,
 };
 
-export const MenuItem = ({ setActive, active, item, children, isLink = false }: MenuItemPropsT) => (
-  <li onMouseEnter={() => setActive(item)} className="text-xl">
-    {isLink ? <Link href="/">{item}</Link> : <span className="cursor-pointer">{item}</span>}
-    {!isLink && active !== null && active === item && (
+export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPropsT) => (
+  <li
+    onMouseEnter={() => setActive(item)}
+    className="text-xl flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
+  >
+    {href ? (
+      <Link href={href} className="py-2.5">
+        {item}
+      </Link>
+    ) : (
+      <span className="py-2.5 cursor-pointer">{item}</span>
+    )}
+    {!href && active !== null && active === item && (
       <motion.div
         transition={transition}
-        className="absolute top-[60%] left-1/2 transform -translate-x-1/2 pt-12"
+        className="absolute top-[80%] left-1/2 transform -translate-x-1/2 pt-8"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}

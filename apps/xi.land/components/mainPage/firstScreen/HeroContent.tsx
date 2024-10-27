@@ -1,24 +1,12 @@
-'use client';
-
 import { Button } from '@xipkg/button';
-import { motion } from 'framer-motion';
 import { LightningShape } from './LightningShape';
 import { TextOutline } from './TextOutline';
-
-const transition = {
-  type: 'spring',
-};
 
 export const HeroContent = () => (
   <div className="flex items-end xs:items-center xs:justify-center xl:px-16 lg:justify-start mt-12 xs:mt-4 relative">
     <LightningShape />
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, x: -100 }}
-      animate={{ opacity: 1, scale: 1, x: 0 }}
-      transition={transition}
-      className="flex flex-col gap-2 xl:gap-4 py-8 relative xs:py-32 xl:py-0 w-full md:w-auto"
-    >
-      <div className="text-[48px] 2xl:text-[80px] font-medium text-gray-0 flex flex-wrap -tracking-[.01em] lg:flex-col xs:gap-x-2 leading-none">
+    <div className="flex flex-col gap-2 xl:gap-4 py-8 relative xs:py-32 xl:py-0 w-full md:w-auto">
+      <div className="text-[48px] 2xl:text-[80px] font-medium text-gray-0 flex flex-wrap -tracking-[.01em] lg:flex-col xs:gap-x-4 leading-none">
         Проводите занятия
         <div>
           <TextOutline text="онлайн" />
@@ -41,6 +29,6 @@ export const HeroContent = () => (
           Стать пользователем
         </Button>
       </div>
-    </motion.div>
+    </div>
   </div>
 );

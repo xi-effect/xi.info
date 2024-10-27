@@ -6,13 +6,19 @@ export const SubMenuItem = ({
   description,
   href,
   src,
+  setActive,
 }: {
   title: string;
   description: string;
   href: string;
   src: string;
+  setActive: (item: string | null) => void;
 }) => (
-  <Link href={href} className="flex gap-8 items-center max-w-[560px] 2xl:max-w-[600px]">
+  <Link
+    href={href}
+    onClick={() => setActive(null)}
+    className="flex gap-8 items-center max-w-[560px] 2xl:max-w-[600px] hover:bg-gray-5 rounded-2xl transition-colors"
+  >
     <Image
       src={src}
       width={1}

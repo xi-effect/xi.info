@@ -6,7 +6,7 @@ import { Button } from '@xipkg/button';
 import { MenuItem } from './MenuItem';
 import { SubMenuItem } from './SubMenuItem';
 
-const productLinks = [
+const subMenu = [
   {
     title: 'Тесты и задания',
     description: 'Быстро оценивайте знания',
@@ -40,13 +40,14 @@ export const Navigation = () => {
       <ul className="flex gap-8">
         <MenuItem setActive={setActive} active={active} item="Продукт">
           <div className="grid grid-cols-2 gap-8">
-            {productLinks.map((item) => (
+            {subMenu.map((item) => (
               <SubMenuItem
                 key={item.title}
                 title={item.title}
                 description={item.description}
                 href={item.href}
                 src={item.image}
+                setActive={setActive}
               />
             ))}
           </div>
@@ -59,9 +60,9 @@ export const Navigation = () => {
           </div>
         </MenuItem>
 
-        <MenuItem setActive={setActive} active={active} item="Тарифы" isLink />
-        <MenuItem setActive={setActive} active={active} item="Блог" isLink />
-        <MenuItem setActive={setActive} active={active} item="Руководства" isLink />
+        <MenuItem setActive={setActive} active={active} item="Тарифы" href="#" />
+        <MenuItem setActive={setActive} active={active} item="Блог" href="#" />
+        <MenuItem setActive={setActive} active={active} item="Руководства" href="#" />
       </ul>
     </nav>
   );
