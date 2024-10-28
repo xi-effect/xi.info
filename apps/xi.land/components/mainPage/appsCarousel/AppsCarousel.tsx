@@ -1,48 +1,37 @@
-'use client';
-
 import Image from 'next/image';
-
-import { useMedia } from 'pkg.utils';
 import { InfiniteSlider } from './InfiniteSlider';
 
 const sliderImages = [
-  '/assets/mainPage/apps/1.webp',
-  '/assets/mainPage/apps/2.webp',
-  '/assets/mainPage/apps/3.webp',
-  '/assets/mainPage/apps/4.webp',
-  '/assets/mainPage/apps/5.webp',
-  '/assets/mainPage/apps/6.webp',
-  '/assets/mainPage/apps/7.webp',
-  '/assets/mainPage/apps/8.webp',
-  '/assets/mainPage/apps/9.webp',
+  '1.webp',
+  '2.webp',
+  '3.webp',
+  '4.webp',
+  '5.webp',
+  '6.webp',
+  '7.webp',
+  '8.webp',
+  '9.webp',
 ];
 
-export const AppsCarousel = () => {
-  const isDesktop = useMedia('(min-width: 768px)', true);
-
-  return (
-    <section className="py-8 xs:py-16 gap-8 text-xl-base lg:flex-row flex flex-col xl:flex-row items-center justify-center overflow-x-hidden">
-      <span className="leading-6 lg:text-3xl 2xl:text-[40px] 2xl:leading-[40px] -tracking-[.01em] font-medium px-4 text-gray-100">
-        Используйте одно приложение вместо
-      </span>
-      {isDesktop ? (
-        <div className="flex gap-4">
-          <AppsItems />
-        </div>
-      ) : (
-        <InfiniteSlider className="relative w-full">
-          <AppsItems />
-        </InfiniteSlider>
-      )}
-    </section>
-  );
-};
+export const AppsCarousel = () => (
+  <section className="py-8 xs:py-16 gap-8 text-xl-base flex flex-col xl:flex-row items-center justify-center overflow-x-hidden">
+    <span className="text-xl-base 2xl:text-h3 -tracking-[.01em] font-medium px-4 text-gray-100">
+      Используйте одно приложение вместо
+    </span>
+    <div className="sm:flex gap-4 hidden">
+      <AppsItems />
+    </div>
+    <InfiniteSlider className="relative w-full sm:hidden">
+      <AppsItems />
+    </InfiniteSlider>
+  </section>
+);
 
 const AppsItems = () =>
   sliderImages.map((image) => (
     <Image
       key={image}
-      src={image}
+      src={`/assets/mainPage/apps/${image}`}
       width={64}
       height={64}
       alt="apps icon"

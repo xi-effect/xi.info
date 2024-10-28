@@ -1,7 +1,4 @@
-import { AppsCarousel } from 'components/mainPage/appsCarousel/AppsCarousel';
-import { HeroContent } from 'components/mainPage/firstScreen/HeroContent';
-import { StarShape } from 'components/mainPage/firstScreen/StarShape';
-import { WaveShape } from 'components/mainPage/firstScreen/WaveShape';
+import { AppsCarousel, HeroContent, StarShape, WaveShape } from 'components/mainPage';
 import Image from 'next/image';
 
 export const metadata = {
@@ -19,8 +16,8 @@ export default function MainPage() {
           <Image
             src="/assets/mainPage/hero/main.webp"
             alt="main screen image"
-            width={1}
-            height={1}
+            width={1085}
+            height={890}
             priority
             className="hidden lg:block lg:pt-16 2xl:pt-5 w-auto h-full top-0 right-0 absolute z-0 pointer-events-none"
           />

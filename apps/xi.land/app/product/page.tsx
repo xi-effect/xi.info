@@ -1,5 +1,4 @@
-import { Items } from 'components/productPage/Items';
-import { Title } from 'components/productPage/Title';
+import { Items, Title } from 'components/productPage';
 
 export const metadata = {
   title: 'продукт | xi.effect',

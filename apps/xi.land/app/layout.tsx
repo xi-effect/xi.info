@@ -4,13 +4,13 @@ import { Inter } from 'next/font/google';
 import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
-import '@xipkg/tailwind/index.css';
-
-import Script from 'next/script';
-import { Toaster } from 'sonner';
-import YandexMetrika from 'components/YandexMetrika';
 import { Footer } from 'pkg.landing.footer';
 import { Header } from 'components/Header';
+import YandexMetrika from 'components/YandexMetrika';
+
+import { Toaster } from 'sonner';
+import Script from 'next/script';
+import '@xipkg/tailwind/index.css';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
@@ -69,7 +69,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.className}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <body>
         {process.env.NODE_ENV === 'development' ? (
           <></>

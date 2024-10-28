@@ -1,7 +1,7 @@
 export const TextOutline = ({ text, width = 4 }: { text: string; width?: number }) => (
   <div className="inline-block relative">
     <svg
-      className="absolute w-full h-full scale-[1.4] xl:scale-150 top-1 left-[2px]"
+      className="absolute w-full h-full scale-[1.4] xl:scale-150 top-1 left-0 xs:left-[4px] 2xl:left-[10px]"
       viewBox="0 0 201 68"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
