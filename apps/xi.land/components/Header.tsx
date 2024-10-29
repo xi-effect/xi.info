@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
-import { Navigation } from './mainPage/navigation/Navigation';
-import { MobileNavigation } from './mainPage/navigation/MobileNavigation';
+import { MobileNavigation, Navigation } from './navigation';
 
 export const Header = () => (
-  <header className="flex justify-center py-4 xs:py-8 w-full top-0 fixed z-10">
-    <div className="z-10 flex gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
+  <header className="flex justify-center py-4 px-4 xs:px-8 xs:py-8 w-full top-0 fixed z-10">
+    <div className="z-10 w-full lg:w-auto flex gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
       <Link href="/" className="w-[202px] h-[24px] relative">
         <Image src="/xieffectlight.webp" fill alt="xi effect logo" priority />
       </Link>
