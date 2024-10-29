@@ -1,6 +1,6 @@
 'use client';
 
-import { useMotionValue, animate, motion } from 'framer-motion';
+import { useMotionValue, animate, motion, AnimationPlaybackControls } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 
 type InfiniteSliderProps = {
@@ -23,38 +23,47 @@ export function InfiniteSlider({
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let controls;
-    const width = ref.current?.getBoundingClientRect().width;
+    let controls: AnimationPlaybackControls;
 
-    if (width) {
-      const contentSize = width + gap;
-      const from = 0;
-      const to = -contentSize / 2;
+    const updateWidth = () => {
+      const width = ref.current?.getBoundingClientRect().width;
 
-      if (isTransitioning) {
-        controls = animate(translation, [translation.get(), to], {
-          ease: 'linear',
-          duration: duration * Math.abs((translation.get() - to) / contentSize),
-          onComplete: () => {
-            setIsTransitioning(false);
-            setKey((prevKey) => prevKey + 1);
-          },
-        });
-      } else {
-        controls = animate(translation, [from, to], {
-          ease: 'linear',
-          duration,
-          repeat: Infinity,
-          repeatType: 'loop',
-          repeatDelay: 0,
-          onRepeat: () => {
-            translation.set(from);
-          },
-        });
+      if (width) {
+        const contentSize = width + gap;
+        const from = 0;
+        const to = -contentSize / 2;
+
+        if (isTransitioning) {
+          controls = animate(translation, [translation.get(), to], {
+            ease: 'linear',
+            duration: duration * Math.abs((translation.get() - to) / contentSize),
+            onComplete: () => {
+              setIsTransitioning(false);
+              setKey((prevKey) => prevKey + 1);
+            },
+          });
+        } else {
+          controls = animate(translation, [from, to], {
+            ease: 'linear',
+            duration,
+            repeat: Infinity,
+            repeatType: 'loop',
+            repeatDelay: 0,
+            onRepeat: () => {
+              translation.set(from);
+            },
+          });
+        }
       }
-    }
+    };
 
-    return controls?.stop;
+    window.addEventListener('resize', updateWidth);
+    updateWidth();
+
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+      controls?.stop();
+    };
   }, [key, translation, duration, gap, isTransitioning]);
 
   return (
