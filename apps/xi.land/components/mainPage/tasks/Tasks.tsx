@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const descriptionBlocks = [
-  { image: '1.webp', label: '3 типа вопросов' },
-  { image: '2.webp', label: 'Автоматическая проверка' },
-  { image: '3.webp', label: 'Встроенный редактор' },
+  { image: '1.svg', label: '3 типа вопросов' },
+  { image: '2.svg', label: 'Автоматическая проверка' },
+  { image: '3.svg', label: 'Встроенный редактор' },
   { image: '4.webp', label: 'Отправка файлов' },
 ];
 
@@ -27,7 +27,7 @@ export const Tasks = () => (
       >
         <div className="flex">
           <Image
-            src="/assets/mainPage/tasks/main.webp"
+            src="/assets/mainPage/tasks/mainImage.webp"
             alt="text and tasks main img"
             width={768}
             height={679}
@@ -41,7 +41,7 @@ export const Tasks = () => (
             className="xs:hidden block"
           />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 2xl:gap-2">
           <h3 className="text-xl-base xs:text-h6 xl:text-h5 text-gray-0">Живое общение</h3>
           <p className="text-s-base text-gray-0 xs:text-l-base xl:text-xl-base">
             Обсуждайте задания и тесты
@@ -64,7 +64,7 @@ export const Tasks = () => (
                 width={100}
                 height={100}
                 priority
-                className="xs:block w-auto h-auto lg:max-h-[160px] xl:max-h-[184px] 2xl:max-h-none"
+                className="xs:block w-auto h-auto max-h-[199px] lg:max-h-[160px] xl:max-h-[184px] 2xl:max-h-[220px]"
                 alt="test and tasks"
               />
             </div>
