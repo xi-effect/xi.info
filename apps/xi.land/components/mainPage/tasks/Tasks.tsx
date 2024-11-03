@@ -23,7 +23,7 @@ export const Tasks = () => (
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.2 }}
-        className="row-span-2 rounded-[32px] bg-violet-100 p-8 flex flex-col gap-2 max-xs:bg-none bg-cover bg-[url('/assets/mainPage/tasks/line.svg')] bg-no-repeat bg-right-top"
+        className="row-span-2 rounded-[32px] bg-violet-100 p-8 flex flex-col gap-2 max-xs:bg-none bg-contain sm:bg-cover lg:bg-contain bg-[url('/assets/mainPage/tasks/line.svg')] bg-no-repeat bg-right-top"
       >
         <div className="flex">
           <Image
@@ -31,7 +31,7 @@ export const Tasks = () => (
             alt="text and tasks main img"
             width={768}
             height={679}
-            className="hidden xs:block xl:h-[460px] xl:w-[520px] 2xl:h-auto 2xl:w-auto"
+            className="hidden xs:block sm:h-[468px] sm:w-auto xl:h-[460px] 2xl:h-auto 2xl:w-auto"
           />
           <Image
             src="/assets/mainPage/tasks/mainMobile.webp"
@@ -56,7 +56,7 @@ export const Tasks = () => (
             viewport={{ once: true }}
             transition={{ delay: Number(`0.${6 + index}`), duration: 0.3 }}
             key={item.image}
-            className="flex flex-col sm:px-2 xs:gap-2 justify-between xs:py-8 xs:bg-violet-20 xs:rounded-[32px] xs:h-[302px] sm:w-auto sm:h-auto 2xl:p-8"
+            className="flex flex-col sm:px-4 xs:gap-2 justify-between xs:py-8 xs:bg-violet-20 xs:rounded-[32px] xs:h-[302px] sm:w-auto sm:h-auto 2xl:p-8"
           >
             <div className="hidden flex-1 xs:flex justify-center items-center ">
               <Image
