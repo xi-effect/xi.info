@@ -1,4 +1,4 @@
-import { AppsCarousel, HeroContent, StarShape, WaveShape } from 'components/mainPage';
+import { AppsCarousel, HeroContent, StarShape, Tasks, WaveShape } from 'components/mainPage';
 import Image from 'next/image';
 
 export const metadata = {
@@ -25,6 +25,7 @@ export default function MainPage() {
         </div>
       </section>
       <AppsCarousel />
+      <Tasks />
     </main>
   );
 }
