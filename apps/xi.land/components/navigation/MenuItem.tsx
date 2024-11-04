@@ -22,7 +22,7 @@ const transition = {
 export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPropsT) => (
   <li
     onMouseEnter={() => setActive(item)}
-    className="text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
+    className="text-m-base lg:text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
   >
     {href ? (
       <Link href={href} className="py-2.5 px-3">
@@ -34,7 +34,7 @@ export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPr
     {!href && active !== null && active === item && (
       <motion.div
         transition={transition}
-        className="absolute top-[80%] left-1/2 transform -translate-x-1/2 pt-8"
+        className="absolute top-[80%] left-1/2 transform -translate-x-1/2 pt-8 md:w-full lg:w-auto"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -43,7 +43,7 @@ export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPr
           layoutId="active"
           className="bg-gray-0 rounded-[40px] overflow-hidden border border-gray-30"
         >
-          <motion.div layout className="w-max h-full p-8">
+          <motion.div layout className="lg:w-max h-full p-8">
             {children}
           </motion.div>
         </motion.div>

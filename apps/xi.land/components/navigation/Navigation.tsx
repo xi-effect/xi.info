@@ -37,8 +37,8 @@ export const Navigation = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <nav onMouseLeave={() => setActive(null)} className="z-10 hidden lg:block">
-      <ul className="flex gap-2">
+    <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
+      <ul className="flex lg:gap-2">
         <MenuItem setActive={setActive} active={active} item="Продукт">
           <div className="grid grid-cols-2 gap-8">
             {subMenu.map((item) => (
