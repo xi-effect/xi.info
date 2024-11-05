@@ -24,13 +24,13 @@ export const SubMenuItem = ({
       width={256}
       height={134}
       alt={title}
-      className="2xl:w-[256px] 2xl:h-[134px] w-[200px] h-auto flex-shrink-0 rounded-2xl"
+      className="2xl:w-[256px] 2xl:h-[134px] w-40 lg:w-[200px] h-auto flex-shrink-0 rounded-2xl"
     />
     <div className="flex flex-col gap-2">
-      <h4 className="text-xl-base 2xl:text-[32px] 2xl:leading-[41px] -tracking-[.01em] font-medium">
+      <h4 className="text-xl-base md:text-l-base lg:text-xl-base 2xl:text-h5 -tracking-[.01em] font-medium">
         {title}
       </h4>
-      <p className="text-l-base text-gray-80">{description}</p>
+      <p className="text-m-base lg:text-l-base text-gray-80">{description}</p>
     </div>
   </Link>
 );

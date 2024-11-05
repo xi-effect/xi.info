@@ -52,7 +52,7 @@ export const MobileNavigation = () => {
         <Button
           size="s"
           onClick={toggleBurgerMenu}
-          className="z-10 xs:w-12 xs:h-12 p-1 rounded-full m-0 ml-auto lg:hidden"
+          className="z-10 xs:w-12 xs:h-12 p-1 rounded-full m-0 ml-auto md:hidden"
         >
           <Burger className="fill-gray-0 xs:w-8 xs:h-8" />
         </Button>
