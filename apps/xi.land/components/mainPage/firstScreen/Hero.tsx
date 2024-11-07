@@ -34,7 +34,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="rounded-b-[64px] bg-brand-80 relative lg:h-[calc(100dvh-1.5rem)] md:flex"
+      className="rounded-b-[64px] bg-brand-80 relative lg:h-[calc(100dvh-1.5rem)] flex"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
