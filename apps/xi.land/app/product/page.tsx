@@ -8,7 +8,7 @@ export const metadata = {
 export default function ProductPage() {
   return (
     <main className="flex flex-row h-full w-full min-h-[100vh] justify-center items-start bg-gray-0 overflow-x-hidden">
-      <div className="flex flex-col w-full justify-start items-start">
+      <div className="flex flex-col w-full justify-start items-start mt-32">
         <Title />
         <Items />
       </div>
