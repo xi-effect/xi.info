@@ -25,15 +25,16 @@ export const VideoCalls = () => (
         <div className="flex grow relative justify-center">
           <Image
             src="/assets/mainPage/videocalls/mainImage.webp"
-            alt="text and tasks main img"
+            alt="videocalls main img"
             fill
+            priority
             className="hidden xs:block object-contain"
           />
           <Image
             src="/assets/mainPage/videocalls/mainMobile.webp"
-            alt="text and tasks main img"
-            width={279}
-            height={182}
+            alt="videocalls main img"
+            fill
+            priority
             className="xs:hidden block object-contain"
           />
         </div>
@@ -47,7 +48,7 @@ export const VideoCalls = () => (
         </div>
       </motion.div>
 
-      <div className="row-span-2 grid sm:grid-cols-2 grid-rows-2 gap-4 xs:gap-8 2xl:gap-16 sm:aspect-square">
+      <div className="row-span-2 xs:grid-rows-3 sm:grid-rows-2 grid sm:grid-cols-2 grid-rows-2 gap-4 xs:gap-8 2xl:gap-16 sm:aspect-square">
         {descriptionBlocks.map((item, index) => (
           <motion.div
             initial={{ y: 60, opacity: 0 }}
@@ -64,8 +65,7 @@ export const VideoCalls = () => (
                 height={100}
                 priority
                 className="xs:block w-auto h-auto max-h-[199px] md:max-h-[72px] lg:max-h-[160px] xl:max-h-[184px] 2xl:max-h-[220px]"
-                style={{ inset: 'auto' }}
-                alt="test and tasks"
+                alt="videocalls"
               />
             </div>
             <p className="xs:px-8 md:px-0 text-xl-base md:text-l-base lg:text-xl-base 2xl:text-h6 font-medium xs:text-center">
