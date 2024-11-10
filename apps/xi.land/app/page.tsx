@@ -1,4 +1,4 @@
-import { AppsCarousel, Tasks, Hero } from 'components/mainPage';
+import { AppsCarousel, Tasks, Hero, VideoCalls } from 'components/mainPage';
 
 export const metadata = {
   title: 'xi.effect',
@@ -11,6 +11,7 @@ export default function MainPage() {
       <Hero />
       <AppsCarousel />
       <Tasks />
+      <VideoCalls />
     </main>
   );
 }
