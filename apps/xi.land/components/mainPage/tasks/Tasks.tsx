@@ -28,14 +28,12 @@ export const Tasks = () => (
             src="/assets/mainPage/tasks/mainImage.webp"
             alt="text and tasks main img"
             fill
-            priority
             className="hidden xs:block object-contain"
           />
           <Image
             src="/assets/mainPage/tasks/mainMobile.webp"
             alt="text and tasks main img"
             fill
-            priority
             className="xs:hidden block object-contain"
           />
         </div>

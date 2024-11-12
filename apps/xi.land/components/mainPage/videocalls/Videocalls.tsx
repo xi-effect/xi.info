@@ -27,14 +27,12 @@ export const VideoCalls = () => (
             src="/assets/mainPage/videocalls/mainImage.webp"
             alt="videocalls main img"
             fill
-            priority
             className="hidden xs:block object-contain"
           />
           <Image
             src="/assets/mainPage/videocalls/mainMobile.webp"
             alt="videocalls main img"
             fill
-            priority
             className="xs:hidden block object-contain"
           />
         </div>
@@ -63,7 +61,6 @@ export const VideoCalls = () => (
                 src={`/assets/mainPage/videocalls/${item.image}`}
                 width={100}
                 height={100}
-                priority
                 className="xs:block w-auto h-auto max-h-[199px] md:max-h-[72px] lg:max-h-[160px] xl:max-h-[184px] 2xl:max-h-[220px]"
                 alt="videocalls"
               />

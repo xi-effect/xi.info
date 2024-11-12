@@ -28,14 +28,12 @@ export const Messages = () => (
             src="/assets/mainPage/messages/mainImage.webp"
             alt="messages main img"
             fill
-            priority
             className="hidden xs:block object-contain"
           />
           <Image
             src="/assets/mainPage/messages/mainImageMobile.webp"
             alt="messages main img"
             fill
-            priority
             className="xs:hidden block object-contain"
           />
         </div>
