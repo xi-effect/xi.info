@@ -7,3 +7,4 @@ export { Tasks } from './tasks/Tasks';
 export { VideoCalls } from './videocalls/Videocalls';
 export { Messages } from './messages/Messages';
 export { Whiteboard } from './whiteboard/Whiteboard';
+export { Promo } from './promo/Promo';
