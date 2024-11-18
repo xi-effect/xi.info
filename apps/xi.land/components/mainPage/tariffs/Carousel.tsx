@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+
 'use client';
 
 import {
@@ -12,7 +14,7 @@ import {
 } from 'react';
 import { motion, Transition, useMotionValue } from 'framer-motion';
 
-type CarouselContextType = {
+type CarouselContextTypeT = {
   index: number;
   setIndex: (newIndex: number) => void;
   itemsCount: number;
@@ -20,7 +22,7 @@ type CarouselContextType = {
   disableDrag: boolean;
 };
 
-const CarouselContext = createContext<CarouselContextType | undefined>(undefined);
+const CarouselContext = createContext<CarouselContextTypeT | undefined>(undefined);
 
 function useCarousel() {
   const context = useContext(CarouselContext);
@@ -30,7 +32,7 @@ function useCarousel() {
   return context;
 }
 
-type CarouselProviderProps = {
+type CarouselProviderPropsT = {
   children: ReactNode;
   initialIndex?: number;
   onIndexChange?: (newIndex: number) => void;
@@ -42,7 +44,7 @@ function CarouselProvider({
   initialIndex = 0,
   onIndexChange,
   disableDrag = false,
-}: CarouselProviderProps) {
+}: CarouselProviderPropsT) {
   const [index, setIndex] = useState<number>(initialIndex);
   const [itemsCount, setItemsCount] = useState<number>(0);
 
@@ -69,7 +71,7 @@ function CarouselProvider({
   return <CarouselContext.Provider value={contextValue}>{children}</CarouselContext.Provider>;
 }
 
-type CarouselProps = {
+type CarouselPropsT = {
   children: ReactNode;
   initialIndex?: number;
   index?: number;
@@ -83,7 +85,7 @@ function Carousel({
   index: externalIndex,
   onIndexChange,
   disableDrag = false,
-}: CarouselProps) {
+}: CarouselPropsT) {
   const [internalIndex, setInternalIndex] = useState<number>(initialIndex);
   const isControlled = externalIndex !== undefined;
   const currentIndex = isControlled ? externalIndex : internalIndex;
