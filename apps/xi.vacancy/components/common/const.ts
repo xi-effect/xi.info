@@ -69,19 +69,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'development-backend',
     title: 'Backend разработчик',
   },
-  {
-    label: 'Разработка',
-    author: {
-      name: 'Николай',
-      tg: '@niqzart',
-      grade: 'Backend Lead, Сo-Founder',
-      src: '/vacancy/niqzart.jpg',
-    },
-    date: '15 ноября',
-    grade: 'Junior, Middle, Senior',
-    id: 'qa-manual',
-    title: 'QA Engineer (Тестировщик)',
-  },
+  // {
+  //   label: 'Разработка',
+  //   author: {
+  //     name: 'Николай',
+  //     tg: '@niqzart',
+  //     grade: 'Backend Lead, Сo-Founder',
+  //     src: '/vacancy/niqzart.jpg',
+  //   },
+  //   date: '15 ноября',
+  //   grade: 'Junior, Middle, Senior',
+  //   id: 'qa-manual',
+  //   title: 'QA Engineer (Тестировщик)',
+  // },
   {
     label: 'Разработка',
     author: {
