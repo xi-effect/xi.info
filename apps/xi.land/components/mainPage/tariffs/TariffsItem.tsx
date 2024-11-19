@@ -23,7 +23,7 @@ export const TariffsItem = ({
   titleClassName,
 }: TariffsItemPropsT) => (
   <div
-    className={`p-6 sm:p-16 md:p-6 gap-y-8 sm:gap-0 xl:p-8 3xl:p-16 rounded-[32px] bg-brand-0 flex flex-col justify-between h-full ${containerClassName}`}
+    className={`p-6 sm:p-16 md:p-6 gap-y-6 sm:gap-y-8 md:gap-y-0 xl:p-8 3xl:p-16 rounded-[32px] bg-brand-0 flex flex-col justify-between h-full ${containerClassName}`}
   >
     <div className="flex flex-col gap-8 md:gap-6 lg:gap-8">
       <div className="flex flex-col gap-2">
@@ -42,7 +42,7 @@ export const TariffsItem = ({
             key={index}
             className="flex items-center gap-x-2 sm:text-l-base md:text-s-base lg:text-m-base 3xl:text-l-base text-gray-90"
           >
-            <Check className="sm:w-5 sm:h-5 md:w-4 md:h-4 3xl:w-5 3xl:h-5 fill-gray-60" />
+            <Check size="m" className="md:w-4 md:h-4 3xl:w-5 3xl:h-5 fill-gray-60" />
             {feature}
           </li>
         ))}
