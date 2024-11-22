@@ -6,6 +6,7 @@ import {
   Messages,
   Whiteboard,
   Promo,
+  Tariffs,
 } from 'components/mainPage';
 
 export const metadata = {
@@ -23,6 +24,7 @@ export default function MainPage() {
       <Messages />
       <Whiteboard />
       <Promo />
+      <Tariffs />
     </main>
   );
 }
