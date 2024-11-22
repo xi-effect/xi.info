@@ -1,46 +1,11 @@
 'use client';
 
+import { Carousel, CarouselContent, CarouselItem } from 'pkg.carousel';
 import { Link } from '@xipkg/link';
 import { ArrowRight, Check } from '@xipkg/icons';
 import { motion } from 'framer-motion';
-import { Carousel, CarouselContent, CarouselItem } from './Carousel';
 import { TariffsItem } from './TariffsItem';
-
-const tariffs = [
-  {
-    id: 1,
-    title: 'Лайт',
-    description: 'Идеален для старта',
-    features: ['До 5 студентов', '1 преподаватель'],
-    price: { amount: 'Бесплатно' },
-    buttonLabel: 'Начать пользоваться',
-    backgroundColor: 'bg-violet-20',
-    titleColor: 'text-violet-100',
-    buttonClassName: 'bg-violet-100 hover:bg-violet-60 active:bg-violet-60 focus:bg-violet-60',
-  },
-  {
-    id: 2,
-    title: 'Репетитор',
-    description: 'Идеален для работы репетитора',
-    features: ['До 20 студентов', '1 преподаватель'],
-    price: { amount: '2990', unit: '₽/мес' },
-    buttonLabel: 'Попробовать бесплатно',
-    backgroundColor: 'bg-green-0',
-    titleColor: 'text-green-80',
-    buttonClassName: 'bg-green-80 hover:bg-green-60 active:bg-green-60 focus:bg-green-60',
-  },
-  {
-    id: 3,
-    title: 'Про',
-    description: 'Подходит для курсов и кружков',
-    features: ['До 50 студентов', '3 преподавателя'],
-    price: { amount: '7990', unit: '₽/мес' },
-    buttonLabel: 'Попробовать бесплатно',
-    backgroundColor: 'bg-orange-0',
-    titleColor: 'text-orange-80',
-    buttonClassName: 'bg-orange-80 hover:bg-orange-60 active:bg-orange-60 focus:bg-orange-60',
-  },
-];
+import { tariffs } from './consts';
 
 export const Tariffs = () => (
   <section className="py-8 sm:py-16 md:px-8 xl:px-24">
