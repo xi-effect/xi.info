@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@xipkg/button';
-import { motion } from 'framer-motion';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xipkg/form';
 import { Input } from '@xipkg/input';
@@ -11,7 +10,17 @@ import * as z from 'zod';
 import { toast } from 'sonner';
 import { FormSchema } from './formSchema';
 
-export const CallToActionForm = () => {
+type CallToActionFormPropsT = {
+  className?: string;
+  titleClassName?: string;
+  title?: string;
+};
+
+export const CallToActionForm = ({
+  className = '',
+  titleClassName = '',
+  title,
+}: CallToActionFormPropsT) => {
   const [isButtonActive, setIsButtonActive] = useState(true);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -62,17 +71,11 @@ export const CallToActionForm = () => {
 
   return (
     <Form {...form}>
-      <motion.form
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.4 }}
+      <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col rounded-2xl md:grow-0 sm:rounded-[32px] bg-gray-0 gap-6 p-6 sm:p-12 md:p-6 lg:p-12 justify-center"
+        className={`flex flex-col md:grow-0 gap-6 p-6 justify-center ${className}`}
       >
-        <h1 className="font-medium text-xl-base sm:text-h5 md:text-xl-base lg:text-h5">
-          Запись на демонстрацию
-        </h1>
+        <h1 className={`font-medium text-m-base ${titleClassName}`}>{title}</h1>
         <FormField
           control={control}
           name="name"
@@ -122,7 +125,7 @@ export const CallToActionForm = () => {
             </Link>
           </p>
         </div>
-      </motion.form>
+      </form>
     </Form>
   );
 };

@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { CallToActionForm } from './CallToActionForm';
 
 export const CallToAction = () => (
@@ -8,7 +11,18 @@ export const CallToAction = () => (
         <br />
         Запишитесь на демонстрацию
       </h1>
-      <CallToActionForm />
+      <motion.div
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.4 }}
+      >
+        <CallToActionForm
+          className="rounded-2xl sm:rounded-[32px] bg-gray-0 sm:p-12 md:p-6 lg:p-12"
+          titleClassName="text-xl-base sm:text-h5 md:text-xl-base lg:text-h5"
+          title="Запись на демонстрацию"
+        />
+      </motion.div>
     </div>
   </section>
 );
