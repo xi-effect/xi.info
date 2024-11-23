@@ -3,19 +3,12 @@
 import { Button } from '@xipkg/button';
 import { motion } from 'framer-motion';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  useForm,
-} from '@xipkg/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xipkg/form';
 import { Input } from '@xipkg/input';
 import { Link } from '@xipkg/link';
 import { useState } from 'react';
 import * as z from 'zod';
+import { toast } from 'sonner';
 import { FormSchema } from './formSchema';
 
 export const CallToActionForm = () => {
@@ -25,21 +18,46 @@ export const CallToActionForm = () => {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: '',
-      email: '',
+      contact: '',
     },
   });
 
   const {
     control,
     handleSubmit,
-    trigger,
     formState: { errors },
   } = form;
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    trigger();
     setIsButtonActive(false);
-    console.log(data);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/demo-applications/`,
+      {
+        method: 'POST',
+        cache: 'no-cache',
+        credentials: 'include',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          contacts: [data.contact],
+        }),
+      },
+    );
+
+    if (response.ok) {
+      toast.success('Спасибо, мы получили Ваш контакт', {
+        position: 'bottom-center',
+      });
+      setIsButtonActive(true);
+      form.reset();
+    } else {
+      console.error(`Ошибка HTTP: ${response.status}`);
+      toast(`Ошибка HTTP: ${response.status}`);
+      setIsButtonActive(true);
+    }
   };
 
   return (
@@ -70,26 +88,24 @@ export const CallToActionForm = () => {
                   placeholder="Денис"
                 />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
         <FormField
           control={control}
-          name="email"
+          name="contact"
           render={({ field }) => (
             <FormItem className="relative">
               <FormLabel className="mb-2 block">Телеграм или электронная почта</FormLabel>
               <FormControl>
                 <Input
-                  error={!!errors?.email}
+                  error={!!errors?.contact}
                   type="text"
                   {...field}
                   className="rounded-2xl"
                   placeholder="@denis"
                 />
               </FormControl>
-              <FormMessage className="absolute" />
             </FormItem>
           )}
         />
