@@ -9,3 +9,4 @@ export { Messages } from './messages/Messages';
 export { Whiteboard } from './whiteboard/Whiteboard';
 export { Promo } from './promo/Promo';
 export { Tariffs } from './tariffs/Tariffs';
+export { CallToAction } from './callToAction/CallToAction';

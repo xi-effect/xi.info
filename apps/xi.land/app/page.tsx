@@ -7,6 +7,7 @@ import {
   Whiteboard,
   Promo,
   Tariffs,
+  CallToAction,
 } from 'components/mainPage';
 
 export const metadata = {
@@ -25,6 +26,7 @@ export default function MainPage() {
       <Whiteboard />
       <Promo />
       <Tariffs />
+      <CallToAction />
     </main>
   );
 }

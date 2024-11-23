@@ -19,10 +19,10 @@
     "@xipkg/tabs": "^1.1.0",
     "@xipkg/tailwind": "^0.5.0",
     "framer-motion": "^11.11.9",
-    "pkg.landing.footer": "*",
     "pkg.carousel": "*",
+    "pkg.landing.footer": "*",
     "pkg.utils": "*",
-    "sonner": "^1.5.0",
+    "sonner": "^1.7.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
