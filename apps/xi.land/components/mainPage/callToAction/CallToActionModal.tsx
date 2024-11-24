@@ -23,7 +23,7 @@ type CallToActionModalT = {
 export const CallToActionModal = ({ children }: CallToActionModalT) => (
   <Modal>
     <ModalTrigger asChild>{children}</ModalTrigger>
-    <ModalContent className="max-h-full sm:max-w-[calc(100%-9rem)] bg-transparent w-[calc(100%-2rem)] md:w-full lg:max-w-[1000px]">
+    <ModalContent className="max-h-full sm:max-w-[calc(100%-9rem)] bg-transparent w-[calc(100%-2rem)] md:w-full lg:max-w-[1000px] max-md:overflow-auto">
       <motion.div
         initial={{ opacity: 0, scale: 0.85, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
