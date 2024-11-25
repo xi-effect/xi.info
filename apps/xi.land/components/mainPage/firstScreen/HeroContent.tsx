@@ -5,6 +5,7 @@ import { motion, MotionValue } from 'framer-motion';
 import { useState } from 'react';
 import { LightningShape } from './LightningShape';
 import { TextOutline } from './TextOutline';
+import { CallToActionModal } from '../callToAction/CallToActionModal';
 
 type HeroContentPropsT = {
   layer3X: MotionValue<number>;
@@ -42,12 +43,14 @@ export const HeroContent = ({ isHovering, layer3X, layer3Y }: HeroContentPropsT)
           Приложение для репетиторов и малого бизнеса
         </p>
         <div className="flex gap-2 xs:gap-8 mt-6 xl:mt-4 flex-col xs:flex-row">
-          <Button
-            variant="ghost"
-            className="2xl:h-14 text-brand-80 w-full rounded-xl xl:rounded-2xl xl:px-8 xl:w-auto 2xl:text-l-base"
-          >
-            Записаться на демонстрацию
-          </Button>
+          <CallToActionModal>
+            <Button
+              variant="ghost"
+              className="2xl:h-14 text-brand-80 w-full rounded-xl xl:rounded-2xl xl:px-8 xl:w-auto 2xl:text-l-base"
+            >
+              Записаться на демонстрацию
+            </Button>
+          </CallToActionModal>
           <Button
             variant="secondary"
             className="2xl:h-14 w-full hover:border-gray-0 hover:bg-transparent active:bg-transparent focus:bg-transparent bg-transparent text-gray-0 rounded-xl xl:rounded-2xl xl:px-8 xl:w-auto 2xl:text-l-base"
