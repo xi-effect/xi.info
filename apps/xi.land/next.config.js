@@ -1,7 +1,11 @@
 // Не поддавайтесь соблазну использовать здесь import
 const path = require('path');
 
-const plugins = [];
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const plugins = [withBundleAnalyzer];
 
 const nextConfig = {
   experimental: {

@@ -34,7 +34,7 @@ const sections: Section[] = [
   {
     title: 'Компания',
     links: [
-      { link: '/about-us', title: 'О нас' },
+      { link: '#', title: 'О нас' },
       { link: '#', title: 'Блог' },
       { link: '#', title: 'Документы' },
       { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },

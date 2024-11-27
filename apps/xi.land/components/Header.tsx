@@ -7,32 +7,31 @@ import Image from 'next/image';
 import { MobileNavigation, Navigation } from './navigation';
 
 export const Header = () => {
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isShowHeader, setIsShowHeader] = useState(true);
+  let lastScrollY = 0;
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setShowHeader(false);
+        setIsShowHeader(false);
       } else {
-        setShowHeader(true);
+        setIsShowHeader(true);
       }
-
-      setLastScrollY(currentScrollY);
+      lastScrollY = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header
-      className={`flex justify-center py-4 md:px-0 px-4 xs:px-8 lg:px-8 xs:py-8 w-full top-0 fixed z-10 transition-transform duration-700 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`flex justify-center py-4 md:px-0 px-4 xs:px-8 lg:px-8 xs:py-8 w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="z-10 justify-between w-full md:w-auto flex gap-6 lg:gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
         <Link href="/" className="w-[202px] h-[24px] relative">
