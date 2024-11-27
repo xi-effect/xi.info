@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { BlockHeader } from '../shared/BlockHeader';
-import { BlockFooter } from '../shared/BlockFooter';
+import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
   { image: '1.svg', label: 'Демонстрация экрана' },
@@ -75,6 +74,7 @@ export const VideoCalls = () => (
     <BlockFooter
       primaryBtnText="Начать общаться"
       secondaryBtnText="Узнать больше"
+      blockLink="/product#videocalls"
       primaryBtnCn="bg-green-100 hover:bg-green-60 active:bg-green-60 focus:bg-green-60"
     />
   </section>

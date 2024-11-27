@@ -3,9 +3,10 @@
 import { Button } from '@xipkg/button';
 import { motion, MotionValue } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 import { LightningShape } from './LightningShape';
 import { TextOutline } from './TextOutline';
-import { CallToActionModal } from '../callToAction/CallToActionModal';
+import { CallToActionModal } from '../callToAction';
 
 type HeroContentPropsT = {
   layer3X: MotionValue<number>;
@@ -32,10 +33,10 @@ export const HeroContent = ({ isHovering, layer3X, layer3Y }: HeroContentPropsT)
           <LightningShape />
         </motion.div>
       )}
-      <div className="flex flex-col gap-2 xl:gap-4 py-8 relative xs:py-32 md:py-28 lg:py-0 w-full md:w-auto">
+      <div className="flex flex-col gap-4 py-8 relative xs:py-32 md:py-28 lg:py-0 w-full md:w-auto">
         <h1 className="text-h2 2xl:text-[80px] font-medium text-gray-0 flex flex-wrap -tracking-[.01em] md:flex-col xs:gap-x-4 leading-none">
           Проводите занятия
-          <div className="md:mt-4 2xl:mt-6">
+          <div className="mt-2 sm:mt-0 md:mt-4 2xl:mt-6 2xl:mb-4">
             <TextOutline text="онлайн" />
           </div>
         </h1>
@@ -52,10 +53,11 @@ export const HeroContent = ({ isHovering, layer3X, layer3Y }: HeroContentPropsT)
             </Button>
           </CallToActionModal>
           <Button
+            asChild
             variant="secondary"
             className="2xl:h-14 w-full hover:border-gray-0 hover:bg-transparent active:bg-transparent focus:bg-transparent bg-transparent text-gray-0 rounded-xl xl:rounded-2xl xl:px-8 xl:w-auto 2xl:text-l-base"
           >
-            Стать пользователем
+            <Link href="https://app.xieffect.ru/signup/">Стать пользователем</Link>
           </Button>
         </div>
       </div>

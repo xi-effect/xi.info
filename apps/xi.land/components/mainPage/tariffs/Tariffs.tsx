@@ -19,10 +19,10 @@ export const Tariffs = () => (
             href="#"
             variant="none"
             size="l"
-            className="group text-brand-80 sm:text-l-base md:text-m-base lg:text-l-base 3xl:text-[30px] flex items-center 3xl:gap-4 gap-2"
+            className="group text-brand-80 hover:text-brand-60 sm:text-l-base md:text-m-base lg:text-l-base 3xl:text-[30px] flex items-center 3xl:gap-4 gap-2"
           >
             Сравнить тарифы
-            <ArrowRight className="group-hover:fill-gray-100 fill-brand-80 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 3xl:w-12 3xl:h-12" />
+            <ArrowRight className="group-hover:fill-brand-60 fill-brand-80 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 3xl:w-12 3xl:h-12" />
           </Link>
         </div>
         <ul className="flex md:basis-1/3 flex-col gap-2 xl:pl-4">

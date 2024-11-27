@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { BlockHeader } from '../shared/BlockHeader';
-import { BlockFooter } from '../shared/BlockFooter';
+import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
   { image: '1.webp', label: 'Работа в конференциях' },
@@ -70,6 +69,7 @@ export const Whiteboard = () => (
     <BlockFooter
       primaryBtnText="Начать рисовать"
       secondaryBtnText="Узнать больше"
+      blockLink="/product#whiteboard"
       primaryBtnCn="bg-cyan-100 hover:bg-cyan-60 active:bg-cyan-60 focus:bg-cyan-60"
     />
   </section>

@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { BlockHeader } from '../shared/BlockHeader';
-import { BlockFooter } from '../shared/BlockFooter';
+import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
   { image: '1.webp', label: 'Отправка файлов' },
@@ -73,6 +72,7 @@ export const Messages = () => (
     <BlockFooter
       primaryBtnText="Начать общаться"
       secondaryBtnText="Узнать больше"
+      blockLink="/product#chats"
       primaryBtnCn="bg-orange-80 hover:bg-orange-60 active:bg-orange-60 focus:bg-orange-60"
     />
   </section>

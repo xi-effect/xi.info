@@ -120,7 +120,11 @@ export const CallToActionForm = ({
           )}
           <p className="text-gray-60 text-xxs-base mt-2">
             Нажимая кнопку, вы соглашаетесь с&nbsp;
-            <Link className="text-gray-60 text-xxs-base font-medium" variant="none" href="#">
+            <Link
+              className="text-gray-60 hover:text-brand-40 text-xxs-base font-medium"
+              variant="none"
+              href="#"
+            >
               политикой обработки пресональных данных
             </Link>
           </p>
