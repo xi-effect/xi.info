@@ -29,7 +29,7 @@ export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPr
         {item}
       </Link>
     ) : (
-      <span className="py-2.5 px-3 cursor-pointer">{item}</span>
+      <span className="py-2.5 md:py-3.5 lg:p-2.5 px-3 cursor-pointer">{item}</span>
     )}
     {!href && active !== null && active === item && (
       <motion.div

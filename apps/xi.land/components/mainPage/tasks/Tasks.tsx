@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { BlockHeader } from '../shared/BlockHeader';
-import { BlockFooter } from '../shared/BlockFooter';
+import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
   { image: '1.svg', label: '3 типа вопросов' },
@@ -44,7 +43,7 @@ export const Tasks = () => (
           </p>
         </div>
       </motion.div>
-      <div className="row-span-2 xs:grid-rows-4 sm:grid-rows-2 grid sm:grid-cols-2 grid-rows-2 gap-4 xs:gap-8 2xl:gap-16">
+      <div className="row-span-2 xs:grid-rows-4 sm:grid-rows-2 grid sm:grid-cols-2 gap-4 xs:gap-8 2xl:gap-16">
         {descriptionBlocks.map((item, index) => (
           <motion.div
             initial={{ y: 60, opacity: 0 }}
@@ -73,6 +72,7 @@ export const Tasks = () => (
     <BlockFooter
       primaryBtnText="Начать работать"
       secondaryBtnText="Узнать больше"
+      blockLink="/product#tasksAndTests"
       primaryBtnCn="bg-violet-100 hover:bg-violet-60 active:bg-violet-60 focus:bg-violet-60"
     />
   </section>

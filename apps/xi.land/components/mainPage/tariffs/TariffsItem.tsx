@@ -1,5 +1,6 @@
 import { Button } from '@xipkg/button';
 import { Check } from '@xipkg/icons';
+import Link from 'next/link';
 
 type TariffsItemPropsT = {
   title: string;
@@ -56,9 +57,10 @@ export const TariffsItem = ({
         )}
       </h4>
       <Button
+        asChild
         className={`rounded-3xl sm:h-14 md:h-10 lg:h-12 md:text-s-base lg:text-m-base 3xl:text-l-base 3xl:h-14 sm:rounded-[56px] sm:text-l-base ${buttonClassName}`}
       >
-        {buttonLabel}
+        <Link href="#">{buttonLabel}</Link>
       </Button>
     </div>
   </div>

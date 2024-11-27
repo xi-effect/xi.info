@@ -34,7 +34,7 @@ const sections: Section[] = [
   {
     title: 'Компания',
     links: [
-      { link: '/about-us', title: 'О нас' },
+      { link: '#', title: 'О нас' },
       { link: '#', title: 'Блог' },
       { link: '#', title: 'Документы' },
       { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },
@@ -76,9 +76,12 @@ const Footer = () => {
   return (
     <footer className="flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
       <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-40 xl:py-16">
-        <div className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]">
+        <Link
+          href="/"
+          className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
+        >
           <Image alt="xieffect logo" src="/xieffect.webp" fill priority={false} />
-        </div>
+        </Link>
         <div className="flex flex-col gap-8 xl:gap-16">
           <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
             {sections.map(renderSection)}

@@ -329,9 +329,13 @@ export const Items = () => (
     transition={{ delay: 0.2, duration: 1 }}
     className="p-4 md:p-8 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
   >
-    <div className="flex flex-col w-full max-w-[1920px] mt-0 2xl:mt-[64px] gap-[64px] 2xl:gap-[256px]">
+    <div className="flex flex-col w-full max-w-[1920px] mt-0 2xl:mt-[64px] 2xl:gap-[256px]">
       {featchersData.map((group, index) => (
-        <section id={group.link} className="flex flex-col" key={index.toString()}>
+        <section
+          id={group.link}
+          className="flex flex-col py-8 lg:py-12 scroll-my-16 sm:scroll-my-20 md:scroll-my-24"
+          key={index.toString()}
+        >
           {!!group.image && (
             <>
               {group.image === '/assets/productPage/icons/tasksAndTests.webp' ? (
