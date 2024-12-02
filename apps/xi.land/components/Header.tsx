@@ -1,112 +1,53 @@
 'use client';
 
-import NextLink from 'next/link';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@xipkg/button';
-import { Link } from '@xipkg/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Modal, ModalTrigger } from '@xipkg/modal';
-import { MobileMenu } from './MobileMenu';
+import { MobileNavigation, Navigation } from './navigation';
 
-const BurgerIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5.33331" y="8" width="21.3333" height="2.66667" rx="0.5" fill="var(--xi-gray-0)" />
-    <rect
-      x="5.33331"
-      y="14.667"
-      width="21.3333"
-      height="2.66667"
-      rx="0.5"
-      fill="var(--xi-gray-0)"
-    />
-    <rect
-      x="5.33331"
-      y="21.333"
-      width="21.3333"
-      height="2.66667"
-      rx="0.5"
-      fill="var(--xi-gray-0)"
-    />
-  </svg>
-);
+export const Header = () => {
+  const [isShowHeader, setIsShowHeader] = useState(true);
+  let lastScrollY = 0;
 
-type LinkMenuItem = {
-  label: string;
-  link: string;
-};
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-const arrayOfLinks: LinkMenuItem[] = [
-  {
-    label: 'Продукт',
-    link: '/product',
-  },
-  {
-    label: 'Поддержка',
-    link: 'https://support.xieffect.ru/',
-  },
-  {
-    label: 'О нас',
-    link: '/about-us',
-  },
-];
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsShowHeader(false);
+      } else {
+        setIsShowHeader(true);
+      }
+      lastScrollY = currentScrollY;
+    };
 
-const Header = () => {
-  const [burgerIsOpen, setBurgerIsOpen] = useState(false);
-  const toggleBurgerMenu = () => {
-    setBurgerIsOpen((prev) => !prev);
-  };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="w-full h-[72px] md:h-[112px] 2xl:h-[176px] p-4 md:p-8 2xl:py-16 2xl:px-40 flex justify-center items-center flex-row z-10">
-      <div className="w-full max-w-[1920px] flex flex-row justify-between items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-        >
-          <NextLink href="/">
-            <Image alt="xieffect logo" src="/xieffectlight.webp" height={24} width={202} />
-          </NextLink>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="hidden md:flex flex-row justify-center gap-8 w-fit py-0 px-1.5"
-        >
-          {arrayOfLinks.map((item, index) => (
-            <Link href={item.link} key={index} variant="hover" className="text-[20px] pointer">
-              {item.label}
-            </Link>
-          ))}
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-        >
-          <Button
-            variant="default"
-            className="w-24 z-10 max-sm:hidden"
-            id="to-signin-button"
-            data-umami-event="to-signin-button"
-            asChild
-          >
-            <NextLink href="https://app.xieffect.ru/signin/">Войти</NextLink>
+    <header
+      className={`flex justify-center py-4 md:px-0 px-4 xs:px-8 lg:px-8 xs:py-8 w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
+    >
+      <div className="z-10 justify-between w-full md:w-auto flex gap-6 lg:gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
+        <Link href="/" className="w-[202px] h-[24px] relative">
+          <Image src="/xieffectlight.webp" fill alt="xi effect logo" priority />
+        </Link>
+        <Navigation />
+        <div className="gap-2 hidden md:flex">
+          <Button asChild variant="ghost" className="px-4 lg:px-6 rounded-full bg-transparent">
+            <Link href="https://app.xieffect.ru/signin">Войти</Link>
           </Button>
-          <Modal open={burgerIsOpen}>
-            <MobileMenu toggleBurgerMenu={toggleBurgerMenu} links={arrayOfLinks} />
-            <ModalTrigger asChild>
-              <Button onClick={toggleBurgerMenu} className="h-12 w-12 z-10 p-0 m-0 sm:hidden">
-                <BurgerIcon />
-              </Button>
-            </ModalTrigger>
-          </Modal>
-        </motion.div>
+          <Button asChild className="rounded-full px-4 lg:px-6 bg-brand-80">
+            <Link href="https://app.xieffect.ru/signup">Зарегистрироваться</Link>
+          </Button>
+        </div>
+        <MobileNavigation />
       </div>
-    </div>
+    </header>
   );
 };
-
-export default Header;

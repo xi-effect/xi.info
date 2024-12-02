@@ -10,4 +10,10 @@ module.exports = {
     '../../node_modules/@xipkg/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   presets: [require('@xipkg/tailwind/design-system-preset.js')],
+  theme: {
+    fontFamily: {
+      sans: ['var(--font-inter)'],
+      mono: ['var(--font-inter)'],
+    },
+  },
 };

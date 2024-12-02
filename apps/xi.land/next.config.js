@@ -1,7 +1,11 @@
 // Не поддавайтесь соблазну использовать здесь import
 const path = require('path');
 
-const plugins = [];
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const plugins = [withBundleAnalyzer];
 
 const nextConfig = {
   experimental: {
@@ -11,17 +15,13 @@ const nextConfig = {
   transpilePackages: [
     '@xipkg/link',
     '@xipkg/button',
-    '@xipkg/avatar',
     '@xipkg/tailwind',
     '@xipkg/utils',
     '@xipkg/icons',
     '@xipkg/tabs',
-    '@xipkg/modal',
     '@xipkg/form',
     '@xipkg/input',
-    '@xipkg/label',
-    '@xipkg/routerurl',
-    'pkg.footer',
+    'pkg.landing.footer',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

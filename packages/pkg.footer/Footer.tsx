@@ -17,11 +17,11 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
-      { link: '/product#tasksAndTests', title: 'Задания' },
-      { link: '/product#tasksAndTests', title: 'Тесты' },
-      { link: '/product#videocalls', title: 'Видеоконференции' },
-      { link: '/product#chats', title: 'Чаты' },
-      { link: '/product#announces', title: 'Объявления' },
+      { link: 'https://xieffect.ru/product#tasksAndTests', title: 'Задания' },
+      { link: 'https://xieffect.ru/product#tasksAndTests', title: 'Тесты' },
+      { link: 'https://xieffect.ru/product#videocalls', title: 'Видеоконференции' },
+      { link: 'https://xieffect.ru/product#chats', title: 'Чаты' },
+      { link: 'https://xieffect.ru/product#announces', title: 'Объявления' },
     ],
   },
   {
