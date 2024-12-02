@@ -28,15 +28,15 @@ const arrayOfLinks: LinkMenuItemT[] = [
   },
   {
     label: 'Тарифы',
-    link: '#',
+    link: '/prices',
   },
   {
     label: 'Блог',
-    link: '#',
+    link: '/blog',
   },
   {
     label: 'Руководства',
-    link: '#',
+    link: 'https://support.xieffect.ru/',
   },
 ];
 

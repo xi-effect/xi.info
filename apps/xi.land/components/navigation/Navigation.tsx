@@ -61,9 +61,15 @@ export const Navigation = () => {
           </div>
         </MenuItem>
 
-        <MenuItem setActive={setActive} active={active} item="Тарифы" href="#" />
-        <MenuItem setActive={setActive} active={active} item="Блог" href="#" />
-        <MenuItem setActive={setActive} active={active} item="Руководства" href="#" />
+        <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
+        <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Руководства"
+          target="_blank"
+          href="https://support.xieffect.ru/"
+        />
       </ul>
     </nav>
   );

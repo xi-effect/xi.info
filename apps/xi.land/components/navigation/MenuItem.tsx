@@ -8,6 +8,7 @@ type MenuItemPropsT = {
   item: string;
   href?: string;
   children?: React.ReactNode;
+  target?: '_self' | '_blank';
 };
 
 const transition = {
@@ -19,13 +20,20 @@ const transition = {
   restSpeed: 0.001,
 };
 
-export const MenuItem = ({ setActive, active, item, children, href }: MenuItemPropsT) => (
+export const MenuItem = ({
+  setActive,
+  active,
+  item,
+  children,
+  href,
+  target = '_self',
+}: MenuItemPropsT) => (
   <li
     onMouseEnter={() => setActive(item)}
     className="text-m-base lg:text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
   >
     {href ? (
-      <Link href={href} className="py-2.5 px-3">
+      <Link target={target} href={href} className="py-2.5 px-3">
         {item}
       </Link>
     ) : (
