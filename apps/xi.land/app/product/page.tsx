@@ -1,8 +1,24 @@
 import { Items, Title } from 'components/productPage';
 
 export const metadata = {
-  title: 'продукт | xi.effect',
-  description: 'Приложение для репетиторов и малого бизнеса',
+  title: 'Возможности | xi.effect для онлайн-обучения',
+  description:
+    'Чаты, тесты, видеоконференции и управление доступом — всё, что нужно для эффективного обучения.',
+  openGraph: {
+    title: 'Возможности | xi.effect для онлайн-обучения',
+    description:
+      'Чаты, тесты, видеоконференции и управление доступом — всё, что нужно для эффективного обучения.',
+    url: 'https://xieffect.ru',
+    siteName: 'xi.effect',
+    images: [
+      {
+        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        width: 512,
+        height: 512,
+      },
+    ],
+    type: 'website',
+  },
 };
 
 export default function ProductPage() {
