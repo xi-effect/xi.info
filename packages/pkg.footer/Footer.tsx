@@ -29,6 +29,7 @@ const sections: Section[] = [
     links: [
       { link: '#', title: 'Тарифы' },
       { link: 'https://support.xieffect.ru/', title: 'Поддержка' },
+      { link: 'https://support.xieffect.ru/', title: 'Поддержка' },
     ],
   },
   {

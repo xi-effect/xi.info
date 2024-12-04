@@ -26,7 +26,7 @@ const sections: Section[] = [
   {
     title: 'Клиентам',
     links: [
-      { link: '#', title: 'Тарифы' },
+      { link: '/prices', title: 'Тарифы' },
       { link: 'https://support.xieffect.ru/', title: 'Руководства' },
       { link: 'https://t.me/xieffect_support_bot', title: 'Поддержка' },
     ],
@@ -34,9 +34,9 @@ const sections: Section[] = [
   {
     title: 'Компания',
     links: [
-      { link: '#', title: 'О нас' },
-      { link: '#', title: 'Блог' },
-      { link: '#', title: 'Документы' },
+      { link: '/about', title: 'О нас' },
+      { link: '/blog', title: 'Блог' },
+      { link: '/docs', title: 'Документы' },
       { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },
     ],
   },
