@@ -125,7 +125,7 @@ export const CallToActionForm = ({
               variant="none"
               href="#"
             >
-              политикой обработки пресональных данных
+              политикой обработки персональных данных
             </Link>
           </p>
         </div>
