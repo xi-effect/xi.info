@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
-  { image: '1.webp', label: 'Работа в конференциях' },
+  { image: '1.webp', label: 'Наглядная подача материала' },
   { image: '2.svg', label: 'Быстрый экспорт' },
   { image: '3.svg', label: 'Совместная работа' },
 ];
@@ -40,7 +40,7 @@ export const Whiteboard = () => (
         </div>
       </motion.div>
 
-      <div className="row-span-2 xs:grid-rows-3 sm:grid-rows-2 grid sm:grid-cols-2 grid-rows-2 gap-4 xs:gap-8 2xl:gap-16 sm:aspect-square">
+      <div className="row-span-2 xs:grid-rows-3 sm:grid-rows-2 grid sm:grid-cols-2 gap-4 xs:gap-8 2xl:gap-16 sm:aspect-square">
         {descriptionBlocks.map((item, index) => (
           <motion.div
             initial={{ y: 60, opacity: 0 }}

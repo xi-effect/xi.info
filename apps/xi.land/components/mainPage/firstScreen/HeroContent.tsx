@@ -41,7 +41,7 @@ export const HeroContent = ({ isHovering, layer3X, layer3Y }: HeroContentPropsT)
           </div>
         </div>
         <h1 className="text-xl-base text-gray-10 2xl:text-h5 leading-[31px] 2xl:leading-[41px] -tracking-[.01em]">
-          Приложение для репетиторов и малого бизнеса
+          Приложение для репетиторов и малого бизнеса
         </h1>
         <div className="flex gap-2 xs:gap-8 mt-6 xl:mt-4 flex-col xs:flex-row">
           <CallToActionModal>
