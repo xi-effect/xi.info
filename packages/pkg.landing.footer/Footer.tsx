@@ -17,10 +17,10 @@ const sections: Section[] = [
     links: [
       { link: '/product#tasksAndTests', title: 'Задания' },
       { link: '/product#tasksAndTests', title: 'Тесты' },
-      { link: '/product#videocalls', title: 'Видеоконференции' },
+      { link: '/product#videocalls', title: 'Видеозвонки' },
       { link: '/product#chats', title: 'Чаты' },
       { link: '/product#announces', title: 'Объявления' },
-      { link: '/product#whiteboard', title: 'Интерактивная доска' },
+      { link: '/product#whiteboard', title: 'Онлайн-доска' },
     ],
   },
   {
