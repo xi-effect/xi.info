@@ -8,12 +8,12 @@ const descriptionBlocks = [
   { image: '1.svg', label: '3 типа вопросов' },
   { image: '2.svg', label: 'Автоматическая проверка' },
   { image: '3.svg', label: 'Встроенный редактор' },
-  { image: '4.webp', label: 'Отправка файлов' },
+  { image: '4.webp', label: 'Обмен файлами' },
 ];
 
 export const Tasks = () => (
   <section className="py-8 px-4 flex flex-col gap-8 xs:p-8 xl:py-16 xl:px-24">
-    <BlockHeader title="Тесты и задания" subTitle="Быстро оценивайте знания" />
+    <BlockHeader title="Тесты и задания" subTitle="Быстро оценивайте знания" />
     <div className="grid gap-8 md:grid-cols-2 md:grid-rows-2 2xl:gap-16">
       <motion.div
         initial={{ y: 60, opacity: 0 }}
@@ -37,9 +37,9 @@ export const Tasks = () => (
           />
         </div>
         <div className="flex flex-col gap-1 2xl:gap-2">
-          <h3 className="text-xl-base xs:text-h6 xl:text-h5 text-gray-0">Живое общение</h3>
+          <h3 className="text-xl-base xs:text-h6 xl:text-h5 text-gray-0">Обратная связь</h3>
           <p className="text-s-base text-gray-0 xs:text-l-base xl:text-xl-base">
-            Обсуждайте задания и тесты
+            Обсуждайте задания и тесты
           </p>
         </div>
       </motion.div>

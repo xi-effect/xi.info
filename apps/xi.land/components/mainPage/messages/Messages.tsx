@@ -5,15 +5,15 @@ import Image from 'next/image';
 import { BlockHeader, BlockFooter } from '../shared';
 
 const descriptionBlocks = [
-  { image: '1.webp', label: 'Отправка файлов' },
+  { image: '1.webp', label: 'Обмен файлами' },
   { image: '2.webp', label: 'Реакции' },
-  { image: '3.svg', label: 'Тэги' },
+  { image: '3.svg', label: 'Теги' },
   { image: '4.svg', label: 'Редактирование' },
 ];
 
 export const Messages = () => (
   <section className="py-8 px-4 flex flex-col gap-8 xs:p-8 xl:py-16 xl:px-24">
-    <BlockHeader title="Сообщения" subTitle="Оставайтесь на связи" />
+    <BlockHeader title="Сообщения" subTitle="Оставайтесь на связи" />
     <div className="grid gap-8 md:grid-cols-2 md:grid-rows-2 2xl:gap-16">
       <motion.div
         initial={{ y: 60, opacity: 0 }}
@@ -39,7 +39,7 @@ export const Messages = () => (
         <div className="flex flex-col gap-1 2xl:gap-2">
           <h3 className="text-xl-base xs:text-h6 xl:text-h5 text-gray-0">Живое общение</h3>
           <p className="text-s-base text-gray-0 xs:text-l-base xl:text-xl-base">
-            Общайтесь со студентами, не переходя в другие приложения
+            Общайтесь со студентами, не переходя в другие приложения
           </p>
         </div>
       </motion.div>

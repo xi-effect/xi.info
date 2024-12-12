@@ -39,7 +39,7 @@ export const Navigation = () => {
   return (
     <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
       <ul className="flex lg:gap-2">
-        <MenuItem setActive={setActive} active={active} item="Продукт">
+        <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="grid grid-cols-2 gap-8">
             {subMenu.map((item) => (
               <SubMenuItem
@@ -66,7 +66,7 @@ export const Navigation = () => {
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Руководства"
+          item="Помощь"
           target="_blank"
           href="https://support.xieffect.ru/"
         />

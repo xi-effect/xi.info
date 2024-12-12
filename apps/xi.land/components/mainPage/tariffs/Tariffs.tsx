@@ -13,7 +13,7 @@ export const Tariffs = () => (
       <div className="flex-col flex md:flex-row gap-8 px-8 md:px-0 lg:px-8 3xl:px-16 justify-between">
         <div className="flex flex-col gap-2 items-start">
           <h2 className="text-h6 sm:text-h5 lg:text-h3 3xl:text-h2">
-            Месяц бесплатно на любом тарифе
+            Месяц бесплатно на любом тарифе
           </h2>
           <Link
             href="#"
@@ -22,12 +22,12 @@ export const Tariffs = () => (
             className="group text-brand-80 hover:text-brand-60 sm:text-l-base md:text-m-base lg:text-l-base 3xl:text-[30px] flex items-center 3xl:gap-4 gap-2"
           >
             Сравнить тарифы
-            <ArrowRight className="group-hover:fill-brand-60 fill-brand-80 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 3xl:w-12 3xl:h-12" />
+            <ArrowRight className="group-hover:fill-brand-60 fill-brand-80 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-7 lg:h-7 3xl:w-12 3xl:h-12" />
           </Link>
         </div>
         <ul className="flex md:basis-1/3 flex-col gap-2 xl:pl-4">
           <li className="flex gap-2 items-center text-gray-90 sm:text-l-base lg:text-m-base md:text-s-base 3xl:text-l-base">
-            <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Надежная система для работы
+            <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Надежная система для работы
           </li>
           <li className="flex gap-2 items-center text-gray-90 sm:text-l-base lg:text-m-base md:text-s-base 3xl:text-l-base">
             <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Ежемесячные обновления

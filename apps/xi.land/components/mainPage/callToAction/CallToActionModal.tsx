@@ -42,7 +42,7 @@ export const CallToActionModal = ({ children }: CallToActionModalT) => (
             </h5>
           </DialogTitle>
           <p className="font-medium text-s-base md:text-s-base lg:text-m-base sm:text-m-base text-gray-90 mt-4 mb-2">
-            Живой разговор с нашим экспертом, не больше получаса
+            Живой разговор с нашим экспертом, не больше получаса
           </p>
           <div className="mt-2 sm:mt-4 flex gap-2 items-center">
             <ArrowRight className="h-4 w-4" />
@@ -53,7 +53,7 @@ export const CallToActionModal = ({ children }: CallToActionModalT) => (
           <div className="mt-2 sm:mt-4 flex gap-2 items-center">
             <ArrowRight className="h-4 w-4" />
             <span className="md:text-s-base lg:text-m-base sm:text-m-base text-xs-base text-gray-90">
-              Сориентируйтесь по ценам и скидкам
+              Сориентируетесь по ценам и скидкам
             </span>
           </div>
           <div className="mt-2 sm:mt-4 flex gap-2 items-center">
@@ -65,7 +65,7 @@ export const CallToActionModal = ({ children }: CallToActionModalT) => (
         </div>
         <CallToActionForm
           className="w-full bg-gray-5 rounded-b-[24px] md:rounded-r-[24px] md:rounded-l-none sm:p-6 lg:p-12"
-          title="Мы свяжемся с вами в ближайшее время и договоримся о встрече"
+          title="Мы свяжемся с вами в ближайшее время и договоримся о встрече"
         />
       </motion.div>
     </ModalContent>

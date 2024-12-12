@@ -23,7 +23,7 @@ type LinkMenuItemT = {
 
 const arrayOfLinks: LinkMenuItemT[] = [
   {
-    label: 'Продукт',
+    label: 'Возможности',
     link: '/product',
   },
   {
@@ -35,7 +35,7 @@ const arrayOfLinks: LinkMenuItemT[] = [
     link: '/blog',
   },
   {
-    label: 'Руководства',
+    label: 'Помощь',
     link: 'https://support.xieffect.ru/',
   },
 ];

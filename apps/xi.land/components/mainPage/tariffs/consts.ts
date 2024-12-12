@@ -2,7 +2,7 @@ export const tariffs = [
   {
     id: 1,
     title: 'Лайт',
-    description: 'Идеален для старта',
+    description: 'Идеален для старта',
     features: ['До 5 студентов', '1 преподаватель'],
     price: { amount: 'Бесплатно' },
     buttonLabel: 'Начать пользоваться',
@@ -13,7 +13,7 @@ export const tariffs = [
   {
     id: 2,
     title: 'Репетитор',
-    description: 'Идеален для работы репетитора',
+    description: 'Идеален для работы репетитора',
     features: ['До 20 студентов', '1 преподаватель'],
     price: { amount: '2990', unit: '₽/мес' },
     buttonLabel: 'Попробовать бесплатно',
@@ -24,7 +24,7 @@ export const tariffs = [
   {
     id: 3,
     title: 'Про',
-    description: 'Подходит для курсов и кружков',
+    description: 'Подходит для курсов и кружков',
     features: ['До 50 студентов', '3 преподавателя'],
     price: { amount: '7990', unit: '₽/мес' },
     buttonLabel: 'Попробовать бесплатно',

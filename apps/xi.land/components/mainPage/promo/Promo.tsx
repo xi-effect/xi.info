@@ -11,7 +11,7 @@ export const Promo = () => (
           xieffect <span className="text-brand-40">всегда</span> под рукой
         </h3>
         <p className="text-gray-0 text-xl-base lg:text-h5">
-          Проводите уроки с телефона или планшета
+          Проводите уроки с телефона или планшета
         </p>
       </div>
       <motion.div

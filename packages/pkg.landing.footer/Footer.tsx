@@ -17,10 +17,10 @@ const sections: Section[] = [
     links: [
       { link: '/product#tasksAndTests', title: 'Задания' },
       { link: '/product#tasksAndTests', title: 'Тесты' },
-      { link: '/product#videocalls', title: 'Видеоконференции' },
+      { link: '/product#videocalls', title: 'Видеозвонки' },
       { link: '/product#chats', title: 'Чаты' },
       { link: '/product#announces', title: 'Объявления' },
-      { link: '/product#whiteboard', title: 'Интерактивная доска' },
+      { link: '/product#whiteboard', title: 'Онлайн-доска' },
     ],
   },
   {
@@ -75,7 +75,7 @@ const Footer = () => {
 
   return (
     <footer className="flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
-      <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-40 xl:py-16">
+      <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
         <Link
           href="/"
           className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"

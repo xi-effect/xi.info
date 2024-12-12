@@ -10,44 +10,40 @@ import { Link } from '@xipkg/link';
 const featchersData = [
   {
     title: 'Задания и тесты',
-    image: '/assets/productPage/icons/tasksAndTests.webp',
-    subtitle: 'Проверяйте знания ваших студентов',
+    subtitle: 'Проверяйте знания студентов',
     link: 'tasksAndTests',
     items: [
       {
         title: 'Управление доступом',
-        content: 'Доступ к тесту можно открывать и закрывать в определённое время автоматически',
+        content: 'Автоматически открывайте и закрывайте доступ к тесту',
         image: '/assets/productPage/tasksAndTests/1.webp',
         width: 377,
         height: 200,
       },
       {
         title: 'Выбор модели оценивания',
-        content:
-          'Выбирайте удобную модель оценивания — 5-бальная шкала, 100-бальная шкала, или любая другая — по вашему желанию',
+        content: 'Выбирайте модели оценивания или создавайте свои',
         image: '/assets/productPage/tasksAndTests/2.webp',
-        width: 200,
-        height: 190,
+        width: 250,
+        height: 136,
       },
       {
         title: '3 типа вопросов',
-        content:
-          'Создавайте вопросы с коротким ответом, развёрнутым ответом или с выбором вариантов ответа',
+        content: 'Добавляйте в тесты разные типы вопросов',
         image: '/assets/productPage/tasksAndTests/3.webp',
         width: 200,
         height: 156,
       },
       {
-        title: 'Коментарии',
-        content: 'Общайтесь со студентами по поводу заданий в коментариях к заданиям и тестам',
+        title: 'Комментарии',
+        content: 'Общайтесь со студентами в комментариях к занятиям и тестам',
         image: '/assets/productPage/tasksAndTests/4.webp',
         width: 444,
         height: 168,
       },
       {
         title: 'Автоматическая проверка',
-        content:
-          'Настройте возможность автоматической проверки заданий с коротким ответом или выбором вариантов ответа',
+        content: 'Избавьтесь от рутины — настройте автоматическую проверку заданий',
         image: '/assets/productPage/tasksAndTests/5.webp',
         width: 264,
         height: 98,
@@ -56,20 +52,19 @@ const featchersData = [
   },
   {
     title: 'Видеозвонки',
-    image: '/assets/productPage/icons/video.webp',
-    subtitle: 'Проводите занятия в онлайн режиме прямо в сервисе',
+    subtitle: 'Проводите занятия в онлайн-режиме',
     link: 'videocalls',
     items: [
       {
         title: 'Молниеносное начало',
-        content: 'Начинайте видеоконференцию в любой момент по вашему желанию',
+        content: 'Начинайте видеоконференцию в любой момент',
         image: '/assets/productPage/videoconference/1.webp',
         width: 300,
         height: 204,
       },
       {
         title: 'Чат',
-        content: 'Используйте чаты не выходя из видеоконференции',
+        content: 'Используйте встроенные чаты',
         image: '/assets/productPage/videoconference/2.webp',
         width: 382,
         height: 198,
@@ -83,7 +78,7 @@ const featchersData = [
       },
       {
         title: 'Реакции',
-        content: 'Добавьте возможность поднять руку вашим студентам',
+        content: 'Добавьте возможность поднять руку',
         image: '/assets/productPage/videoconference/4.webp',
         width: 232,
         height: 194,
@@ -92,29 +87,26 @@ const featchersData = [
   },
   {
     title: 'Чаты',
-    image: '/assets/productPage/icons/chat.webp',
-    subtitle: 'Используйте все возможности для общения со студентами',
+    subtitle: 'Используйте все возможности для общения',
     link: 'chats',
     items: [
       {
-        title: 'Отправка файлов',
-        content:
-          'У нас можно загрузить сразу несколько файлов и быстро выгрузить их по одному клику',
+        title: 'Обмен файлами',
+        content: 'Пересылайте файлы в один клик',
         image: '/assets/productPage/chats/1.webp',
         width: 442,
         height: 114,
       },
       {
         title: 'Закреплённые сообщения',
-        content: 'В каждом чате можно закреплять сообщения и посмотреть их в отдельном окне',
+        content: 'Закрепляйте важное и просматривайте в отдельном окне',
         image: '/assets/productPage/chats/2.webp',
         width: 300,
         height: 200,
       },
       {
         title: 'Реакции на сообщения',
-        content:
-          'Если сообщение не требует развёрнутого ответа, то достаточно поставить реакцию-эмоджи на него, чтобы дать свою обратную связь',
+        content: 'Ставьте реакции-эмоджи, чтобы быстро дать обратную связь',
         image: '/assets/productPage/chats/3.webp',
         width: 298,
         height: 76,
@@ -122,29 +114,28 @@ const featchersData = [
       {
         title: 'Теги',
         content:
-          'Если вы хотите адресовать сообщение конкретному человеку, то вам достаточно написать @ и выбрать пользователя',
+          'Чтобы адресовать сообщение конкретному человеку, введите @ и выберите пользователя',
         image: '/assets/productPage/chats/4.webp',
         width: 437,
         height: 144,
       },
       {
         title: 'Форматирование сообщений',
-        content: 'Можно сделать текст жирным, курсивом или вставить в него ссылку',
+        content: 'Выделяйте важное, вставляйте ссылки',
         image: '/assets/productPage/chats/5.webp',
         width: 382,
         height: 144,
       },
       {
         title: 'Ответы на сообщения',
-        content: 'На каждое сообщение можно ответить и процитировать сообщение',
+        content: 'Цитируйте и отвечайте на сообщения',
         image: '/assets/productPage/chats/6.webp',
         width: 404,
         height: 86,
       },
       {
-        title: 'Редактирование и удаление сообщений',
-        content:
-          'Опечатались, ошиблись или изменились вводные? Ничего страшного, сообщения можно редактировать и удалять',
+        title: 'Редактирование и удаление',
+        content: 'Что-то изменилось? Отредактируйте или удалите сообщение',
         image: '/assets/productPage/chats/7.webp',
         width: 200,
         height: 56,
@@ -152,7 +143,7 @@ const featchersData = [
       {
         title: 'Ссылка на сообщение',
         content:
-          'У каждого сообщения можно скопировать ссылку и отправить студенту или коллеге. Он сможет посмотреть его только если имеет доступ к чату',
+          'Скопируйте ссылку на сообщение и отправьте студенту или коллеге. Собеседник сможет просмотреть его, только если имеет доступ к чату',
         image: '/assets/productPage/chats/8.webp',
         width: 190,
         height: 128,
@@ -161,28 +152,26 @@ const featchersData = [
   },
   {
     title: 'Библиотека',
-    image: '/assets/productPage/icons/announces.webp',
-    subtitle:
-      'Создавайте учебные материалы и структурируйте их, позволяя вашим студентам легко получить к ним доступ',
+    subtitle: 'Публикуйте лекции, конспекты и другие тексты',
     link: 'library',
     items: [
       {
         title: 'Форматирование',
-        content: 'Можно сделать текст жирным, курсивом или вставить в него ссылку',
+        content: 'Выделяйте важное, вставляйте ссылки',
         image: '/assets/productPage/announces/1.webp',
         width: 420,
         height: 72,
       },
       {
         title: 'Файлы',
-        content: 'Прикрепите важные файлы к вашей записи',
+        content: 'Прикрепите файлы к записи',
         image: '/assets/productPage/announces/2.webp',
         width: 393,
         height: 54,
       },
       {
         title: 'Редактор',
-        content: 'Создавайте свой контент в удобном редакторе',
+        content: 'Создавайте и храните учебные материалы',
         image: '/assets/productPage/announces/3.webp',
         width: 399,
         height: 210,
@@ -191,13 +180,12 @@ const featchersData = [
   },
   {
     title: 'Объявления',
-    image: '/assets/productPage/icons/announces.webp',
-    subtitle: 'Информируйте своих студентов о новостях',
+    subtitle: 'Сообщайте о новостях',
     link: 'announces',
     items: [
       {
         title: 'Уведомления',
-        content: 'Студенты моментально получат сообщение об изменениях',
+        content: 'Студенты моментально получат сообщение об изменениях',
         image: '/assets/productPage/announces/1.webp',
         width: 420,
         height: 72,
@@ -205,30 +193,27 @@ const featchersData = [
     ],
   },
   {
-    title: 'Интерактивная доска',
-    image: '/assets/productPage/icons/whiteboard.webp',
-    subtitle:
-      'Создавайте учебные материалы и структурируйте их, позволяя вашим студентам легко получить к ним доступ',
+    title: 'Онлайн-доска',
+    subtitle: 'Рисуйте на бесконечной доске',
     link: 'whiteboard',
     items: [
       {
         title: 'Множество инструментов',
-        content:
-          'Рисуйте от руки или используйте готовые фигуры, пишите, делайте стикеры и указывайте стрелками',
+        content: 'Добавляйте готовые фигуры, стрелки, стикеры или рисуйте от руки',
         image: '/assets/productPage/whiteboard/1.webp',
         width: 280,
         height: 40,
       },
       {
         title: 'Быстрый экспорт',
-        content: 'Вы можете сохранить вашу доску в формате png на ваше устройство',
+        content: 'Сохраняйте доску в формате png',
         image: '/assets/productPage/whiteboard/2.webp',
         width: 64,
         height: 64,
       },
       {
         title: 'Работа внутри видеоконференций',
-        content: 'Показывайте свою доску прямо в конференции',
+        content: 'Показывайте материал на доске в реальном времени',
         image: '/assets/productPage/whiteboard/3.webp',
         width: 340,
         height: 234,
@@ -242,15 +227,14 @@ const featchersData = [
     items: [
       {
         title: 'Настройка ролей',
-        content:
-          'Вы можете создать неограниченное количество ролей и настроить по своим потребностям',
+        content: 'Создавайте и настраивайте неограниченное количество ролей',
         image: '/assets/productPage/control/1.webp',
         width: 236,
         height: 172,
       },
       {
         title: 'Права пользователей',
-        content: 'Настраивайте права для каждой роли отдельно',
+        content: 'Настраивайте права для каждой роли',
         image: '/assets/productPage/control/2.webp',
         width: 354,
         height: 190,
@@ -270,14 +254,14 @@ const featchersData = [
     link: 'navigation',
     items: [
       {
-        title: 'Все по категориям',
+        title: 'Всё по категориям',
         content: 'Группируйте каналы по категориям',
         image: '/assets/productPage/navigation/1.webp',
         width: 400,
         height: 200,
       },
       {
-        title: 'Приватные категории',
+        title: 'Закрытые категории',
         content: 'Настройте категории с доступом определённым группам',
         image: '/assets/productPage/navigation/2.webp',
         width: 414,
@@ -287,12 +271,12 @@ const featchersData = [
   },
   {
     title: 'Другие возможности',
-    subtitle: 'Настройте xi.effect специально под себя',
+    subtitle: 'Настройте xi.effect под себя',
     link: 'other',
     items: [
       {
         title: 'Тёмная тема',
-        content: 'Для сов, ценителей ночной продуктивности и просто эстетов:)',
+        content: 'Для сов, ценителей ночной продуктивности и просто эстетов :)',
         image: '/assets/productPage/other/1.webp',
         width: 381,
         height: 144,
@@ -306,14 +290,14 @@ const featchersData = [
       },
       {
         title: 'Журнал обновлений',
-        content: 'После каждого обновления мы покажем вам модальное окно с рассказом о нём',
+        content: 'Рассказываем о новых функциях',
         image: '/assets/productPage/other/3.webp',
         width: 400,
         height: 160,
       },
       {
-        title: 'Кастомизация сообществ',
-        content: 'Настраивайте сообщество по вашему вкусу',
+        title: 'Настройка сообществ',
+        content: 'Управляйте образовательной средой',
         image: '/assets/productPage/other/4.webp',
         width: 300,
         height: 48,
@@ -327,40 +311,29 @@ export const Items = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ delay: 0.2, duration: 1 }}
-    className="p-4 md:p-8 2xl:py-16 2xl:px-24 flex justify-center items-center flex-col w-screen"
+    className="px-4 md:px-8 2xl:py-0 xl:px-16 2xl:px-40 flex justify-center items-center flex-col w-screen"
   >
-    <div className="flex flex-col w-full max-w-[1920px] mt-0 2xl:mt-[64px] 2xl:gap-[256px]">
+    <div className="flex flex-col w-full max-w-[1920px]">
       {featchersData.map((group, index) => (
         <section
           id={group.link}
-          className="flex flex-col py-8 lg:py-12 scroll-my-16 sm:scroll-my-20 md:scroll-my-24"
+          className="flex flex-col py-8 lg:py-12 xl:py-24 scroll-my-16 sm:scroll-my-20 md:scroll-my-24 2xl:py-32 xl:first:pt-16"
           key={index.toString()}
         >
-          {!!group.image && (
-            <>
-              {group.image === '/assets/productPage/icons/tasksAndTests.webp' ? (
-                <div className="relative h-[32px] md:h-[48px] 2xl:h-[64px] w-[92px] md:w-[144px] 2xl:w-[188px]">
-                  <Image alt={group.title} src={group.image} fill />
-                </div>
-              ) : (
-                <div className="relative h-[32px] md:h-[48px] 2xl:h-[64px] w-[32px] md:w-[48px] 2xl:w-[64px]">
-                  <Image alt={group.title} src={group.image} fill />
-                </div>
-              )}
-            </>
-          )}
           <Link
             variant="hover"
             href={`#${group.link}`}
-            className="mt-6 font-medium text-[24px] md:text-[48px] 2xl:text-[64px]"
+            className="mt-6 font-medium text-xl-base md:text-h2 2xl:text-[64px]"
           >
             {group.title}
           </Link>
-          <span className="text-[16px] md:text-[24px] 2xl:text-[32px] mt-2">{group.subtitle}</span>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-12 2xl:gap-8">
+          <span className="text-m-base md:text-xl-base 2xl:text-h5 mt-2 text-gray-80">
+            {group.subtitle}
+          </span>
+          <div className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-y-12 sm:gap-x-8">
             {group.items.map((item, i) => (
               <div className="flex flex-col" key={i.toString()}>
-                <div className="flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-[12px] md:rounded-[24px] p-1">
+                <div className="flex justify-center items-center bg-gray-10 aspect-[520/250] rounded-2xl md:rounded-[32px]">
                   <Image
                     alt={item.title}
                     src={item.image}
@@ -368,12 +341,10 @@ export const Items = () => (
                     height={item.height}
                   />
                 </div>
-                <span className="mt-4 font-medium text-[16px] md:text-[24px] 2xl:text-[32px]">
+                <span className="mt-4 font-medium text-m-base sm:text-h6 2xl:text-h5">
                   {item.title}
                 </span>
-                <span className="text-[16px] md:text-[24px] 2xl:text-[24px] text-gray-70">
-                  {item.content}
-                </span>
+                <span className="text-m-base md:text-l-base text-gray-70 mt-2">{item.content}</span>
               </div>
             ))}
           </div>
