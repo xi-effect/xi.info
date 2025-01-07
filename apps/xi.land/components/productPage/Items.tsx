@@ -94,8 +94,8 @@ const featchersData = [
         title: 'Обмен файлами',
         content: 'Пересылайте файлы в один клик',
         image: '/assets/productPage/chats/1.webp',
-        width: 442,
-        height: 114,
+        width: 400,
+        height: 144,
       },
       {
         title: 'Закреплённые сообщения',
@@ -116,22 +116,22 @@ const featchersData = [
         content:
           'Чтобы адресовать сообщение конкретному человеку, введите @ и выберите пользователя',
         image: '/assets/productPage/chats/4.webp',
-        width: 437,
+        width: 400,
         height: 144,
       },
       {
         title: 'Форматирование сообщений',
         content: 'Выделяйте важное, вставляйте ссылки',
         image: '/assets/productPage/chats/5.webp',
-        width: 382,
+        width: 400,
         height: 144,
       },
       {
         title: 'Ответы на сообщения',
         content: 'Цитируйте и отвечайте на сообщения',
         image: '/assets/productPage/chats/6.webp',
-        width: 404,
-        height: 86,
+        width: 400,
+        height: 144,
       },
       {
         title: 'Редактирование и удаление',
