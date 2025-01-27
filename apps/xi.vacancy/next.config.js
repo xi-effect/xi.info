@@ -29,6 +29,7 @@ const nextConfig = {
     '@xipkg/select',
     '@xipkg/tabs',
     '@xipkg/tailwind',
+    '@xipkg/fileuploader',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',
