@@ -189,8 +189,8 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                     <FormLabel className="flex">Приложи резюме</FormLabel>
                     <FileUploader
                       onChange={(fileList) => handleFileChange(fileList)}
-                      accept=".jpg, .gif, .png, .pdf, .zip"
-                      fileTypesHint={['JPG', 'GIF', 'PNG', 'PDF', 'ZIP']}
+                      accept=".pdf"
+                      fileTypesHint={['PDF']}
                       size="medium"
                     />
                   </FormItem>
