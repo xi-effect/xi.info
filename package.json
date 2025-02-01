@@ -16,7 +16,6 @@
     "@xipkg/eslint": "3.2.0"
   },
   "devDependencies": {
-    "prettier-linter-helpers": "1.0.0",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@turbo/gen": "2.3.3",
@@ -30,5 +29,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  }
 }
