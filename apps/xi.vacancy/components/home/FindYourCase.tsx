@@ -1,3 +1,5 @@
+'use client';
+
 import { useRouter } from 'next/navigation';
 import { Button } from '@xipkg/button';
 import SendResumeModal from 'components/modal/SendResumeModal';

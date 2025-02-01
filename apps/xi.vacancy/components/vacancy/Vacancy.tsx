@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC } from 'react';
 import Image from 'next/image';
@@ -6,12 +5,11 @@ import { vacancyList } from '../common/const';
 
 type VacancyT = {
   id: string;
+  Post: any;
 };
 
 const Vacancy: FC<VacancyT> = (props) => {
-  const { id } = props;
-
-  const MDX = dynamic(() => import(`markdown/${id}.mdx`));
+  const { id, Post } = props;
 
   const vacancy = vacancyList.find((v) => v.id === id);
 
@@ -34,7 +32,7 @@ const Vacancy: FC<VacancyT> = (props) => {
 
       <div className="xl:flex">
         <div className="xl:basis-[77%] xl:mr-8">
-          <MDX />
+          <Post />
         </div>
 
         <div className="pt-4 xl:basis-[25%]">

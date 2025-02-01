@@ -19,10 +19,11 @@ type PageT = {
 
 const Page = async ({ params }: PageT) => {
   const { id } = await params;
+  const { default: Post } = await import(`markdown/${id}.mdx`);
 
   return (
     <Layout>
-      <Vacancy id={id} />
+      <Vacancy id={id} Post={Post} />
     </Layout>
   );
 };
