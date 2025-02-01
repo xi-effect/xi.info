@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/prop-types */
 /* eslint-disable consistent-return */
 import { HeaderDoc, Layout } from 'components/Common';
@@ -13,7 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const SectionPage = ({ params: { section } }) => {
+const SectionPage = async ({ params }: any) => {
+  const { section } = await params;
   const sectionItem = sectionsConfig.find((item) => item.sectionName === section);
 
   if (!sectionItem) return;

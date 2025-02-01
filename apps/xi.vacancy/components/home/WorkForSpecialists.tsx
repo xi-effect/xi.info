@@ -8,12 +8,8 @@ import { vacancyDescription, professions } from '../common/const';
 
 const WorkForSpecialists = () => {
   const [tabsValue, setTabsValue] = useState('development');
-  console.log('professions', professions);
 
   const currentProfession = professions.filter((el) => el.type === tabsValue);
-
-  console.log('currentProfession', currentProfession);
-  console.log('currentProfession[0].color', currentProfession[0].color);
 
   return (
     <section className="p-4 sm:p-8 2xl:py-16 2xl:px-[48px]">

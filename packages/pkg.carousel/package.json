@@ -16,7 +16,6 @@
     "@types/react-dom": "^19.0.3",
     "@xipkg/eslint": "1.4.0",
     "@xipkg/typescript": "latest",
-    "eslint": "^8.57.0",
     "prettier": "3.2.5",
     "typescript": "^5.1.3"
   },
