@@ -14,8 +14,8 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
     esmExternals: true,
-    outputFileTracingRoot: path.join(__dirname, '../../'),
   },
+  outputFileTracingRoot: path.join(__dirname, '../../'),
   transpilePackages: [
     '@xipkg/typescript',
     '@xipkg/icons',
@@ -40,23 +40,7 @@ const nextConfig = {
     ],
   },
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(woff|woff2|eot|ttf|otf)$/i,
-      issuer: { and: [/\.(js|ts|md)x?$/] },
-      type: 'asset/resource',
-    });
-    config.module.rules.push({
-      test: /\.d.ts?$/,
-      use: [
-        {
-          loader: 'ignore-loader',
-        },
-      ],
-    });
-
-    return config;
-  },
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
 module.exports = () => plugins.reduce((acc, next) => next(acc), nextConfig);
