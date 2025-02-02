@@ -116,8 +116,8 @@ export const vacancyList: ProfessionOptionsT[] = [
       grade: 'CEO, Сo-Founder',
       src: '/vacancy/unknownproperty.jpg',
     },
-    date: '26 января',
-    grade: 'Junior, Middle, Senior',
+    date: '2 февраля',
+    grade: 'Junior',
     id: 'product-pm',
     title: 'Product manager',
   },
@@ -160,19 +160,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'marketing-marketing',
     title: 'Marketing-specialist',
   },
-  {
-    label: 'Copywriter/Editor',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '22 января',
-    grade: 'Intern, Junior',
-    id: 'marketing-copywriter',
-    title: 'Copywriter/Editor',
-  },
+  // {
+  //   label: 'Copywriter/Editor',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '22 января',
+  //   grade: 'Intern, Junior',
+  //   id: 'marketing-copywriter',
+  //   title: 'Copywriter/Editor',
+  // },
 ];
 
 export const vacancyDescription = {
