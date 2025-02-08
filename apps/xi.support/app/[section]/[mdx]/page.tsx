@@ -10,7 +10,10 @@ import { Breadcrumbs } from 'components/MdxPage/Breadcrumbs';
 export const dynamicParams = false; // true | false,
 
 type MdXPageT = {
-  params: { section: string; mdx: string };
+  params: Promise<{
+    section: string;
+    mdx: string;
+  }>;
 };
 
 export async function generateStaticParams() {
@@ -27,10 +30,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Page({ params }: MdXPageT) {
-  const pageData = pagesConfig.find(
-    (item) => item.page === params.mdx && item.section === params.section,
-  );
+export default async function Page({ params }: MdXPageT) {
+  const { mdx, section } = await params;
+
+  const pageData = pagesConfig.find((item) => item.page === mdx && item.section === section);
 
   const sectionData = sectionsConfig.find((item) => item.sectionName === pageData?.section);
 
@@ -52,7 +55,7 @@ export default function Page({ params }: MdXPageT) {
                   variant="hover"
                   key={index.toString()}
                   className="font-medium text-[20px] text-gray-80"
-                  href={`/${params.section}/${params.mdx}#${item.link}`}
+                  href={`/${section}/${mdx}#${item.link}`}
                 >
                   {item.title}
                 </Link>
@@ -66,7 +69,7 @@ export default function Page({ params }: MdXPageT) {
               pageName={pageFromSection.pageTitle}
               pageLink={pageData.page}
             />
-            <MdxPage sectionId={params.section} mdxId={params.mdx} />
+            <MdxPage sectionId={section} mdxId={mdx} />
             <span className="font-medium text-[20px] text-gray-60 mt-4 md:mt-8">
               {`Обновлено ${pageData.updateDate}`}
             </span>

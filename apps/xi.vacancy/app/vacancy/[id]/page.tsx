@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Vacancy from 'components/vacancy/Vacancy';
 import { vacancyList } from 'components/common/const';
 import Layout from 'components/layout/Layout';
@@ -12,17 +12,18 @@ export async function generateStaticParams() {
 }
 
 type PageT = {
-  params: { id: string };
+  params: Promise<{
+    id: string;
+  }>;
 };
 
-const Page: FC<PageT> = (props) => {
-  const {
-    params: { id },
-  } = props;
+const Page = async ({ params }: PageT) => {
+  const { id } = await params;
+  const { default: Post } = await import(`markdown/${id}.mdx`);
 
   return (
     <Layout>
-      <Vacancy id={id} />
+      <Vacancy id={id} Post={Post} />
     </Layout>
   );
 };

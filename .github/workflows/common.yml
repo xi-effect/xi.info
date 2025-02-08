@@ -32,12 +32,15 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4.2.0
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org
           cache: npm
 
-      - name: Install npm@9.1.2
-        run: npm install -g npm@9.1.2
+      - name: Downgrade yarn
+        run: npm install -g yarn@1.22.19
+
+      - name: Install npm@10.1.0
+        run: npm install -g npm@10.1.0
 
       - name: Install turbo
         run: npm install -g turbo

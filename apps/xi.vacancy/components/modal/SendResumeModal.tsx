@@ -26,6 +26,7 @@ import {
   SelectItem,
   SelectValue,
 } from '@xipkg/select';
+import { FileUploader } from '@xipkg/fileuploader';
 import Memoji from '../common/Memoji';
 import { vacancyList } from '../common/const';
 
@@ -37,9 +38,11 @@ const FormSchema = z.object({
   name: z.string().min(2),
   telegram: z.string().min(2),
   position: z.string().min(2),
-  link: z.string().min(2),
+  resume: z.string(),
   message: z.string().optional(),
 });
+
+type FormValues = z.infer<typeof FormSchema>;
 
 const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -48,22 +51,42 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
       name: '',
       telegram: '',
       position: undefined,
-      link: '',
+      resume: undefined,
       message: '',
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+  const [resumeBinary, setResumeBinary] = React.useState<File>();
+
+  const handleFileChange = async (fileList: File | File[]) => {
+    const file = Array.isArray(fileList) ? fileList[0] : fileList;
+    if (file) {
+      setResumeBinary(file);
+    }
+  };
+
+  const onSubmit = async (data: FormValues) => {
+    if (!resumeBinary) {
+      toast.error('Вы забыли прекрепить своё резюме.', {
+        position: 'top-center',
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('telegram', data.telegram);
+    formData.append('position', data.position || '');
+    formData.append('message', data.message || '');
+    formData.append('resume', resumeBinary);
+
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/vacancy-applications/`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/v2/vacancy-applications/`,
       {
         method: 'POST',
         cache: 'no-cache',
         credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData,
       },
     );
 
@@ -160,13 +183,16 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               />
               <FormField
                 control={form.control}
-                name="link"
-                render={({ field }) => (
+                name="resume"
+                render={() => (
                   <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Ссылка на резюме *</FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
+                    <FormLabel className="flex">Приложи резюме</FormLabel>
+                    <FileUploader
+                      onChange={(fileList) => handleFileChange(fileList)}
+                      accept=".pdf"
+                      fileTypesHint={['PDF']}
+                      size="medium"
+                    />
                   </FormItem>
                 )}
               />
@@ -189,7 +215,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
               />
               <ModalFooter className="border-t-transparent p-0">
                 <Button className="w-full h-[32px] sm:h-[48px]" type="submit">
-                  Отправить резюме
+                  Отправить
                 </Button>
               </ModalFooter>
             </form>

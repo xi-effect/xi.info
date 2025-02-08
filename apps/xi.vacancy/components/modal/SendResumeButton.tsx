@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-alert */
-// @ts-nocheck
 
 'use client';
 
@@ -49,6 +49,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
     formState: { errors },
   } = useForm<FormDataT>({
     mode: 'onChange',
+    // @ts-ignore
     resolver: yupResolver(schema),
   });
 

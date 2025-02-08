@@ -10,8 +10,8 @@ const plugins = [withBundleAnalyzer];
 const nextConfig = {
   experimental: {
     esmExternals: true,
-    outputFileTracingRoot: path.join(__dirname, '../../'),
   },
+  outputFileTracingRoot: path.join(__dirname, '../../'),
   transpilePackages: [
     '@xipkg/link',
     '@xipkg/button',
