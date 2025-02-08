@@ -38,7 +38,7 @@ const FormSchema = z.object({
   name: z.string().min(2),
   telegram: z.string().min(2),
   position: z.string().min(2),
-  resume: z.string(),
+  resume: z.string().optional(),
   message: z.string().optional(),
 });
 
