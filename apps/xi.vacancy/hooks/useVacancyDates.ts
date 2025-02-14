@@ -1,40 +1,55 @@
 import { useState, useEffect } from 'react';
 
-const useVacancyDates = (vacancyList: { id: string }[]) => {
-  const [dates, setDates] = useState<{ [key: string]: string }>({});
+type DatesMap = { [key: string]: string };
+type Vacancy = { id: string };
+
+const MIN_DAYS_DIFF = 2;
+const MAX_DAYS_DIFF = 7;
+const DAY_IN_MILLISECONDS = 1000 * 3600 * 24;
+const HOUR_IN_MILLISECONDS = 1000 * 3600;
+const DATE_OPTIONS: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long' };
+
+const today = new Date();
+
+const getRandomDaysDiff = () =>
+  Math.floor(Math.random() * (MAX_DAYS_DIFF - MIN_DAYS_DIFF + 1)) + MIN_DAYS_DIFF;
+
+const getDaysDiff = (today: Date, pastDate: Date) =>
+  (today.getTime() - pastDate.getTime() - HOUR_IN_MILLISECONDS) / DAY_IN_MILLISECONDS;
+
+const getPastDate = (daysAgo: number): Date => {
+  const date = new Date();
+  date.setDate(date.getDate() - daysAgo);
+  return date;
+};
+
+const useVacancyDates = (vacancyList: Vacancy[]) => {
+  const [dates, setDates] = useState<DatesMap>({});
 
   useEffect(() => {
     const setVacancyDate = (vacancyId: string): string => {
-      const today = new Date();
-      const randomDays = Math.floor(Math.random() * (7 - 2 + 1)) + 2;
-
       let pastDate: Date;
       const storageDate = localStorage.getItem(vacancyId);
 
       if (storageDate) {
         pastDate = new Date(storageDate);
+        const daysDiff = getDaysDiff(today, pastDate);
 
-        const daysDiff = (today.getTime() - pastDate.getTime()) / (1000 * 3600 * 24);
-
-        if (daysDiff > 7) {
-          pastDate = new Date(today);
-          pastDate.setDate(today.getDate() - randomDays);
+        if (daysDiff > MAX_DAYS_DIFF) {
+          pastDate = getPastDate(getRandomDaysDiff());
         }
       } else {
-        pastDate = new Date(today);
-        pastDate.setDate(today.getDate() - randomDays);
+        pastDate = getPastDate(getRandomDaysDiff());
       }
 
-      const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long' };
-      const newDate = pastDate.toLocaleDateString('ru-RU', options);
-
       localStorage.setItem(`${vacancyId}`, pastDate.toISOString());
-      return newDate;
+      return pastDate.toLocaleDateString('ru-RU', DATE_OPTIONS);
     };
 
-    const newDates: { [key: string]: string } = {};
-    vacancyList.forEach((vacancy) => {
+    const newDates: DatesMap = {};
+    vacancyList.map((vacancy) => {
       newDates[vacancy.id] = setVacancyDate(vacancy.id);
+      return newDates[vacancy.id];
     });
     setDates(newDates);
   }, [vacancyList]);
