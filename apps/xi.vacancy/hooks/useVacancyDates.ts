@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-type DatesMap = { [key: string]: string };
-type Vacancy = { id: string };
+type DatesMapT = { [key: string]: string };
+type VacancyT = { id: string };
 
 const MIN_DAYS_DIFF = 2;
 const MAX_DAYS_DIFF = 7;
@@ -23,8 +23,8 @@ const getPastDate = (daysAgo: number): Date => {
   return date;
 };
 
-const useVacancyDates = (vacancyList: Vacancy[]) => {
-  const [dates, setDates] = useState<DatesMap>({});
+const useVacancyDates = (vacancyList: VacancyT[]) => {
+  const [dates, setDates] = useState<DatesMapT>({});
 
   useEffect(() => {
     const setVacancyDate = (vacancyId: string): string => {
@@ -46,11 +46,10 @@ const useVacancyDates = (vacancyList: Vacancy[]) => {
       return pastDate.toLocaleDateString('ru-RU', DATE_OPTIONS);
     };
 
-    const newDates: DatesMap = {};
-    vacancyList.map((vacancy) => {
-      newDates[vacancy.id] = setVacancyDate(vacancy.id);
-      return newDates[vacancy.id];
-    });
+    const newDates: DatesMapT = vacancyList.reduce((acc, vacancy) => {
+      acc[vacancy.id] = setVacancyDate(vacancy.id);
+      return acc;
+    }, {});
     setDates(newDates);
   }, [vacancyList]);
 
