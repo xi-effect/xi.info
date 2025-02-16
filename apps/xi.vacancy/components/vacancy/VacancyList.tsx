@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Tabs } from '@xipkg/tabs';
 import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
+import useVacancyDates from 'hooks/useVacancyDates';
 import { professions, vacancyList } from '../common/const';
 import SendResumeButton from '../modal/SendResumeButton';
 
@@ -12,6 +13,7 @@ const VacancyList = () => {
   const [tabsValue, setTabsValue] = useState(searchParams.get('type') ?? 'development');
 
   const listOnType = vacancyList.filter((vacancy) => vacancy.id.includes(tabsValue ?? ''));
+  const dates = useVacancyDates(vacancyList);
 
   const vacancyCard = listOnType.map((vacancy, index) => (
     <Link className="group" key={index} href={`/vacancy/${vacancy.id}`}>
@@ -23,7 +25,9 @@ const VacancyList = () => {
         <div className="flex leading-[120%] text-[16px] sm:text-[20px] xl:text-[24px]">
           <span className="mr-[22px] min-[390px]:mr-[32px]">Удалённо</span>
 
-          <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">{vacancy.date}</time>
+          <time className="text-gray-60 mr-[22px] min-[390px]:mr-[32px]">
+            {dates[vacancy.id] || ''}
+          </time>
 
           <address className="text-gray-60">{vacancy.author.tg}</address>
         </div>
