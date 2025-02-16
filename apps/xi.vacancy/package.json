@@ -15,6 +15,7 @@
     "@next/mdx": "^15.1.6",
     "@types/mdx": "^2.0.13",
     "@xipkg/button": "^2.2.0",
+    "@xipkg/file": "^3.0.5",
     "@xipkg/fileuploader": "^3.2.0",
     "@xipkg/form": "^3.3.0",
     "@xipkg/icons": "^1.6.0",

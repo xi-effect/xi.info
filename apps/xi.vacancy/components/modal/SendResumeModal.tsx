@@ -27,6 +27,7 @@ import {
   SelectValue,
 } from '@xipkg/select';
 import { FileUploader } from '@xipkg/fileuploader';
+import { File } from '@xipkg/file';
 import Memoji from '../common/Memoji';
 import { vacancyList } from '../common/const';
 
@@ -104,6 +105,10 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
       console.error(`Ошибка HTTP: ${response.status}`);
       toast(`Ошибка HTTP: ${response.status}`);
     }
+  };
+
+  const handleDeleteFile = () => {
+    setResumeBinary(undefined);
   };
 
   return (
@@ -193,6 +198,18 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                       fileTypesHint={['PDF']}
                       size="medium"
                     />
+                    {resumeBinary !== undefined && (
+                      <ul className="flex flex-col gap-4">
+                        <li key={resumeBinary.name}>
+                          <File
+                            name={resumeBinary.name}
+                            size={resumeBinary.size}
+                            url=""
+                            onDelete={() => handleDeleteFile()}
+                          />
+                        </li>
+                      </ul>
+                    )}
                   </FormItem>
                 )}
               />
