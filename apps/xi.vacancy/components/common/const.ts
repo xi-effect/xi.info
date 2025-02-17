@@ -108,32 +108,32 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'design-graphic',
     title: 'Графический дизайнер',
   },
-  {
-    label: 'Product manager',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '2 февраля',
-    grade: 'Junior',
-    id: 'product-pm',
-    title: 'Product manager',
-  },
-  {
-    label: 'Business analyst',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '26 января',
-    grade: 'Junior, Middle',
-    id: 'product-ba',
-    title: 'Business analyst',
-  },
+  // {
+  //   label: 'Product manager',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '2 февраля',
+  //   grade: 'Junior',
+  //   id: 'product-pm',
+  //   title: 'Product manager',
+  // },
+  // {
+  //   label: 'Business analyst',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '26 января',
+  //   grade: 'Junior, Middle',
+  //   id: 'product-ba',
+  //   title: 'Business analyst',
+  // },
   {
     label: 'SMM',
     author: {
