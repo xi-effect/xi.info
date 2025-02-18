@@ -52,7 +52,7 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/unknownproperty.jpg',
     },
     date: '27 января',
-    grade: 'Junior, Middle',
+    grade: 'Junior, Middle, Senior',
     id: 'development-frontend',
     title: 'Frontend разработчик',
   },
