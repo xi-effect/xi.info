@@ -192,23 +192,22 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                 render={() => (
                   <FormItem className="flex flex-col gap-2">
                     <FormLabel className="flex">Приложи резюме</FormLabel>
-                    <FileUploader
-                      onChange={(fileList) => handleFileChange(fileList)}
-                      accept=".pdf"
-                      fileTypesHint={['PDF']}
-                      size="medium"
-                    />
-                    {resumeBinary !== undefined && (
-                      <ul className="flex flex-col gap-4">
-                        <li key={resumeBinary.name}>
-                          <File
-                            name={resumeBinary.name}
-                            size={resumeBinary.size}
-                            url=""
-                            onDelete={() => handleDeleteFile()}
-                          />
-                        </li>
-                      </ul>
+                    {resumeBinary !== undefined ? (
+                      <File
+                        key={resumeBinary.name}
+                        name={resumeBinary.name}
+                        size={resumeBinary.size}
+                        url=""
+                        onDelete={() => handleDeleteFile()}
+                        className="!max-w-full !h-[32px] sm:!h-[48px]"
+                      />
+                    ) : (
+                      <FileUploader
+                        onChange={(fileList) => handleFileChange(fileList)}
+                        accept=".pdf"
+                        fileTypesHint={['PDF']}
+                        size="medium"
+                      />
                     )}
                   </FormItem>
                 )}
