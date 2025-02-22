@@ -27,7 +27,6 @@ import {
   SelectValue,
 } from '@xipkg/select';
 import { FileUploader } from '@xipkg/fileuploader';
-import { File } from '@xipkg/file';
 import Memoji from '../common/Memoji';
 import { vacancyList } from '../common/const';
 
@@ -107,7 +106,8 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     }
   };
 
-  const handleDeleteFile = () => {
+  const handleDeleteFile = (e) => {
+    e.preventDefault();
     setResumeBinary(undefined);
   };
 
@@ -193,20 +193,35 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                   <FormItem className="flex flex-col gap-2">
                     <FormLabel className="flex">Приложи резюме</FormLabel>
                     {resumeBinary !== undefined ? (
-                      <File
+                      <div
                         key={resumeBinary.name}
-                        name={resumeBinary.name}
-                        size={resumeBinary.size}
-                        url=""
-                        onDelete={() => handleDeleteFile()}
-                        className="!max-w-full !h-[32px] sm:!h-[48px]"
-                      />
+                        className="border-gray-10 bg-gray-0 hover:bg-gray-10 relative flex h-14 max-w-full items-center rounded-lg border transition"
+                      >
+                        <a
+                          download={resumeBinary.name}
+                          className="text-decoration-none flex w-full items-center gap-2 py-2 pl-3 pr-[14px]"
+                        >
+                          <div className="flex grow flex-col overflow-hidden text-left">
+                            <p className="truncate font-medium leading-[22px] text-gray-100">
+                              {resumeBinary.name}
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              handleDeleteFile(e);
+                            }}
+                            className="hover:bg-gray-0 rounded-full bg-transparent p-1 transition"
+                          >
+                            <Close />
+                          </button>
+                        </a>
+                      </div>
                     ) : (
                       <FileUploader
                         onChange={(fileList) => handleFileChange(fileList)}
                         accept=".pdf"
                         fileTypesHint={['PDF']}
-                        size="medium"
                       />
                     )}
                   </FormItem>
