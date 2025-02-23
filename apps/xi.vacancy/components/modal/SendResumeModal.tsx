@@ -100,6 +100,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
         },
       );
       form.reset();
+      setResumeBinary(undefined);
     } else {
       console.error(`Ошибка HTTP: ${response.status}`);
       toast(`Ошибка HTTP: ${response.status}`);
