@@ -26,7 +26,7 @@ import {
   SelectItem,
   SelectValue,
 } from '@xipkg/select';
-import { FileUploader } from '@xipkg/fileuploader';
+import { FileUploader, File } from '@xipkg/fileuploader';
 import Memoji from '../common/Memoji';
 import { vacancyList } from '../common/const';
 
@@ -56,13 +56,16 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     },
   });
 
+  const [pending, setPending] = React.useState(false);
   const [resumeBinary, setResumeBinary] = React.useState<File>();
 
   const handleFileChange = async (fileList: File | File[]) => {
+    setPending(true);
     const file = Array.isArray(fileList) ? fileList[0] : fileList;
     if (file) {
       setResumeBinary(file);
     }
+    setPending(false);
   };
 
   const onSubmit = async (data: FormValues) => {
@@ -100,10 +103,15 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
         },
       );
       form.reset();
+      setResumeBinary(undefined);
     } else {
       console.error(`Ошибка HTTP: ${response.status}`);
       toast(`Ошибка HTTP: ${response.status}`);
     }
+  };
+
+  const handleDeleteFile = () => {
+    setResumeBinary(undefined);
   };
 
   return (
@@ -187,12 +195,19 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                 render={() => (
                   <FormItem className="flex flex-col gap-2">
                     <FormLabel className="flex">Приложи резюме</FormLabel>
-                    <FileUploader
-                      onChange={(fileList) => handleFileChange(fileList)}
-                      accept=".pdf"
-                      fileTypesHint={['PDF']}
-                      size="medium"
-                    />
+                    {resumeBinary !== undefined ? (
+                      <File
+                        name={resumeBinary.name}
+                        onDeleteClick={() => handleDeleteFile()}
+                        isPending={pending}
+                      />
+                    ) : (
+                      <FileUploader
+                        onChange={(fileList) => handleFileChange(fileList)}
+                        accept=".pdf"
+                        fileTypesHint={['PDF']}
+                      />
+                    )}
                   </FormItem>
                 )}
               />
