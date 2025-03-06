@@ -82,19 +82,19 @@ export const vacancyList: ProfessionOptionsT[] = [
   //   id: 'qa-manual',
   //   title: 'QA Engineer (Тестировщик)',
   // },
-  {
-    label: 'Тестирование',
-    author: {
-      name: 'Николай',
-      tg: '@niqzart',
-      grade: 'Backend Lead, Сo-Founder',
-      src: '/vacancy/niqzart.jpg',
-    },
-    date: '3 марта',
-    grade: 'Middle+, Senior',
-    id: 'qa-lead',
-    title: 'QA Lead (Тестлид)',
-  },
+  // {
+  //   label: 'Тестирование',
+  //   author: {
+  //     name: 'Николай',
+  //     tg: '@niqzart',
+  //     grade: 'Backend Lead, Сo-Founder',
+  //     src: '/vacancy/niqzart.jpg',
+  //   },
+  //   date: '3 марта',
+  //   grade: 'Middle+, Senior',
+  //   id: 'qa-lead',
+  //   title: 'QA Lead (Тестлид)',
+  // },
   {
     label: 'Тестирование',
     author: {
