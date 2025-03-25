@@ -52,7 +52,7 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/unknownproperty.jpg',
     },
     date: '27 января',
-    grade: 'Middle, Senior',
+    grade: 'Junior+, Middle, Senior',
     id: 'development-frontend',
     title: 'Frontend разработчик',
   },
@@ -121,19 +121,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'design-graphic',
     title: 'Графический дизайнер',
   },
-  {
-    label: 'Product manager',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '2 февраля',
-    grade: 'Junior, Middle',
-    id: 'product-pm',
-    title: 'Product manager',
-  },
+  // {
+  //   label: 'Product manager',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '2 февраля',
+  //   grade: 'Junior, Middle',
+  //   id: 'product-pm',
+  //   title: 'Product manager',
+  // },
   // {
   //   label: 'Business analyst',
   //   author: {
