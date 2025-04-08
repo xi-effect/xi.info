@@ -49,7 +49,7 @@ const sections: Section[] = [
   },
 ];
 
-const email = 'hello@xieffect.ru';
+const email = 'support@xieffect.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {

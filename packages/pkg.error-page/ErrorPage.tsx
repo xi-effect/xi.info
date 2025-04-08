@@ -35,7 +35,7 @@ export const ErrorPage = ({ title, errorCode, text, children }: ErrorPagePropsT)
           <span className="flex items-center">
             &nbsp;или&nbsp;
             <MailRounded size="s" className="fill-brand-80 mr-1" />
-            <Link theme="brand" size="l" href="mailto:hello@xieffect.ru">
+            <Link theme="brand" size="l" href="mailto:support@xieffect.ru">
               на электронную почту
             </Link>
           </span>
