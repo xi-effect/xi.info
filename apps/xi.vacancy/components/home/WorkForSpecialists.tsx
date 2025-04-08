@@ -79,7 +79,7 @@ const WorkForSpecialists = () => {
             </h3>
 
             <p className="h-[95px] xl:h-[100px] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-              {`Любой! У нас есть множество задач для  ${vacancyDescription[tabsValue].for} любого уровня`}
+              {`Любой! У нас есть множество задач для ${vacancyDescription[tabsValue].for} любого уровня`}
             </p>
           </div>
         </div>
