@@ -1,0 +1,95 @@
+name: Main Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      base_deployment_path:
+        type: string
+        required: false
+      deployment_name:
+        type: string
+        required: true
+      github_environment_name:
+        type: string
+        required: true
+      report_mode:
+        type: string
+        required: true
+        description: pull-request-comment | production-discord-webhook
+    secrets:
+      SSH_HOST:
+        required: false
+      SSH_PORT:
+        required: false
+      SSH_USER:
+        required: false
+      SSH_PRIVATE_KEY:
+        required: false
+      SSH_KEY_PASSWORD:
+        required: false
+
+jobs:
+  analyze_files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Filter paths
+        uses: dorny/paths-filter@v2
+        id: path_filter
+        with:
+          filters: .github/files.yml
+
+      - name: Generate app data matrix
+        id: generate_application_matrices
+        shell: python
+        run: |
+          import os
+          import json
+
+          app_data_matrix = []
+          if "${{ steps.path_filter.outputs.xi_land_files }}" == "true":
+            app_data_matrix.append({"app_name": "xi.land", "app_domain": "xieffect.ru"})
+          if "${{ steps.path_filter.outputs.xi_vacancy_files }}" == "true":
+            app_data_matrix.append({"app_name": "xi.vacancy", "app_domain": "vacancy.xieffect.ru"})
+          if "${{ steps.path_filter.outputs.xi_support_files }}" == "true":
+            app_data_matrix.append({"app_name": "xi.support", "app_domain": "support.xieffect.ru"})
+
+          print(app_data_matrix)
+          with open(os.getenv("GITHUB_OUTPUT"), "a") as f:
+            f.write(f"app_data_matrix={json.dumps(app_data_matrix)}\n")
+
+    outputs:
+      lintable_files: ${{ steps.path_filter.outputs.lintable_files }}
+      app_data_matrix: ${{ steps.generate_application_matrices.outputs.app_data_matrix }}
+
+  lint:
+    needs: analyze_files
+    if: needs.analyze_files.outputs.lintable_files == 'true'
+    uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
+    with:
+      node-version: 20
+
+  build_and_push:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.app_name_matrix != '[]'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        app_data: ${{ fromJSON(needs.analyze_files.outputs.app_data_matrix) }}
+
+    uses: ./.github/workflows/build_and_push.yml
+    with:
+      project_name: xi.info
+      app_name: ${{ matrix.app_data.app_name }}
+      app_domain: ${{ matrix.app_data.deployment_domain }}
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+      report_mode: ${{ inputs.report_mode }}
+    secrets: inherit
