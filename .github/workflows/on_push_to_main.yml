@@ -12,5 +12,4 @@ jobs:
       base_deployment_path: ~/xieffect-core/static
       deployment_name: main
       github_environment_name: xi-production
-      report_mode: production-discord-webhook
     secrets: inherit

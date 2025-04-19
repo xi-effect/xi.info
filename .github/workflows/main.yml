@@ -12,10 +12,6 @@ on:
       github_environment_name:
         type: string
         required: true
-      report_mode:
-        type: string
-        required: true
-        description: pull-request-comment | production-discord-webhook
     secrets:
       SSH_HOST:
         required: false
@@ -27,6 +23,19 @@ on:
         required: false
       SSH_KEY_PASSWORD:
         required: false
+    outputs:
+      xi_land_build_status:
+        value: ${{ jobs.build_xi_land.result }}
+      xi_vacancy_build_status:
+        value: ${{ jobs.build_xi_vacancy.result }}
+      xi_support_build_status:
+        value: ${{ jobs.build_xi_support.result }}
+      xi_land_deployment_status:
+        value: ${{ jobs.deploy_xi_land.result }}
+      xi_vacancy_deployment_status:
+        value: ${{ jobs.deploy_xi_vacancy.result }}
+      xi_support_deployment_status:
+        value: ${{ jobs.deploy_xi_support.result }}
 
 jobs:
   analyze_files:
@@ -117,56 +126,3 @@ jobs:
       deployment_name: ${{ inputs.deployment_name }}
       github_environment_name: ${{ inputs.github_environment_name }}
     secrets: inherit
-
-  report_deployment:
-    needs:
-      - deploy_xi_land
-      - deploy_xi_vacancy
-      - deploy_xi_support
-    if: always()
-    runs-on: ubuntu-latest
-    # environment: ${{ inputs.github_environment_name }}
-
-    steps:
-      - name: Generate github comment message
-        id: generate_github_comment_message
-        shell: python
-        run: |-
-          result_to_status_text: dict[str, str] = {
-            "success": ":heavy_check_mark:Success:heavy_check_mark:",
-            "skipped": ":fast_forward:Skipped:fast_forward:",
-            "failure": ":x:Failure:x:",
-            "cancelled": ":grey_question:Cancelled:grey_question:",
-          }
-
-          message_rows: list[tuple[str, str, str]] = [
-            ("Name", "Status", "Preview"),
-            (":---:", ":---:", ":---:"),
-          ]
-          for deployment_result, app_name, app_domain in (
-            ("${{ needs.deploy_xi_land.result }}", "xi.land", "xieffect.ru"),
-            ("${{ needs.deploy_xi_vacancy.result }}", "xi.vacancy", "vacancy.xieffect.ru"),
-            ("${{ needs.deploy_xi_support.result }}", "xi.support", "support.xieffect.ru"),
-          ):
-            message_rows.append(
-              (
-                app_name, 
-                result_to_status_text[deployment_result],
-                f"[Visit Preview](https://{app_domain}/deployments/${{ inputs.deployment_name }}/enable)"
-                if deployment_result == "success" 
-                else "Unavailable",
-              )
-            )
-
-          message = "\n".join("|".join(message_row) for message_row in message_rows)
-
-          import os
-          with open(os.getenv("GITHUB_OUTPUT"), "a") as f:
-            f.write(f"message<<EOF\n{message}\nEOF")
-
-      - name: Comment about deployment status
-        if: inputs.report_mode == 'pull-request-comment'
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          comment-tag: deployment_status
-          message: ${{ steps.generate_github_comment_message.outputs.message }}
