@@ -42,28 +42,11 @@ jobs:
         with:
           filters: .github/files.yml
 
-      - name: Generate app data matrix
-        id: generate_application_matrices
-        shell: python
-        run: |
-          import os
-          import json
-
-          app_data_matrix = []
-          if "${{ steps.path_filter.outputs.xi_land_files }}" == "true":
-            app_data_matrix.append({"app_name": "xi.land", "app_domain": "xieffect.ru"})
-          if "${{ steps.path_filter.outputs.xi_vacancy_files }}" == "true":
-            app_data_matrix.append({"app_name": "xi.vacancy", "app_domain": "vacancy.xieffect.ru"})
-          if "${{ steps.path_filter.outputs.xi_support_files }}" == "true":
-            app_data_matrix.append({"app_name": "xi.support", "app_domain": "support.xieffect.ru"})
-
-          print(app_data_matrix)
-          with open(os.getenv("GITHUB_OUTPUT"), "a") as f:
-            f.write(f"app_data_matrix={json.dumps(app_data_matrix)}\n")
-
     outputs:
       lintable_files: ${{ steps.path_filter.outputs.lintable_files }}
-      app_data_matrix: ${{ steps.generate_application_matrices.outputs.app_data_matrix }}
+      xi_land_files: ${{ steps.path_filter.outputs.xi_land_files }}
+      xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
+      xi_support_files: ${{ steps.path_filter.outputs.xi_support_files }}
 
   lint:
     needs: analyze_files
@@ -72,24 +55,118 @@ jobs:
     with:
       node-version: 20
 
-  build_and_push:
+  build_xi_land:
     needs:
       - analyze_files
       # - lint  # TODO: uncomment after linter is fixed
-    if: needs.analyze_files.outputs.app_name_matrix != '[]'
+    if: needs.analyze_files.outputs.xi_land_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.land
 
-    strategy:
-      fail-fast: false
-      matrix:
-        app_data: ${{ fromJSON(needs.analyze_files.outputs.app_data_matrix) }}
+  build_xi_vacancy:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.xi_vacancy_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.vacancy
 
-    uses: ./.github/workflows/build_and_push.yml
+  build_xi_support:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.xi_support_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.support
+
+  deploy_xi_land:
+    needs:
+      - build_xi_land
+    uses: ./.github/workflows/common_push.yml
     with:
       project_name: xi.info
-      app_name: ${{ matrix.app_data.app_name }}
-      app_domain: ${{ matrix.app_data.deployment_domain }}
+      app_name: xi.land
       base_deployment_path: ${{ inputs.base_deployment_path }}
       deployment_name: ${{ inputs.deployment_name }}
       github_environment_name: ${{ inputs.github_environment_name }}
-      report_mode: ${{ inputs.report_mode }}
     secrets: inherit
+
+  deploy_xi_vacancy:
+    needs:
+      - build_xi_vacancy
+    uses: ./.github/workflows/common_push.yml
+    with:
+      project_name: xi.info
+      app_name: xi.vacancy
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+    secrets: inherit
+
+  deploy_xi_support:
+    needs:
+      - build_xi_support
+    uses: ./.github/workflows/common_push.yml
+    with:
+      project_name: xi.info
+      app_name: xi.support
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+    secrets: inherit
+
+  report_deployment:
+    needs:
+      - deploy_xi_land
+      - deploy_xi_vacancy
+      - deploy_xi_support
+    if: always()
+    runs-on: ubuntu-latest
+    # environment: ${{ inputs.github_environment_name }}
+
+    steps:
+      - name: Generate github comment message
+        id: generate_github_comment_message
+        shell: python
+        run: |-
+          result_to_status_text: dict[str, str] = {
+            "success": ":heavy_check_mark:Success:heavy_check_mark:",
+            "skipped": ":fast_forward:Skipped:fast_forward:",
+            "failure": ":x:Failure:x:",
+            "cancelled": ":grey_question:Cancelled:grey_question:",
+          }
+
+          message_rows: list[tuple[str, str, str]] = [
+            ("Name", "Status", "Preview"),
+            (":---:", ":---:", ":---:"),
+          ]
+          for deployment_result, app_name, app_domain in (
+            ("${{ needs.deploy_xi_land.result }}", "xi.land", "xieffect.ru"),
+            ("${{ needs.deploy_xi_vacancy.result }}", "xi.vacancy", "vacancy.xieffect.ru"),
+            ("${{ needs.deploy_xi_support.result }}", "xi.support", "support.xieffect.ru"),
+          ):
+            message_rows.append(
+              (
+                app_name, 
+                result_to_status_text[deployment_result],
+                f"[Visit Preview](https://{app_domain}/deployments/${{ inputs.deployment_name }}/enable)"
+                if deployment_result == "success" 
+                else "Unavailable",
+              )
+            )
+
+          message = "\n".join("|".join(message_row) for message_row in message_rows)
+
+          import os
+          with open(os.getenv("GITHUB_OUTPUT"), "a") as f:
+            f.write(f"message<<EOF\n{message}\nEOF")
+
+      - name: Comment about deployment status
+        if: inputs.report_mode == 'pull-request-comment'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: deployment_status
+          message: ${{ steps.generate_github_comment_message.outputs.message }}
