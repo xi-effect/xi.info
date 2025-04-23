@@ -12,13 +12,12 @@ config_files: &config_files # изменения тут обязательно �
   - '.github/**'
   - 'package.json'
   - 'package-lock.json'
-  - '**/package.json'
-  - '**/package-lock.json'
+  - 'turbo.json'
+  - '.npmrc'
 
-app_common_files: &app_common_files # тригерят оба билда (и депой в main-ветке)
+app_common_files: &app_common_files # тригерят все билды (и депой в main-ветке)
   - *config_files
   - 'packages/**'
-  - 'turbo.json'
 
 xi_land_files: # запускает билд (и депой в main-ветке) для xi.land
   - *app_common_files
@@ -31,10 +30,3 @@ xi_vacancy_files: # запускает билд (и депой в main-ветк�
 xi_support_files: # запускает билд (и депой в main-ветке) для xi.support
   - *app_common_files
   - 'apps/xi.support/**'
-
-lintable_files: # запускает прогон линтера
-  - *config_files
-  - '**.[jt]s'
-  - '**.[jt]sx'
-  - '**.md'
-  - '**.mdx'
