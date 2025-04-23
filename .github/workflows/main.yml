@@ -52,14 +52,12 @@ jobs:
           filters: .github/files.yml
 
     outputs:
-      lintable_files: ${{ steps.path_filter.outputs.lintable_files }}
       xi_land_files: ${{ steps.path_filter.outputs.xi_land_files }}
       xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
       xi_support_files: ${{ steps.path_filter.outputs.xi_support_files }}
 
   lint:
     needs: analyze_files
-    if: needs.analyze_files.outputs.lintable_files == 'true'
     uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
     with:
       node-version: 20

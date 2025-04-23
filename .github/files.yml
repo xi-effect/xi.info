@@ -31,10 +31,3 @@ xi_vacancy_files: # запускает билд (и депой в main-ветк�
 xi_support_files: # запускает билд (и депой в main-ветке) для xi.support
   - *app_common_files
   - 'apps/xi.support/**'
-
-lintable_files: # запускает прогон линтера
-  - *config_files
-  - '**.[jt]s'
-  - '**.[jt]sx'
-  - '**.md'
-  - '**.mdx'
