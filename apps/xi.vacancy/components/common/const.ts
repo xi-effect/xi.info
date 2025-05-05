@@ -169,7 +169,7 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/unknownproperty.jpg',
     },
     date: '24 января',
-    grade: 'Intern, Junior',
+    grade: 'Junior+, Middle, Senior',
     id: 'marketing-marketing',
     title: 'Marketing-specialist',
   },
