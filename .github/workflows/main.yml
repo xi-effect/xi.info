@@ -1,0 +1,126 @@
+name: Main Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      base_deployment_path:
+        type: string
+        required: false
+      deployment_name:
+        type: string
+        required: true
+      github_environment_name:
+        type: string
+        required: true
+    secrets:
+      SSH_HOST:
+        required: false
+      SSH_PORT:
+        required: false
+      SSH_USER:
+        required: false
+      SSH_PRIVATE_KEY:
+        required: false
+      SSH_KEY_PASSWORD:
+        required: false
+    outputs:
+      xi_land_build_status:
+        value: ${{ jobs.build_xi_land.result }}
+      xi_vacancy_build_status:
+        value: ${{ jobs.build_xi_vacancy.result }}
+      xi_support_build_status:
+        value: ${{ jobs.build_xi_support.result }}
+      xi_land_deployment_status:
+        value: ${{ jobs.deploy_xi_land.result }}
+      xi_vacancy_deployment_status:
+        value: ${{ jobs.deploy_xi_vacancy.result }}
+      xi_support_deployment_status:
+        value: ${{ jobs.deploy_xi_support.result }}
+
+jobs:
+  analyze_files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Filter paths
+        uses: dorny/paths-filter@v2
+        id: path_filter
+        with:
+          filters: .github/files.yml
+
+    outputs:
+      xi_land_files: ${{ steps.path_filter.outputs.xi_land_files }}
+      xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
+      xi_support_files: ${{ steps.path_filter.outputs.xi_support_files }}
+
+  lint:
+    needs: analyze_files
+    uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
+    with:
+      node-version: 20
+
+  build_xi_land:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.xi_land_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.land
+
+  build_xi_vacancy:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.xi_vacancy_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.vacancy
+
+  build_xi_support:
+    needs:
+      - analyze_files
+      # - lint  # TODO: uncomment after linter is fixed
+    if: needs.analyze_files.outputs.xi_support_files == 'true'
+    uses: ./.github/workflows/common_build.yml
+    with:
+      app_name: xi.support
+
+  deploy_xi_land:
+    needs:
+      - build_xi_land
+    uses: ./.github/workflows/common_push.yml
+    with:
+      project_name: xi.info
+      app_name: xi.land
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+    secrets: inherit
+
+  deploy_xi_vacancy:
+    needs:
+      - build_xi_vacancy
+    uses: ./.github/workflows/common_push.yml
+    with:
+      project_name: xi.info
+      app_name: xi.vacancy
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+    secrets: inherit
+
+  deploy_xi_support:
+    needs:
+      - build_xi_support
+    uses: ./.github/workflows/common_push.yml
+    with:
+      project_name: xi.info
+      app_name: xi.support
+      base_deployment_path: ${{ inputs.base_deployment_path }}
+      deployment_name: ${{ inputs.deployment_name }}
+      github_environment_name: ${{ inputs.github_environment_name }}
+    secrets: inherit
