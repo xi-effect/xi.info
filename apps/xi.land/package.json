@@ -10,6 +10,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "common.ui": "*",
     "@next/bundle-analyzer": "^15.0.3",
     "@hookform/resolvers": "3.3.4",
     "@xipkg/button": "^2.2.0",

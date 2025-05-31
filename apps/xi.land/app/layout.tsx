@@ -5,10 +5,10 @@ import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
 import { Footer } from 'pkg.landing.footer';
-import { Header } from 'components/Header';
+// import { Header } from 'components/Header';
 import YandexMetrika from 'components/YandexMetrika';
 
-import { Toaster } from 'sonner';
+// import { Toaster } from 'sonner';
 import Script from 'next/script';
 import '@xipkg/tailwind/index.css';
 
@@ -106,8 +106,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Suspense>
           </>
         )}
-        <Toaster />
-        <Header />
+        {/* <Toaster /> */}
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>
