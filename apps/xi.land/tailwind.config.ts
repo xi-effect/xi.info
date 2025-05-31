@@ -17,5 +17,20 @@ module.exports = {
       sans: ['var(--font-inter)'],
       mono: ['var(--font-inter)'],
     },
+    extend: {
+      animation: {
+        aurora: 'aurora 60s linear infinite',
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: '50% 50%, 50% 50%',
+          },
+          to: {
+            backgroundPosition: '350% 50%, 350% 50%',
+          },
+        },
+      },
+    },
   },
 };
