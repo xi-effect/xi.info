@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@import '@xipkg/tailwind/index.css';
+
+@source "./app";
+@source "./components";
+@source "../../packages";
+@source "./node_modules/@xipkg";
+@source "../../node_modules/@xipkg";

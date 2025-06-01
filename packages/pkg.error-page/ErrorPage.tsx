@@ -27,14 +27,14 @@ export const ErrorPage = ({ title, errorCode, text, children }: ErrorPagePropsT)
         <span className="flex flex-col sm:flex-row">
           <span className="flex items-center">
             в&nbsp;
-            <TelegramFilled size="s" className="fill-brand-80 mr-1" />
+            <TelegramFilled size="sm" className="fill-brand-80 mr-1" />
             <Link theme="brand" size="l" href="https://t.me/xieffect_support_bot" target="_blank">
               чат Telegram
             </Link>
           </span>
           <span className="flex items-center">
             &nbsp;или&nbsp;
-            <MailRounded size="s" className="fill-brand-80 mr-1" />
+            <MailRounded size="sm" className="fill-brand-80 mr-1" />
             <Link theme="brand" size="l" href="mailto:support@xieffect.ru">
               на электронную почту
             </Link>

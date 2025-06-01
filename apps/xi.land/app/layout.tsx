@@ -11,6 +11,7 @@ import YandexMetrika from 'components/YandexMetrika';
 // import { Toaster } from 'sonner';
 import Script from 'next/script';
 import '@xipkg/tailwind/index.css';
+import '../index.css';
 
 export const metadata: Metadata = {
   title: 'xi.effect',
