@@ -7,7 +7,7 @@ export const Hero = () => {
   console.log('Hero');
 
   return (
-    <section className="bg-gray-100 relative lg:h-[calc(120dvh)] w-[100dvw] flex">
+    <section className="bg-zinc-900 relative lg:h-[calc(120dvh)] w-[100dvw] flex">
       <AuroraBackground>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
@@ -17,7 +17,7 @@ export const Hero = () => {
             duration: 0.8,
             ease: 'easeInOut',
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4 w-[100dvw]"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 w-[100dvw] h-full"
         >
           <h1 className="text-[80px] font-medium text-gray-0 text-center">
             Все инструменты
