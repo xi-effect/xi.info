@@ -19,7 +19,7 @@
     "@xipkg/input": "^2.2.9",
     "@xipkg/link": "^2.0.12",
     "@xipkg/modal": "^4.1.0",
-    "@xipkg/tailwind": "^0.5.0",
+    "@xipkg/tailwind": "^0.8.1",
     "framer-motion": "^12.15.0",
     "pkg.carousel": "*",
     "pkg.landing.footer": "*",
@@ -40,7 +40,7 @@
     "eslint-config-custom": "*",
     "ignore-loader": "^0.1.2",
     "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2",
+    "tailwindcss": "^4.1.8",
     "typescript": "^5.7.2"
   },
   "peerDependencies": {

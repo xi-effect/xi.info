@@ -3,9 +3,8 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
-import { Modal, ModalContent, ModalTrigger, ModalCloseButton } from '@xipkg/modal';
+import { Modal, ModalContent, ModalTrigger, ModalCloseButton, ModalTitle } from '@xipkg/modal';
 import { ArrowRight, Close } from '@xipkg/icons';
-import { DialogTitle } from '@xipkg/modal/Modal';
 import { CallToActionForm } from './CallToActionForm';
 
 const transition = {
@@ -32,15 +31,15 @@ export const CallToActionModal = ({ children }: CallToActionModalT) => (
         layoutId="active"
         className="flex flex-col md:flex-row rounded-[24px] bg-gray-0"
       >
-        <ModalCloseButton breakpoint="sm" className="top-4 right-4">
+        <ModalCloseButton className="top-4 right-4">
           <Close className="fill-gray-80 sm:fill-gray-0" />
         </ModalCloseButton>
         <div className="flex flex-col w-full p-4 sm:p-6 lg:p-12">
-          <DialogTitle asChild>
+          <ModalTitle asChild>
             <h5 className="font-medium w-4/5 md:text-h6 lg:text-h5 text-xl-base sm:text-h5 text-gray-90 sm:w-full">
               Демонстрация xi.effect
             </h5>
-          </DialogTitle>
+          </ModalTitle>
           <p className="font-medium text-s-base md:text-s-base lg:text-m-base sm:text-m-base text-gray-90 mt-4 mb-2">
             Живой разговор с нашим экспертом, не больше получаса
           </p>

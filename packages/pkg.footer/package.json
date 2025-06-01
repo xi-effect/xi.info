@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@xipkg/link": "2.0.12",
-    "@xipkg/tailwind": "0.5.0",
+    "@xipkg/tailwind": "0.8.1",
     "sonner": "2.0.4"
   },
   "devDependencies": {

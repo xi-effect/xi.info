@@ -45,7 +45,7 @@
     "eslint-config-custom": "*",
     "ignore-loader": "^0.1.2",
     "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2",
+    "tailwindcss": "^4.1.8",
     "typescript": "^5.7.2"
   },
   "main": ".eslintrc.js",
