@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@xipkg/button';
+// import Link from 'next/link';
+// import { Button } from '@xipkg/button';
 import { MenuItem } from './MenuItem';
 import { SubMenuItem } from './SubMenuItem';
 
@@ -53,11 +53,12 @@ export const Navigation = () => {
             ))}
           </div>
           <div className="mt-8 flex">
-            <Button variant="secondary" className="w-full" onClick={() => setActive(null)}>
+            {/* <Button variant="secondary"
+             className="w-full" onClick={() => setActive(null)} asChild>
               <Link href="/product" className="w-full h-full flex justify-center items-center">
                 Посмотреть все
               </Link>
-            </Button>
+            </Button> */}
           </div>
         </MenuItem>
 

@@ -8,12 +8,12 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
-    "framer-motion": "^11.11.9"
+    "framer-motion": "^12.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
     "@xipkg/eslint": "3.2.0",
     "@xipkg/typescript": "latest",
     "prettier": "3.2.5",
