@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion';
 
 import { Modal, ModalContent, ModalTrigger, ModalCloseButton, ModalTitle } from '@xipkg/modal';
 import { ArrowRight, Close } from '@xipkg/icons';

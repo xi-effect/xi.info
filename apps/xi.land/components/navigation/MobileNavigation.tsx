@@ -10,7 +10,7 @@ import {
   ModalTitle,
   ModalTrigger,
 } from '@xipkg/modal';
-import { motion } from 'framer-motion';
+import { motion } from 'motion';
 import { Close, Burger } from '@xipkg/icons';
 import Image from 'next/image';
 import Link from 'next/link';

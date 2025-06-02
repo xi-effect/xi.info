@@ -20,7 +20,7 @@
     "@xipkg/link": "^2.0.12",
     "@xipkg/modal": "^4.1.0",
     "@xipkg/tailwind": "^0.8.1",
-    "framer-motion": "^12.15.0",
+    "motion": "^12.15.0",
     "pkg.carousel": "*",
     "pkg.landing.footer": "*",
     "pkg.error-page": "*",

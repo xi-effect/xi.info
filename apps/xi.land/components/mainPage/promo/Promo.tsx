@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion';
 
 export const Promo = () => (
   <section className="p-4 xs:p-8 md:py-32 lg:py-48 2xl:py-64 xl:px-24 relative">

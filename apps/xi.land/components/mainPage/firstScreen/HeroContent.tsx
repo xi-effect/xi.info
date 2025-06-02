@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@xipkg/button';
-import { motion, MotionValue } from 'framer-motion';
+import { motion, MotionValue } from 'motion';
 import { useState } from 'react';
 import Link from 'next/link';
 import { LightningShape } from './LightningShape';
