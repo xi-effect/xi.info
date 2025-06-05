@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@import '@xipkg/tailwind/index.css';
+
+@source "./app";
+@source "./components";
+@source "../../packages";
+@source "../../node_modules/@xipkg";
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}

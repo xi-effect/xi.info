@@ -1,75 +1,85 @@
 'use client';
 
-import Image from 'next/image';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import React, { useState } from 'react';
-import { StarShape } from './StarShape';
-import { WaveShape } from './WaveShape';
-import { HeroContent } from './HeroContent';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 export const Hero = () => {
-  const [isHovering, setIsHovering] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const targetRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
 
-  // Функция обновления координат курсора
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const offsetX = event.clientX - rect.left;
-    const offsetY = event.clientY - rect.top;
+  useEffect(() => {
+    const section = sectionRef.current;
+    const button = buttonRef.current;
+    const path = pathRef.current;
 
-    x.set(offsetX - rect.width / 2);
-    y.set(offsetY - rect.height / 2);
-  };
-
-  // Определение трансформаций для каждого слоя
-  const layer1X = useTransform(x, (value) => value * 0.08);
-  const layer1Y = useTransform(y, (value) => value * 0.08);
-
-  const layer2X = useTransform(x, (value) => value * 0.12);
-  const layer2Y = useTransform(y, (value) => value * 0.2);
-
-  const layer3X = useTransform(x, (value) => value * 0.02);
-  const layer3Y = useTransform(y, (value) => value * 0.02);
+    if (section && button && path) {
+      gsap.to(button, {
+        motionPath: {
+          path,
+          align: path,
+          autoRotate: false,
+          alignOrigin: [0.5, 0.5],
+        },
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'center top',
+          scrub: 0.5,
+        },
+      });
+    }
+  }, []);
 
   return (
-    <section
-      className="rounded-b-[64px] bg-brand-80 relative lg:h-[calc(100dvh-1.5rem)] flex"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <motion.div
-        style={{
-          x: layer1X,
-          y: layer1Y,
-        }}
-        animate={{ scale: isHovering ? 1.05 : 1 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+    <section ref={sectionRef} className="bg-zinc-900 relative lg:h-[calc(120dvh)] w-[100dvw] flex">
+      <div
+        ref={contentRef}
+        className="relative flex flex-col gap-4 items-center justify-center px-4 w-[100dvw] h-full"
       >
-        <StarShape />
-      </motion.div>
-      <motion.div
-        style={{
-          x: layer2X,
-          y: layer2Y,
-        }}
-        animate={{ scale: isHovering ? 1.05 : 1 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-      >
-        <WaveShape />
-      </motion.div>
-      <div className="pt-28 lg:px-24 xs:pt-36 px-8 md:flex relative overflow-hidden w-full">
-        <Image
-          src="/assets/mainPage/hero/main.webp"
-          alt="main screen image"
-          width={1085}
-          height={890}
-          priority
-          className="hidden md:block lg:pt-16 2xl:pt-5 w-auto h-full top-0 -right-28 object-cover xl:right-0 absolute z-0 pointer-events-none"
-        />
-        <HeroContent isHovering={isHovering} layer3X={layer3X} layer3Y={layer3Y} />
+        <h1 className="text-[80px] font-medium text-gray-0 text-center">
+          Все инструменты
+          <br />
+          репетитора
+          <br />в одном сервисе
+        </h1>
+        <h2 className="text-[32px] text-gray-20 text-center">
+          Видеозвонки, онлайн-доски и заметки, контроль оплат и<br />
+          автоматические напоминания для учеников.
+          <br />
+          Ваши знания бесценны. Делитесь ими
+          <br />с комфортом!
+        </h2>
       </div>
+      <button
+        ref={buttonRef}
+        type="button"
+        className="absolute top-[100px] right-[100px] bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300"
+      >
+        Начать сейчас
+      </button>
+      <div
+        ref={targetRef}
+        className="absolute bottom-[100px] left-[100px] w-4 h-4 bg-red-500 rounded-full"
+      />
+      <svg
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        style={{ opacity: 0.3 }}
+      >
+        <path
+          ref={pathRef}
+          d="M 100 100 C 800 100, 400 400, 100 1500"
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
+        />
+      </svg>
     </section>
   );
 };

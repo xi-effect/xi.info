@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion';
 import { CallToActionForm } from './CallToActionForm';
 
 export const CallToAction = () => (

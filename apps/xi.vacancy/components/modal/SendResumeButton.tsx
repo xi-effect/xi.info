@@ -140,6 +140,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
           </div>
 
           <form
+            // @ts-ignore
             onSubmit={handleSubmit(onSubmit)}
             className="p-[16px] bg-[#F7F7F7] rounded-b-[24px] xl:rounded-l-none xl:rounded-r-[24px] sm:p-[24px] xl:p-[48px] xl:basis-2/4"
           >
@@ -162,6 +163,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
             />
 
             <Select
+              // @ts-ignore
               control={control}
               error={!!errors.position}
               helperText={errors.position?.message}
