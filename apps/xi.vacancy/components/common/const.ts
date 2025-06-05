@@ -156,7 +156,7 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/unknownproperty.jpg',
     },
     date: '27 января',
-    grade: 'Intern, Junior',
+    grade: 'Intern, Junior, Middle',
     id: 'marketing-smm',
     title: 'SMM-specialist',
   },
@@ -172,6 +172,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     grade: 'Junior+, Middle, Senior',
     id: 'marketing-marketing',
     title: 'Marketing-specialist',
+  },
+  {
+    label: 'Marketing',
+    author: {
+      name: 'Игорь',
+      tg: '@unknownproperty',
+      grade: 'CEO, Сo-Founder',
+      src: '/vacancy/unknownproperty.jpg',
+    },
+    date: '24 января',
+    grade: 'Junior, Middle',
+    id: 'marketing-motion-design',
+    title: 'Motion Designer',
   },
   // {
   //   label: 'Copywriter/Editor',
