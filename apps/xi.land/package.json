@@ -21,6 +21,7 @@
     "@xipkg/modal": "^4.1.0",
     "@xipkg/tailwind": "^0.8.1",
     "motion": "^12.15.0",
+    "gsap": "^3.13.0",
     "pkg.carousel": "*",
     "pkg.landing.footer": "*",
     "pkg.error-page": "*",
