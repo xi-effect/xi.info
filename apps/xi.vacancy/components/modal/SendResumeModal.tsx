@@ -203,6 +203,8 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                       />
                     ) : (
                       <FileUploader
+                        limit={1}
+                        bytesSizeLimit={1024 * 1024 * 10}
                         onChange={(fileList) => handleFileChange(fileList)}
                         accept=".pdf"
                         fileTypesHint={['PDF']}
