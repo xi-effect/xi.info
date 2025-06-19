@@ -56,7 +56,7 @@ const SendResumeButton: FC<SendResumeButtonT> = (props) => {
   const onSubmit: SubmitHandler<FormDataT> = async (data) => {
     reset();
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/vacancy-applications/`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/public/user-service/v2/vacancy-applications/`,
       {
         method: 'POST',
         cache: 'no-cache',

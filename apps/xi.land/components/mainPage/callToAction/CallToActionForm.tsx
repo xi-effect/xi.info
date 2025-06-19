@@ -40,7 +40,7 @@ export const CallToActionForm = ({
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     setIsButtonActive(false);
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/demo-applications/`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/public/user-service/demo-applications/`,
       {
         method: 'POST',
         cache: 'no-cache',
