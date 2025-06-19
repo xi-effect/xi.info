@@ -84,7 +84,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
     formData.append('resume', resumeBinary);
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/v2/vacancy-applications/`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/public/user-service/v2/vacancy-applications/`,
       {
         method: 'POST',
         cache: 'no-cache',
