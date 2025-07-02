@@ -7,25 +7,63 @@ import { AfineAnimation } from './AfineAnimation';
 import { GeometryAnimation } from './GeometryAnimation';
 
 const CircleSvgTop = ({ className }: { className: string }) => (
-  <svg className={className} width="1003" height="800" viewBox="0 0 1003 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className={className}
+    width="1003"
+    height="800"
+    viewBox="0 0 1003 800"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g opacity="0.5" filter="url(#filter0_fn_6178_6480)">
       <circle cx="235" cy="83" r="256" fill="white" />
     </g>
     <defs>
-      <filter id="filter0_fn_6178_6480" x="-533" y="-685" width="1536" height="1536" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <filter
+        id="filter0_fn_6178_6480"
+        x="-533"
+        y="-685"
+        width="1536"
+        height="1536"
+        filterUnits="userSpaceOnUse"
+        colorInterpolationFilters="sRGB"
+      >
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
         <feGaussianBlur stdDeviation="256" result="effect1_foregroundBlur_6178_6480" />
-        <feTurbulence type="fractalNoise" baseFrequency="1 1" stitchTiles="stitch" numOctaves="3" result="noise" seed="7490" />
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="1 1"
+          stitchTiles="stitch"
+          numOctaves="3"
+          result="noise"
+          seed="7490"
+        />
         <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
         <feComponentTransfer in="alphaNoise" result="coloredNoise1">
-          <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
+          <feFuncA
+            type="discrete"
+            tableValues="0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+          />
         </feComponentTransfer>
-        <feComposite operator="in" in2="effect1_foregroundBlur_6178_6480" in="coloredNoise1" result="noise1Clipped" />
+        <feComposite
+          operator="in"
+          in2="effect1_foregroundBlur_6178_6480"
+          in="coloredNoise1"
+          result="noise1Clipped"
+        />
         <feComponentTransfer in="alphaNoise" result="coloredNoise2">
-          <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 " />
+          <feFuncA
+            type="discrete"
+            tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 "
+          />
         </feComponentTransfer>
-        <feComposite operator="in" in2="effect1_foregroundBlur_6178_6480" in="coloredNoise2" result="noise2Clipped" />
+        <feComposite
+          operator="in"
+          in2="effect1_foregroundBlur_6178_6480"
+          in="coloredNoise2"
+          result="noise2Clipped"
+        />
         <feFlood floodColor="#0F0F11" result="color1Flood" />
         <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
         <feFlood floodColor="rgba(255, 255, 255, 0.25)" result="color2Flood" />
@@ -38,29 +76,66 @@ const CircleSvgTop = ({ className }: { className: string }) => (
       </filter>
     </defs>
   </svg>
-
 );
 
 const CircleSvgBottom = ({ className }: { className: string }) => (
-  <svg className={className} width="958" height="800" viewBox="0 0 958 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className={className}
+    width="958"
+    height="800"
+    viewBox="0 0 958 800"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g opacity="0.5" filter="url(#filter0_fn_6178_6481)">
       <circle cx="768" cy="610" r="256" fill="#F3F4FC" />
     </g>
     <defs>
-      <filter id="filter0_fn_6178_6481" x="0" y="-158" width="1536" height="1536" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <filter
+        id="filter0_fn_6178_6481"
+        x="0"
+        y="-158"
+        width="1536"
+        height="1536"
+        filterUnits="userSpaceOnUse"
+        colorInterpolationFilters="sRGB"
+      >
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
         <feGaussianBlur stdDeviation="256" result="effect1_foregroundBlur_6178_6481" />
-        <feTurbulence type="fractalNoise" baseFrequency="1 1" stitchTiles="stitch" numOctaves="3" result="noise" seed="7490" />
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="1 1"
+          stitchTiles="stitch"
+          numOctaves="3"
+          result="noise"
+          seed="7490"
+        />
         <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
         <feComponentTransfer in="alphaNoise" result="coloredNoise1">
-          <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
+          <feFuncA
+            type="discrete"
+            tableValues="0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+          />
         </feComponentTransfer>
-        <feComposite operator="in" in2="effect1_foregroundBlur_6178_6481" in="coloredNoise1" result="noise1Clipped" />
+        <feComposite
+          operator="in"
+          in2="effect1_foregroundBlur_6178_6481"
+          in="coloredNoise1"
+          result="noise1Clipped"
+        />
         <feComponentTransfer in="alphaNoise" result="coloredNoise2">
-          <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 " />
+          <feFuncA
+            type="discrete"
+            tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 "
+          />
         </feComponentTransfer>
-        <feComposite operator="in" in2="effect1_foregroundBlur_6178_6481" in="coloredNoise2" result="noise2Clipped" />
+        <feComposite
+          operator="in"
+          in2="effect1_foregroundBlur_6178_6481"
+          in="coloredNoise2"
+          result="noise2Clipped"
+        />
         <feFlood floodColor="#0F0F11" result="color1Flood" />
         <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
         <feFlood floodColor="rgba(255, 255, 255, 0.25)" result="color2Flood" />
@@ -125,10 +200,13 @@ export default function ProductPage() {
       >
         <div className="flex flex-col justify-center items-center mt-[128px] z-10">
           <h1 className="text-gray-0 text-[72px] text-center">
-            Все инструменты репетитора<br />в одном сервисе
+            Все инструменты репетитора
+            <br />
+            в одном сервисе
           </h1>
           <h2 className="text-gray-20 text-2xl font-normal text-center">
-            Видеозвонки, онлайн-доски и заметки, контроль оплат<br />
+            Видеозвонки, онлайн-доски и заметки, контроль оплат
+            <br />
             и автоматические напоминания для учеников
           </h2>
           <Button className="mt-[32px] bg-brand-0 text-brand-100" variant="ghost" size="l">
