@@ -5,7 +5,7 @@ import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
 import { Footer } from 'pkg.landing.footer';
-import { Header } from 'components/Header';
+// import { Header } from 'components/Header';
 import YandexMetrika from 'components/YandexMetrika';
 
 import { Toaster } from 'sonner';
@@ -107,7 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
         <Toaster />
-        <Header />
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>
