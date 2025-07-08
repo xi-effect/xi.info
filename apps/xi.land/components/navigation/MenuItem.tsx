@@ -31,7 +31,7 @@ export const MenuItem = ({
 }: MenuItemPropsT) => (
   <li
     onMouseEnter={() => setActive(item)}
-    className="text-m-base lg:text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
+    className="text-s-base text-gray-20 font-normal lg:text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
   >
     {href ? (
       <Link target={target} href={href} className="py-2.5 px-3">

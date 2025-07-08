@@ -31,21 +31,33 @@ export const Header = () => {
 
   return (
     <header
-      className={`flex justify-center py-4 md:px-0 px-4 xs:px-8 lg:px-8 xs:py-8 w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`bg-transparent flex justify-center w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
     >
-      <div className="z-10 justify-between w-full md:w-auto flex gap-6 lg:gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
-        <Link href="/" className="w-[202px] h-[24px] relative">
-          <Image src="/xieffectlight.webp" fill alt="xi effect logo" priority />
+      <div className="bg-gray-100 z-10 py-6 pl-8 pr-5 justify-between w-full md:w-auto flex gap-6 lg:gap-16 relative items-center">
+        <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
+          <div className="bg-gray-0 rounded-[16px] p-0">
+            <Image src="/logo.svg" alt="logo" width={64} height={64} />
+          </div>
+          <Image src="/sovliumLight.svg" alt="logo" width={114} height={24} />
         </Link>
+
         <Navigation />
-        <div className="gap-2 hidden md:flex">
-          <Button asChild variant="ghost" className="px-4 lg:px-6 rounded-full bg-transparent">
+
+        <div className="gap-4 hidden md:flex">
+          <Button
+            asChild
+            className="rounded-md px-4 lg:px-6 border-2 border-gray-30 bg-transparent text-gray-10 hover:bg-transparent focus:bg-transparent active:bg-transparent hover:opacity-75 transition-opacity duration-300"
+            size="m"
+            variant="ghost"
+          >
+            <Link href="#">Зарегистрироваться</Link>
+          </Button>
+
+          <Button asChild className="px-4 lg:px-6 rounded-md" size="m">
             <Link href="https://app.xieffect.ru/signin">Войти</Link>
           </Button>
-          <Button asChild className="rounded-full px-4 lg:px-6 bg-brand-80">
-            <Link href="https://app.xieffect.ru/signup">Зарегистрироваться</Link>
-          </Button>
         </div>
+
         <MobileNavigation />
       </div>
     </header>

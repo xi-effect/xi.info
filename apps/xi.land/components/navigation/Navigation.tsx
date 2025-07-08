@@ -1,74 +1,51 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@xipkg/button';
-import { MenuItem } from './MenuItem';
-import { SubMenuItem } from './SubMenuItem';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@xipkg/dropdown';
+import { cn } from '@xipkg/utils';
 
-const subMenu = [
-  {
-    title: 'Тесты и задания',
-    description: 'Быстро оценивайте знания',
-    href: '/product#tasksAndTests',
-    image: '/assets/mainPage/navigation/1.webp',
-  },
-  {
-    title: 'Видеозвонки',
-    description: 'Проводите уроки',
-    href: '/product#videocalls',
-    image: '/assets/mainPage/navigation/2.webp',
-  },
-  {
-    title: 'Сообщения',
-    description: 'Оставайтесь на связи',
-    href: '/product#chats',
-    image: '/assets/mainPage/navigation/3.webp',
-  },
-  {
-    title: 'Онлайн-доска',
-    description: 'Создавайте интерактивные материалы',
-    href: '/product#whiteboard',
-    image: '/assets/mainPage/navigation/4.webp',
-  },
-];
+import { MenuItem } from './MenuItem';
 
 export const Navigation = () => {
   const [active, setActive] = useState<string | null>(null);
 
+  const classDropdownMenuContent = cn(
+    'flex flex-col w-[250px] rounded-[16px] border-1 px-1 py-2 shadow-md shadow-gray-100/10 border-gray-10 gap-2',
+  );
+
+  const classDropdownMenuItem = cn(
+    'w-full text-gray-100 text-m-base font-normal py-2 px-3 hover:bg-gray-100/10',
+  );
+
   return (
     <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
       <ul className="flex lg:gap-2">
-        <MenuItem setActive={setActive} active={active} item="Возможности">
-          <div className="grid grid-cols-2 gap-8">
-            {subMenu.map((item) => (
-              <SubMenuItem
-                key={item.title}
-                title={item.title}
-                description={item.description}
-                href={item.href}
-                src={item.image}
-                setActive={setActive}
-              />
-            ))}
-          </div>
-          <div className="mt-8 flex">
-            <Button variant="secondary" className="w-full" onClick={() => setActive(null)}>
-              <Link href="/product" className="w-full h-full flex justify-center items-center">
-                Посмотреть все
-              </Link>
-            </Button>
-          </div>
-        </MenuItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="bg-transparent">
+            <MenuItem setActive={setActive} active={active} item="Инструменты" href="#" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className={classDropdownMenuContent}>
+            <DropdownMenuItem className={classDropdownMenuItem}>Видеозвонки</DropdownMenuItem>
+            <DropdownMenuItem className={classDropdownMenuItem}>Белая доска</DropdownMenuItem>
+            <DropdownMenuItem className={classDropdownMenuItem}>Оплаты</DropdownMenuItem>
+            <DropdownMenuItem className={classDropdownMenuItem}>Расписание</DropdownMenuItem>
+            <DropdownMenuItem className={classDropdownMenuItem}>Материалы</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
         <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" />
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Помощь"
+          item="База знаний"
           target="_blank"
-          href="https://support.xieffect.ru/"
+          href="#"
         />
       </ul>
     </nav>
