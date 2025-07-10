@@ -108,19 +108,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'qa-automation',
     title: 'Automation QA (Автотестер)',
   },
-  {
-    label: 'Дизайн',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '26 января',
-    grade: 'Junior, Middle',
-    id: 'design-graphic',
-    title: 'Графический дизайнер',
-  },
+  // {
+  //   label: 'Дизайн',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '26 января',
+  //   grade: 'Junior, Middle',
+  //   id: 'design-graphic',
+  //   title: 'Графический дизайнер',
+  // },
   {
     label: 'Дизайн',
     author: {
@@ -173,19 +173,19 @@ export const vacancyList: ProfessionOptionsT[] = [
     id: 'marketing-smm',
     title: 'SMM-specialist',
   },
-  {
-    label: 'Marketing',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '24 января',
-    grade: 'Junior+, Middle, Senior',
-    id: 'marketing-marketing',
-    title: 'Marketing-specialist',
-  },
+  // {
+  //   label: 'Marketing',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '24 января',
+  //   grade: 'Junior+, Middle, Senior',
+  //   id: 'marketing-marketing',
+  //   title: 'Marketing-specialist',
+  // },
   {
     label: 'Marketing',
     author: {
