@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "3.3.4",
     "@next/bundle-analyzer": "^15.0.3",
+    "@xipkg/aspect-ratio": "^2.0.11",
     "@xipkg/button": "^2.2.0",
     "@xipkg/dropdown": "^3.0.12",
     "@xipkg/form": "^3.3.0",
