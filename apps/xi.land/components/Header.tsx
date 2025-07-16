@@ -31,7 +31,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`bg-transparent flex justify-center w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`bg-gray-100 flex justify-center w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="bg-transparent z-10 py-6 pl-8 pr-5 justify-between w-full md:w-auto flex gap-6 lg:gap-16 relative items-center">
         <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">

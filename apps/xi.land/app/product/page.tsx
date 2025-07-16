@@ -1,4 +1,4 @@
-import { Items, Title } from 'components/productPage';
+import { Items, Title } from 'components/product';
 
 export const metadata = {
   title: 'Возможности | xi.effect для онлайн-обучения',
