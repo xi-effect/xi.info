@@ -4,31 +4,20 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@xipkg/utils';
-import { AspectRatio } from '@xipkg/aspect-ratio';
 import { Button } from '@xipkg/button';
+import { useMedia } from 'pkg.utils';
 import { Text } from '../shared';
 
 const urlImages = '/assets/mainPage/messages/';
 
 const slides = [
-  {
-    id: 1,
-    title: 'планировании',
-    messages: 'planning.png',
-  },
-  {
-    id: 2,
-    title: 'подаче материала',
-    messages: 'material.png',
-  },
-  {
-    id: 3,
-    title: 'общении с учениками',
-    messages: 'chat.png',
-  },
+  { id: 1, title: 'планировании', messages: 'planning.png' },
+  { id: 2, title: 'подаче материала', messages: 'material.png' },
+  { id: 3, title: 'общении с учениками', messages: 'chat.png' },
 ];
 
 export const Messages = () => {
+  const isMobile = useMedia('(max-width: 720px)');
   const [currentSlide, setCurrentSlide] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -70,36 +59,50 @@ export const Messages = () => {
             transition={{ duration: 0.6, ease: 'easeInOut' }}
             className="w-full h-screen"
           >
-            <div className="w-full h-full flex items-center gap-12 px-[160px] py-[120px]">
-              <div className="flex flex-col items-end gap-8 max-w-[768px]">
-                {slides.map((slide, index) => (
-                  <Button
-                    asChild
-                    variant="ghost"
-                    key={slide.id}
-                    className={cn(
-                      'transition-all duration-500 font-medium text-lg-base bg-transparent hover:bg-transparent relative',
-                      currentSlide === index
-                        ? 'text-gray-0 translate-x-[-32px]'
-                        : 'text-gray-70 hover:text-gray-0 text-right',
-                    )}
-                    onClick={() => handleManualClick(index)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        handleManualClick(index);
-                      }
-                    }}
-                  >
-                    <div className="flex items-center gap-1">
-                      {currentSlide === index && <span className="block">в</span>}
-                      <span className="block">{slide.title}</span>
-                    </div>
-                  </Button>
-                ))}
+            {isMobile ? (
+              <div className="relative w-full h-screen">
+                <Image
+                  src={`${urlImages}${slides[currentSlide].messages}`}
+                  alt={slides[currentSlide].title}
+                  fill
+                  priority
+                  className="object-contain"
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white text-center py-4 text-lg font-medium">
+                  <span className="opacity-80">в </span>
+                  {slides[currentSlide].title}
+                </div>
               </div>
+            ) : (
+              <div className="w-full h-full flex items-center gap-12 px-[160px] py-[120px]">
+                <div className="flex flex-col items-end gap-8 max-w-[768px]">
+                  {slides.map((slide, index) => (
+                    <Button
+                      asChild
+                      variant="ghost"
+                      key={slide.id}
+                      className={cn(
+                        'transition-all duration-500 font-medium text-lg-base bg-transparent hover:bg-transparent relative',
+                        currentSlide === index
+                          ? 'text-gray-0'
+                          : 'text-gray-70 hover:text-gray-0 text-right',
+                      )}
+                      onClick={() => handleManualClick(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          handleManualClick(index);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center gap-1">
+                        {currentSlide === index && <span className="block">в</span>}
+                        <span className="block">{slide.title}</span>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
 
-              <div className="h-full flex-1 flex items-center justify-center">
-                <AspectRatio ratio={768 / 664} className="w-full max-w-[768px] h-auto">
+                <div className="relative w-full max-w-[768px] h-auto aspect-[768/664]">
                   <Image
                     src={`${urlImages}${slides[currentSlide].messages}`}
                     alt={slides[currentSlide].title}
@@ -107,9 +110,9 @@ export const Messages = () => {
                     priority
                     className="object-contain"
                   />
-                </AspectRatio>
+                </div>
               </div>
-            </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </section>

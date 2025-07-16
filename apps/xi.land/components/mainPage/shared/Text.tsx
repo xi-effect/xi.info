@@ -12,7 +12,7 @@ export const Text: FC<TextPropsT> = ({ children, className, theme = 'dark' }) =>
     'sticky top-0 w-full left-0 right-0 z-10',
     'flex items-center justify-center text-center',
     'px-4 py-8 md:px-8 md:py-12 lg:py-16',
-    'text-5xl font-medium',
+    'text-4xl md:text-5xl font-medium',
     theme === 'dark' ? 'text-gray-0 bg-gray-100' : 'text-gray-100 bg-gray-0',
     className,
   );
