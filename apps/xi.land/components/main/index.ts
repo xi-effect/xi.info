@@ -1,5 +1,5 @@
 export { AppsCarousel } from './appsCarousel';
-export { Hero } from './firstScreen';
+export { Hero } from './Hero';
 export { Tasks } from './tasks';
 export { VideoCalls } from './videocalls';
 export { Messages } from './messages/Messages';

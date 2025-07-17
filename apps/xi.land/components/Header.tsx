@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
+import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
 
 export const Header = () => {
@@ -31,14 +32,28 @@ export const Header = () => {
 
   return (
     <header
-      className={`bg-gray-100 flex justify-center w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
+      data-theme="dark"
+      className={cn(
+        'bg-gray-0 dark:bg-gray-100 flex justify-center w-full top-0 fixed z-10 transition-transform duration-700',
+        isShowHeader ? 'translate-y-0' : '-translate-y-full',
+      )}
     >
-      <div className="bg-transparent z-10 py-6 pl-8 pr-5 justify-between w-full md:w-auto flex gap-6 lg:gap-16 relative items-center">
-        <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
-          <div className="bg-gray-0 rounded-[16px] p-0">
-            <Image src="/logo.svg" alt="logo" width={64} height={64} />
-          </div>
-          <Image src="/sovliumLight.svg" alt="logo" width={114} height={24} />
+      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between md:w-full w-auto flex gap-0 lg:gap-12 relative items-center max-w-[1600px] mx-auto">
+        <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
+          <Image
+            src="/logoforwhite.svg"
+            alt="logo"
+            width={216}
+            height={48}
+            className="block dark:hidden"
+          />
+          <Image
+            src="/logofordark.svg"
+            alt="logo"
+            width={216}
+            height={48}
+            className="hidden dark:block"
+          />
         </Link>
 
         <Navigation />
@@ -46,15 +61,21 @@ export const Header = () => {
         <div className="gap-4 hidden md:flex">
           <Button
             asChild
-            className="rounded-md px-4 lg:px-6 border-2 border-gray-30 bg-transparent text-gray-10 hover:bg-transparent focus:bg-transparent active:bg-transparent hover:opacity-75 transition-opacity duration-300"
-            size="m"
+            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0 text-brand-100 hover:text-brand-80 rounded-xl"
             variant="ghost"
           >
-            <Link href="#">Зарегистрироваться</Link>
+            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
+          </Button>
+          <Button
+            asChild
+            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20 rounded-xl"
+            variant="secondary"
+          >
+            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
 
-          <Button asChild className="px-4 lg:px-6 rounded-md" size="m">
-            <Link href="https://app.xieffect.ru/signin">Войти</Link>
+          <Button asChild className="w-[96px] dark:text-gray-0 rounded-xl">
+            <Link href="https://app.sovlium.ru/signin">Войти</Link>
           </Button>
         </div>
 
