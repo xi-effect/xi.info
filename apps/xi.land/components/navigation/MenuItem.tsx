@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { cn } from '@xipkg/utils';
 
@@ -34,7 +34,8 @@ export const MenuItem = ({
     onMouseEnter={() => setActive(item)}
     className={cn(
       'relative text-s-base text-gray-70 dark:text-gray-20 font-normal lg:text-l-base flex items-center',
-      href && 'hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100',
+      href &&
+        'hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100',
     )}
   >
     {href ? (

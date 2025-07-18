@@ -3,7 +3,7 @@
 import { Carousel, CarouselContent, CarouselItem } from 'pkg.carousel';
 import { Link } from '@xipkg/link';
 import { ArrowRight, Check } from '@xipkg/icons';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { TariffsItem } from './TariffsItem';
 import { tariffs } from './consts';
 

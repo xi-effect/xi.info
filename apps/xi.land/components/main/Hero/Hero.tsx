@@ -7,20 +7,22 @@ import { Button } from '@xipkg/button';
 
 const HeroText = () => (
   <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
-    <h1 className="font-medium text-3xl md:text-5xl lg:text-7xl text-gray-0 text-center hidden md:block">
-      Все инструменты репетитора в одной платформе
+    <h1 className="font-medium text-xl md:text-3xl lg:text-5xl text-gray-0 text-center hidden md:block">
+      Все инструменты репетитора
+      <br />в одной платформе
     </h1>
 
-    <h1 className="font-medium text-3xl md:text-5xl lg:text-7xl text-gray-0 text-center block md:hidden">
+    <h1 className="font-medium text-xl md:text-2xl lg:text-3xl text-gray-0 text-center block md:hidden">
       Расписание всегда под контролем
     </h1>
 
-    <h2 className="font-normal text-lg md:text-2xl lg:text-[32px] text-gray-20 text-center hidden md:block">
-      Видеозвонки, онлайн-доски и заметки, контроль оплат и автоматические напоминания
-      для учеников
+    <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center hidden md:block">
+      Видеозвонки, онлайн-доски и заметки,
+      <br />
+      контроль оплат и автоматические напоминания для учеников
     </h2>
 
-    <h2 className="font-normal text-lg md:text-2xl lg:text-[32px] text-gray-20 text-center block md:hidden">
+    <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center block md:hidden">
       Планируйте работу на день, неделю, месяц и год вперёд вместе с sovlium
     </h2>
   </div>
@@ -46,13 +48,19 @@ export const Hero = () => (
             variant="ghost"
             size="l"
             className="text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
+            onClick={() => {
+              const el = document.getElementById('becometester');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Стать бета-тестером
           </Button>
         </div>
 
         <Image
-          src="/assets/mainPage/hero/hero_mobile.svg"
+          src="/assets/main/hero/hero_mobile.svg"
           alt="screenshot of the site"
           width={572}
           height={400}
@@ -61,14 +69,13 @@ export const Hero = () => (
         />
 
         <Image
-          src="/assets/mainPage/hero/hero.svg"
+          src="/assets/main/hero/hero.svg"
           alt="screenshot of the site"
           width={1344}
           height={756}
           className="hidden md:block mt-auto"
           priority
         />
-
       </div>
     </div>
   </section>

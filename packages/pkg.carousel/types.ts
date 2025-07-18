@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Transition } from 'framer-motion';
+import { Transition } from 'motion';
 
 export type CarouselContextTypeT = {
   index: number;

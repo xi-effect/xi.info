@@ -1,0 +1,1 @@
+export { StickyGsap } from './StickyGSAP';

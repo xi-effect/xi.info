@@ -1,6 +1,6 @@
 'use client';
 
-import { useMotionValue, animate, motion, AnimationPlaybackControls } from 'framer-motion';
+import { animate, AnimationPlaybackControls, motion, useMotionValue } from 'motion/react';
 import React, { useState, useEffect, useRef } from 'react';
 
 type InfiniteSliderProps = {

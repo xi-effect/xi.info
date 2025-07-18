@@ -2,7 +2,7 @@ export { AppsCarousel } from './appsCarousel';
 export { Hero } from './Hero';
 export { Tasks } from './tasks';
 export { VideoCalls } from './videocalls';
-export { Messages } from './messages/Messages';
+export { Messages } from './Messages/Messages';
 export { Whiteboard } from './whiteboard';
 export { Promo } from './promo';
 export { Tariffs } from './tariffs';

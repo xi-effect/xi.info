@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import { BlockHeader, BlockFooter } from '../shared';
 
@@ -20,17 +20,17 @@ export const Tasks = () => (
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.2 }}
-        className="aspect-square row-span-2 rounded-[32px] bg-violet-100 p-8 flex flex-col gap-2 max-xs:bg-none bg-contain sm:bg-cover md:bg-contain bg-[url('/assets/mainPage/tasks/line.svg')] bg-no-repeat bg-right-top"
+        className="aspect-square row-span-2 rounded-[32px] bg-violet-100 p-8 flex flex-col gap-2 max-xs:bg-none bg-contain sm:bg-cover md:bg-contain bg-[url('/assets/main/tasks/line.svg')] bg-no-repeat bg-right-top"
       >
         <div className="flex grow relative justify-center">
           <Image
-            src="/assets/mainPage/tasks/mainImage.webp"
+            src="/assets/main/tasks/mainImage.webp"
             alt="text and tasks main img"
             fill
             className="hidden xs:block object-contain"
           />
           <Image
-            src="/assets/mainPage/tasks/mainMobile.webp"
+            src="/assets/main/tasks/mainMobile.webp"
             alt="text and tasks main img"
             fill
             className="xs:hidden block object-contain"
@@ -55,7 +55,7 @@ export const Tasks = () => (
           >
             <div className="hidden flex-1 xs:flex justify-center items-center ">
               <Image
-                src={`/assets/mainPage/tasks/${item.image}`}
+                src={`/assets/main/tasks/${item.image}`}
                 width={100}
                 height={100}
                 className="xs:block w-auto h-auto max-h-[199px] md:max-h-[100px] lg:max-h-[160px] xl:max-h-[184px] 2xl:max-h-[220px]"

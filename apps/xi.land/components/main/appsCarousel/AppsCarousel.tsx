@@ -31,7 +31,7 @@ const AppsItems = () =>
   sliderImages.map((image) => (
     <Image
       key={image}
-      src={`/assets/mainPage/apps/${image}`}
+      src={`/assets/main/apps/${image}`}
       width={64}
       height={64}
       alt="apps icon"

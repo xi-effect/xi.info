@@ -1,121 +1,144 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { cn } from '@xipkg/utils';
-import { Button } from '@xipkg/button';
-import { useMedia } from 'pkg.utils';
-import { Text } from '../shared';
+import React, { useRef, useLayoutEffect, forwardRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image, { ImageProps } from 'next/image';
 
-const urlImages = '/assets/mainPage/messages/';
+gsap.registerPlugin(ScrollTrigger);
 
-const slides = [
-  { id: 1, title: 'планировании', messages: 'planning.png' },
-  { id: 2, title: 'подаче материала', messages: 'material.png' },
-  { id: 3, title: 'общении с учениками', messages: 'chat.png' },
+/*
+ * ===== SVG‑файлы из public =====
+ * Путь «/assets/main/messages/...». Без импортов, Next раздаёт их как статику.
+ */
+const steps = [
+  { id: 0, title: 'в планировании', src: '/assets/main/messages/plans.svg' },
+  { id: 1, title: 'подаче материала', src: '/assets/main/messages/materials.svg' },
+  { id: 2, title: 'общении с учениками', src: '/assets/main/messages/chat.svg' },
 ];
 
-export const Messages = () => {
-  const isMobile = useMedia('(max-width: 720px)');
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+/*
+ * Next.js <Image> не передаёт ref до самого <img>, поэтому GSAP не может менять opacity.
+ * Вместо того чтобы отказываться от <Image>, оборачиваем его в forwardRef и
+ * цепляемся к обёртке‑div: анимируем весь контейнер, SVG внутри остаётся оптимизированным.
+ */
+const ImgWrapper = forwardRef<HTMLDivElement, ImageProps>(({ className, ...imgProps }, ref) => (
+  <div ref={ref as React.Ref<HTMLDivElement>} className={className}>
+    {/* fill & sizes обеспечивает адаптивность */}
+    <Image {...imgProps} alt={imgProps.alt || ''} fill priority sizes="100vw" />
+  </div>
+));
+ImgWrapper.displayName = 'ImgWrapper';
 
-  useEffect(() => {
-    startAutoSlide();
-    return stopAutoSlide;
+export function Messages() {
+  // ---------- refs ----------
+  const introRef = useRef<HTMLElement>(null);
+  const sliderRef = useRef<HTMLElement>(null);
+  const textRefs = useRef<HTMLElement[]>([]);
+  const imgRefs = useRef<HTMLDivElement[]>([]); // теперь дивы‑контейнеры
+
+  // — dev‑Strict mode: избавляемся от дублей
+  const addTextRef = (el: HTMLElement | null) => {
+    if (el) textRefs.current = [...new Set([...textRefs.current, el])];
+  };
+  const addImgRef = (el: HTMLDivElement | null) => {
+    if (el) imgRefs.current = [...new Set([...imgRefs.current, el])];
+  };
+
+  /* ---------- GSAP ---------- */
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1️⃣ pin интро
+      ScrollTrigger.create({
+        trigger: sliderRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: introRef.current,
+        pinSpacing: false,
+      });
+
+      // 2️⃣ timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sliderRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      });
+
+      // стартовые стейты
+      gsap.set(imgRefs.current, { autoAlpha: 0 });
+      gsap.set(imgRefs.current[0], { autoAlpha: 1 });
+      gsap.set(textRefs.current.slice(1), { autoAlpha: 0.25 });
+
+      steps.forEach((_, idx) => {
+        const nextIdx = idx + 1;
+        if (nextIdx < steps.length) {
+          tl.to(textRefs.current, { yPercent: -100 * nextIdx, ease: 'none' }, idx);
+        }
+
+        tl.to(imgRefs.current[idx], { autoAlpha: 1, duration: 0.3 }, idx);
+        if (idx > 0) tl.to(imgRefs.current[idx - 1], { autoAlpha: 0, duration: 0.3 }, idx);
+
+        tl.to(textRefs.current[idx], { autoAlpha: 1, duration: 0.2 }, idx);
+        if (idx > 0) tl.to(textRefs.current[idx - 1], { autoAlpha: 0.25, duration: 0.2 }, idx);
+      });
+
+      // refresh после загрузки последнего SVG
+      imgRefs.current
+        .at(-1)
+        ?.querySelector('img')
+        ?.addEventListener('load', () => ScrollTrigger.refresh());
+    }, sliderRef);
+
+    return () => ctx.revert();
   }, []);
 
-  const startAutoSlide = () => {
-    stopAutoSlide();
-    intervalRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000);
-  };
-
-  const stopAutoSlide = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-
-  const handleManualClick = (index: number) => {
-    if (index === currentSlide) return;
-    setCurrentSlide(index);
-    startAutoSlide();
-  };
-
+  /* ---------- JSX ---------- */
   return (
     <>
-      <Text>Переход в онлайн принёс репетиторам новые вызовы</Text>
+      {/* 1. Intro */}
+      <section ref={introRef} className="min-h-screen flex items-center justify-center bg-white">
+        <h1 className="text-6xl md:text-8xl font-bold text-center">Добро&nbsp;пожаловать</h1>
+      </section>
 
-      <section className="relative z-0 bg-gray-100 h-screen w-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.6, ease: 'easeInOut' }}
-            className="w-full h-screen"
-          >
-            {isMobile ? (
-              <div className="relative w-full h-screen">
-                <Image
-                  src={`${urlImages}${slides[currentSlide].messages}`}
-                  alt={slides[currentSlide].title}
-                  fill
-                  priority
-                  className="object-contain"
-                />
-                <div className="absolute bottom-0 w-full bg-black/60 text-white text-center py-4 text-lg font-medium">
-                  <span className="opacity-80">в </span>
-                  {slides[currentSlide].title}
-                </div>
-              </div>
-            ) : (
-              <div className="w-full h-full flex items-center gap-12 px-[160px] py-[120px]">
-                <div className="flex flex-col items-end gap-8 max-w-[768px]">
-                  {slides.map((slide, index) => (
-                    <Button
-                      asChild
-                      variant="ghost"
-                      key={slide.id}
-                      className={cn(
-                        'transition-all duration-500 font-medium text-lg-base bg-transparent hover:bg-transparent relative',
-                        currentSlide === index
-                          ? 'text-gray-0'
-                          : 'text-gray-70 hover:text-gray-0 text-right',
-                      )}
-                      onClick={() => handleManualClick(index)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          handleManualClick(index);
-                        }
-                      }}
-                    >
-                      <div className="flex items-center gap-1">
-                        {currentSlide === index && <span className="block">в</span>}
-                        <span className="block">{slide.title}</span>
-                      </div>
-                    </Button>
-                  ))}
-                </div>
+      {/* 2. Slider — высота по числу шагов */}
+      <section
+        ref={sliderRef}
+        style={{ height: `${steps.length * 100}vh` }}
+        className="relative flex"
+      >
+        {/* Левый столбец */}
+        <div className="sticky top-0 flex w-1/2 items-center justify-center h-screen">
+          <div className="flex flex-col items-center will-change-transform">
+            {steps.map(({ id, title }) => (
+              <h2
+                key={id}
+                ref={addTextRef}
+                className="text-4xl md:text-6xl font-bold leading-tight h-[1em] flex items-center justify-center mb-10"
+              >
+                {title}
+              </h2>
+            ))}
+          </div>
+        </div>
 
-                <div className="relative w-full max-w-[768px] h-auto aspect-[768/664]">
-                  <Image
-                    src={`${urlImages}${slides[currentSlide].messages}`}
-                    alt={slides[currentSlide].title}
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
+        {/* Правый столбец — обёртки с Image */}
+        <div className="sticky top-0 w-1/2 h-screen flex items-center justify-center">
+          <div className="relative w-full h-full">
+            {steps.map(({ id, src }) => (
+              <ImgWrapper
+                key={id}
+                ref={addImgRef}
+                src={src}
+                alt="step graphic"
+                className="absolute inset-0 w-full h-full will-change-opacity"
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
-};
+}
