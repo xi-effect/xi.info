@@ -1,64 +1,87 @@
 'use client';
 
-import { Button } from '@xipkg/button';
+import { Button, buttonVariants } from '@xipkg/button';
+
 import { cn } from '@xipkg/utils';
-import Image from 'next/image';
+import type { VariantProps } from 'class-variance-authority';
+import { ResponsiveImage } from './ResponsiveImage';
 
 type HorizontalFeatureCardPropsT = {
   title: string;
   description: string;
-  imageSrc: string;
   imageAlt?: string;
   imageClassName?: string;
   imageStyle?: React.CSSProperties;
+  imageSrcMobile: string;
+  imageSrcDesktop: string;
   reverse?: boolean;
   bg?: string;
-  textColor?: string;
+  descrClassname?: string;
+  imgBlockClassName?: string;
   buttonText?: string;
   onButtonClick?: () => void;
+  buttonVariant?: VariantProps<typeof buttonVariants>['variant'];
   className?: string;
 };
 
 export const HorizontalFeatureCard = ({
   title,
   description,
-  imageSrc,
+  imageSrcDesktop,
+  imageSrcMobile,
   imageAlt = '',
   imageClassName = '',
   imageStyle = {},
   reverse = false,
   bg = 'bg-gray-5',
-  textColor = 'text-black',
+  descrClassname,
+  imgBlockClassName,
   buttonText,
+  buttonVariant,
   onButtonClick,
   className = '',
 }: HorizontalFeatureCardPropsT) => (
   <div
     className={cn(
-      'flex flex-col col-span-2 gap-y-8 sm:gap-y-16 gap-x-8 lg:gap-x-16 rounded-2xl sm:rounded-4xl',
-      reverse ? 'lg:flex-row-reverse' : 'lg:flex-row',
+      'flex flex-col col-span-2 gap-y-8 lg:gap-y-16 gap-x-8 lg:gap-x-16 rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2',
       bg,
       className,
     )}
   >
-    <div className="flex justify-center relative p-4 sm:p-8 overflow-hidden h-[350px] sm:h-auto">
-      <Image
-        width={700}
-        height={240}
-        src={imageSrc}
-        alt={imageAlt}
-        className={imageClassName}
+    <div
+      className={cn(
+        'flex justify-center items-center relative p-4 sm:p-8 overflow-hidden h-[350px] md:h-auto md:aspect-[768/660]',
+        imgBlockClassName,
+        reverse ? 'md:order-2' : 'md:order-1',
+      )}
+    >
+      <ResponsiveImage
+        alt={imageAlt ?? 'image description'}
+        srcMobile={imageSrcMobile}
+        srcDesktop={imageSrcDesktop}
+        className={cn(imageClassName)}
         style={{ objectFit: 'contain', ...imageStyle }}
       />
     </div>
-    <div className={cn('flex flex-col gap-2 sm:gap-4 justify-center p-4 sm:p-8', textColor)}>
-      <h4 className="text-l-base-line-height sm:text-xl-base-line-height lg:text-[40px] font-medium">
+    <div
+      className={cn(
+        'flex flex-col gap-2 lg:gap-4 justify-center p-4 sm:p-8 md:aspect-[768/660]',
+        descrClassname,
+        reverse ? 'md:order-1' : 'md:order-2',
+      )}
+    >
+      <h4 className="text-l-base-line-height leading-[1.3] sm:text-xl-base-line-height 2xl:text-[40px] font-medium sm:break-all md:break-normal">
         {title}
       </h4>
-      <p className="text-l-base lg:text-xl-base">{description}</p>
+      <p className="text-l-base 2xl:text-xl-base leading-[1.3]">{description}</p>
       {buttonText && (
         <div className="mt-8">
-          <Button className="rounded-2xl" variant="default" onClick={onButtonClick}>
+          <Button
+            className="rounded-xl text-brand-100 sm:rounded-2xl border-none sm:h-14 sm:text-m-base"
+            variant={buttonVariant ?? 'default'}
+            onClick={onButtonClick}
+            size="m"
+          >
             {buttonText}
           </Button>
         </div>
