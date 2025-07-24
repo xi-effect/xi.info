@@ -31,7 +31,7 @@ export default function CalendarPage() {
             description="Легко переходите в карточку занятия, где хранятся все материалы и настройки. Остаётся только нажать «Начать»"
             imageSrcDesktop="/assets/calendar/lessonCard.svg"
             imageSrcMobile="/assets/calendar/lessonCard.svg"
-            imageClassName="absolute w-[310px] sm:w-[320px] lg:w-[280px] md:top-0 top-4 sm:top-4 sm:right-0 md:h-full md:relative"
+            imageClassName="absolute w-[310px] sm:w-[320px] lg:w-[280px] xl:w-[320px] md:top-0 top-4 sm:top-4 sm:right-0 md:h-full md:relative"
             descrClassname="sm:flex-1/2"
             imgBlockClassName="sm:flex-1/2"
             reverse
@@ -43,7 +43,7 @@ export default function CalendarPage() {
             description="Больше не нужно проверять, помнит ли ученик о занятии"
             imageSrcDesktop="/assets/calendar/autoNotification.svg"
             imageSrcMobile="/assets/calendar/autoNotification.svg"
-            imageClassName="w-[290px] sm:w-[480px] absolute"
+            imageClassName="w-[290px] sm:w-[480px] absolute md:p-8 xl:w-full"
           />
 
           <HorizontalFeatureCard
@@ -51,7 +51,7 @@ export default function CalendarPage() {
             description="Учите и развивайтесь, а рутину оставьте sovlium"
             imageSrcDesktop="/assets/calendar/secretary.webp"
             imageSrcMobile="/assets/calendar/secretary_m.webp"
-            imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full"
+            imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full md:object-cover md:h-full md:object-left"
             reverse
             bg="bg-brand-80"
             descrClassname="text-brand-0"

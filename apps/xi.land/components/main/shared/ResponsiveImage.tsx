@@ -31,7 +31,7 @@ export const ResponsiveImage = ({
         width={width}
         height={height}
         className={cn('hidden sm:flex', className)}
-        style={{ objectFit: 'contain', ...style }}
+        style={{ ...style }}
         {...rest}
       />
     )}
@@ -42,7 +42,7 @@ export const ResponsiveImage = ({
         width={width}
         height={height}
         className={cn('sm:hidden flex', className)}
-        style={{ objectFit: 'contain', ...style }}
+        style={{ ...style }}
         {...rest}
       />
     )}

@@ -59,8 +59,8 @@ export const HorizontalFeatureCard = ({
         alt={imageAlt ?? 'image description'}
         srcMobile={imageSrcMobile}
         srcDesktop={imageSrcDesktop}
-        className={cn(imageClassName)}
-        style={{ objectFit: 'contain', ...imageStyle }}
+        className={cn('object-contain', imageClassName)}
+        style={{ ...imageStyle }}
       />
     </div>
     <div
@@ -77,7 +77,7 @@ export const HorizontalFeatureCard = ({
       {buttonText && (
         <div className="mt-8">
           <Button
-            className="rounded-xl text-brand-100 sm:rounded-2xl border-none sm:h-14 sm:text-m-base"
+            className="rounded-xl text-brand-100 sm:rounded-2xl border-none sm:h-14 sm:text-m-base xl:px-8 xl:text-l-base"
             variant={buttonVariant ?? 'default'}
             onClick={onButtonClick}
             size="m"

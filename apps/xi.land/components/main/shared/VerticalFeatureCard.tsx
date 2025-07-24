@@ -22,7 +22,7 @@ export const VerticalFeatureCard = ({
   imageStyle,
   imageBlockClassName,
 }: VerticalFeatureCardPropsT) => (
-  <div className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 justify-between md:aspect-[768/660]">
+  <div className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 justify-between md:aspect-[768/660] w-full h-full">
     <div
       className={cn(
         'relative p-4 sm:p-8 overflow-hidden h-[350px] sm:h-[450px] md:h-auto justify-center align-middle flex md:aspect-[768/450]',
@@ -33,8 +33,8 @@ export const VerticalFeatureCard = ({
         alt={imageAlt ?? 'image description'}
         srcMobile={imageSrcMobile}
         srcDesktop={imageSrcDesktop}
-        className={cn('rounded-tl-2xl rounded-br-4xl', imageClassName)}
-        style={{ objectFit: 'contain', ...imageStyle }}
+        className={cn('rounded-tl-2xl rounded-br-4xl object-contain', imageClassName)}
+        style={{ ...imageStyle }}
       />
     </div>
     <div className="flex flex-col gap-2 lg:gap-4 p-4 sm:p-8">
