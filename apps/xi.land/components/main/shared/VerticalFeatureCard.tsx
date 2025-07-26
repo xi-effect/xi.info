@@ -37,10 +37,8 @@ export const VerticalFeatureCard = ({
         style={{ ...imageStyle }}
       />
     </div>
-    <div className="flex flex-col gap-2 lg:gap-4 p-4 sm:p-8">
-      <h4 className="text-l-base-line-height sm:text-xl-base-line-height 2xl:text-[40px] font-medium leading-[1.3]">
-        {title}
-      </h4>
+    <div className="flex flex-col gap-2 lg:gap-4 p-4 sm:p-8 md:pt-4 xl:pt-8 ">
+      <h4 className="text-h6 sm:text-h5 2xl:text-h3 font-medium leading-[1.3]">{title}</h4>
       <p className="text-l-base 2xl:text-xl-base leading-[1.3]">{description}</p>
     </div>
   </div>

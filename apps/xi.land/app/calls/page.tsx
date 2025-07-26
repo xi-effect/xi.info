@@ -1,62 +1,67 @@
 'use client';
 
-import { HorizontalFeatureCard, VerticalFeatureCard } from 'components/main/shared';
+import { Button } from '@xipkg/button';
+import { Hero } from 'components/main';
+import { VerticalFeatureCard } from 'components/main/shared';
+import Image from 'next/image';
 
 export default function CallsPage() {
   return (
-    <section className="px-4 py-8 sm:px-8 sm:py-12 xl:px-40 xl:py-20">
-      <div className="bg-gray-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-8 lg:gap-x-16">
-        <VerticalFeatureCard
-          title="Время для работы"
-          description="В пару кликов создавайте будущее занятие"
-          imageSrcDesktop="/assets/calendar/timeToWork.svg"
-          imageSrcMobile="/assets/calendar/timeToWork_m.svg"
-          imageClassName="left-4 sm:left-8 top-4 sm:top-8 w-full absolute"
-        />
+    <>
+      <Hero />
+      <section className="px-4 py-8 sm:px-8 sm:py-12 xl:px-40 xl:py-20">
+        <div className="bg-gray-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-8 lg:gap-x-16">
+          <VerticalFeatureCard
+            title="Быстрое подключение"
+            description="Ссылка на видеозвонок — в карточке занятия. Остаётся только вовремя подключиться"
+            imageSrcDesktop="/assets/calls/lessonCard.svg"
+            imageSrcMobile="/assets/calls/lessonCard.svg"
+            imageClassName="sm:p-8 md:px-8 md:pt-2 md:absolute md:top-4 lg:relative lg:top-0 lg:p-0"
+            imageBlockClassName="h-[250px] sm:h-[450px]"
+          />
 
-        <VerticalFeatureCard
-          title="Время для отдыха"
-          description="Соблюдайте баланс и планируйте перерывы"
-          imageSrcDesktop="/assets/calendar/timeToRest.svg"
-          imageSrcMobile="/assets/calendar/timeToRest.svg"
-          imageClassName="w-[240px] sm:w-[480px] relative"
-        />
+          <VerticalFeatureCard
+            title="Всё в одном окне"
+            description="Легко переключайтесь между видеозвонком, онлайн-доской и материалами"
+            imageSrcDesktop="/assets/calls/videoCall.webp"
+            imageSrcMobile="/assets/calls/videoCall.webp"
+            imageClassName="absolute left-0 h-full w-full object-cover object-right-top md:pt-2 md:top-4 lg:pr-8 lg:top-8 lg:pt-0"
+            imageBlockClassName="h-[300px] sm:h-[450px]"
+          />
 
-        <HorizontalFeatureCard
-          title="Всё взаимосвязано"
-          description="Легко переходите в карточку занятия, где хранятся все материалы и настройки. Остаётся только нажать «Начать»"
-          imageSrcDesktop="/assets/calendar/lessonCard.svg"
-          imageSrcMobile="/assets/calendar/lessonCard.svg"
-          imageClassName="absolute w-[310px] sm:w-[320px] lg:w-[280px] xl:w-[320px] md:top-0 top-4 sm:top-4 sm:right-0 md:h-full md:relative"
-          descrClassname="sm:flex-1/2"
-          imgBlockClassName="sm:flex-1/2"
-          reverse
-          className="sm:flex-row-reverse"
-        />
-
-        <HorizontalFeatureCard
-          title="Автоматические напоминания"
-          description="Больше не нужно проверять, помнит ли ученик о занятии"
-          imageSrcDesktop="/assets/calendar/autoNotification.svg"
-          imageSrcMobile="/assets/calendar/autoNotification.svg"
-          imageClassName="w-[290px] sm:w-[480px] absolute md:p-8 xl:w-full"
-        />
-
-        <HorizontalFeatureCard
-          title="Ваш виртуальный секретарь"
-          description="Учите и развивайтесь, а рутину оставьте sovlium"
-          imageSrcDesktop="/assets/calendar/secretary.webp"
-          imageSrcMobile="/assets/calendar/secretary_m.webp"
-          imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full md:object-cover md:h-full md:object-left"
-          reverse
-          bg="bg-brand-80"
-          descrClassname="text-brand-0"
-          imgBlockClassName="sm:h-[450px]"
-          buttonText="Попробовать бесплатно"
-          buttonVariant="secondary"
-          className="gap-y-0"
-        />
-      </div>
-    </section>
+          <div className="col-span-2">
+            <div className="px-4 py-8 items-center">
+              <h3 className="text-h6 sm:text-h5 2xl:text-h3 font-medium text-center">
+                Создано специально для репетиторов
+              </h3>
+            </div>
+            <div className="flex flex-col gap-12 px-4 py-8 items-center md:gap-2 md:flex-row-reverse md:justify-around md:items-start">
+              <Image
+                src="/assets/calls/conferenceSteps.svg"
+                width={320}
+                height={380}
+                alt="Обычные видеоконференции"
+                className="w-full max-w-[572px]"
+              />
+              <Image
+                src="/assets/calls/videoCallSteps.svg"
+                width={320}
+                height={380}
+                alt="Обычные видеоконференции"
+                className="w-full max-w-[572px]"
+              />
+            </div>
+            <div className="px-4 py-8  flex flex-col gap-8 justify-center items-center">
+              <p className="text-xl-base text-center">
+                Подарите себе больше свободных минут с видеозвонками от sovlium
+              </p>
+              <Button className="w-auto sm:text-l-base rounded-xl sm:rounded-2xl px-6 sm:px-8 sm:h-14">
+                Попробовать бесплатно
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

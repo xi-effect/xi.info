@@ -14,7 +14,7 @@ export default function PaymentsPage() {
             description="Легко отслеживайте статусы платежей"
             imageSrcDesktop="/assets/payments/messageList.webp"
             imageSrcMobile="/assets/payments/messageList.webp"
-            imageClassName="left-4 sm:left-8 top-4 sm:top-8 h-full object-cover object-left p-8 pr-0 w-full absolute"
+            imageClassName="left-4 sm:left-8 top-4 sm:top-8 h-full object-cover object-left p-8 pr-0 w-full absolute md:p-0 md:relative md:object-contain"
             imageBlockClassName="h-[250px]"
           />
 
@@ -31,7 +31,7 @@ export default function PaymentsPage() {
             description="Отправляйте счета на оплату и подтверждайте получение денег. Если оплата задержится, мы сами пришлём ученику напоминание"
             imageSrcDesktop="/assets/payments/paymentReminders.svg"
             imageSrcMobile="/assets/payments/paymentReminders.svg"
-            imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 md:left-0 md:pl-8 md:object-cover md:w-full md:h-full py-6 md:top-0 sm:w-full sm:object-left"
+            imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 md:left-0 md:pl-8 md:object-cover md:w-full md:h-full md:py-6 md:top-0 sm:w-full sm:object-left"
             imgBlockClassName="h-[300px] sm:h-[450px] xl:items-center"
             reverse
           />

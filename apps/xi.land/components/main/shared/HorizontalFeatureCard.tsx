@@ -70,10 +70,10 @@ export const HorizontalFeatureCard = ({
         reverse ? 'md:order-1' : 'md:order-2',
       )}
     >
-      <h4 className="text-l-base-line-height leading-[1.3] sm:text-xl-base-line-height 2xl:text-[40px] font-medium sm:break-all md:break-normal">
+      <h4 className="text-h6 sm:text-h5 2xl:text-h3 font-medium sm:break-all md:break-normal">
         {title}
       </h4>
-      <p className="text-l-base 2xl:text-xl-base leading-[1.3]">{description}</p>
+      <p className="text-l-base 2xl:text-xl-base">{description}</p>
       {buttonText && (
         <div className="mt-8">
           <Button

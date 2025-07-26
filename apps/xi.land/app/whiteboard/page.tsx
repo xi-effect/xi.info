@@ -20,14 +20,15 @@ export default function WhiteboardPage() {
           <VerticalFeatureCard
             title="Загрузка изображений"
             description="Делитесь страницами из учебников или полезными картинками"
+            imageBlockClassName="h-[300px] sm:h-[450px]"
             imageSrcDesktop="/assets/whiteboard/videoCallInterface.webp"
             imageSrcMobile="/assets/whiteboard/videoCallInterface.webp"
-            imageClassName="w-[440px] relative"
+            imageClassName="w-full absolute h-full object-cover "
           />
 
           <HorizontalFeatureCard
-            title="Ваш личный бухгалтер"
-            description="Освободитесь от скучных подсчётов и напоминаний. Просто поручите их sovlium"
+            title="Пространство вдохновения"
+            description="Создавайте интересные и полезные уроки вместе с sovlium"
             imageSrcDesktop="/assets/whiteboard/space.webp"
             imageSrcMobile="/assets/whiteboard/space.webp"
             imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full object-cover h-full object-left-top"
