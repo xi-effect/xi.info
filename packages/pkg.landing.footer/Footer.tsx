@@ -27,8 +27,8 @@ const sections: Section[] = [
     title: 'Клиентам',
     links: [
       { link: '/prices', title: 'Тарифы' },
-      { link: 'https://support.xieffect.ru/', title: 'Руководства' },
-      { link: 'https://t.me/xieffect_support_bot', title: 'Поддержка' },
+      { link: 'https://support.sovlium.ru/', title: 'Руководства' },
+      { link: 'https://t.me/sovlium_support_bot', title: 'Поддержка' },
     ],
   },
   {
@@ -37,19 +37,16 @@ const sections: Section[] = [
       { link: '/about', title: 'О нас' },
       { link: '/blog', title: 'Блог' },
       { link: '/docs', title: 'Документы' },
-      { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },
+      { link: 'https://job.sovlium.ru/', title: 'Вакансии' },
     ],
   },
   {
     title: 'Социальные сети',
-    links: [
-      { link: 'https://vk.com/xieffect', title: 'VK' },
-      { link: 'https://t.me/xieffect', title: 'Telegram' },
-    ],
+    links: [{ link: 'https://t.me/sovlium', title: 'Telegram' }],
   },
 ];
 
-const email = 'support@xieffect.ru';
+const email = 'support@sovlium.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
@@ -80,14 +77,20 @@ const Footer = () => {
           href="/"
           className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
         >
-          <Image alt="xieffect logo" src="/xieffect.webp" fill priority={false} />
+          <Image
+            alt="sovlium logo"
+            src="/logofordark.svg"
+            width={216}
+            height={64}
+            priority={false}
+          />
         </Link>
         <div className="flex flex-col gap-8 xl:gap-16">
           <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
             {sections.map(renderSection)}
           </div>
           <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
-            <span className="2xl:w-[330px]">&copy; xi.effect с {copyrightYear} года</span>
+            <span className="2xl:w-[330px]">&copy; Sovlium с {copyrightYear} года</span>
             <span className="xs:order-1 2xl:w-[330px]">
               <Link
                 className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"

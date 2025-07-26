@@ -27,13 +27,14 @@ export const Tariffs = () => (
         </div>
         <ul className="flex md:basis-1/3 flex-col gap-2 xl:pl-4">
           <li className="flex gap-2 items-center text-gray-90 sm:text-l-base lg:text-m-base md:text-s-base 3xl:text-l-base">
-            <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Надежная система для работы
+            <Check size="default" className="sm:w-5 sm:h-5 fill-gray-60" /> Надежная система
+            для работы
           </li>
           <li className="flex gap-2 items-center text-gray-90 sm:text-l-base lg:text-m-base md:text-s-base 3xl:text-l-base">
-            <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Ежемесячные обновления
+            <Check size="default" className="sm:w-5 sm:h-5 fill-gray-60" /> Ежемесячные обновления
           </li>
           <li className="flex gap-2 items-center text-gray-90 sm:text-l-base lg:text-m-base md:text-s-base 3xl:text-l-base">
-            <Check size="m" className="sm:w-5 sm:h-5 fill-gray-60" /> Круглосуточная поддержка
+            <Check size="default" className="sm:w-5 sm:h-5 fill-gray-60" /> Круглосуточная поддержка
           </li>
         </ul>
       </div>

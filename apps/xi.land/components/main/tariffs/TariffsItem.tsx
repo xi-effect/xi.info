@@ -43,7 +43,7 @@ export const TariffsItem = ({
             key={index}
             className="flex items-center gap-x-2 sm:text-l-base md:text-s-base lg:text-m-base 3xl:text-l-base text-gray-90"
           >
-            <Check size="m" className="md:w-4 md:h-4 3xl:w-5 3xl:h-5 fill-gray-60" />
+            <Check size="default" className="md:w-4 md:h-4 3xl:w-5 3xl:h-5 fill-gray-60" />
             {feature}
           </li>
         ))}

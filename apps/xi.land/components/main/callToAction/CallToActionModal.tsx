@@ -9,7 +9,7 @@ import { DialogTitle } from '@xipkg/modal/Modal';
 import { CallToActionForm } from './CallToActionForm';
 
 const transition = {
-  type: 'spring',
+  type: 'spring' as const,
   mass: 0.6,
   damping: 10,
   stiffness: 100,
