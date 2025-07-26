@@ -121,19 +121,19 @@ export const vacancyList: ProfessionOptionsT[] = [
   //   id: 'design-graphic',
   //   title: 'Графический дизайнер',
   // },
-  {
-    label: 'Дизайн',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '26 января',
-    grade: 'Junior+, Middle',
-    id: 'design-uiux',
-    title: 'UI/UX дизайнер',
-  },
+  // {
+  //   label: 'Дизайн',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '26 января',
+  //   grade: 'Junior+, Middle',
+  //   id: 'design-uiux',
+  //   title: 'UI/UX дизайнер',
+  // },
   // {
   //   label: 'Product manager',
   //   author: {
