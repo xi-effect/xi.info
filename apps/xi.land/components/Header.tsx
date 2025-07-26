@@ -95,7 +95,10 @@ export const Header = () => {
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button asChild className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out">
+          <Button
+            asChild
+            className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
+          >
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
           </Button>
         </div>
