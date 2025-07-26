@@ -1,5 +1,6 @@
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
+import { SvgColumn } from './SvgColumn';
 
 interface SectionLink {
   link: string;
@@ -72,25 +73,30 @@ const Footer = () => {
 
   return (
     <footer className="flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
-      <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
-        <Link
-          href="/"
-          className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
-        >
-          <Image
-            alt="sovlium logo"
-            src="/logofordark.svg"
-            width={216}
-            height={64}
-            priority={false}
-          />
-        </Link>
+      <div className="text-gray-0 xs:p-8 relative flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
+        <div className="relative">
+          <Link
+            href="/"
+            className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
+          >
+            <Image
+              alt="sovlium logo"
+              src="/logofordark.svg"
+              width={216}
+              height={64}
+              priority={false}
+            />
+          </Link>
+          <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] xl:left-[-100px] xl:block min-[1760px]:left-0">
+            <SvgColumn />
+          </div>
+        </div>
         <div className="flex flex-col gap-8 xl:gap-16">
           <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
             {sections.map(renderSection)}
           </div>
           <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
-            <span className="2xl:w-[330px]">&copy; Sovlium с {copyrightYear} года</span>
+            <span className="2xl:w-[330px]">&copy; sovlium с {copyrightYear} года</span>
             <span className="xs:order-1 2xl:w-[330px]">
               <Link
                 className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"
