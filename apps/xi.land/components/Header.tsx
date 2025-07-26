@@ -26,6 +26,14 @@ export const Header = () => {
     const handleScroll = () => {
       const y = window.scrollY;
 
+      // Если мы в самом начале страницы, обязательно показываем хедер
+      if (y === 0) {
+        setIsShowHeader(true);
+        scrollUpDistance.current = 0;
+        lastScrollY.current = y;
+        return;
+      }
+
       if (y > lastScrollY.current) {
         /* === ДВИЖЕМСЯ ВНИЗ === */
         scrollUpDistance.current = 0; // обнуляем подъём
