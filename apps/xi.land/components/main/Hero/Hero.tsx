@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import React from 'react';
 import { Button } from '@xipkg/button';
-// import { AspectRatio } from '@xipkg/aspect-ratio';
 
 const HeroText = () => (
   <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
@@ -46,7 +45,6 @@ export const Hero = () => (
 
           <Button
             variant="ghost"
-            size="l"
             className="text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
             onClick={() => {
               const el = document.getElementById('becometester');

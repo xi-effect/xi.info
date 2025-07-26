@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
@@ -12,9 +13,14 @@ const SHOW_DELAY_UP = 200; // показываем только после 100 p
 
 export const Header = () => {
   const [isShowHeader, setIsShowHeader] = useState(true);
+  const pathname = usePathname();
 
   const lastScrollY = useRef(0); // последний Y
   const scrollUpDistance = useRef(0); // сколько подряд проскроллили вверх
+
+  // Определяем тему на основе пути
+  const isMainPage = pathname === '/';
+  const theme = isMainPage ? 'dark' : 'white';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,13 +54,12 @@ export const Header = () => {
 
   return (
     <header
-      data-theme="dark"
+      data-theme={theme}
       className={cn(
-        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-10 flex w-full justify-center transition-transform duration-700',
+        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-10 flex w-full justify-center transition-all duration-700 ease-in-out',
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
-      {/* …ваша внутренняя разметка… */}
       <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between md:w-full w-auto flex gap-0 lg:gap-12 relative items-center max-w-[1600px] mx-auto">
         <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
           <Image
@@ -62,14 +67,14 @@ export const Header = () => {
             alt="logo"
             width={216}
             height={48}
-            className="block dark:hidden"
+            className="block dark:hidden transition-opacity duration-500 ease-in-out"
           />
           <Image
             src="/logofordark.svg"
             alt="logo"
             width={216}
             height={48}
-            className="hidden dark:block"
+            className="hidden dark:block transition-opacity duration-500 ease-in-out"
           />
         </Link>
 
@@ -78,19 +83,19 @@ export const Header = () => {
         <div className="gap-4 hidden md:flex">
           <Button
             asChild
-            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0 text-brand-100 hover:text-brand-80 rounded-xl"
+            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0 text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
             variant="ghost"
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
           <Button
             asChild
-            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20 rounded-xl"
+            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20 rounded-xl transition-all duration-500 ease-in-out"
             variant="secondary"
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button asChild className="w-[96px] dark:text-gray-0 rounded-xl">
+          <Button asChild className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out">
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
           </Button>
         </div>
