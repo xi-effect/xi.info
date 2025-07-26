@@ -1,16 +1,14 @@
 export const metadata = {
-  title: 'Тарифы | xi.effect — Решения для образования',
-  description:
-    'Выберите подходящий тариф для вашего учебного процесса. Инструменты для онлайн-обучения, тестов, видеоконференций и управления доступом.',
+  title: 'Тарифы | sovlium',
+  description: '',
   openGraph: {
-    title: 'Тарифы | xi.effect — Решения для образования',
-    description:
-      'Выберите подходящий тариф для вашего учебного процесса. Инструменты для онлайн-обучения, тестов, видеоконференций и управления доступом.',
-    url: 'https://xieffect.ru',
-    siteName: 'xi.effect',
+    title: 'sovlium',
+    description: 'Приложение для репетиторов и малого бизнеса',
+    url: 'https://sovlium.ru',
+    siteName: 'sovlium',
     images: [
       {
-        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        url: 'https://sovlium.ru/web-app-manifest-512x512.png', // Must be an absolute URL
         width: 512,
         height: 512,
       },

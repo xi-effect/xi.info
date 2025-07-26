@@ -13,13 +13,12 @@ import Script from 'next/script';
 import '../index.css';
 
 export const metadata: Metadata = {
-  title: 'xi.effect',
+  title: 'sovlium',
   description: 'Приложение для репетиторов и малого бизнеса',
   manifest: '/manifest.webmanifest',
   keywords: [
-    'xi.effect',
-    'кси эффект',
-    'эффект',
+    'sovlium',
+    'совлиум',
     'стартап',
     'образование',
     'репетитору',
@@ -29,28 +28,24 @@ export const metadata: Metadata = {
     'инструмент',
     'для репетитора',
     'видеоконференции',
-    'effect',
     'сервис',
     'EdTech',
   ],
   icons: {
-    icon: [
-      { url: '/favicon-for-light.svg' },
-      { url: '/favicon-for-dark.svg', media: '(prefers-color-scheme: dark)' },
-    ],
+    icon: [{ url: '/favicon.svg' }],
   },
   verification: {
     google: 'VAN7yVAfRqd5NWFpUJlz0MVL1wcv0mdhDY-16-d48-U',
     yandex: '5896c9df498c0cd0',
   },
   openGraph: {
-    title: 'xi.effect',
+    title: 'sovlium',
     description: 'Приложение для репетиторов и малого бизнеса',
-    url: 'https://xieffect.ru',
-    siteName: 'xi.effect',
+    url: 'https://sovlium.ru',
+    siteName: 'sovlium',
     images: [
       {
-        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        url: 'https://sovlium.ru/web-app-manifest-512x512.png', // Must be an absolute URL
         width: 512,
         height: 512,
       },

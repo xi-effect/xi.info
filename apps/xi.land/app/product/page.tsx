@@ -1,18 +1,16 @@
 import { Items, Title } from 'components/product';
 
 export const metadata = {
-  title: 'Возможности | xi.effect для онлайн-обучения',
-  description:
-    'Чаты, тесты, видеоконференции и управление доступом — всё, что нужно для эффективного обучения.',
+  title: 'Возможности | sovlium',
+  description: '',
   openGraph: {
-    title: 'Возможности | xi.effect для онлайн-обучения',
-    description:
-      'Чаты, тесты, видеоконференции и управление доступом — всё, что нужно для эффективного обучения.',
-    url: 'https://xieffect.ru',
-    siteName: 'xi.effect',
+    title: 'sovlium',
+    description: 'Приложение для репетиторов и малого бизнеса',
+    url: 'https://sovlium.ru',
+    siteName: 'sovlium',
     images: [
       {
-        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        url: 'https://sovlium.ru/web-app-manifest-512x512.png', // Must be an absolute URL
         width: 512,
         height: 512,
       },
