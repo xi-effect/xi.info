@@ -1,3 +1,5 @@
+'use client';
+
 import { CarouselItemPropsT } from './types';
 
 export const CarouselItem = ({ children, className }: CarouselItemPropsT) => (

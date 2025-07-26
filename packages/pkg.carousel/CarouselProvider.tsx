@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { CarouselProviderPropsT } from './types';
 import { CarouselContext } from './context/CarouselContext';
 
@@ -31,5 +31,9 @@ export const CarouselProvider = ({
     setIndex(initialIndex);
   }, [initialIndex]);
 
-  return <CarouselContext.Provider value={contextValue}>{children}</CarouselContext.Provider>;
+  return (
+    <CarouselContext.Provider value={contextValue}>
+      {children as React.ReactNode}
+    </CarouselContext.Provider>
+  );
 };
