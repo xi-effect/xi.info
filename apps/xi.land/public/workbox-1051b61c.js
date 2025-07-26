@@ -5,11 +5,11 @@ define(['exports'], function (t) {
   } catch (t) {}
   const e = (t, ...e) => {
     let s = t;
-    return e.length > 0 && (s += ` :: ${JSON.stringify(e)}`), s;
+    return (e.length > 0 && (s += ` :: ${JSON.stringify(e)}`), s);
   };
   class s extends Error {
     constructor(t, s) {
-      super(e(t, s)), (this.name = t), (this.details = s);
+      (super(e(t, s)), (this.name = t), (this.details = s));
     }
   }
   try {
@@ -18,7 +18,7 @@ define(['exports'], function (t) {
   const n = (t) => (t && 'object' == typeof t ? t : { handle: t });
   class r {
     constructor(t, e, s = 'GET') {
-      (this.handler = n(e)), (this.match = t), (this.method = s);
+      ((this.handler = n(e)), (this.match = t), (this.method = s));
     }
     setCatchHandler(t) {
       this.catchHandler = n(t);
@@ -38,7 +38,7 @@ define(['exports'], function (t) {
   }
   class a {
     constructor() {
-      (this.t = new Map()), (this.i = new Map());
+      ((this.t = new Map()), (this.i = new Map()));
     }
     get routes() {
       return this.t;
@@ -61,7 +61,7 @@ define(['exports'], function (t) {
                 return this.handleRequest({ request: s, event: t });
               }),
             );
-          t.waitUntil(s), t.ports && t.ports[0] && s.then(() => t.ports[0].postMessage(!0));
+          (t.waitUntil(s), t.ports && t.ports[0] && s.then(() => t.ports[0].postMessage(!0)));
         }
       });
     }
@@ -125,7 +125,7 @@ define(['exports'], function (t) {
       this.o = n(t);
     }
     registerRoute(t) {
-      this.t.has(t.method) || this.t.set(t.method, []), this.t.get(t.method).push(t);
+      (this.t.has(t.method) || this.t.set(t.method, []), this.t.get(t.method).push(t));
     }
     unregisterRoute(t) {
       if (!this.t.has(t.method))
@@ -153,7 +153,7 @@ define(['exports'], function (t) {
         });
       a = t;
     }
-    return c().registerRoute(a), a;
+    return (c().registerRoute(a), a);
   }
   try {
     self['workbox:strategies:6.5.4'] && _();
@@ -179,7 +179,7 @@ define(['exports'], function (t) {
   class y {
     constructor() {
       this.promise = new Promise((t, e) => {
-        (this.resolve = t), (this.reject = e);
+        ((this.resolve = t), (this.reject = e));
       });
     }
   }
@@ -189,14 +189,14 @@ define(['exports'], function (t) {
   }
   class R {
     constructor(t, e) {
-      (this.h = {}),
+      ((this.h = {}),
         Object.assign(this, e),
         (this.event = e.event),
         (this.u = t),
         (this.l = new y()),
         (this.p = []),
         (this.g = [...t.plugins]),
-        (this.m = new Map());
+        (this.m = new Map()));
       for (const t of this.g) this.m.set(t, {});
       this.event.waitUntil(this.l.promise);
     }
@@ -224,21 +224,21 @@ define(['exports'], function (t) {
         return t;
       } catch (t) {
         throw (
-          (r &&
+          r &&
             (await this.runCallbacks('fetchDidFail', {
               error: t,
               event: e,
               originalRequest: r.clone(),
               request: i.clone(),
             })),
-          t)
+          t
         );
       }
     }
     async fetchAndCachePut(t) {
       const e = await this.fetch(t),
         s = e.clone();
-      return this.waitUntil(this.cachePut(t, s)), e;
+      return (this.waitUntil(this.cachePut(t, s)), e);
     }
     async cacheMatch(t) {
       const e = m(t);
@@ -289,11 +289,11 @@ define(['exports'], function (t) {
       } catch (t) {
         if (t instanceof Error)
           throw (
-            ('QuotaExceededError' === t.name &&
+            'QuotaExceededError' === t.name &&
               (await (async function () {
                 for (const t of g) await t();
               })()),
-            t)
+            t
           );
       }
       for (const t of this.iterateCallbacks('cacheDidUpdate'))
@@ -335,7 +335,7 @@ define(['exports'], function (t) {
         }
     }
     waitUntil(t) {
-      return this.p.push(t), t;
+      return (this.p.push(t), t);
     }
     async doneWaiting() {
       let t;
@@ -354,15 +354,15 @@ define(['exports'], function (t) {
           !e)
         )
           break;
-      return s || (e && 200 !== e.status && (e = void 0)), e;
+      return (s || (e && 200 !== e.status && (e = void 0)), e);
     }
   }
   class v {
     constructor(t = {}) {
-      (this.cacheName = d(t.cacheName)),
+      ((this.cacheName = d(t.cacheName)),
         (this.plugins = t.plugins || []),
         (this.fetchOptions = t.fetchOptions),
-        (this.matchOptions = t.matchOptions);
+        (this.matchOptions = t.matchOptions));
     }
     handle(t) {
       const [e] = this.handleAll(t);
@@ -399,8 +399,8 @@ define(['exports'], function (t) {
         r = await t;
       } catch (i) {}
       try {
-        await e.runCallbacks('handlerDidRespond', { event: n, request: s, response: r }),
-          await e.doneWaiting();
+        (await e.runCallbacks('handlerDidRespond', { event: n, request: s, response: r }),
+          await e.doneWaiting());
       } catch (t) {
         t instanceof Error && (i = t);
       }
@@ -465,14 +465,14 @@ define(['exports'], function (t) {
           ])
         ).includes(t)
         ? function (...e) {
-            return t.apply(P(this), e), B(L.get(this));
+            return (t.apply(P(this), e), B(L.get(this)));
           }
         : function (...e) {
             return B(t.apply(P(this), e));
           }
       : function (e, ...s) {
           const n = t.call(P(this), e, ...s);
-          return C.set(n, e.sort ? e.sort() : [e]), B(n);
+          return (C.set(n, e.sort ? e.sort() : [e]), B(n));
         };
   }
   function k(t) {
@@ -483,19 +483,19 @@ define(['exports'], function (t) {
             if (I.has(t)) return;
             const e = new Promise((e, s) => {
               const n = () => {
-                  t.removeEventListener('complete', r),
+                  (t.removeEventListener('complete', r),
                     t.removeEventListener('error', i),
-                    t.removeEventListener('abort', i);
+                    t.removeEventListener('abort', i));
                 },
                 r = () => {
-                  e(), n();
+                  (e(), n());
                 },
                 i = () => {
-                  s(t.error || new DOMException('AbortError', 'AbortError')), n();
+                  (s(t.error || new DOMException('AbortError', 'AbortError')), n());
                 };
-              t.addEventListener('complete', r),
+              (t.addEventListener('complete', r),
                 t.addEventListener('error', i),
-                t.addEventListener('abort', i);
+                t.addEventListener('abort', i));
             });
             I.set(t, e);
           })(t),
@@ -508,15 +508,15 @@ define(['exports'], function (t) {
       return (function (t) {
         const e = new Promise((e, s) => {
           const n = () => {
-              t.removeEventListener('success', r), t.removeEventListener('error', i);
+              (t.removeEventListener('success', r), t.removeEventListener('error', i));
             },
             r = () => {
-              e(B(t.result)), n();
+              (e(B(t.result)), n());
             },
             i = () => {
-              s(t.error), n();
+              (s(t.error), n());
             };
-          t.addEventListener('success', r), t.addEventListener('error', i);
+          (t.addEventListener('success', r), t.addEventListener('error', i));
         });
         return (
           e
@@ -530,7 +530,7 @@ define(['exports'], function (t) {
       })(t);
     if (E.has(t)) return E.get(t);
     const e = k(t);
-    return e !== t && (E.set(t, e), N.set(e, t)), e;
+    return (e !== t && (E.set(t, e), N.set(e, t)), e);
   }
   const P = (t) => N.get(t);
   const M = ['get', 'getKey', 'getAll', 'getAllKeys', 'count'],
@@ -546,9 +546,9 @@ define(['exports'], function (t) {
     const i = async function (t, ...e) {
       const i = this.transaction(t, r ? 'readwrite' : 'readonly');
       let a = i.store;
-      return n && (a = a.index(e.shift())), (await Promise.all([a[s](...e), r && i.done]))[0];
+      return (n && (a = a.index(e.shift())), (await Promise.all([a[s](...e), r && i.done]))[0]);
     };
-    return j.set(e, i), i;
+    return (j.set(e, i), i);
   }
   O = ((t) =>
     q({}, t, {
@@ -561,29 +561,29 @@ define(['exports'], function (t) {
   const K = 'cache-entries',
     A = (t) => {
       const e = new URL(t, location.href);
-      return (e.hash = ''), e.href;
+      return ((e.hash = ''), e.href);
     };
   class F {
     constructor(t) {
-      (this.U = null), (this._ = t);
+      ((this.U = null), (this._ = t));
     }
     L(t) {
       const e = t.createObjectStore(K, { keyPath: 'id' });
-      e.createIndex('cacheName', 'cacheName', { unique: !1 }),
-        e.createIndex('timestamp', 'timestamp', { unique: !1 });
+      (e.createIndex('cacheName', 'cacheName', { unique: !1 }),
+        e.createIndex('timestamp', 'timestamp', { unique: !1 }));
     }
     I(t) {
-      this.L(t),
+      (this.L(t),
         this._ &&
           (function (t, { blocked: e } = {}) {
             const s = indexedDB.deleteDatabase(t);
-            e && s.addEventListener('blocked', (t) => e(t.oldVersion, t)), B(s).then(() => {});
-          })(this._);
+            (e && s.addEventListener('blocked', (t) => e(t.oldVersion, t)), B(s).then(() => {}));
+          })(this._));
     }
     async setTimestamp(t, e) {
       const s = { url: (t = A(t)), timestamp: e, cacheName: this._, id: this.C(t) },
         n = (await this.getDb()).transaction(K, 'readwrite', { durability: 'relaxed' });
-      await n.store.put(s), await n.done;
+      (await n.store.put(s), await n.done);
     }
     async getTimestamp(t) {
       const e = await this.getDb(),
@@ -597,11 +597,12 @@ define(['exports'], function (t) {
       let i = 0;
       for (; n; ) {
         const s = n.value;
-        s.cacheName === this._ && ((t && s.timestamp < t) || (e && i >= e) ? r.push(n.value) : i++),
-          (n = await n.continue());
+        (s.cacheName === this._ &&
+          ((t && s.timestamp < t) || (e && i >= e) ? r.push(n.value) : i++),
+          (n = await n.continue()));
       }
       const a = [];
-      for (const t of r) await s.delete(K, t.id), a.push(t.url);
+      for (const t of r) (await s.delete(K, t.id), a.push(t.url));
       return a;
     }
     C(t) {
@@ -625,9 +626,9 @@ define(['exports'], function (t) {
               s && a.addEventListener('blocked', (t) => s(t.oldVersion, t.newVersion, t)),
               o
                 .then((t) => {
-                  i && t.addEventListener('close', () => i()),
+                  (i && t.addEventListener('close', () => i()),
                     r &&
-                      t.addEventListener('versionchange', (t) => r(t.oldVersion, t.newVersion, t));
+                      t.addEventListener('versionchange', (t) => r(t.oldVersion, t.newVersion, t)));
                 })
                 .catch(() => {}),
               o
@@ -639,13 +640,13 @@ define(['exports'], function (t) {
   }
   class H {
     constructor(t, e = {}) {
-      (this.N = !1),
+      ((this.N = !1),
         (this.O = !1),
         (this.T = e.maxEntries),
         (this.k = e.maxAgeSeconds),
         (this.B = e.matchOptions),
         (this._ = t),
-        (this.P = new F(t));
+        (this.P = new F(t)));
     }
     async expireEntries() {
       if (this.N) return void (this.O = !0);
@@ -654,7 +655,7 @@ define(['exports'], function (t) {
         e = await this.P.expireEntries(t, this.T),
         s = await self.caches.open(this._);
       for (const t of e) await s.delete(t, this.B);
-      (this.N = !1), this.O && ((this.O = !1), b(this.expireEntries()));
+      ((this.N = !1), this.O && ((this.O = !1), b(this.expireEntries())));
     }
     async updateTimestamp(t) {
       await this.P.setTimestamp(t, Date.now());
@@ -668,7 +669,7 @@ define(['exports'], function (t) {
       return !1;
     }
     async delete() {
-      (this.O = !1), await this.P.expireEntries(1 / 0);
+      ((this.O = !1), await this.P.expireEntries(1 / 0));
     }
   }
   try {
@@ -721,7 +722,7 @@ define(['exports'], function (t) {
   }
   function z(t, e) {
     const s = e();
-    return t.waitUntil(s), s;
+    return (t.waitUntil(s), s);
   }
   try {
     self['workbox:precaching:6.5.4'] && _();
@@ -740,11 +741,11 @@ define(['exports'], function (t) {
     }
     const r = new URL(n, location.href),
       i = new URL(n, location.href);
-    return r.searchParams.set('__WB_REVISION__', e), { cacheKey: r.href, url: i.href };
+    return (r.searchParams.set('__WB_REVISION__', e), { cacheKey: r.href, url: i.href });
   }
   class V {
     constructor() {
-      (this.updatedURLs = []),
+      ((this.updatedURLs = []),
         (this.notUpdatedURLs = []),
         (this.handlerWillStart = async ({ request: t, state: e }) => {
           e && (e.originalRequest = t);
@@ -760,16 +761,16 @@ define(['exports'], function (t) {
             s ? this.notUpdatedURLs.push(t) : this.updatedURLs.push(t);
           }
           return s;
-        });
+        }));
     }
   }
   class J {
     constructor({ precacheController: t }) {
-      (this.cacheKeyWillBeUsed = async ({ request: t, params: e }) => {
+      ((this.cacheKeyWillBeUsed = async ({ request: t, params: e }) => {
         const s = (null == e ? void 0 : e.cacheKey) || this.M.getCacheKeyForURL(t.url);
         return s ? new Request(s, { headers: t.headers }) : t;
       }),
-        (this.M = t);
+        (this.M = t));
     }
   }
   let Q, X;
@@ -787,7 +788,7 @@ define(['exports'], function (t) {
           const t = new Response('');
           if ('body' in t)
             try {
-              new Response(t.body), (Q = !0);
+              (new Response(t.body), (Q = !0));
             } catch (t) {
               Q = !1;
             }
@@ -801,10 +802,10 @@ define(['exports'], function (t) {
   }
   class Z extends v {
     constructor(t = {}) {
-      (t.cacheName = w(t.cacheName)),
+      ((t.cacheName = w(t.cacheName)),
         super(t),
         (this.W = !1 !== t.fallbackToNetwork),
-        this.plugins.push(Z.copyRedirectedCacheableResponsesPlugin);
+        this.plugins.push(Z.copyRedirectedCacheableResponsesPlugin));
     }
     async D(t, e) {
       const s = await e.cacheMatch(t);
@@ -818,8 +819,8 @@ define(['exports'], function (t) {
         const s = r.integrity,
           i = t.integrity,
           a = !i || i === s;
-        (n = await e.fetch(new Request(t, { integrity: 'no-cors' !== t.mode ? i || s : void 0 }))),
-          s && a && 'no-cors' !== t.mode && (this.K(), await e.cachePut(t, n.clone()));
+        ((n = await e.fetch(new Request(t, { integrity: 'no-cors' !== t.mode ? i || s : void 0 }))),
+          s && a && 'no-cors' !== t.mode && (this.K(), await e.cachePut(t, n.clone())));
       }
       return n;
     }
@@ -841,15 +842,15 @@ define(['exports'], function (t) {
         : e > 1 && null !== t && this.plugins.splice(t, 1);
     }
   }
-  (Z.defaultPrecacheCacheabilityPlugin = {
+  ((Z.defaultPrecacheCacheabilityPlugin = {
     cacheWillUpdate: async ({ response: t }) => (!t || t.status >= 400 ? null : t),
   }),
     (Z.copyRedirectedCacheableResponsesPlugin = {
       cacheWillUpdate: async ({ response: t }) => (t.redirected ? await Y(t) : t),
-    });
+    }));
   class tt {
     constructor({ cacheName: t, plugins: e = [], fallbackToNetwork: s = !0 } = {}) {
-      (this.A = new Map()),
+      ((this.A = new Map()),
         (this.F = new Map()),
         (this.H = new Map()),
         (this.u = new Z({
@@ -858,17 +859,17 @@ define(['exports'], function (t) {
           fallbackToNetwork: s,
         })),
         (this.install = this.install.bind(this)),
-        (this.activate = this.activate.bind(this));
+        (this.activate = this.activate.bind(this)));
     }
     get strategy() {
       return this.u;
     }
     precache(t) {
-      this.addToCacheList(t),
+      (this.addToCacheList(t),
         this.$ ||
           (self.addEventListener('install', this.install),
           self.addEventListener('activate', this.activate),
-          (this.$ = !0));
+          (this.$ = !0)));
     }
     addToCacheList(t) {
       const e = [];
@@ -963,7 +964,7 @@ define(['exports'], function (t) {
           } = {},
         ) {
           const i = new URL(t, location.href);
-          (i.hash = ''), yield i.href;
+          ((i.hash = ''), yield i.href);
           const a = (function (t, e = []) {
             for (const s of [...t.searchParams.keys()])
               e.some((t) => t.test(s)) && t.searchParams.delete(s);
@@ -971,11 +972,11 @@ define(['exports'], function (t) {
           })(i, e);
           if ((yield a.href, s && a.pathname.endsWith('/'))) {
             const t = new URL(a.href);
-            (t.pathname += s), yield t.href;
+            ((t.pathname += s), yield t.href);
           }
           if (n) {
             const t = new URL(a.href);
-            (t.pathname += '.html'), yield t.href;
+            ((t.pathname += '.html'), yield t.href);
           }
           if (r) {
             const t = r({ url: i });
@@ -990,7 +991,7 @@ define(['exports'], function (t) {
       }, t.strategy);
     }
   }
-  (t.CacheFirst = class extends v {
+  ((t.CacheFirst = class extends v {
     async D(t, e) {
       let n,
         r = await e.cacheMatch(t);
@@ -1006,7 +1007,7 @@ define(['exports'], function (t) {
   }),
     (t.ExpirationPlugin = class {
       constructor(t = {}) {
-        (this.cachedResponseWillBeUsed = async ({
+        ((this.cachedResponseWillBeUsed = async ({
           event: t,
           request: e,
           cacheName: s,
@@ -1025,7 +1026,7 @@ define(['exports'], function (t) {
         }),
           (this.cacheDidUpdate = async ({ cacheName: t, request: e }) => {
             const s = this.V(t);
-            await s.updateTimestamp(e.url), await s.expireEntries();
+            (await s.updateTimestamp(e.url), await s.expireEntries());
           }),
           (this.J = t),
           (this.k = t.maxAgeSeconds),
@@ -1033,12 +1034,12 @@ define(['exports'], function (t) {
           t.purgeOnQuotaError &&
             (function (t) {
               g.add(t);
-            })(() => this.deleteCacheAndMetadata());
+            })(() => this.deleteCacheAndMetadata()));
       }
       V(t) {
         if (t === d()) throw new s('expire-custom-caches-only');
         let e = this.X.get(t);
-        return e || ((e = new H(t, this.J)), this.X.set(t, e)), e;
+        return (e || ((e = new H(t, this.J)), this.X.set(t, e)), e);
       }
       G(t) {
         if (!this.k) return !0;
@@ -1053,15 +1054,15 @@ define(['exports'], function (t) {
         return isNaN(s) ? null : s;
       }
       async deleteCacheAndMetadata() {
-        for (const [t, e] of this.X) await self.caches.delete(t), await e.delete();
+        for (const [t, e] of this.X) (await self.caches.delete(t), await e.delete());
         this.X = new Map();
       }
     }),
     (t.NetworkFirst = class extends v {
       constructor(t = {}) {
-        super(t),
+        (super(t),
           this.plugins.some((t) => 'cacheWillUpdate' in t) || this.plugins.unshift(u),
-          (this.Z = t.networkTimeoutSeconds || 0);
+          (this.Z = t.networkTimeoutSeconds || 0));
       }
       async D(t, e) {
         const n = [],
@@ -1069,7 +1070,7 @@ define(['exports'], function (t) {
         let i;
         if (this.Z) {
           const { id: s, promise: a } = this.tt({ request: t, logs: n, handler: e });
-          (i = s), r.push(a);
+          ((i = s), r.push(a));
         }
         const a = this.et({ timeoutId: i, request: t, logs: n, handler: e });
         r.push(a);
@@ -1097,7 +1098,7 @@ define(['exports'], function (t) {
         } catch (t) {
           t instanceof Error && (r = t);
         }
-        return t && clearTimeout(t), (!r && i) || (i = await n.cacheMatch(e)), i;
+        return (t && clearTimeout(t), (!r && i) || (i = await n.cacheMatch(e)), i);
       }
     }),
     (t.RangeRequestsPlugin = class {
@@ -1108,7 +1109,7 @@ define(['exports'], function (t) {
     }),
     (t.StaleWhileRevalidate = class extends v {
       constructor(t = {}) {
-        super(t), this.plugins.some((t) => 'cacheWillUpdate' in t) || this.plugins.unshift(u);
+        (super(t), this.plugins.some((t) => 'cacheWillUpdate' in t) || this.plugins.unshift(u));
       }
       async D(t, e) {
         const n = e.fetchAndCachePut(t).catch(() => {});
@@ -1134,7 +1135,7 @@ define(['exports'], function (t) {
             const s = (await self.caches.keys()).filter(
               (s) => s.includes(e) && s.includes(self.registration.scope) && s !== t,
             );
-            return await Promise.all(s.map((t) => self.caches.delete(t))), s;
+            return (await Promise.all(s.map((t) => self.caches.delete(t))), s);
           })(e).then((t) => {}),
         );
       });
@@ -1143,13 +1144,13 @@ define(['exports'], function (t) {
       self.addEventListener('activate', () => self.clients.claim());
     }),
     (t.precacheAndRoute = function (t, e) {
-      !(function (t) {
+      (!(function (t) {
         et().precache(t);
       })(t),
         (function (t) {
           const e = et();
           h(new st(e, t));
-        })(e);
+        })(e));
     }),
-    (t.registerRoute = h);
+    (t.registerRoute = h));
 });

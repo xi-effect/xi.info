@@ -87,7 +87,7 @@ const Footer = () => {
               priority={false}
             />
           </Link>
-          <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] xl:left-[-100px] xl:block min-[1760px]:left-0">
+          <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
             <SvgColumn />
           </div>
         </div>
