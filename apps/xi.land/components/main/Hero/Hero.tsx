@@ -4,29 +4,23 @@ import Image from 'next/image';
 import React from 'react';
 import { Button } from '@xipkg/button';
 import { usePathname } from 'next/navigation';
+import { config } from './config';
 
-const HeroText = () => (
-  <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
-    <h1 className="font-medium text-xl md:text-3xl lg:text-5xl text-gray-0 text-center hidden md:block">
-      Все инструменты репетитора
-      <br />в одной платформе
-    </h1>
+const HeroText = () => {
+  const pathname = usePathname();
 
-    <h1 className="font-medium text-xl md:text-2xl lg:text-3xl text-gray-0 text-center block md:hidden">
-      Расписание всегда под контролем
-    </h1>
+  return (
+    <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
+      <h1 className="font-medium text-xl md:text-3xl lg:text-5xl text-gray-0 text-center hidden md:block whitespace-pre-line">
+        {config[pathname].title}
+      </h1>
 
-    <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center hidden md:block">
-      Видеозвонки, онлайн-доски и заметки,
-      <br />
-      контроль оплат и автоматические напоминания для учеников
-    </h2>
-
-    <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center block md:hidden">
-      Планируйте работу на день, неделю, месяц и год вперёд вместе с sovlium
-    </h2>
-  </div>
-);
+      <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center hidden md:block whitespace-pre-line">
+        {config[pathname].description}
+      </h2>
+    </div>
+  );
+};
 
 const Blobs = () => (
   <>
@@ -64,7 +58,7 @@ export const Hero = () => {
                 }
               }}
             >
-              Стать бета-тестером
+              {config[pathname].button}
             </Button>
           </div>
 
