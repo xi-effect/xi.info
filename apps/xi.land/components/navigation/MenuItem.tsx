@@ -48,7 +48,7 @@ export const MenuItem = ({
     {!href && active !== null && active === item && (
       <motion.div
         transition={transition}
-        className="absolute top-6 left-[-10px] transform pt-8 md:w-full lg:w-auto"
+        className="absolute top-6 left-[-10px] transform pt-8 w-auto"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}

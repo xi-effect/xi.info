@@ -1,8 +1,4 @@
 export { AppsCarousel } from './appsCarousel';
 export { Hero } from './Hero';
-export { Tasks } from './tasks';
-export { VideoCalls } from './videocalls';
-export { Whiteboard } from './whiteboard';
 export { Promo } from './promo';
-export { Tariffs } from './tariffs';
 export { CallToAction } from './callToAction';

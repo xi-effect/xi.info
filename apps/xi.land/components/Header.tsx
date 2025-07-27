@@ -26,8 +26,8 @@ export const Header = () => {
     const handleScroll = () => {
       const y = window.scrollY;
 
-      // Если мы в самом начале страницы, обязательно показываем хедер
-      if (y === 0) {
+      // Если мы в самом начале страницы (от 0 до 16px), обязательно показываем хедер
+      if (y <= 16) {
         setIsShowHeader(true);
         scrollUpDistance.current = 0;
         lastScrollY.current = y;
@@ -68,7 +68,7 @@ export const Header = () => {
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
-      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between md:w-full w-auto flex gap-0 lg:gap-12 relative items-center max-w-[1600px] mx-auto">
+      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 lg:gap-12 relative items-center max-w-[1600px] md:mx-auto">
         <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
           <Image
             src="/logoforwhite.svg"
