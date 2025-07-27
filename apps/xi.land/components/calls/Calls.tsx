@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { Button } from '@xipkg/button';
 
 import { VerticalFeatureCard } from 'components/main/shared';
 
@@ -46,14 +45,6 @@ export const Calls = () => (
           alt="Обычные видеоконференции"
           className="w-full max-w-[572px]"
         />
-      </div>
-      <div className="px-4 py-8  flex flex-col gap-8 justify-center items-center">
-        <p className="text-xl-base text-center">
-          Подарите себе больше свободных минут с видеозвонками от sovlium
-        </p>
-        <Button className="w-auto sm:text-l-base rounded-xl sm:rounded-2xl px-6 sm:px-8 sm:h-14">
-          Попробовать бесплатно
-        </Button>
       </div>
     </div>
   </div>
