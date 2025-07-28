@@ -10,8 +10,12 @@
   "dependencies": {
     "@xipkg/button": "3.1.8",
     "@xipkg/link": "2.0.12",
-    "@xipkg/tailwind": "^0.5.0",
-    "sonner": "1.7.4"
+    "@xipkg/tailwind": "^0.8.1",
+    "sonner": "1.7.4",
+    "@xipkg/form": "4.2.0",
+    "@xipkg/input": "2.2.9",
+    "zod": "3.24.2",
+    "@hookform/resolvers": "3.10.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",

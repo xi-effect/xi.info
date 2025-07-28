@@ -1,7 +1,7 @@
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { SvgColumn } from './SvgColumn';
-import { MainForm } from './MainForm';
+import { MainPage } from './MainPage';
 import { FreeInvite } from './FreeInvite';
 
 interface SectionLink {
@@ -74,7 +74,7 @@ const Footer = () => {
   return (
     <>
       <div className="bg-brand-80 z-1 mt-12 flex w-full flex-col items-center justify-center rounded-t-[32px] xl:rounded-t-[64px]">
-        <MainForm />
+        <MainPage />
         <FreeInvite />
       </div>
       <div className="bg-brand-80">
