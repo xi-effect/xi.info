@@ -1,5 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { Telegram } from 'components/main';
+import { Features, Telegram } from 'components/main';
 import { ScrollStepSection } from 'components/main/ScrollStepSection';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
@@ -32,6 +32,7 @@ export default function MainPage() {
       <StickyGsap /> */}
       <div className="h-screen w-full bg-red-500">2</div>
       <ScrollStepSection />
+      <Features />
       <Telegram />
     </main>
   );

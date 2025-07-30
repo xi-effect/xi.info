@@ -11,11 +11,11 @@ const HeroText = () => {
 
   return (
     <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
-      <h1 className="font-medium text-xl md:text-3xl lg:text-5xl text-gray-0 text-center hidden md:block whitespace-pre-line">
+      <h1 className="font-medium text-3xl md:text-4xl lg:text-5xl text-gray-0 text-center whitespace-pre-line">
         {config[pathname].title}
       </h1>
 
-      <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center hidden md:block whitespace-pre-line">
+      <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-20 text-center whitespace-pre-line">
         {config[pathname].description}
       </h2>
     </div>
@@ -41,11 +41,11 @@ export const Hero = () => {
       data-theme={theme}
       className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full xs:pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out"
     >
-      <div className="w-full max-w-[1600px] h-[calc(100vh-160px)] flex items-start justify-center">
+      <div className="w-full max-w-[1600px] h-[500px] sm:h-[calc(100vh-160px)] flex items-start justify-center">
         <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 sm:pt-20 pb-8 xs:pb-0 px-6 md:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 md:gap-12 lg:gap-16">
           <Blobs />
 
-          <div className="mt-auto flex flex-col items-center gap-4 md:gap-6 lg:gap-8 md:max-w-[1088px] max-w-[580px]">
+          <div className="mb-auto md:mb-0 mt-auto flex flex-col items-center gap-4 md:gap-6 lg:gap-8 md:max-w-[1088px] max-w-[580px]">
             <HeroText />
 
             <Button
