@@ -1,5 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { Features, Telegram } from 'components/main';
+import { Features, Telegram, Text } from 'components/main';
 import { ScrollStepSection } from 'components/main/ScrollStepSection';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
@@ -30,8 +30,17 @@ export default function MainPage() {
       <ScrollSection />
       <div className="h-screen w-full bg-red-500">2</div>
       <StickyGsap /> */}
-      <div className="h-screen w-full bg-red-500">2</div>
+      <Text
+        className="text-balance"
+        theme="dark"
+        text="Переход в онлайн принёс репетиторам новые вызовы"
+      />
       <ScrollStepSection />
+      <Text
+        className="text-balance"
+        theme="light"
+        text="Поэтому мы создали Sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
+      />
       <Features />
       <Telegram />
     </main>

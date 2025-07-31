@@ -37,7 +37,11 @@ export const Telegram = () => (
         и просто общайтесь с коллегами
       </p>
       <Link href="https://t.me/sovlium" className="z-5" target="_blank">
-        <Button variant="default" className="z-5 mt-2 text-brand-100 bg-brand-0 w-full">
+        <Button
+          variant="ghost"
+          size="l"
+          className="mt-2 z-5 text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
+        >
           Перейти в Telegram
         </Button>
       </Link>

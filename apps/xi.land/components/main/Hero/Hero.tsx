@@ -50,6 +50,7 @@ export const Hero = () => {
 
             <Button
               variant="ghost"
+              size="l"
               className="text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
               onClick={() => {
                 const el = document.getElementById('becometester');

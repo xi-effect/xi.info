@@ -18,9 +18,9 @@ export const FreeInvite = () => {
       </h3>
       <Link href="https://app.sovlium.ru/signup" className="z-5" target="_blank">
         <Button
+          variant="ghost"
           size="l"
-          variant="default"
-          className="text-brand-100 bg-brand-0 h-[56px] w-full text-[20px]"
+          className="text-brand-100 lg:text-l-base bg-brand-0 z-5 text-base font-medium md:text-lg"
         >
           Использовать бесплатно
         </Button>
