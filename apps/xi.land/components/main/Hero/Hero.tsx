@@ -64,7 +64,7 @@ export const Hero = () => {
           </div>
 
           <Image
-            src="/assets/main/hero/hero_mobile.svg"
+            src={config[pathname].imageMobile}
             alt="screenshot of the site"
             width={572}
             height={400}
@@ -73,7 +73,7 @@ export const Hero = () => {
           />
 
           <Image
-            src="/assets/main/hero/hero.svg"
+            src={config[pathname].image}
             alt="screenshot of the site"
             width={1344}
             height={756}
