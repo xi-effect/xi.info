@@ -30,16 +30,18 @@ export const MenuItem = ({
   href,
   target = '_self',
 }: MenuItemPropsT) => (
-  <li
+  <div
     onMouseEnter={() => setActive(item)}
     className={cn(
       'relative text-s-base text-gray-70 dark:text-gray-20 font-normal lg:text-l-base flex items-center',
-      href &&
-        'hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100',
     )}
   >
     {href ? (
-      <Link target={target} href={href} className="py-2.5 px-3">
+      <Link
+        target={target}
+        href={href}
+        className="py-2.5 px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
+      >
         {item}
       </Link>
     ) : (
@@ -63,5 +65,5 @@ export const MenuItem = ({
         </motion.div>
       </motion.div>
     )}
-  </li>
+  </div>
 );

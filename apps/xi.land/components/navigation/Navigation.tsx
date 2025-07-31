@@ -33,7 +33,7 @@ export const Navigation = () => {
 
   return (
     <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
-      <ul className="flex lg:gap-2">
+      <div className="flex lg:gap-2">
         <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="flex flex-col gap-0">
             {subMenu.map((item) => (
@@ -56,7 +56,7 @@ export const Navigation = () => {
           target="_blank"
           href="https://support.xieffect.ru/"
         /> */}
-      </ul>
+      </div>
     </nav>
   );
 };
