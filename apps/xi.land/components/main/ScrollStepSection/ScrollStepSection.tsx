@@ -1,75 +1,73 @@
 'use client';
 
-import { useLayoutEffect, useEffect, useRef, useState } from 'react';
+/* eslint-disable no-plusplus */
+
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* данные */
 const LINES = ['в планировании', 'в подаче материала', 'в общении с учениками'];
 const IMAGES = [
-  '/assets/main/Messages/plans.svg',
-  '/assets/main/Messages/materials.svg',
-  '/assets/main/Messages/chat.svg',
+  '/assets/main/Messages/plans.webp',
+  '/assets/main/Messages/materials.webp',
+  '/assets/main/Messages/chat.webp',
 ];
 
 export const ScrollStepSection = () => {
-  /* refs */
   const sectionRef = useRef<HTMLDivElement>(null);
   const tailsRef = useRef<HTMLDivElement>(null);
   const imgWrapRef = useRef<HTMLDivElement>(null);
-
-  /* индекс текущего шага */
   const [activeIndex, setActiveIndex] = useState(0);
-  const lastIdxRef = useRef(0); /* чтобы не дёргать setState 50× за snap */
+  const lastIdxRef = useRef(0);
 
-  /* === GSAP: один тайм-лайн, вычисляет индекс на защёлке === */
-  useLayoutEffect(() => {
-    if (!sectionRef.current || !tailsRef.current) return;
+  useGSAP(
+    () => {
+      if (!sectionRef.current || !tailsRef.current) return;
 
-    const lineH = tailsRef.current.children[0].getBoundingClientRect().height; // динамично
-    const total = LINES.length;
-    const step = 1 / (total - 1); // 0, 0.5, 1 …
-    const EPS = 0.001;
+      const lineEl = tailsRef.current.children[0] as HTMLElement;
+      const gap = parseFloat(getComputedStyle(tailsRef.current).gap || '0');
+      const lineH = lineEl.clientHeight + gap;
+      const EPS = 0.01;
+      const total = LINES.length;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'center center',
-        end: () => `+=${window.innerHeight * (total - 1)}`,
-        pin: true,
-        scrub: 0.4,
-        snap: { snapTo: step, duration: 0.25 },
-        anticipatePin: 1,
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'center center',
+          end: '+=100%',
+          pin: true,
+          scrub: true,
+          snap: {
+            snapTo: 1 / total,
+            duration: 0.2,
+            delay: 0,
+          },
+          anticipatePin: 1,
+          onUpdate: ({ progress }) => {
+            const index = Math.min(LINES.length - 1, Math.floor((progress - EPS) * LINES.length));
 
-        onUpdate: ({ progress }) => {
-          const idx = Math.round(progress / step);
-          const snapPos = idx * step;
-          if (Math.abs(progress - snapPos) < EPS && idx !== lastIdxRef.current) {
-            lastIdxRef.current = idx;
-            setActiveIndex(idx);
-          }
+            if (index !== lastIdxRef.current && index >= 0) {
+              lastIdxRef.current = index;
+              setActiveIndex(index);
+            }
+          },
         },
-      },
-    });
+      });
 
-    /* движение + перекраска хвостов */
-    for (let i = 1; i < total; i += 1) {
-      tl.to(tailsRef.current, { y: -lineH * i, ease: 'none' }, i)
-        .to(tailsRef.current.children[i], { color: 'var(--color-gray-0)' }, i)
-        .to(tailsRef.current.children[i - 1], { color: 'var(--color-gray-70)' }, i);
-    }
+      for (let i = 1; i < total; i++) {
+        const at = i / (total - 1);
+        tl.to(tailsRef.current, { y: -lineH * i, ease: 'none' }, at)
+          .to(tailsRef.current.children[i], { color: 'var(--color-gray-0)' }, at)
+          .to(tailsRef.current.children[i - 1], { color: 'var(--color-gray-70)' }, at);
+      }
+    },
+    { scope: sectionRef },
+  );
 
-    // eslint-disable-next-line consistent-return
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, []); // ← больше нет зависимости от activeIndex
-
-  /* === fade картинок при смене индекса === */
   useEffect(() => {
     if (!imgWrapRef.current) return;
     const imgs = Array.from(imgWrapRef.current.children) as HTMLElement[];
@@ -78,7 +76,6 @@ export const ScrollStepSection = () => {
     gsap.to(imgs[activeIndex], { autoAlpha: 1, duration: 0.35, ease: 'power1.out' });
   }, [activeIndex]);
 
-  /* верстка */
   const TAILS = LINES.map((t) => t.slice(1).trimStart());
 
   return (
@@ -90,10 +87,10 @@ export const ScrollStepSection = () => {
         className="px-[160px] relative h-screen w-full bg-gray-100 flex items-center overflow-hidden"
       >
         {/* ── слева: буква + хвосты ── */}
-        <div className="flex pt-[96px] w-1/2 items-start">
-          <span className="font-semibold text-[48px] leading-none text-gray-0 select-none">в</span>
+        <div className="flex pt-[96px] w-1/2 items-baseline">
+          <span className="font-semibold text-[48px] leading-tight text-gray-0 select-none">в</span>
 
-          <div ref={tailsRef} className="flex flex-col mt-[-6px] ml-[12px] gap-8 leading-tight">
+          <div ref={tailsRef} className="flex flex-col ml-[12px] gap-8 leading-tight">
             {TAILS.map((txt, idx) => (
               <p
                 key={idx}
