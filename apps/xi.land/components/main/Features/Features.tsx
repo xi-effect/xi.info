@@ -146,7 +146,7 @@ export const Features = () => {
               )}
             >
               <Image
-                src={`/assets/main/Features/${n}.svg`}
+                src={`/assets/main/Features/${n}.webp`}
                 alt={`feature-${n}`}
                 fill
                 className="object-cover object-left"

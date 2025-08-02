@@ -26,10 +26,6 @@ export const metadata: Metadata = {
 export default function MainPage() {
   return (
     <main>
-      {/* <div className="h-screen w-full bg-red-500">1</div>
-      <ScrollSection />
-      <div className="h-screen w-full bg-red-500">2</div>
-      <StickyGsap /> */}
       <Text
         className="text-balance"
         theme="dark"

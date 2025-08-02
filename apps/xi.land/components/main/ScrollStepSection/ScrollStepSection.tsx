@@ -84,48 +84,42 @@ export const ScrollStepSection = () => {
   const TAILS = LINES.map((t) => t.slice(1).trimStart());
 
   return (
-    <>
-      <div style={{ height: '200vh' }} />
+    <section
+      ref={sectionRef}
+      className="relative h-screen w-full bg-gray-100 overflow-hidden flex flex-col-reverse md:flex-row items-start justify-center gap-8 px-6 py-12 sm:flex-row sm:items-center md:px-8 2xl:px-[160px] sm:py-0"
+    >
+      {/* ── слева: буква + хвосты ── */}
+      <div className="flex pt-[96px] w-1/2 items-baseline">
+        <span className="font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] leading-tight text-gray-0 select-none">
+          в
+        </span>
 
-      <section
-        ref={sectionRef}
-        className="relative h-screen w-full bg-gray-100 overflow-hidden flex flex-col-reverse md:flex-row items-start justify-center gap-8 px-6 py-12 sm:flex-row sm:items-center md:px-8 2xl:px-[160px] sm:py-0"
-      >
-        {/* ── слева: буква + хвосты ── */}
-        <div className="flex pt-[96px] w-1/2 items-baseline">
-          <span className="font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] leading-tight text-gray-0 select-none">
-            в
-          </span>
-
-          <div ref={tailsRef} className="flex flex-col ml-[12px] gap-8 leading-tight">
-            {TAILS.map((txt, idx) => (
-              <p
-                key={idx}
-                className="m-0 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] first:text-gray-0 [&:not(:first-child)]:text-gray-70"
-              >
-                {txt}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        {/* ── справа: картинки ── */}
-        <div ref={imgWrapRef} className="relative flex h-full w-full md:w-1/2">
-          {IMAGES.map((src, idx) => (
-            <Image
+        <div ref={tailsRef} className="flex flex-col ml-[12px] gap-8 leading-tight">
+          {TAILS.map((txt, idx) => (
+            <p
               key={idx}
-              src={src}
-              alt=""
-              fill
-              priority={idx === 0}
-              className="absolute inset-0 h-full w-full object-contain"
-              style={{ opacity: idx === 0 ? 1 : 0 }}
-            />
+              className="m-0 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] first:text-gray-0 [&:not(:first-child)]:text-gray-70"
+            >
+              {txt}
+            </p>
           ))}
         </div>
-      </section>
+      </div>
 
-      <div style={{ height: '200vh' }} />
-    </>
+      {/* ── справа: картинки ── */}
+      <div ref={imgWrapRef} className="relative flex h-full w-full md:w-1/2">
+        {IMAGES.map((src, idx) => (
+          <Image
+            key={idx}
+            src={src}
+            alt=""
+            fill
+            priority={idx === 0}
+            className="absolute inset-0 h-full w-full object-contain"
+            style={{ opacity: idx === 0 ? 1 : 0 }}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
