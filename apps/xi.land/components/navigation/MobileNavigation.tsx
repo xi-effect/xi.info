@@ -16,30 +16,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { subMenu } from './Navigation';
 
-type LinkMenuItemT = {
-  label: string;
-  link: string;
-};
+// type LinkMenuItemT = {
+//   label: string;
+//   link: string;
+// };
 
-const arrayOfLinks: LinkMenuItemT[] = [
-  {
-    label: 'Инструменты',
-    link: '#',
-  },
-  {
-    label: 'Тарифы',
-    link: '/prices',
-  },
-  {
-    label: 'Блог',
-    link: '/blog',
-  },
-  {
-    label: 'База знаний',
-    link: '#',
-  },
-];
+// const arrayOfLinks: LinkMenuItemT[] = [
+//   {
+//     label: 'Инструменты',
+//     link: '#',
+//   },
+//   {
+//     label: 'Тарифы',
+//     link: '/prices',
+//   },
+//   {
+//     label: 'Блог',
+//     link: '/blog',
+//   },
+//   {
+//     label: 'База знаний',
+//     link: '#',
+//   },
+// ];
 
 export const MobileNavigation = () => {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false);
@@ -105,24 +106,24 @@ export const MobileNavigation = () => {
             variant="full"
             className="flex items-center justify-center bg-gray-0 dark:bg-gray-100 w-12 h-12 p-1 m-0"
           >
-            <Close className="fill-gray-100 dark:fill-gray-0 fill-gray-100 w-8 h-8" />
+            <Close className="dark:fill-gray-0 fill-gray-100 w-8 h-8" />
           </ModalCloseButton>
         </ModalHeader>
 
         <div className="grow flex flex-col gap-2 w-full mt-4">
-          {arrayOfLinks.map((item) => (
+          {subMenu.map((item) => (
             <motion.div
-              key={item.label}
+              key={item.title}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="flex"
             >
               <Link
                 onClick={toggleBurgerMenu}
-                className="text-gray-70 dark:text-gray-20 text-xl font-normal py-4 px-6 w-full hover:text-gray-100"
-                href={item.link}
+                className="text-gray-70 dark:text-gray-20 text-xl font-normal py-4 px-6 w-full hover:text-gray-100 dark:hover:text-gray-0"
+                href={item.href}
               >
-                {item.label}
+                {item.title}
               </Link>
             </motion.div>
           ))}

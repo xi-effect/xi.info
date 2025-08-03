@@ -68,7 +68,7 @@ export const Hero = () => {
             alt="screenshot of the site"
             width={572}
             height={400}
-            className="hidden sm:block md:hidden"
+            className="self-end mr-[-32px] hidden sm:block md:hidden"
             priority
           />
 

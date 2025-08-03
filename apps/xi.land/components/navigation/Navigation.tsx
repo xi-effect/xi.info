@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { MenuItem } from './MenuItem';
 // import { SubMenuItem } from './SubMenuItem';
 
-const subMenu = [
+export const subMenu = [
   {
     title: 'Видеозвонки',
     href: '/calls',
@@ -48,7 +48,13 @@ export const Navigation = () => {
         </MenuItem> */}
 
         {subMenu.map((item) => (
-          <MenuItem setActive={setActive} active={active} item={item.title} href={item.href} />
+          <MenuItem
+            key={item.title}
+            setActive={setActive}
+            active={active}
+            item={item.title}
+            href={item.href}
+          />
         ))}
 
         {/* <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
