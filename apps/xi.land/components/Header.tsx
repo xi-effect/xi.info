@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
 
@@ -86,19 +85,21 @@ export const Header = () => {
           />
         </Link>
 
-        <Navigation />
-
         <div className="gap-4 hidden md:flex">
-          <Button
+          <Navigation />
+          {/* <Button
             asChild
-            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0 text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
+            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0
+            text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
             variant="ghost"
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
           <Button
             asChild
-            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20 rounded-xl transition-all duration-500 ease-in-out"
+            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent
+            active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
+            rounded-xl transition-all duration-500 ease-in-out"
             variant="secondary"
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
@@ -108,7 +109,7 @@ export const Header = () => {
             className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
           >
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
-          </Button>
+          </Button> */}
         </div>
 
         <MobileNavigation />

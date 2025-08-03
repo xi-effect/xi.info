@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { MenuItem } from './MenuItem';
-import { SubMenuItem } from './SubMenuItem';
+// import { SubMenuItem } from './SubMenuItem';
 
 const subMenu = [
   {
@@ -34,7 +34,7 @@ export const Navigation = () => {
   return (
     <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
       <div className="flex lg:gap-2">
-        <MenuItem setActive={setActive} active={active} item="Возможности">
+        {/* <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="flex flex-col gap-0">
             {subMenu.map((item) => (
               <SubMenuItem
@@ -45,10 +45,14 @@ export const Navigation = () => {
               />
             ))}
           </div>
-        </MenuItem>
+        </MenuItem> */}
 
-        <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
-        <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" />
+        {subMenu.map((item) => (
+          <MenuItem setActive={setActive} active={active} item={item.title} href={item.href} />
+        ))}
+
+        {/* <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
+        <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" /> */}
         {/* <MenuItem
           setActive={setActive}
           active={active}

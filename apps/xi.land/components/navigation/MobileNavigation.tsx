@@ -134,26 +134,31 @@ export const MobileNavigation = () => {
             className="flex items-center w-full gap-4"
           >
             <div className="gap-4 flex w-full">
-              <Button
+              {/* <Button
                 asChild
-                className="w-full dark:hidden flex bg-brand-0 hover:bg-brand-0 text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
+                className="w-full dark:hidden flex bg-brand-0 hover:bg-brand-0
+                text-brand-100 hover:text-brand-80 rounded-xl transition-all
+                duration-500 ease-in-out"
                 variant="ghost"
               >
                 <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
               </Button>
               <Button
                 asChild
-                className="w-full dark:flex hidden bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20 rounded-xl transition-all duration-500 ease-in-out"
+                className="w-full dark:flex hidden bg-transparent hover:bg-transparent
+                active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
+                rounded-xl transition-all duration-500 ease-in-out"
                 variant="secondary"
               >
                 <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
               </Button>
               <Button
                 asChild
-                className="w-full dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
+                className="w-full dark:text-gray-0 rounded-xl
+                transition-all duration-500 ease-in-out"
               >
                 <Link href="https://app.sovlium.ru/signin">Войти</Link>
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </ModalFooter>
