@@ -8,48 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
+import { steps } from './content';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /* ---------- контент всех состояний ---------- */
-const steps = [
-  {
-    title: 'Расписание всегда под контролем',
-    desc: 'Планируйте работу на день, неделю, месяц и год вперёд вместе с sovlium',
-    href: '/calendar',
-    cta: 'Узнать больше',
-  },
-  {
-    title: 'Видеозвонки, которые не хочется заканчивать',
-    desc: 'Ваш идеальный цифровой класс. Слушайте. Показывайте. Объясняйте. Просто и быстро',
-    href: '/calls',
-    cta: 'Узнать больше',
-  },
-  {
-    title: 'Бесконечный холст для ваших идей',
-    desc: 'Готовьте уроки заранее или рисуйте на доске прямо во время видеозвонка',
-    href: '/whiteboard',
-    cta: 'Узнать больше',
-  },
-  {
-    title: 'Собственная цифровая библиотека',
-    desc: 'Одна платформа вместо десяти сервисов: храните все материалы в sovlium',
-    href: '/materials',
-    cta: 'Узнать больше',
-  },
-  {
-    title: 'Наглядная статистика заработка',
-    desc: 'Больше не нужно записывать каждую оплату отдельно. Sovlium подсчитает всё за вас',
-    href: '/payments',
-    cta: 'Узнать больше',
-  },
-  {
-    title: 'Работа с компьютера, телефона и планшета',
-    desc: 'Дома, в парке или на пляже — проводите уроки там, где удобно именно вам',
-    href: null, // <-- последняя: без кнопки
-    cta: null,
-  },
-];
 
 export const Features = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

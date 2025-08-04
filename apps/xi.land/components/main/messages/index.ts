@@ -1,1 +1,1 @@
-export { Messages } from './Messages';
+export * from './MessagesBlock';
