@@ -1,7 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { Telegram, Text } from 'components/main';
-import { FeaturesBlock } from 'components/main/Features';
-import { MessagesBlock } from 'components/main/messages';
+import { FeaturesBlock, MessagesBlock, Telegram, Text } from 'components/main';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
 
@@ -39,7 +37,6 @@ export default function MainPage() {
         text="Поэтому мы создали Sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
       />
       <FeaturesBlock />
-      {/* <FeaturesMobile /> */}
       <Telegram />
     </main>
   );
