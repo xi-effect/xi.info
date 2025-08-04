@@ -1,1 +1,1 @@
-export * from './Features';
+export * from './FeaturesBlock';
