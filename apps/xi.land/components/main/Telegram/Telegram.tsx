@@ -23,15 +23,15 @@ const TgIcon = () => (
 );
 
 export const Telegram = () => (
-  <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full xs:pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out">
-    <div className="relative bg-brand-80 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] w-full max-w-[1600px] p-[32px] md:p-[64px] flex flex-col items-start justify-center gap-2">
+  <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 transition-all duration-700 ease-in-out">
+    <div className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full max-w-[1600px] p-8 lg:p-16 flex flex-col items-start justify-center gap-2">
       <TgIcon />
-      <h3 className="z-5 text-gray-0 text-[24px] xs:text-[32px] md:text-[48px] font-medium whitespace-pre-line">
+      <h3 className="z-5 text-gray-0 text-[32px] sm:text-h3 xl:text-h2 font-medium whitespace-pre-line">
         Присоединяйтесь к сообществу
         <br />
         репетиторов в Telegram
       </h3>
-      <p className="z-5 text-gray-0 text-[12px] xs:text-[16px] md:text-[24px]">
+      <p className="z-5 text-gray-0 text-l-base">
         Обменивайтесь опытом и лайфхаками, читайте полезные статьи
         <br />
         и просто общайтесь с коллегами
@@ -40,7 +40,7 @@ export const Telegram = () => (
         <Button
           variant="ghost"
           size="l"
-          className="mt-2 z-5 text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
+          className="mt-2 z-5 text-brand-100 text-l-base rounded-2xl font-medium bg-brand-0"
         >
           Перейти в Telegram
         </Button>
