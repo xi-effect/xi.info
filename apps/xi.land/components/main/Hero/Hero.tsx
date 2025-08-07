@@ -39,7 +39,7 @@ export const Hero = () => {
   return (
     <section
       data-theme={theme}
-      className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full xs:pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out"
+      className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out"
     >
       <div className="w-full max-w-[1600px] h-[500px] sm:h-[calc(100vh-160px)] flex items-start justify-center">
         <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 sm:pt-20 pb-8 xs:pb-0 px-6 md:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 md:gap-12 lg:gap-16">
