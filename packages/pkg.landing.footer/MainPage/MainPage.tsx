@@ -13,19 +13,19 @@ export const MainPage = () => {
   return (
     <div
       id="becometester"
-      className="xs:py-16 xs:p-8 flex flex-col items-center justify-center gap-8 p-4 md:p-[128px] lg:flex-row"
+      className="xs:p-8 flex w-full flex-col items-center justify-between gap-8 p-4 sm:items-baseline md:items-center lg:flex-row lg:py-[128px] xl:gap-16 xl:px-24 2xl:px-[160px]"
     >
-      <div>
-        <h3 className="text-gray-0 xs:text-[32px] z-5 text-[24px] font-medium whitespace-pre-line md:text-[48px]">
+      <div className="flex flex-col gap-4">
+        <h3 className="text-gray-0 z-5 text-[32px] leading-[1.2] font-medium whitespace-pre-line sm:text-[48px]">
           Проверьте sovlium на практике
           <br />
           и расскажите о своих впечатлениях
         </h3>
-        <p className="text-gray-0 xs:text-[16px] z-5 text-[12px] md:text-[24px]">
+        <p className="text-gray-0 xs:text-l-base sm:text-xl-base z-5">
           А мы подарим вам доступ на 30 дней ко всем функциям
         </p>
       </div>
-      <div className="bg-gray-0 w-full max-w-[512px] rounded-[32px] p-[48px]">
+      <div className="bg-gray-0 w-full max-w-[512px] rounded-2xl p-4 sm:rounded-[48px] sm:p-12">
         <CallToActionForm />
       </div>
     </div>
