@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Тарифы | sovlium',
-  description: '',
+  title: 'Гибкие тарифы для решения любых задач репетитора от sovlium',
+  description: 'Выберите подходящий тариф — от начинающего до профи. Первые 14 дней бесплатно!',
   openGraph: {
-    title: 'sovlium',
-    description: 'Приложение для репетиторов и малого бизнеса',
+    title: 'Гибкие тарифы для решения любых задач репетитора от sovlium',
+    description: 'Выберите подходящий тариф — от начинающего до профи. Первые 14 дней бесплатно!',
     url: 'https://sovlium.ru',
     siteName: 'sovlium',
     images: [

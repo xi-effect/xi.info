@@ -12,7 +12,7 @@ export const MainPage = () => {
 
   return (
     <div
-      id="becometester"
+      id="become-tester"
       className="xs:p-8 flex w-full flex-col items-center justify-between gap-8 p-4 sm:items-baseline md:items-center lg:flex-row lg:py-[128px] xl:gap-16 xl:px-24 2xl:px-[160px]"
     >
       <div className="flex flex-col gap-4">

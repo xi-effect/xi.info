@@ -2,8 +2,9 @@ import { Payments } from 'components/payments';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'sovlium | оплаты',
-  description: 'Оплаты для репетиторов и малого бизнеса',
+  title: 'Контроль оплат и аналитика для репетиторов от sovlium',
+  description:
+    'Автоматические напоминания об оплате и прозрачная отчётность. Ваш личный бухгалтер. Попробуйте бесплатно.',
 };
 
 export default function PaymentsPage() {

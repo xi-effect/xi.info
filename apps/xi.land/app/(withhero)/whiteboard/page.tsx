@@ -2,8 +2,9 @@ import { Whiteboard } from 'components/whiteboard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'sovlium | доска',
-  description: 'Доска для репетиторов и малого бизнеса',
+  title: 'Интерактивная онлайн-доска для репетитора от sovlium',
+  description:
+    'Легко визуализируйте формулы, связи и диаграммы. Рисуйте, пишите и объясняйте — как в классе. Протестируйте онлайн-доску бесплатно.',
 };
 
 export default function WhiteboardPage() {

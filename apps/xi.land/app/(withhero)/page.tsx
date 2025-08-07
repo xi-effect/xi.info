@@ -4,11 +4,13 @@ import { FeaturesBlock, MessagesBlock, Telegram, Text } from 'components/main';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'sovlium | приложение для репетиторов',
-  description: 'Приложение для репетиторов и малого бизнеса',
+  title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
+  description:
+    'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
   openGraph: {
-    title: 'sovlium',
-    description: 'Приложение для репетиторов и малого бизнеса',
+    title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
+    description:
+      'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
     url: 'https://sovlium.ru',
     siteName: 'sovlium',
     images: [

@@ -2,8 +2,9 @@ import { Materials } from 'components/materials';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'sovlium | материалы',
-  description: 'Материалы для репетиторов и малого бизнеса',
+  title: 'Удобное хранение учебных материалов в sovlium',
+  description:
+    'Храните учебники, онлайн-доски, файлы и заметки в единой системе. Настройте собственную цифровую библиотеку.',
 };
 
 export default function MaterialsPage() {

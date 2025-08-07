@@ -53,7 +53,7 @@ export const Hero = () => {
               size="l"
               className="text-brand-100 text-base md:text-lg lg:text-l-base font-medium bg-brand-0"
               onClick={() => {
-                const el = document.getElementById('becometester');
+                const el = document.getElementById('become-tester');
                 if (el) {
                   el.scrollIntoView({ behavior: 'smooth' });
                 }

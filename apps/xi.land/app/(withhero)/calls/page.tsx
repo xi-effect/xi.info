@@ -2,8 +2,9 @@ import { Calls } from 'components/calls';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'sovlium | звонки',
-  description: 'Звонки для репетиторов и малого бизнеса',
+  title: 'Стабильная видеосвязь для репетиторов от sovlium',
+  description:
+    'Встроенная онлайн-доска, быстрый доступ и высокое качество. Протестируйте видеозвонки бесплатно.',
 };
 
 export default function CallsPage() {
