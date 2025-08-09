@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 'use client';
 
 import Header from 'components/Common/HeaderMain';

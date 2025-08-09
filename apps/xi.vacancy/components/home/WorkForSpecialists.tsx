@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 'use client';
 
 import { useState } from 'react';

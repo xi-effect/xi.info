@@ -1,5 +1,8 @@
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
+import { SvgColumn } from './SvgColumn';
+import { MainPage } from './MainPage';
+import { FreeInvite } from './FreeInvite';
 
 interface SectionLink {
   link: string;
@@ -15,20 +18,18 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
-      { link: '/product#tasksAndTests', title: 'Задания' },
-      { link: '/product#tasksAndTests', title: 'Тесты' },
-      { link: '/product#videocalls', title: 'Видеозвонки' },
-      { link: '/product#chats', title: 'Чаты' },
-      { link: '/product#announces', title: 'Объявления' },
-      { link: '/product#whiteboard', title: 'Онлайн-доска' },
+      { link: '/calendar', title: 'Планирование' },
+      { link: '/calls', title: 'Видеозвонки' },
+      { link: '/whiteboard', title: 'Интерактивная доска' },
+      { link: '/payments', title: 'Оплаты' },
     ],
   },
   {
     title: 'Клиентам',
     links: [
       { link: '/prices', title: 'Тарифы' },
-      { link: 'https://support.xieffect.ru/', title: 'Руководства' },
-      { link: 'https://t.me/xieffect_support_bot', title: 'Поддержка' },
+      { link: 'https://support.sovlium.ru/', title: 'Руководства' },
+      { link: 'https://t.me/sovlium_support_bot', title: 'Поддержка' },
     ],
   },
   {
@@ -37,19 +38,16 @@ const sections: Section[] = [
       { link: '/about', title: 'О нас' },
       { link: '/blog', title: 'Блог' },
       { link: '/docs', title: 'Документы' },
-      { link: 'https://vacancy.xieffect.ru/', title: 'Вакансии' },
+      { link: 'https://job.sovlium.ru/', title: 'Вакансии' },
     ],
   },
   {
     title: 'Социальные сети',
-    links: [
-      { link: 'https://vk.com/xieffect', title: 'VK' },
-      { link: 'https://t.me/xieffect', title: 'Telegram' },
-    ],
+    links: [{ link: 'https://t.me/sovlium', title: 'Telegram' }],
   },
 ];
 
-const email = 'support@xieffect.ru';
+const email = 'support@sovlium.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
@@ -74,36 +72,55 @@ const Footer = () => {
   );
 
   return (
-    <footer className="flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
-      <div className="text-gray-0 xs:p-8 flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
-        <Link
-          href="/"
-          className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
-        >
-          <Image alt="xieffect logo" src="/xieffect.webp" fill priority={false} />
-        </Link>
-        <div className="flex flex-col gap-8 xl:gap-16">
-          <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
-            {sections.map(renderSection)}
-          </div>
-          <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
-            <span className="2xl:w-[330px]">&copy; xi.effect с {copyrightYear} года</span>
-            <span className="xs:order-1 2xl:w-[330px]">
-              <Link
-                className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"
-                target="_blank"
-                variant="hover"
-                href={`mailto:${email}`}
-                size="s"
-              >
-                {email}
-              </Link>
-            </span>
-            <span className="2xl:w-[330px]">Сделано с ♥ в Санкт-Петербурге</span>
-          </div>
-        </div>
+    <>
+      <div className="bg-brand-80 z-1 mt-12 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px]">
+        <MainPage />
+        <FreeInvite />
       </div>
-    </footer>
+      <div className="bg-brand-80">
+        <footer className="z-10 flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
+          <div className="text-gray-0 xs:p-8 relative flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
+            <div className="relative">
+              <Link
+                href="/"
+                className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
+              >
+                <Image
+                  alt="sovlium logo"
+                  src="/logofordark.svg"
+                  width={216}
+                  height={64}
+                  priority={false}
+                />
+              </Link>
+              <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
+                <SvgColumn />
+              </div>
+            </div>
+            <div className="flex flex-col gap-8 xl:gap-16">
+              <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
+                {sections.map(renderSection)}
+              </div>
+              <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
+                <span className="2xl:w-[330px]">&copy; sovlium с {copyrightYear} года</span>
+                <span className="xs:order-1 2xl:w-[330px]">
+                  <Link
+                    className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"
+                    target="_blank"
+                    variant="hover"
+                    href={`mailto:${email}`}
+                    size="s"
+                  >
+                    {email}
+                  </Link>
+                </span>
+                <span className="2xl:w-[330px]">Сделано с ♥ в Санкт-Петербурге</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 

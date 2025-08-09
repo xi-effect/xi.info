@@ -3,7 +3,7 @@
 'use client';
 
 import { Children, useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue } from 'motion/react';
 import { CarouselContentPropsT } from './types';
 import { useCarousel } from './hooks/useCarousel';
 

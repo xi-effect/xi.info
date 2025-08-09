@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link } from '@xipkg/link';
 
 const classNames = {

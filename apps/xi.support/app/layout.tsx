@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import '@xipkg/tailwind/index.css';
+import '../index.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 

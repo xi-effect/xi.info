@@ -1,8 +1,10 @@
 {
   "name": "pkg.error-page",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "type": "module",
+  "exports": {
+    ".": "./index.tsx"
+  },
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.{ts,tsx}\""
@@ -15,10 +17,10 @@
     "@types/node": "^20.3.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@xipkg/eslint": "3.2.0",
+    "@xipkg/eslint": "4.6.0",
     "@xipkg/tailwind": "latest",
     "@xipkg/typescript": "latest",
-    "eslint-config-custom": "*",
+    "common.eslint": "*",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {

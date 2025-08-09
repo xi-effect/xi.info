@@ -1,16 +1,14 @@
 export const metadata = {
-  title: 'Блог | xi.effect — Новости и полезные советы',
-  description:
-    'Читайте актуальные статьи о технологиях в образовании, советы по созданию учебных курсов и истории успеха наших клиентов.',
+  title: 'Статьи и советы для репетиторов от sovlium',
+  description: 'Делимся новостями, кейсами и лайфхаками.',
   openGraph: {
-    title: 'Блог | xi.effect — Новости и полезные советы',
-    description:
-      'Читайте актуальные статьи о технологиях в образовании, советы по созданию учебных курсов и истории успеха наших клиентов.',
-    url: 'https://xieffect.ru',
-    siteName: 'xi.effect',
+    title: 'Статьи и советы для репетиторов от sovlium',
+    description: 'Делимся новостями, кейсами и лайфхаками.',
+    url: 'https://sovlium.ru',
+    siteName: 'sovlium',
     images: [
       {
-        url: 'https://xieffect.ru/opengh.png', // Must be an absolute URL
+        url: 'https://sovlium.ru/web-app-manifest-512x512.png', // Must be an absolute URL
         width: 512,
         height: 512,
       },

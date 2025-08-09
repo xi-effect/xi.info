@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 const FirstCheck = () => (
   <section className="p-[16px] sm:p-8 mb-[38px] sm:mb-[56px] 2xl:py-[64px] 2xl:px-[54px]">
     <h2 className="tracking-wide font-semibold leading-[110%] mb-[16px] sm:mb-8 2xl:mb-[48px] text-[24px] sm:text-[48px] 2xl:text-[64px] min-[1700px]:flex">

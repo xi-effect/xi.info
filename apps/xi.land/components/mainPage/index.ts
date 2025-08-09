@@ -1,9 +1,0 @@
-export { AppsCarousel } from './appsCarousel';
-export { Hero } from './firstScreen';
-export { Tasks } from './tasks';
-export { VideoCalls } from './videocalls';
-export { Messages } from './messages/Messages';
-export { Whiteboard } from './whiteboard';
-export { Promo } from './promo';
-export { Tariffs } from './tariffs';
-export { CallToAction } from './callToAction';

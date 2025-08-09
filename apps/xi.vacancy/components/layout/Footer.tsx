@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@xipkg/button';

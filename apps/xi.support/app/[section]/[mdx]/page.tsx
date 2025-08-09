@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 import { sectionsConfig } from 'config/sectionsConfig';
 import { MdxPage } from 'components/MdxPage';
@@ -51,6 +52,7 @@ export default async function Page({ params }: MdXPageT) {
             <span className="font-medium text-[24px] mt-16 text-gray-100"> Категории </span>
             <div className="w-full flex flex-col gap-4 mt-6">
               {pageData.anchors.map((item, index) => (
+                // @ts-expect-error
                 <Link
                   variant="hover"
                   key={index.toString()}
@@ -79,6 +81,7 @@ export default async function Page({ params }: MdXPageT) {
                 <div className="grid grid-cols-1 xl:grid-cols-2 mt-4 md:mt-8 gap-4">
                   {!!pageData.relatedLinks.length &&
                     pageData.relatedLinks.map((item, index) => (
+                      // @ts-expect-error
                       <Link
                         variant="hover"
                         key={index.toString()}

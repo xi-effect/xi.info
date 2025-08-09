@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link as LinkPkg } from '@xipkg/link';
 
 const Link = ({ href, children }) => (

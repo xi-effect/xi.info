@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import Image from 'next/image';
 
 const AppreciateTheTeam = () => (

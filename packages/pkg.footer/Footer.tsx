@@ -3,17 +3,17 @@
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 
-interface SectionLink {
+interface SectionLinkI {
   link: string;
   title: string;
 }
 
-interface Section {
+interface SectionI {
   title: string;
-  links: SectionLink[];
+  links: SectionLinkI[];
 }
 
-const sections: Section[] = [
+const sections: SectionI[] = [
   {
     title: 'Продукт',
     links: [
@@ -54,7 +54,7 @@ const email = 'support@xieffect.ru';
 const copyrightYear = new Date().getFullYear();
 
 const Footer = () => {
-  const renderSection = (section: Section) => (
+  const renderSection = (section: SectionI) => (
     <div key={section.title} className="flex w-full grow flex-col text-[16px]">
       <h3 className="m-0 text-[16px] opacity-40 sm:text-[20px]">{section.title}</h3>
       <ul className="m-0 mt-6 flex flex-col gap-6 p-0">

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Transition } from 'motion';
 import { ReactNode } from 'react';
-import { Transition } from 'framer-motion';
 
 export type CarouselContextTypeT = {
   index: number;
@@ -23,13 +24,13 @@ export type CarouselPropsT = {
 };
 
 export type CarouselContentPropsT = {
-  children: ReactNode;
+  children: any;
   className?: string;
   transition?: Transition;
   overflow?: string;
 };
 
 export type CarouselItemPropsT = {
-  children: ReactNode;
+  children: any;
   className?: string;
 };

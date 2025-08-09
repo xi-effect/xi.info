@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { FC } from 'react';
 import Image from 'next/image';
 
@@ -11,6 +12,7 @@ const Memoji: FC<MemojiT> = (props) => {
 
   return (
     <div className={`flex ${wrapperClassName}`}>
+      {/* @ts-expect-error */}
       <Image
         width={512}
         height={512}
@@ -20,6 +22,7 @@ const Memoji: FC<MemojiT> = (props) => {
         className={imageClassName}
       />
 
+      {/* @ts-expect-error */}
       <Image
         width={512}
         height={512}
@@ -29,6 +32,7 @@ const Memoji: FC<MemojiT> = (props) => {
         className={`ml-[-16px] ${imageClassName}`}
       />
 
+      {/* @ts-expect-error */}
       <Image
         width={512}
         height={512}
@@ -38,6 +42,7 @@ const Memoji: FC<MemojiT> = (props) => {
         className={`ml-[-16px] ${imageClassName}`}
       />
 
+      {/* @ts-expect-error */}
       <Image
         width={512}
         height={512}

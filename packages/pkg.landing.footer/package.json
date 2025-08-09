@@ -1,22 +1,33 @@
 {
   "name": "pkg.landing.footer",
   "version": "0.1.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "type": "module",
+  "exports": {
+    ".": "./index.tsx"
+  },
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
-    "@xipkg/link": "1.3.0",
-    "@xipkg/tailwind": "^0.5.0",
-    "sonner": "1.7.4"
+    "@xipkg/button": "3.1.8",
+    "@xipkg/link": "2.0.12",
+    "@xipkg/tailwind": "^0.8.1",
+    "sonner": "1.7.4",
+    "@xipkg/form": "4.2.0",
+    "@xipkg/input": "2.2.9",
+    "zod": "3.24.2",
+    "@hookform/resolvers": "3.10.0",
+    "common.eslint": "*"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
     "@types/node": "^20.3.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@xipkg/eslint": "3.2.0",
+    "@xipkg/eslint": "4.6.0",
     "@xipkg/typescript": "latest",
     "prettier": "3.2.5",
     "typescript": "^5.1.3"

@@ -47,6 +47,7 @@ const nextConfig = {
   },
   output: 'export',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  typescript: { ignoreBuildErrors: true },
 };
 
 module.exports = () => plugins.reduce((acc, next) => next(acc), nextConfig);

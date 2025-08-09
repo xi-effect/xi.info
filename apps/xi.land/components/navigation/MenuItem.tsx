@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
+import { cn } from '@xipkg/utils';
 
 type MenuItemPropsT = {
   setActive: (item: string) => void;
@@ -13,7 +15,7 @@ type MenuItemPropsT = {
 };
 
 const transition = {
-  type: 'spring',
+  type: 'spring' as const,
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
@@ -29,12 +31,19 @@ export const MenuItem = ({
   href,
   target = '_self',
 }: MenuItemPropsT) => (
-  <li
+  <div
     onMouseEnter={() => setActive(item)}
-    className="text-m-base lg:text-l-base flex items-center hover:underline underline-offset-4 decoration-1 hover:ease-in transition decoration-gray-40 hover:decoration-gray-100"
+    className={cn(
+      'relative text-s-base text-gray-70 dark:text-gray-20 font-normal lg:text-l-base flex items-center',
+    )}
   >
     {href ? (
-      <Link target={target} href={href} className="py-2.5 px-3">
+      // @ts-expect-error
+      <Link
+        target={target}
+        href={href}
+        className="py-2.5 px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
+      >
         {item}
       </Link>
     ) : (
@@ -43,20 +52,20 @@ export const MenuItem = ({
     {!href && active !== null && active === item && (
       <motion.div
         transition={transition}
-        className="absolute top-[80%] left-1/2 transform -translate-x-1/2 pt-8 md:w-full lg:w-auto"
+        className="absolute top-6 left-[-10px] transform pt-8 w-auto"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
           layoutId="active"
-          className="bg-gray-0 rounded-[40px] overflow-hidden border border-gray-30"
+          className="bg-gray-0 dark:bg-gray-100 rounded-2xl overflow-hidden border-2 border-gray-10 dark:border-gray-80"
         >
-          <motion.div layout className="lg:w-max h-full p-8">
+          <motion.div layout className="w-[250px] h-full p-2">
             {children}
           </motion.div>
         </motion.div>
       </motion.div>
     )}
-  </li>
+  </div>
 );

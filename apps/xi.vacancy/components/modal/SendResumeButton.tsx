@@ -6,7 +6,7 @@
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'yup';
+import { InferType, object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Input from '../common/Input';
 import Memoji from '../common/Memoji';
@@ -18,13 +18,7 @@ type SendResumeButtonT = {
   label?: string;
 };
 
-export type FormDataT = {
-  name: string;
-  telegram: string;
-  position: string;
-  link: string;
-  message: string | null | undefined;
-};
+export type FormDataT = InferType<typeof schema>;
 
 const schema = object().shape({
   name: string().nullable().required(),

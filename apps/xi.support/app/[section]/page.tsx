@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/prop-types */
-/* eslint-disable consistent-return */
+
 import { HeaderDoc, Layout } from 'components/Common';
 import Sections from 'components/SectionPage/Sections';
 import Title from 'components/SectionPage/Title';

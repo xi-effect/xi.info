@@ -1,51 +1,117 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@xipkg/button';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
+
+const HIDE_AFTER_DOWN = 80; // прячем хедер, если прокрутили вниз дальше 80 px
+const SHOW_DELAY_UP = 200; // показываем только после 100 px подъёма
 
 export const Header = () => {
   const [isShowHeader, setIsShowHeader] = useState(true);
-  let lastScrollY = 0;
+  const pathname = usePathname();
+
+  const lastScrollY = useRef(0); // последний Y
+  const scrollUpDistance = useRef(0); // сколько подряд проскроллили вверх
+
+  // Определяем тему на основе пути
+  const isMainPage = pathname === '/';
+  const theme = isMainPage ? 'dark' : 'white';
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const y = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setIsShowHeader(false);
-      } else {
+      // Если мы в самом начале страницы (от 0 до 16px), обязательно показываем хедер
+      if (y <= 16) {
         setIsShowHeader(true);
+        scrollUpDistance.current = 0;
+        lastScrollY.current = y;
+        return;
       }
-      lastScrollY = currentScrollY;
+
+      if (y > lastScrollY.current) {
+        /* === ДВИЖЕМСЯ ВНИЗ === */
+        scrollUpDistance.current = 0; // обнуляем подъём
+        if (!isShowHeader && y < HIDE_AFTER_DOWN) {
+          // уже наверху страницы — вернём хедер
+          setIsShowHeader(true);
+        } else if (y > HIDE_AFTER_DOWN) {
+          setIsShowHeader(false); // прячем
+        }
+      } else if (y < lastScrollY.current) {
+        /* === ДВИЖЕМСЯ ВВЕРХ === */
+        scrollUpDistance.current += lastScrollY.current - y;
+
+        if (!isShowHeader && scrollUpDistance.current >= SHOW_DELAY_UP) {
+          setIsShowHeader(true); // поднимулись ≥100 px — показываем
+        }
+        // если хедер уже виден, нам не нужно копить расстояние
+      }
+
+      lastScrollY.current = y;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isShowHeader]);
 
   return (
     <header
-      className={`flex justify-center py-4 md:px-0 px-4 xs:px-8 lg:px-8 xs:py-8 w-full top-0 fixed z-10 transition-transform duration-700 ${isShowHeader ? 'translate-y-0' : '-translate-y-full'}`}
+      data-theme={theme}
+      className={cn(
+        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-10 flex w-full justify-center transition-all duration-700 ease-in-out',
+        isShowHeader ? 'translate-y-0' : '-translate-y-full',
+      )}
     >
-      <div className="z-10 justify-between w-full md:w-auto flex gap-6 lg:gap-14 rounded-[40px] relative bg-white bg-opacity-70 backdrop-blur-[48px] py-4 items-center pl-8 pr-4 outline outline-1 outline-gray-30">
-        <Link href="/" className="w-[202px] h-[24px] relative">
-          <Image src="/xieffectlight.webp" fill alt="xi effect logo" priority />
+      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 lg:gap-12 relative items-center max-w-[1600px] md:mx-auto">
+        <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
+          <Image
+            src="/logoforwhite.svg"
+            alt="logo"
+            width={216}
+            height={48}
+            className="block dark:hidden transition-opacity duration-500 ease-in-out"
+          />
+          <Image
+            src="/logofordark.svg"
+            alt="logo"
+            width={216}
+            height={48}
+            className="hidden dark:block transition-opacity duration-500 ease-in-out"
+          />
         </Link>
-        <Navigation />
-        <div className="gap-2 hidden md:flex">
-          <Button asChild variant="ghost" className="px-4 lg:px-6 rounded-full bg-transparent">
-            <Link href="https://app.xieffect.ru/signin">Войти</Link>
+
+        <div className="gap-4 hidden md:flex">
+          <Navigation />
+          {/* <Button
+            asChild
+            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0
+            text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
+            variant="ghost"
+          >
+            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button asChild className="rounded-full px-4 lg:px-6 bg-brand-80">
-            <Link href="https://app.xieffect.ru/signup">Зарегистрироваться</Link>
+          <Button
+            asChild
+            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent
+            active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
+            rounded-xl transition-all duration-500 ease-in-out"
+            variant="secondary"
+          >
+            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
+          <Button
+            asChild
+            className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
+          >
+            <Link href="https://app.sovlium.ru/signin">Войти</Link>
+          </Button> */}
         </div>
+
         <MobileNavigation />
       </div>
     </header>

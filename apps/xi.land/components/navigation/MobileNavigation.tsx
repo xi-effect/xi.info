@@ -10,35 +10,37 @@ import {
   ModalTitle,
   ModalTrigger,
 } from '@xipkg/modal';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Close, Burger } from '@xipkg/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { subMenu } from './Navigation';
 
-type LinkMenuItemT = {
-  label: string;
-  link: string;
-};
+// type LinkMenuItemT = {
+//   label: string;
+//   link: string;
+// };
 
-const arrayOfLinks: LinkMenuItemT[] = [
-  {
-    label: 'Возможности',
-    link: '/product',
-  },
-  {
-    label: 'Тарифы',
-    link: '/prices',
-  },
-  {
-    label: 'Блог',
-    link: '/blog',
-  },
-  {
-    label: 'Помощь',
-    link: 'https://support.xieffect.ru/',
-  },
-];
+// const arrayOfLinks: LinkMenuItemT[] = [
+//   {
+//     label: 'Инструменты',
+//     link: '#',
+//   },
+//   {
+//     label: 'Тарифы',
+//     link: '/prices',
+//   },
+//   {
+//     label: 'Блог',
+//     link: '/blog',
+//   },
+//   {
+//     label: 'База знаний',
+//     link: '#',
+//   },
+// ];
 
 export const MobileNavigation = () => {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false);
@@ -46,74 +48,119 @@ export const MobileNavigation = () => {
     setBurgerIsOpen((prev) => !prev);
   };
 
+  const pathname = usePathname();
+
+  // Определяем тему на основе пути
+  const isMainPage = pathname === '/';
+  const theme = isMainPage ? 'dark' : 'white';
+
   return (
-    <Modal open={burgerIsOpen}>
+    <Modal open={burgerIsOpen} onOpenChange={setBurgerIsOpen}>
       <ModalTrigger asChild>
         <Button
-          size="s"
-          onClick={toggleBurgerMenu}
-          className="z-10 xs:w-12 xs:h-12 p-1 rounded-full m-0 ml-auto md:hidden"
+          className="z-10 w-12 h-12 p-1 m-0 ml-auto md:hidden bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent"
+          variant="ghost"
         >
-          <Burger className="fill-gray-0 xs:w-8 xs:h-8" />
+          <Burger className="dark:fill-gray-0 fill-gray-100 w-8 h-8" />
         </Button>
       </ModalTrigger>
-      <ModalContent className="h-[100dvh] flex flex-col" variant="full">
-        <ModalHeader className="border-none px-4 py-8 xs:px-8 xs:py-[60px]">
+
+      <ModalContent
+        data-theme={theme}
+        className="bg-gray-0 dark:bg-gray-100 h-[100dvh] w-[100dvw] flex flex-col"
+        variant="full"
+      >
+        <ModalTitle className="sr-only">Меню</ModalTitle>
+        <ModalHeader
+          innerClassName="bg-gray-0 dark:bg-gray-100 border-none"
+          className="w-full border-none flex justify-between"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-transparent inline-flex items-center gap-4"
+          >
+            <Link
+              href="/"
+              className="bg-transparent w-[216px] h-[48px] relative inline-flex items-center gap-4"
+            >
+              <Image
+                src="/logoforwhite.svg"
+                alt="logo"
+                width={216}
+                height={48}
+                className="block dark:hidden transition-opacity duration-500 ease-in-out"
+              />
+              <Image
+                src="/logofordark.svg"
+                alt="logo"
+                width={216}
+                height={48}
+                className="hidden dark:block transition-opacity duration-500 ease-in-out"
+              />
+            </Link>
+          </motion.div>
+
           <ModalCloseButton
             onClick={() => toggleBurgerMenu()}
-            className="h-8 w-8 xs:w-12 xs:h-12 sm:right-12 sm:bg-brand-80 sm:top-12 ml-auto xs:right-12 xs:top-12 bg-brand-80 flex items-center justify-center p-1 rounded-full right-8"
             variant="full"
+            className="flex items-center justify-center bg-gray-0 dark:bg-gray-100 w-12 h-12 p-1 m-0"
           >
-            <Close className="fill-gray-0 xs:w-8 xs:h-8" />
+            <Close className="dark:fill-gray-0 fill-gray-100 w-8 h-8" />
           </ModalCloseButton>
-          <ModalTitle className="py-2 xs:p-0 xs:m-0" style={{ margin: 0 }}>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex">
-              <Image
-                alt="xieffect logo"
-                src="/xieffectlight.webp"
-                height={16}
-                width={135}
-                className="xs:w-[202px] xs:h-[24px]"
-              />
-            </motion.div>
-          </ModalTitle>
         </ModalHeader>
-        <div className="px-4 xs:px-8 py-6 grow flex flex-col gap-4">
-          {arrayOfLinks.map((item) => (
+
+        <div className="grow flex flex-col gap-2 w-full mt-4">
+          {subMenu.map((item) => (
             <motion.div
-              key={item.label}
+              key={item.title}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="flex"
             >
               <Link
                 onClick={toggleBurgerMenu}
-                className="text-gray-60 text-xl-base py-2 w-full"
-                href={item.link}
+                className="text-gray-70 dark:text-gray-20 text-xl font-normal py-4 px-6 w-full hover:text-gray-100 dark:hover:text-gray-0"
+                href={item.href}
               >
-                {item.label}
+                {item.title}
               </Link>
             </motion.div>
           ))}
         </div>
-        <ModalFooter className="px-4 xs:px-8 border-none flex flex-col align-bottom justify-center">
+        <ModalFooter className="bg-gray-0 dark:bg-gray-100 px-4 xs:px-8 border-none flex flex-col align-bottom justify-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center w-full gap-8"
+            className="flex items-center w-full gap-4"
           >
-            <Button onClick={toggleBurgerMenu} size="m" className="px-6 xs:w-full" asChild>
-              <Link href="https://app.xieffect.ru/signin/">Войти</Link>
-            </Button>
-            <Button
-              onClick={toggleBurgerMenu}
-              size="m"
-              className="px-6 xs:w-full"
-              variant="secondary"
-              asChild
-            >
-              <Link href="https://app.xieffect.ru/signup/">Зарегистрироваться</Link>
-            </Button>
+            <div className="gap-4 flex w-full">
+              {/* <Button
+                asChild
+                className="w-full dark:hidden flex bg-brand-0 hover:bg-brand-0
+                text-brand-100 hover:text-brand-80 rounded-xl transition-all
+                duration-500 ease-in-out"
+                variant="ghost"
+              >
+                <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
+              </Button>
+              <Button
+                asChild
+                className="w-full dark:flex hidden bg-transparent hover:bg-transparent
+                active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
+                rounded-xl transition-all duration-500 ease-in-out"
+                variant="secondary"
+              >
+                <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
+              </Button>
+              <Button
+                asChild
+                className="w-full dark:text-gray-0 rounded-xl
+                transition-all duration-500 ease-in-out"
+              >
+                <Link href="https://app.sovlium.ru/signin">Войти</Link>
+              </Button> */}
+            </div>
           </motion.div>
         </ModalFooter>
       </ModalContent>

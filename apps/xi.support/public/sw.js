@@ -7,8 +7,8 @@ if (!self.define) {
       new Promise((s) => {
         if ('document' in self) {
           const e = document.createElement('script');
-          (e.src = a), (e.onload = s), document.head.appendChild(e);
-        } else (e = a), importScripts(a), s();
+          ((e.src = a), (e.onload = s), document.head.appendChild(e));
+        } else ((e = a), importScripts(a), s());
       }).then(() => {
         let e = s[a];
         if (!e) throw new Error(`Module ${a} didn’t register its module`);
@@ -26,7 +26,7 @@ if (!self.define) {
 }
 define(['./workbox-1051b61c'], function (e) {
   'use strict';
-  importScripts(),
+  (importScripts(),
     self.skipWaiting(),
     e.clientsClaim(),
     e.precacheAndRoute(
@@ -373,5 +373,5 @@ define(['./workbox-1051b61c'], function (e) {
         plugins: [new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 3600 })],
       }),
       'GET',
-    );
+    ));
 });

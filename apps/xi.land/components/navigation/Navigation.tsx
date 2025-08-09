@@ -1,35 +1,30 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@xipkg/button';
-import { MenuItem } from './MenuItem';
-import { SubMenuItem } from './SubMenuItem';
 
-const subMenu = [
-  {
-    title: 'Тесты и задания',
-    description: 'Быстро оценивайте знания',
-    href: '/product#tasksAndTests',
-    image: '/assets/mainPage/navigation/1.webp',
-  },
+import { MenuItem } from './MenuItem';
+// import { SubMenuItem } from './SubMenuItem';
+
+export const subMenu = [
   {
     title: 'Видеозвонки',
-    description: 'Проводите уроки',
-    href: '/product#videocalls',
-    image: '/assets/mainPage/navigation/2.webp',
+    href: '/calls',
   },
   {
-    title: 'Сообщения',
-    description: 'Оставайтесь на связи',
-    href: '/product#chats',
-    image: '/assets/mainPage/navigation/3.webp',
+    title: 'Белая Доска',
+    href: '/whiteboard',
   },
   {
-    title: 'Онлайн-доска',
-    description: 'Создавайте интерактивные материалы',
-    href: '/product#whiteboard',
-    image: '/assets/mainPage/navigation/4.webp',
+    title: 'Оплаты',
+    href: '/payments',
+  },
+  {
+    title: 'Расписание',
+    href: '/calendar',
+  },
+  {
+    title: 'Материалы',
+    href: '/materials',
   },
 ];
 
@@ -38,39 +33,40 @@ export const Navigation = () => {
 
   return (
     <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
-      <ul className="flex lg:gap-2">
-        <MenuItem setActive={setActive} active={active} item="Возможности">
-          <div className="grid grid-cols-2 gap-8">
+      <div className="flex lg:gap-2">
+        {/* <MenuItem setActive={setActive} active={active} item="Возможности">
+          <div className="flex flex-col gap-0">
             {subMenu.map((item) => (
               <SubMenuItem
                 key={item.title}
                 title={item.title}
-                description={item.description}
                 href={item.href}
-                src={item.image}
                 setActive={setActive}
               />
             ))}
           </div>
-          <div className="mt-8 flex">
-            <Button variant="secondary" className="w-full" onClick={() => setActive(null)}>
-              <Link href="/product" className="w-full h-full flex justify-center items-center">
-                Посмотреть все
-              </Link>
-            </Button>
-          </div>
-        </MenuItem>
+        </MenuItem> */}
 
-        <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
-        <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" />
-        <MenuItem
+        {subMenu.map((item) => (
+          <MenuItem
+            key={item.title}
+            setActive={setActive}
+            active={active}
+            item={item.title}
+            href={item.href}
+          />
+        ))}
+
+        {/* <MenuItem setActive={setActive} active={active} item="Тарифы" href="/prices" />
+        <MenuItem setActive={setActive} active={active} item="Блог" href="/blog" /> */}
+        {/* <MenuItem
           setActive={setActive}
           active={active}
-          item="Помощь"
+          item="База знаний"
           target="_blank"
           href="https://support.xieffect.ru/"
-        />
-      </ul>
+        /> */}
+      </div>
     </nav>
   );
 };
