@@ -9,6 +9,9 @@
     "format-check": "prettier --check .",
     "prepare": "husky"
   },
+  "optionalDependencies": {
+    "@unrs/resolver-binding-linux-x64-gnu": "1.11.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
