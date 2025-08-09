@@ -60,7 +60,7 @@ jobs:
     needs: analyze_files
     uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
     with:
-      node-version: 20
+      node-version: 22
 
   build_xi_land:
     needs:
