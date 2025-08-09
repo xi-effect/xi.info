@@ -27,6 +27,9 @@
   "overrides": {
     "@types/minimatch": "5.1.2"
   },
+  "optionalDependencies": {
+    "@unrs/resolver-binding-linux-x64-gnu": "1.11.1"
+  },
   "name": "xi.info",
   "packageManager": "npm@10.1.0",
   "workspaces": [
