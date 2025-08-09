@@ -31,8 +31,8 @@ export const Materials = () => (
     <HorizontalFeatureCard
       title="Удобная рабочая среда"
       description="Облегчите свой труд вместе с sovlium"
-      imageSrcDesktop="/assets/materials/workspace.svg"
-      imageSrcMobile="/assets/materials/workspace_m.svg"
+      imageSrcDesktop="/assets/materials/workSpace.svg"
+      imageSrcMobile="/assets/materials/workSpace_m.svg"
       imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full object-cover h-full object-left-top rounded-tl-lg sm:rounded-tl-2xl lg:rounded-tl-3xl"
       reverse
       bg="bg-brand-80"
