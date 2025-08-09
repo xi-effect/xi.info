@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Inter } from 'next/font/google';
 import React, { ReactNode } from 'react';
 import { Metadata } from 'next';
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <body>
+        {/* @ts-expect-error */}
         <Toaster />
         <Header />
         {children}

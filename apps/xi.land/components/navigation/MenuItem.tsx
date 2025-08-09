@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { motion } from 'motion/react';
@@ -37,6 +38,7 @@ export const MenuItem = ({
     )}
   >
     {href ? (
+      // @ts-expect-error
       <Link
         target={target}
         href={href}

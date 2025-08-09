@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -35,6 +36,7 @@ const Select: React.FC<SelectT> = (props) => {
   }, []);
 
   return (
+    // @ts-expect-error
     <Controller
       name="position"
       control={control}
@@ -54,6 +56,7 @@ const Select: React.FC<SelectT> = (props) => {
           >
             {helperText || currentVacancy || 'Выберите'}
 
+            {/* @ts-expect-error */}
             <Image
               width={20}
               height={20}

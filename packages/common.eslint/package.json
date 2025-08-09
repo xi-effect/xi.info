@@ -1,11 +1,14 @@
 {
-  "name": "eslint-config-custom",
+  "name": "common.eslint",
   "license": "MIT",
   "version": "0.0.0",
-  "main": "index.js",
+  "type": "module",
   "private": true,
+  "exports": {
+    ".": "./index.js"
+  },
   "devDependencies": {
-    "@xipkg/eslint": "3.2.0",
+    "@xipkg/eslint": "4.6.0",
     "eslint-config-turbo": "^2.3.3",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-config-airbnb": "^19.0.4"
