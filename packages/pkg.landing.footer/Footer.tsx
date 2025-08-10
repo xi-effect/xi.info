@@ -38,7 +38,7 @@ const sections: Section[] = [
       { link: '/about', title: 'О нас' },
       { link: '/blog', title: 'Блог' },
       { link: '/docs', title: 'Документы' },
-      { link: 'https://job.sovlium.ru/', title: 'Вакансии' },
+      { link: 'https://vacancy.sovlium.ru/', title: 'Вакансии' },
     ],
   },
   {
