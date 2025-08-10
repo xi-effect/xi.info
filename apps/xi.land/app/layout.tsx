@@ -10,6 +10,7 @@ import { Header } from 'components/Header';
 import { Toaster } from 'sonner';
 // import Script from 'next/script';
 import '../index.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'sovlium',
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     icon: [{ url: '/favicon.svg' }],
   },
   verification: {
-    // google: 'VAN7yVAfRqd5NWFpUJlz0MVL1wcv0mdhDY-16-d48-U',
+    google: 'Y4vSUoLC0DZXzBAmNZ5rtQ9UVPlPaiKVSFHGx3ZJj-g',
     // yandex: '5896c9df498c0cd0',
   },
   openGraph: {
@@ -65,6 +66,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <body>
+        {process.env.NODE_ENV === 'development' ? (
+          <></>
+        ) : (
+          <>
+            <Script id="metrika-counter" strategy="afterInteractive">
+              {`(function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+                })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=96659391', 'ym');
+
+                ym(96659391, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+              `}
+            </Script>
+          </>
+        )}
         {/* @ts-expect-error */}
         <Toaster />
         <Header />
