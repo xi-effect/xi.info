@@ -76,11 +76,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 m[i].l=1*new Date();
                 for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
                 k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-                })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=96659391', 'ym');
+                })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103653512', 'ym');
 
-                ym(96659391, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+                ym(103653512, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
               `}
             </Script>
+            <noscript>
+              <div>
+                <img
+                  src="https://mc.yandex.ru/watch/103653512"
+                  style={{ position: 'absolute', left: '-9999px' }}
+                  alt=""
+                />
+              </div>
+            </noscript>
           </>
         )}
         {/* @ts-expect-error */}
