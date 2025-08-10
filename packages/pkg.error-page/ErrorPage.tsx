@@ -28,14 +28,14 @@ export const ErrorPage = ({ title, errorCode, text, children }: ErrorPagePropsT)
           <span className="flex items-center">
             в&nbsp;
             <TelegramFilled size="s" className="fill-brand-80 mr-1" />
-            <Link theme="brand" size="l" href="https://t.me/xieffect_support_bot" target="_blank">
+            <Link theme="brand" size="l" href="https://t.me/sovlium_support_bot" target="_blank">
               чат Telegram
             </Link>
           </span>
           <span className="flex items-center">
             &nbsp;или&nbsp;
             <MailRounded size="s" className="fill-brand-80 mr-1" />
-            <Link theme="brand" size="l" href="mailto:support@xieffect.ru">
+            <Link theme="brand" size="l" href="mailto:support@sovlium.ru">
               на электронную почту
             </Link>
           </span>

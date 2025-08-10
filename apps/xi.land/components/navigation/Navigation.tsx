@@ -64,7 +64,7 @@ export const Navigation = () => {
           active={active}
           item="База знаний"
           target="_blank"
-          href="https://support.xieffect.ru/"
+          href="https://support.sovlium.ru/"
         /> */}
       </div>
     </nav>
