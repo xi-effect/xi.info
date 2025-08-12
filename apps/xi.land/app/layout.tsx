@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'Y4vSUoLC0DZXzBAmNZ5rtQ9UVPlPaiKVSFHGx3ZJj-g',
-    // yandex: '5896c9df498c0cd0',
+    yandex: '4b86f3c46a3dc46d',
   },
   openGraph: {
     title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
