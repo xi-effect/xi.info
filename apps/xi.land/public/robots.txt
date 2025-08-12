@@ -4,3 +4,6 @@ Allow: /
 
 # Host
 Host: https://sovlium.ru
+
+# Sitemap
+Sitemap: https://sovlium.ru/sitemap.xml
