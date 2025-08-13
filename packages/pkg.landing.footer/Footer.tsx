@@ -28,7 +28,7 @@ const sections: Section[] = [
     title: 'Клиентам',
     links: [
       { link: '/prices', title: 'Тарифы' },
-      { link: 'https://support.sovlium.ru/', title: 'Руководства' },
+      // { link: 'https://support.sovlium.ru/', title: 'Руководства' },
       { link: 'https://t.me/sovlium_support_bot', title: 'Поддержка' },
     ],
   },
@@ -97,7 +97,7 @@ const Footer = () => {
                 <SvgColumn />
               </div>
             </div>
-            <div className="flex flex-col gap-8 xl:gap-16">
+            <div className="z-5 flex flex-col gap-8 xl:gap-16">
               <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
                 {sections.map(renderSection)}
               </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
@@ -21,6 +21,7 @@ export const Features = () => {
   const btnRef = useRef<HTMLAnchorElement>(null);
   const lastStepRef = useRef(0);
   const featuresTextWrapper = useRef<HTMLDivElement>(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const slidesRef = useRef<HTMLDivElement[]>([]);
   const collect = (el: HTMLDivElement | null) => {
@@ -31,29 +32,32 @@ export const Features = () => {
   function setStep(idx: number) {
     const { title, desc, href, cta } = steps[idx] ?? steps.at(-1)!;
 
+    // Создаем массив элементов для анимации, исключая null
+    const elementsToAnimate: (HTMLElement | null)[] = [titleRef.current, descRef.current];
+    if (btnRef.current) {
+      elementsToAnimate.push(btnRef.current);
+    }
+    const validElements = elementsToAnimate.filter(Boolean) as HTMLElement[];
+
     const tl = gsap.timeline({ defaults: { duration: 0.3, ease: 'power2.out' } });
 
-    tl.to([titleRef.current, descRef.current, btnRef.current], {
+    tl.to(validElements, {
       autoAlpha: 0,
       y: 20,
       onComplete: () => {
-        titleRef.current!.textContent = title;
-        descRef.current!.textContent = desc;
-
-        if (href) {
-          btnRef.current!.setAttribute('href', href);
-          btnRef.current!.style.display = '';
-        } else {
-          btnRef.current!.style.display = 'none';
+        if (titleRef.current) {
+          titleRef.current.textContent = title;
+        }
+        if (descRef.current) {
+          descRef.current.textContent = desc;
         }
 
-        if (cta) {
-          btnRef.current!.querySelector('button')!.textContent = cta;
-        }
+        // Обновляем состояние для корректного обновления href в Link
+        setCurrentStep(idx);
       },
     });
 
-    tl.to([titleRef.current, descRef.current, btnRef.current], {
+    tl.to(validElements, {
       autoAlpha: 1,
       y: 0,
       delay: 0.05,
@@ -130,11 +134,15 @@ export const Features = () => {
           </p>
 
           {/* кнопка: скрывается через autoAlpha, а не display → плавный fade */}
-          <Link ref={btnRef} href={steps[0].href!} className="mt-4">
-            <Button variant="default" size="l" className="h-[56px]">
-              {steps[0].cta}
-            </Button>
-          </Link>
+          <div className="mt-4" style={{ minHeight: '56px' }}>
+            {steps[currentStep].href && (
+              <Link ref={btnRef} href={steps[currentStep].href!}>
+                <Button variant="default" size="l" className="h-[56px]">
+                  {steps[currentStep].cta}
+                </Button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 
@@ -144,7 +152,7 @@ export const Features = () => {
           <div className="relative w-1/2 flex items-center justify-center h-full">
             <div
               className={cn(
-                'absolute right-0 w-full h-[80dvh] overflow-hidden rounded-l-3xl',
+                'absolute right-0 w-full max-h-[80dvh] h-full overflow-hidden rounded-l-3xl',
                 n !== 6 && 'shadow-2xl',
               )}
             >
@@ -152,7 +160,7 @@ export const Features = () => {
                 src={`/assets/main/Features/${n}.webp`}
                 alt={`feature-${n}`}
                 fill
-                className="object-cover object-left"
+                className="object-left object-cover"
                 priority={n === 1}
               />
             </div>
