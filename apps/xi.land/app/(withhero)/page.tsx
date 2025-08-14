@@ -1,5 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { FeaturesBlock, MessagesBlock, Telegram, Text } from 'components/main';
+import { FeaturesBlock, Telegram, Text } from 'components/main';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
 import Script from 'next/script';
@@ -87,15 +87,9 @@ export default function MainPage() {
       />
       <main>
         <Text
-          className="text-balance"
-          theme="dark"
-          text="Переход в онлайн принёс репетиторам новые вызовы"
-        />
-        <MessagesBlock />
-        <Text
-          className="text-balance"
+          className="text-balance line-clamp-2 text-center"
           theme="light"
-          text="Поэтому мы создали Sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
+          text="Мы создали Sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
         />
         <FeaturesBlock />
         <Telegram />

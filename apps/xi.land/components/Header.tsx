@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
 
@@ -12,14 +11,9 @@ const SHOW_DELAY_UP = 200; // показываем только после 100 p
 
 export const Header = () => {
   const [isShowHeader, setIsShowHeader] = useState(true);
-  const pathname = usePathname();
 
   const lastScrollY = useRef(0); // последний Y
   const scrollUpDistance = useRef(0); // сколько подряд проскроллили вверх
-
-  // Определяем тему на основе пути
-  const isMainPage = pathname === '/';
-  const theme = isMainPage ? 'dark' : 'white';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +55,7 @@ export const Header = () => {
 
   return (
     <header
-      data-theme={theme}
+      data-theme="white"
       className={cn(
         'bg-gray-0 dark:bg-gray-100 fixed top-0 z-10 flex w-full justify-center transition-all duration-700 ease-in-out',
         isShowHeader ? 'translate-y-0' : '-translate-y-full',

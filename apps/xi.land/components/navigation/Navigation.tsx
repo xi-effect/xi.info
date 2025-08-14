@@ -11,7 +11,7 @@ export const subMenu = [
     href: '/calls',
   },
   {
-    title: 'Белая Доска',
+    title: 'Онлайн-доска',
     href: '/whiteboard',
   },
   {
