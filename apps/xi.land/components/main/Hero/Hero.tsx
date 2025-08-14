@@ -49,7 +49,7 @@ export const Hero = () => {
             <Button
               variant="ghost"
               size="l"
-              className="mt-8 w-full max-w-[464px] text-brand-100 text-base md:text-lg lg:text-xl-base font-medium bg-brand-0"
+              className="mt-8 w-full max-w-[464px] text-brand-100 text-base md:text-lg lg:text-xl-base font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
               onClick={() => {
                 const el = document.getElementById('become-tester');
                 if (el) {
