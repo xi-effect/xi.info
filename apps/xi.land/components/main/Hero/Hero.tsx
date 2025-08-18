@@ -7,6 +7,8 @@ import React from 'react';
 import { Button } from '@xipkg/button';
 import { usePathname } from 'next/navigation';
 import { config } from './config';
+import { AnimationTRG } from './AnimationTRG';
+import { AnimationM } from './AnimationM';
 
 const HeroText = () => {
   const pathname = usePathname();
@@ -40,10 +42,18 @@ export const Hero = () => {
       className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out"
     >
       <div className="w-full max-w-[1600px] h-[500px] sm:h-[calc(100vh-160px)] flex items-start justify-center">
-        <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 sm:pt-16 pb-8 xs:pb-0 px-6 md:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 md:gap-12 lg:gap-16">
+        <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 sm:pt-16 pb-8 sm:pb-0 px-6 md:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 md:gap-12 lg:gap-16">
           <Blobs />
 
-          <div className="md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
+          <div className="hidden md:block absolute top-52 left-20 w-[192px] h-[192px]">
+            <AnimationTRG active={true} />
+          </div>
+
+          <div className="hidden md:block absolute top-0 right-16 w-[192px] h-[192px]">
+            <AnimationM active={true} />
+          </div>
+
+          <div className="my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
             <HeroText />
 
             <Button
@@ -59,7 +69,7 @@ export const Hero = () => {
             >
               {config[pathname].button}
             </Button>
-            <span className="text-gray-20 text-s-base font-normal">
+            <span className="text-gray-20 text-s-base font-normal text-center">
               Получите доступ ко всем инструментам бесплатно на 30 дней
             </span>
           </div>
