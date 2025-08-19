@@ -10,14 +10,15 @@ export const config = {
   '/calendar': {
     title: 'Расписание всегда\nпод контролем',
     description: 'Планируйте работу на день, неделю, месяц и год вперёд\nвместе с sovlium',
-    button: 'Начать бесплатно',
+    button: 'Попробовать раньше всех',
     image: '/assets/main/Hero/calendar.webp',
     imageMobile: '/assets/main/Hero/calendar-mobile.webp',
   },
   '/calls': {
     title: 'Видеозвонки, которые\nне хочется заканчивать',
-    description: 'Ваш идеальный цифровой класс.\nГоворите. Рисуйте. Объясняйте.\nПросто и быстро',
-    button: 'Начать бесплатно',
+    description:
+      'Ваш идеальный цифровой класс.\nСлушайте, показывайте, объясняйте —\nпросто и быстро',
+    button: 'Попробовать раньше всех',
     image: '/assets/main/Hero/calls.webp',
     imageMobile: '/assets/main/Hero/calls-mobile.webp',
   },
@@ -25,21 +26,21 @@ export const config = {
     title: 'Наглядная статистика дохода',
     description:
       'Больше не нужно записывать каждую оплату отдельно — sovlium\nподсчитает всё за вас',
-    button: 'Начать бесплатно',
+    button: 'Попробовать раньше всех',
     image: '/assets/main/Hero/payments.webp',
     imageMobile: '/assets/main/Hero/payments-mobile.webp',
   },
   '/whiteboard': {
     title: 'Бесконечный холст\nдля ваших идей',
     description: 'Готовьте уроки заранее или рисуйте на доске\nпрямо во время видеозвонка',
-    button: 'Начать бесплатно',
+    button: 'Попробовать раньше всех',
     image: '/assets/main/Hero/whiteboard.webp',
     imageMobile: '/assets/main/Hero/whiteboard-mobile.webp',
   },
   '/materials': {
     title: 'Собственная цифровая\nбиблиотека',
     description: 'Сохраняйте материалы в одном сервисе вместо тысячи вкладок',
-    button: 'Начать бесплатно',
+    button: 'Попробовать раньше всех',
     image: '/assets/main/Hero/materials.webp',
     imageMobile: '/assets/main/Hero/materials-mobile.webp',
   },

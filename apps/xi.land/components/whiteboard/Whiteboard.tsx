@@ -25,10 +25,10 @@ export const Whiteboard = () => (
       imageSrcDesktop="/assets/whiteboard/space.webp"
       imageSrcMobile="/assets/whiteboard/space.webp"
       imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full object-cover h-full object-left-top"
-      reverse
-      bg="bg-brand-80"
-      descrClassname="text-brand-0"
-      imgBlockClassName="sm:h-[450px]"
+      isReversed
+      isInverted
+      textBlockClassName="lg:gap-6"
+      imgBlockClassName="sm:h-120.5 h-87.5"
       buttonText="Попробовать бесплатно"
       buttonVariant="secondary"
       className="gap-y-0"

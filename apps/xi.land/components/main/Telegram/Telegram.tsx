@@ -26,7 +26,7 @@ const TgIcon = () => (
 );
 
 export const Telegram = () => (
-  <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 transition-all duration-700 ease-in-out">
+  <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 md:pb-20 transition-all duration-700 ease-in-out">
     <div className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full max-w-[1600px] p-8 lg:p-16 flex flex-col items-start justify-center gap-2">
       <TgIcon />
       <h3 className="z-5 text-gray-0 text-[32px] sm:text-h3 xl:text-h2 font-medium whitespace-pre-line">

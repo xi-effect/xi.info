@@ -73,7 +73,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-brand-80 z-1 mt-12 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px]">
+      <div className="bg-brand-80 z-1 mt-0 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl md:bg-[url('/assets/footer/bgFooter.png')] xl:rounded-t-[64px]">
         <MainPage />
         <FreeInvite />
       </div>

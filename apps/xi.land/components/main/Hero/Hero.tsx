@@ -14,12 +14,12 @@ const HeroText = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-6">
-      <h1 className="font-medium text-3xl md:text-4xl lg:text-5xl text-gray-0 text-center whitespace-pre-line">
+    <div className="flex flex-col items-center gap-4 md:gap-6">
+      <h1 className="text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-0 text-center whitespace-pre-line">
         {config[pathname].title}
       </h1>
 
-      <h2 className="font-normal text-lg md:text-xl lg:text-[24px] text-gray-5 text-center whitespace-pre-line">
+      <h2 className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center ">
         {config[pathname].description}
       </h2>
     </div>
@@ -39,10 +39,10 @@ export const Hero = () => {
   return (
     <section
       data-theme="white"
-      className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full pt-[112px] px-6 pb-12 transition-all duration-700 ease-in-out"
+      className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full pt-28 px-6 pb-12 transition-all duration-700 ease-in-out"
     >
-      <div className="w-full max-w-[1600px] h-[500px] sm:h-[calc(100vh-160px)] flex items-start justify-center">
-        <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 sm:pt-16 pb-8 sm:pb-0 px-6 md:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 md:gap-12 lg:gap-16">
+      <div className="w-full max-w-400 sm:h-[calc(100vh-160px)] flex items-start justify-center">
+        <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
           <Blobs />
 
           <div className="hidden md:block absolute top-52 left-20 w-[192px] h-[192px]">
@@ -59,7 +59,7 @@ export const Hero = () => {
             <Button
               variant="ghost"
               size="l"
-              className="mt-8 w-full max-w-[464px] text-brand-100 text-base md:text-lg lg:text-xl-base font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
+              className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
               onClick={() => {
                 const el = document.getElementById('become-tester');
                 if (el) {
@@ -69,15 +69,15 @@ export const Hero = () => {
             >
               {config[pathname].button}
             </Button>
-            <span className="text-gray-20 text-s-base font-normal text-center">
-              Получите доступ ко всем инструментам бесплатно на 30 дней
+            <span className="text-gray-10 md:text-gray-20 text-xs-base md:text-s-base font-normal mt-2 text-center md:!leading-[1.3]">
+              Подарим бесплатный доступ сейчас и привилегии в будущем
             </span>
           </div>
 
           <Image
             src={config[pathname].imageMobile}
             alt="screenshot of the site"
-            width={572}
+            width={1344}
             height={400}
             className="self-end mr-[-32px] hidden sm:block md:hidden"
             priority
