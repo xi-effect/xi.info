@@ -18,6 +18,7 @@ export const Calendar = () => (
       imageSrcDesktop="/assets/calendar/timeToRest.svg"
       imageSrcMobile="/assets/calendar/timeToRest.svg"
       imageClassName="w-[240px] sm:w-[480px] relative"
+      imageBlockClassName="h-75"
     />
 
     <HorizontalFeatureCard
@@ -26,10 +27,10 @@ export const Calendar = () => (
       imageSrcDesktop="/assets/calendar/lessonCard.svg"
       imageSrcMobile="/assets/calendar/lessonCard.svg"
       imageClassName="absolute w-[310px] sm:w-[320px] lg:w-[280px] xl:w-[320px] md:top-0 top-4 sm:top-4 sm:right-0 md:h-full md:relative"
-      descrClassname="sm:flex-1/2"
-      imgBlockClassName="sm:flex-1/2"
-      reverse
+      textBlockClassName="sm:flex-1/2"
+      imgBlockClassName="sm:flex-1/2 h-87.5 sm:h-79.5"
       className="sm:flex-row-reverse"
+      isReversed
     />
 
     <HorizontalFeatureCard
@@ -38,6 +39,8 @@ export const Calendar = () => (
       imageSrcDesktop="/assets/calendar/autoNotification.svg"
       imageSrcMobile="/assets/calendar/autoNotification.svg"
       imageClassName="w-[290px] sm:w-[480px] absolute md:p-8 xl:w-full"
+      imgBlockClassName="sm:h-87.5"
+      className="sm:gap-8"
     />
 
     <HorizontalFeatureCard
@@ -46,10 +49,10 @@ export const Calendar = () => (
       imageSrcDesktop="/assets/calendar/secretary.webp"
       imageSrcMobile="/assets/calendar/secretary_m.webp"
       imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full md:object-cover md:h-full md:object-left"
-      reverse
-      bg="bg-brand-80"
-      descrClassname="text-brand-0"
-      imgBlockClassName="sm:h-[450px]"
+      isReversed
+      isInverted
+      textBlockClassName="md:gap-6"
+      imgBlockClassName="sm:h-112.5 h-87.5"
       buttonText="Попробовать бесплатно"
       buttonVariant="secondary"
       className="gap-y-0"

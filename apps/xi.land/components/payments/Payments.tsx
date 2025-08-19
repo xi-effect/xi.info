@@ -7,7 +7,7 @@ export const Payments = () => (
       description="Легко отслеживайте статусы платежей"
       imageSrcDesktop="/assets/payments/messageList.webp"
       imageSrcMobile="/assets/payments/messageList.webp"
-      imageClassName="left-4 sm:left-8 top-4 sm:top-8 h-full object-cover object-left p-8 pr-0 w-full absolute md:p-0 md:relative md:object-contain"
+      imageClassName="left-4 sm:left-8 top-4 sm:top-8 xl:top-0 h-full object-cover object-left pl-4 sm:pl-8 xl:pl-0 pt-4.5 sm:pt-18 md:pt-8 xl:pt-18 h-50 sm:h-80 w-full absolute xl:relative xl:object-contain"
       imageBlockClassName="h-[250px]"
     />
 
@@ -17,6 +17,7 @@ export const Payments = () => (
       imageSrcDesktop="/assets/payments/files.svg"
       imageSrcMobile="/assets/payments/files.svg"
       imageClassName="w-[440px] relative"
+      imageBlockClassName="h-75"
     />
 
     <HorizontalFeatureCard
@@ -24,9 +25,10 @@ export const Payments = () => (
       description="Отправляйте счета на оплату и подтверждайте получение денег. Если оплата задержится, мы сами пришлём ученику напоминание"
       imageSrcDesktop="/assets/payments/paymentReminders.svg"
       imageSrcMobile="/assets/payments/paymentReminders.svg"
-      imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 md:left-0 md:pl-8 md:object-cover md:w-full md:h-full md:py-6 md:top-0 sm:w-full sm:object-left"
-      imgBlockClassName="h-[300px] sm:h-[450px] xl:items-center"
-      reverse
+      imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 md:left-0 md:pl-8 md:object-cover md:w-full md:h-full md:py-6.75 md:top-0 sm:w-full sm:object-left"
+      imgBlockClassName="h-75 sm:h-112.5 xl:items-center"
+      className="gap-8"
+      isReversed
     />
 
     <HorizontalFeatureCard
@@ -35,10 +37,9 @@ export const Payments = () => (
       imageSrcDesktop="/assets/payments/personalAccountant.webp"
       imageSrcMobile="/assets/payments/personalAccountant_m.webp"
       imageClassName="absolute left-4 top-4 sm:left-8 sm:top-8 w-full object-cover h-full object-left-top"
-      reverse
-      bg="bg-brand-80"
-      descrClassname="text-brand-0"
-      imgBlockClassName="sm:h-[450px]"
+      isReversed
+      isInverted
+      imgBlockClassName="sm:h-120.5 h-87.5"
       buttonText="Попробовать бесплатно"
       buttonVariant="secondary"
       className="gap-y-0"

@@ -14,9 +14,9 @@ type HorizontalFeatureCardPropsT = {
   imageStyle?: React.CSSProperties;
   imageSrcMobile: string;
   imageSrcDesktop: string;
-  reverse?: boolean;
-  bg?: string;
-  descrClassname?: string;
+  isReversed?: boolean;
+  isInverted?: boolean;
+  textBlockClassName?: string;
   imgBlockClassName?: string;
   buttonText?: string;
   onButtonClick?: () => void;
@@ -32,9 +32,9 @@ export const HorizontalFeatureCard = ({
   imageAlt = '',
   imageClassName = '',
   imageStyle = {},
-  reverse = false,
-  bg = 'bg-gray-5',
-  descrClassname,
+  isReversed = false,
+  isInverted = false,
+  textBlockClassName,
   imgBlockClassName,
   buttonText,
   buttonVariant,
@@ -43,16 +43,16 @@ export const HorizontalFeatureCard = ({
 }: HorizontalFeatureCardPropsT) => (
   <div
     className={cn(
-      'flex flex-col col-span-2 gap-y-8 lg:gap-y-16 gap-x-8 lg:gap-x-16 rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2',
-      bg,
+      'flex flex-col col-span-2 gap-y-4 lg:gap-y-16 gap-x-6 lg:gap-x-8 rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2',
+      isInverted ? 'bg-brand-80' : 'bg-gray-5',
       className,
     )}
   >
     <div
       className={cn(
-        'flex justify-center items-center relative p-4 sm:p-8 overflow-hidden h-[350px] md:h-auto md:aspect-[768/660]',
+        'flex justify-center items-center relative p-4 sm:p-8 overflow-hidden h-75 md:h-auto md:aspect-[768/660]',
         imgBlockClassName,
-        reverse ? 'md:order-2' : 'md:order-1',
+        isReversed ? 'md:order-2' : 'md:order-1',
       )}
     >
       <ResponsiveImage
@@ -65,19 +65,31 @@ export const HorizontalFeatureCard = ({
     </div>
     <div
       className={cn(
-        'flex flex-col gap-2 lg:gap-4 justify-center p-4 sm:p-8 md:aspect-[768/660]',
-        descrClassname,
-        reverse ? 'md:order-1' : 'md:order-2',
+        'flex flex-col gap-4 p-4 sm:p-8 md:aspect-[768/660] lg:justify-center ',
+        textBlockClassName,
+        isReversed ? 'md:order-1' : 'md:order-2',
       )}
     >
-      <h4 className="text-h6 sm:text-h5 2xl:text-h3 font-medium sm:break-all md:break-normal">
+      <h4
+        className={cn(
+          '!text-xl-base sm:!text-h5 lg:!text-[40px] font-semibold sm:font-medium sm:break-all md:break-normal !leading-[1.2] sm:!leading-[1.1]',
+          isInverted ? 'text-brand-0' : 'text-gray-100',
+        )}
+      >
         {title}
       </h4>
-      <p className="text-l-base 2xl:text-xl-base">{description}</p>
+      <p
+        className={cn(
+          '!text-m-base sm:!text-l-base lg:!text-xl-base lg:!leading-[1.3]',
+          isInverted ? 'text-brand-20' : 'text-gray-80',
+        )}
+      >
+        {description}
+      </p>
       {buttonText && (
-        <div className="mt-8">
+        <div className="mt-2 sm:mt-6 lg:mt-4">
           <Button
-            className="rounded-xl text-brand-100 sm:rounded-2xl border-none sm:h-14 sm:text-m-base xl:px-8 xl:text-l-base"
+            className="w-full sm:w-85 lg:w-116 sm:h-14 text-brand-100 sm:text-l-base rounded-xl sm:rounded-2xl border-none shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
             variant={buttonVariant ?? 'default'}
             onClick={onButtonClick}
             size="m"

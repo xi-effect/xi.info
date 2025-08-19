@@ -22,7 +22,8 @@ export const VerticalFeatureCard = ({
   imageStyle,
   imageBlockClassName,
 }: VerticalFeatureCardPropsT) => (
-  <div className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 justify-between md:aspect-[768/660] w-full h-full">
+  <div className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 w-full h-full">
+    {/* md:aspect-[768/660] */}
     <div
       className={cn(
         'relative p-4 sm:p-8 overflow-hidden h-[350px] sm:h-[450px] md:h-auto justify-center align-middle flex md:aspect-[768/450]',
@@ -37,9 +38,13 @@ export const VerticalFeatureCard = ({
         style={{ ...imageStyle }}
       />
     </div>
-    <div className="flex flex-col gap-2 lg:gap-4 p-4 sm:p-8 md:pt-4 xl:pt-8 ">
-      <h4 className="text-h6 sm:text-h5 2xl:text-h3 font-medium leading-[1.3]">{title}</h4>
-      <p className="text-l-base 2xl:text-xl-base leading-[1.3]">{description}</p>
+    <div className="flex flex-col gap-4 lg:gap-4 p-4 sm:p-8 md:pt-4 xl:pt-8 ">
+      <h4 className="text-xl-base sm:text-h5 sm:font-medium lg:text-[40px] font-semibold sm:leading-[1.1] leading-[1.2] text-gray-100">
+        {title}
+      </h4>
+      <p className="text-m-base sm:text-l-base lg:text-xl-base lg:leading-[1.3] text-gray-80">
+        {description}
+      </p>
     </div>
   </div>
 );

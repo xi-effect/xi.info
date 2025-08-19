@@ -2,8 +2,8 @@
 'use client';
 
 import Image from 'next/image';
-
 import { VerticalFeatureCard } from 'components/main/shared';
+import { Button } from '@xipkg/button';
 
 export const Calls = () => (
   <div className="w-full max-w-[1600px] mx-auto bg-gray-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-8 lg:gap-x-16">
@@ -26,8 +26,8 @@ export const Calls = () => (
     />
 
     <div className="col-span-2">
-      <div className="px-4 py-8 items-center">
-        <h3 className="text-h6 sm:text-h5 2xl:text-h3 font-medium text-center">
+      <div className="px-8 py-8 items-center">
+        <h3 className="text-xl-base sm:text-h5 md:text-h3 font-semibold sm:font-medium text-center text-gray-100 leading-[1.2] sm:!leading-[1.1] md:!leading-[1.3]">
           Создано специально для репетиторов
         </h3>
       </div>
@@ -46,6 +46,18 @@ export const Calls = () => (
           alt="Обычные видеоконференции"
           className="w-full max-w-[572px]"
         />
+      </div>
+      <div className="flex flex-col items-center p-8 gap-8">
+        <h3 className="text-xl-base sm:text-h5 md:text-xl-base sm:leading-[1.1] leading-[1.2] font-semibold sm:font-medium md:font-normal text-center text-gray-80">
+          Подарите себе больше свободных минут с видеозвонками от sovlium
+        </h3>
+        <Button
+          className="w-70.25 sm:w-85 md:w-116 rounded-xl font-medium !text-brand-0 sm:rounded-2xl border-none sm:h-14 text-m-base sm:text-l-base md:text-xl-base md:px-8 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
+          variant={'default'}
+          size="m"
+        >
+          Попробовать бесплатно
+        </Button>
       </div>
     </div>
   </div>
