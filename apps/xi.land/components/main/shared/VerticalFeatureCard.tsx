@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
 import { ResponsiveImage } from './ResponsiveImage';
 
@@ -10,6 +11,11 @@ type VerticalFeatureCardPropsT = {
   imageClassName?: string;
   imageBlockClassName?: string;
   imageStyle?: React.CSSProperties;
+  motionConfig?: {
+    initial?: any;
+    animate?: any;
+    transition?: any;
+  };
 };
 
 export const VerticalFeatureCard = ({
@@ -21,8 +27,12 @@ export const VerticalFeatureCard = ({
   imageClassName,
   imageStyle,
   imageBlockClassName,
+  motionConfig,
 }: VerticalFeatureCardPropsT) => (
-  <div className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 w-full h-full">
+  <motion.div
+    className="flex flex-col gap-4 rounded-2xl sm:rounded-4xl bg-gray-5 col-span-2 md:col-span-1 w-full h-full"
+    {...motionConfig}
+  >
     {/* md:aspect-[768/660] */}
     <div
       className={cn(
@@ -46,5 +56,5 @@ export const VerticalFeatureCard = ({
         {description}
       </p>
     </div>
-  </div>
+  </motion.div>
 );

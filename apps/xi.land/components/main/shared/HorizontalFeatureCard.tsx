@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import { Button, buttonVariants } from '@xipkg/button';
 
 import { cn } from '@xipkg/utils';
@@ -22,6 +23,11 @@ type HorizontalFeatureCardPropsT = {
   onButtonClick?: () => void;
   buttonVariant?: VariantProps<typeof buttonVariants>['variant'];
   className?: string;
+  motionConfig?: {
+    initial?: any;
+    animate?: any;
+    transition?: any;
+  };
 };
 
 export const HorizontalFeatureCard = ({
@@ -40,13 +46,15 @@ export const HorizontalFeatureCard = ({
   buttonVariant,
   onButtonClick,
   className = '',
+  motionConfig,
 }: HorizontalFeatureCardPropsT) => (
-  <div
+  <motion.div
     className={cn(
       'flex flex-col col-span-2 gap-y-4 lg:gap-y-16 gap-x-6 lg:gap-x-8 rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2',
       isInverted ? 'bg-brand-80' : 'bg-gray-5',
       className,
     )}
+    {...motionConfig}
   >
     <div
       className={cn(
@@ -99,5 +107,5 @@ export const HorizontalFeatureCard = ({
         </div>
       )}
     </div>
-  </div>
+  </motion.div>
 );
