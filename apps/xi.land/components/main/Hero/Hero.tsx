@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import { config } from './config';
 import { AnimationTRG } from './AnimationTRG';
 import { AnimationM } from './AnimationM';
+import { AnimationEng } from './AnimationEng';
 
 const HeroText = () => {
   const pathname = usePathname();
@@ -45,11 +46,15 @@ export const Hero = () => {
         <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
           <Blobs />
 
-          <div className="hidden md:block absolute top-52 left-20 w-[192px] h-[192px]">
+          <div className="hidden md:block absolute top-0 left-4 w-[192px] h-[192px]">
             <AnimationTRG active={true} />
           </div>
 
-          <div className="hidden md:block absolute top-0 right-16 w-[192px] h-[192px]">
+          <div className="hidden md:block absolute top-0 right-4 w-[192px] h-[192px]">
+            <AnimationEng active={true} />
+          </div>
+
+          <div className="hidden md:block absolute top-64 right-24 w-[192px] h-[192px]">
             <AnimationM active={true} />
           </div>
 

@@ -16,7 +16,7 @@ export const AnimationTRG = ({ active }: { active: boolean }) => {
       const tl = gsap.timeline({ defaults: { ease: 'none' } });
 
       // добавляем общую задержку в 3 секунд перед началом анимации
-      tl.add(() => {}, 2);
+      tl.add(() => {}, 1);
 
       paths.forEach((path: SVGPathElement) => {
         const length = path.getTotalLength();
