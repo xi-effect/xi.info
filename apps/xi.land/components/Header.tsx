@@ -58,7 +58,7 @@ export const Header = () => {
     <header
       data-theme="white"
       className={cn(
-        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-10 flex w-full justify-center transition-all duration-700 ease-in-out',
+        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-100 flex w-full justify-center transition-all duration-700 ease-in-out',
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >

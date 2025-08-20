@@ -116,7 +116,7 @@ export const Hero = () => {
           <Blobs />
 
           <motion.div
-            className="hidden md:block absolute top-0 left-4 w-[192px] h-[192px]"
+            className="hidden md:block absolute top-0 left-6 w-[192px] h-[192px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -125,7 +125,7 @@ export const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="hidden md:block absolute top-0 right-4 w-[192px] h-[192px]"
+            className="hidden md:block absolute top-0 right-6 w-[192px] h-[192px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}

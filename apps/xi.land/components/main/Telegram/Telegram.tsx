@@ -3,7 +3,8 @@
 // @ts-nocheck
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import { Button } from '@xipkg/button';
 import { Link } from '@xipkg/link';
 
@@ -25,29 +26,39 @@ const TgIcon = () => (
   </svg>
 );
 
-export const Telegram = () => (
-  <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 md:pb-20 transition-all duration-700 ease-in-out">
-    <div className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full max-w-[1600px] p-8 lg:p-16 flex flex-col items-start justify-center gap-2">
-      <TgIcon />
-      <h3 className="z-5 text-gray-0 text-[32px] sm:text-h3 xl:text-h2 font-medium whitespace-pre-line">
-        Присоединяйтесь к сообществу
-        <br />
-        репетиторов в Telegram
-      </h3>
-      <p className="z-5 text-gray-0 text-l-base">
-        Обменивайтесь опытом и лайфхаками, читайте полезные статьи
-        <br />
-        и просто общайтесь с коллегами
-      </p>
-      <Link href="https://t.me/sovlium" className="z-5" target="_blank">
-        <Button
-          variant="ghost"
-          size="l"
-          className="mt-2 z-5 text-brand-100 text-l-base rounded-2xl font-medium bg-brand-0"
-        >
-          Перейти в Telegram
-        </Button>
-      </Link>
-    </div>
-  </section>
-);
+export const Telegram = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-200px' });
+
+  return (
+    <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 md:pb-20 transition-all duration-700 ease-in-out">
+      <motion.div
+        ref={ref}
+        className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full max-w-[1600px] p-8 lg:p-16 flex flex-col items-start justify-center gap-2"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <TgIcon />
+        <h3 className="z-5 text-gray-0 text-[32px] sm:text-h3 xl:text-h2 font-medium whitespace-pre-line">
+          Присоединяйтесь к сообществу
+          <br />
+          репетиторов в Telegram
+        </h3>
+        <p className="z-5 text-gray-0 text-l-base">
+          Обменивайтесь опытом и лайфхаками, читайте полезные статьи
+          <br />и просто общайтесь с коллегами
+        </p>
+        <Link href="https://t.me/sovlium" className="z-5" target="_blank">
+          <Button
+            variant="ghost"
+            size="l"
+            className="mt-2 z-5 text-brand-100 text-l-base rounded-2xl font-medium bg-brand-0"
+          >
+            Перейти в Telegram
+          </Button>
+        </Link>
+      </motion.div>
+    </section>
+  );
+};
