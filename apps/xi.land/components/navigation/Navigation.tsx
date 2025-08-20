@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 import { MenuItem } from './MenuItem';
 // import { SubMenuItem } from './SubMenuItem';
@@ -32,7 +33,13 @@ export const Navigation = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <nav onMouseLeave={() => setActive(null)} className="z-10 hidden md:block">
+    <motion.nav
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+      onMouseLeave={() => setActive(null)}
+      className="z-10 hidden md:block"
+    >
       <div className="flex lg:gap-2">
         {/* <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="flex flex-col gap-0">
@@ -67,6 +74,6 @@ export const Navigation = () => {
           href="https://support.sovlium.ru/"
         /> */}
       </div>
-    </nav>
+    </motion.nav>
   );
 };

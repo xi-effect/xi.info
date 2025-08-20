@@ -2,6 +2,22 @@
 // @ts-nocheck
 'use client';
 
+// CSS fallback для случаев без JavaScript
+const fallbackStyles = `
+  @media (prefers-reduced-motion: reduce) {
+    .motion-fallback {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+  
+  .no-js .motion-fallback {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+`;
+
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
@@ -17,16 +33,33 @@ const HeroText = () => {
 
   return (
     <motion.div
-      className="flex flex-col items-center gap-4 md:gap-6"
+      className="flex flex-col items-center gap-4 md:gap-6 motion-fallback"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{
+        duration: 0.8,
+        ease: 'easeOut',
+        // Уважаем настройки пользователя
+        ...(typeof window !== 'undefined' &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
+            duration: 0,
+          }),
+      }}
     >
       <motion.h1
         className="text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-0 text-center whitespace-pre-line"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        transition={{
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'easeOut',
+          ...(typeof window !== 'undefined' &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
+              duration: 0,
+              delay: 0,
+            }),
+        }}
       >
         {config[pathname].title}
       </motion.h1>
@@ -35,7 +68,16 @@ const HeroText = () => {
         className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+        transition={{
+          duration: 0.8,
+          delay: 0.4,
+          ease: 'easeOut',
+          ...(typeof window !== 'undefined' &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
+              duration: 0,
+              delay: 0,
+            }),
+        }}
       >
         {config[pathname].description}
       </motion.h2>
@@ -52,6 +94,17 @@ const Blobs = () => (
 
 export const Hero = () => {
   const pathname = usePathname();
+
+  // Добавляем CSS fallback
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = fallbackStyles;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   return (
     <section
@@ -139,7 +192,7 @@ export const Hero = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
             className="hidden md:block"

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
 import { MobileNavigation, Navigation } from './navigation';
 
@@ -62,26 +63,30 @@ export const Header = () => {
       )}
     >
       <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 lg:gap-12 relative items-center max-w-[1600px] md:mx-auto">
-        <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
-          <Image
-            src="/logoforwhite.svg"
-            alt="logo"
-            width={216}
-            height={48}
-            className="block dark:hidden transition-opacity duration-500 ease-in-out"
-          />
-          <Image
-            src="/logofordark.svg"
-            alt="logo"
-            width={216}
-            height={48}
-            className="hidden dark:block transition-opacity duration-500 ease-in-out"
-          />
-        </Link>
-
-        <div className="gap-4 hidden md:flex">
-          <Navigation />
-          {/* <Button
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
+            <Image
+              src="/logoforwhite.svg"
+              alt="logo"
+              width={216}
+              height={48}
+              className="block dark:hidden transition-opacity duration-500 ease-in-out"
+            />
+            <Image
+              src="/logofordark.svg"
+              alt="logo"
+              width={216}
+              height={48}
+              className="hidden dark:block transition-opacity duration-500 ease-in-out"
+            />
+          </Link>
+        </motion.div>
+        <Navigation />
+        {/* <Button
             asChild
             className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0
             text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
@@ -104,7 +109,6 @@ export const Header = () => {
           >
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
           </Button> */}
-        </div>
 
         <MobileNavigation />
       </div>
