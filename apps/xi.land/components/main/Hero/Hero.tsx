@@ -4,6 +4,7 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'motion/react';
 import { Button } from '@xipkg/button';
 import { usePathname } from 'next/navigation';
 import { config } from './config';
@@ -15,15 +16,30 @@ const HeroText = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col items-center gap-4 md:gap-6">
-      <h1 className="text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-0 text-center whitespace-pre-line">
+    <motion.div
+      className="flex flex-col items-center gap-4 md:gap-6"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      <motion.h1
+        className="text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-0 text-center whitespace-pre-line"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+      >
         {config[pathname].title}
-      </h1>
+      </motion.h1>
 
-      <h2 className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center ">
+      <motion.h2
+        className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+      >
         {config[pathname].description}
-      </h2>
-    </div>
+      </motion.h2>
+    </motion.div>
   );
 };
 
@@ -46,56 +62,96 @@ export const Hero = () => {
         <div className="relative overflow-hidden bg-brand-80 w-full h-full z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
           <Blobs />
 
-          <div className="hidden md:block absolute top-0 left-4 w-[192px] h-[192px]">
+          <motion.div
+            className="hidden md:block absolute top-0 left-4 w-[192px] h-[192px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
             <AnimationTRG active={true} />
-          </div>
+          </motion.div>
 
-          <div className="hidden md:block absolute top-0 right-4 w-[192px] h-[192px]">
+          <motion.div
+            className="hidden md:block absolute top-0 right-4 w-[192px] h-[192px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+          >
             <AnimationEng active={true} />
-          </div>
+          </motion.div>
 
-          <div className="hidden md:block absolute top-64 right-24 w-[192px] h-[192px]">
+          <motion.div
+            className="hidden md:block absolute top-64 right-24 w-[192px] h-[192px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
+          >
             <AnimationM active={true} />
-          </div>
+          </motion.div>
 
           <div className="my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
             <HeroText />
 
-            <Button
-              variant="ghost"
-              size="l"
-              className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
-              onClick={() => {
-                const el = document.getElementById('become-tester');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+            <motion.div
+              className="flex flex-col items-center w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
             >
-              {config[pathname].button}
-            </Button>
-            <span className="text-gray-10 md:text-gray-20 text-xs-base md:text-s-base font-normal mt-2 text-center md:!leading-[1.3]">
+              <Button
+                variant="ghost"
+                size="l"
+                className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
+                onClick={() => {
+                  const el = document.getElementById('become-tester');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                {config[pathname].button}
+              </Button>
+            </motion.div>
+
+            <motion.span
+              className="text-gray-10 md:text-gray-20 text-xs-base md:text-s-base font-normal mt-2 text-center md:!leading-[1.3]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
+            >
               Подарим бесплатный доступ сейчас и привилегии в будущем
-            </span>
+            </motion.span>
           </div>
 
-          <Image
-            src={config[pathname].imageMobile}
-            alt="screenshot of the site"
-            width={1344}
-            height={400}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
             className="self-end mr-[-32px] hidden sm:block md:hidden"
-            priority
-          />
+          >
+            <Image
+              src={config[pathname].imageMobile}
+              alt="screenshot of the site"
+              width={1344}
+              height={400}
+              priority
+            />
+          </motion.div>
 
-          <Image
-            src={config[pathname].image}
-            alt="screenshot of the site"
-            width={1344}
-            height={756}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
             className="hidden md:block"
-            priority
-          />
+          >
+            <Image
+              src={config[pathname].image}
+              alt="screenshot of the site"
+              width={1344}
+              height={756}
+              priority
+            />
+          </motion.div>
         </div>
       </div>
     </section>
