@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import dynamic from "next/dynamic";
-import { useCookieBanner } from "./hooks/useCookieBanner";
+import dynamic from 'next/dynamic';
+import { useCookieBanner } from './hooks/useCookieBanner';
 
 const CookieBanner = dynamic(
-  () => import("./CookieBanner").then((mod) => ({ default: mod.CookieBanner })),
-  { ssr: false }
+  () => import('./CookieBanner').then((mod) => ({ default: mod.CookieBanner })),
+  { ssr: false },
 );
 
 export function CookieBannerWrapper() {
