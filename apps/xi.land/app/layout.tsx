@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Inter } from 'next/font/google';
-import React, { ReactNode } from 'react';
 import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { ReactNode } from 'react';
 
-import { Footer } from 'pkg.landing.footer';
 import { Header } from 'components/Header';
+import { Footer } from 'pkg.landing.footer';
 
+import { CookieBannerWrapper } from 'components/cookieBanner/CookieBannerWrapper';
+import Script from 'next/script';
 import { Toaster } from 'sonner';
 import '../index.css';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
@@ -130,7 +131,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </noscript>
           </>
         )}
-        {/* @ts-expect-error */}
+        <CookieBannerWrapper />
         <Toaster />
         <Header />
         {children}
