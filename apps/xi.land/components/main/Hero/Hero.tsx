@@ -151,7 +151,7 @@ export const Hero = () => {
             <AnimationMath active={true} />
           </motion.div>
 
-          <div className="my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
+          <div className="z-30 my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
             <HeroText />
 
             <motion.div
