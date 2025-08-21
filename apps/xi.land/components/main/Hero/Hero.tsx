@@ -24,9 +24,10 @@ import { motion } from 'motion/react';
 import { Button } from '@xipkg/button';
 import { usePathname } from 'next/navigation';
 import { config } from './config';
-import { AnimationTRG } from './AnimationTRG';
-import { AnimationM } from './AnimationM';
+import { AnimationChem } from './AnimationChem';
+import { AnimationMath } from './AnimationMath';
 import { AnimationEng } from './AnimationEng';
+import { AnimationHistory } from './AnimationHistory';
 
 const HeroText = () => {
   const pathname = usePathname();
@@ -121,7 +122,7 @@ export const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <AnimationTRG active={true} />
+            <AnimationChem active={true} />
           </motion.div>
 
           <motion.div
@@ -134,12 +135,20 @@ export const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="hidden md:block absolute top-64 right-24 w-[192px] h-[192px]"
+            className="hidden md:block absolute top-72 right-16 w-[296px] h-[192px]"
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 4.5, ease: 'easeOut' }}
+          >
+            <AnimationHistory active={true} />
+          </motion.div>
+          <motion.div
+            className="hidden md:block absolute top-72 left-16 w-[192px] h-[192px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
           >
-            <AnimationM active={true} />
+            <AnimationMath active={true} />
           </motion.div>
 
           <div className="my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
