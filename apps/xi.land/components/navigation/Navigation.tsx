@@ -8,6 +8,10 @@ import { MenuItem } from './MenuItem';
 
 export const subMenu = [
   {
+    title: 'Расписание',
+    href: '/calendar',
+  },
+  {
     title: 'Видеозвонки',
     href: '/calls',
   },
@@ -16,16 +20,12 @@ export const subMenu = [
     href: '/whiteboard',
   },
   {
-    title: 'Оплаты',
-    href: '/payments',
-  },
-  {
-    title: 'Расписание',
-    href: '/calendar',
-  },
-  {
     title: 'Материалы',
     href: '/materials',
+  },
+  {
+    title: 'Оплаты',
+    href: '/payments',
   },
 ];
 
