@@ -120,16 +120,19 @@ export const Features = () => {
         ref={featuresTextWrapper}
         className="h-[100dvh] w-1/2 absolute left-0 top-0 z-10 flex flex-col gap-16 items-start justify-center"
       >
-        <div className="flex flex-col md:pl-16 xl:pl-24 2xl:pl-[160px] pr-[64px] gap-4">
+        <div className="flex flex-col md:pl-16 xl:pl-24 2xl:pl-[160px] pr-[64px] gap-4 xl:gap-6">
           <h2
             ref={titleRef}
-            className="text-[32px] xl:text-[48px] font-semibold text-gray-100 text-left leading-tight max-w-[18ch]"
+            className="text-[32px] xl:text-[48px] xl:leading-[1] font-semibold text-gray-100 text-left"
             aria-live="polite"
           >
             {steps[0].title}
           </h2>
 
-          <p ref={descRef} className="text-gray-80 text-left text-xl-base xl:text-h5">
+          <p
+            ref={descRef}
+            className="text-gray-80 text-left text-xl-base xl:text-h5 xl:leading-[1.3]"
+          >
             {steps[0].desc}
           </p>
 
@@ -137,7 +140,11 @@ export const Features = () => {
           <div className="mt-4" style={{ minHeight: '56px' }}>
             {steps[currentStep].href && (
               <Link ref={btnRef} href={steps[currentStep].href!}>
-                <Button variant="default" size="l" className="h-[56px]">
+                <Button
+                  variant="default"
+                  size="l"
+                  className="w-96 lg:w-116 h-16 !text-xl-base text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
+                >
                   {steps[currentStep].cta}
                 </Button>
               </Link>

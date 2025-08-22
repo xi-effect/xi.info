@@ -15,7 +15,7 @@ const TgIcon = () => (
     viewBox="0 0 599 388"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="hidden md:flex absolute bottom-0 right-0 z-0"
+    className="md:flex absolute left-[-75px] bottom-[-125px] sm:left-auto sm:bottom-[-135px] md:bottom-0 sm:right-0 z-0 w-110 h-110 sm:h-125 sm:w-125 md:w-auto md:h-auto"
   >
     <path
       fillRule="evenodd"
@@ -31,31 +31,36 @@ export const Telegram = () => {
   const isInView = useInView(ref, { once: true, margin: '-200px' });
 
   return (
-    <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-8 px-4 py-8 md:pb-20 transition-all duration-700 ease-in-out">
+    <section className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full md:px-24 px-4 py-8 md:py-20 transition-all duration-700 ease-in-out">
       <motion.div
         ref={ref}
-        className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full max-w-[1600px] p-8 lg:p-16 flex flex-col items-start justify-center gap-2"
+        className="relative bg-brand-80 rounded-4xl lg:rounded-[64px] w-full p-8 lg:p-16 flex flex-col items-start justify-center gap-4 md:gap-6 overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <TgIcon />
-        <h3 className="z-5 text-gray-0 text-[32px] sm:text-h3 xl:text-h2 font-medium whitespace-pre-line">
-          Присоединяйтесь к сообществу
+        <h3 className="z-5 text-gray-0 text-xl-base sm:text-h3 xl:text-h2 font-semibold sm:font-medium xl:font-semibold leading-[1.2] sm:!leading-[1.1] xl:!leading-[1] whitespace-pre-line">
+          Присоединяйтесь к сообществу
           <br />
-          репетиторов в Telegram
+          репетиторов в Telegram
         </h3>
-        <p className="z-5 text-gray-0 text-l-base">
-          Обменивайтесь опытом и лайфхаками, читайте полезные статьи
-          <br />и просто общайтесь с коллегами
+        <p className="z-5 text-gray-0 text-m-base sm:text-l-base xl:text-h5 xl:leading-[1.35]">
+          Обменивайтесь опытом и лайфхаками, читайте полезные статьи
+          <br />
+          и просто общайтесь с коллегами
         </p>
-        <Link href="https://t.me/sovlium" className="z-5" target="_blank">
+        <Link
+          href="https://t.me/sovlium"
+          className="z-5 flex justify-center sm:justify-start w-full no-underline"
+          target="_blank"
+        >
           <Button
             variant="ghost"
             size="l"
-            className="mt-2 z-5 text-brand-100 text-l-base rounded-2xl font-medium bg-brand-0"
+            className="mt-2 md:mt-4 z-5 w-full max-w-80 md:max-w-116 h-14 md:h-16 text-l-base sm:!text-l-base md:!text-xl-base text-brand-100 rounded-2xl font-medium bg-brand-0"
           >
-            Перейти в Telegram
+            Перейти в Telegram
           </Button>
         </Link>
       </motion.div>

@@ -18,6 +18,7 @@ type CallToActionFormPropsT = {
 export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => {
   const [isButtonActive, setIsButtonActive] = useState(true);
 
+  // prettier-ignore
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -32,6 +33,7 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
     formState: { errors },
   } = form;
 
+  // prettier-ignore
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     setIsButtonActive(false);
     const response = await fetch(
@@ -72,15 +74,19 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`flex flex-col justify-center gap-6 md:grow-0 ${className}`}
+        className={`flex flex-col justify-center gap-6 md:grow-0 md:gap-8 ${className}`}
       >
-        <h3 className="text-[32px] font-medium text-gray-100">Запись на тестирование</h3>
+        <h3 className="text-xl-base sm:text-h5 md:text-h3 leading-[1.2] font-semibold text-gray-100 sm:!leading-[1.3] sm:font-medium md:leading-[1.05] md:font-bold">
+          Запись на тестирование
+        </h3>
         <FormField
           control={control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="mb-2 block">Как к вам обращаться?</FormLabel>
+              <FormLabel className="sm:!text-m-base md:!text-l-base mb-2 block">
+                Как к вам обращаться?
+              </FormLabel>
               <FormControl>
                 <Input
                   error={!!errors?.name}
@@ -98,7 +104,9 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
           name="contact"
           render={({ field }) => (
             <FormItem className="relative">
-              <FormLabel className="mb-2 block">Телеграм или электронная почта</FormLabel>
+              <FormLabel className="sm:!text-m-base md:!text-l-base mb-2 block">
+                Телеграм или электронная почта
+              </FormLabel>
               <FormControl>
                 <Input
                   error={!!errors?.contact}
@@ -113,15 +121,24 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
         />
         <div>
           {isButtonActive ? (
-            <Button className="w-full rounded-2xl">Записаться</Button>
+            <Button className="sm:!text-l-base md:!text-xl-base h-12 w-full rounded-2xl shadow-[0px_4px_4px_rgba(69,84,201,0.25)] md:h-14.5">
+              Записаться
+            </Button>
           ) : (
-            <Button variant="default-spinner" className="w-full cursor-not-allowed rounded-2xl">
+            <Button
+              variant="default-spinner"
+              className="sm:!text-l-base md:!text-xl-base h-12 w-full cursor-not-allowed rounded-2xl shadow-[0px_4px_4px_rgba(69,84,201,0.25)] md:h-14.5"
+            >
               Записаться
             </Button>
           )}
-          <p className="text-gray-60 text-xxs-base mt-2">
+          <p className="text-gray-60 text-xxs-base md:text-xs-base mt-2">
             Нажимая кнопку, вы соглашаетесь с&nbsp;
-            <Link className="text-gray-60 text-[10px] font-medium" variant="hover" href="#">
+            <Link
+              className="text-gray-60 !text-xxs-base md:!text-xs-base underline"
+              variant="hover"
+              href="#"
+            >
               политикой обработки персональных данных
             </Link>
           </p>

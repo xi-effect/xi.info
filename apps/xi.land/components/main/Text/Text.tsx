@@ -18,7 +18,7 @@ export const Text = ({
     )}
   >
     <div className="mx-auto w-full max-w-[1600px] flex flex-col items-center justify-center gap-2">
-      <h2 className="dark:text-gray-0 text-gray-100 text-center text-[32px] xs:text-[40px] md:text-[48px] font-medium whitespace-pre-line">
+      <h2 className="dark:text-gray-0 text-gray-100 text-center text-xl-base leading-[1.2] sm:leading-[1.1] md:leading-[1] xs:text-[40px] md:text-[48px] font-semibold sm:font-medium md:font-semibold whitespace-pre-line">
         {text}
       </h2>
     </div>

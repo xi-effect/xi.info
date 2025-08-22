@@ -142,6 +142,7 @@ export const Hero = () => {
           >
             <AnimationHistory active={true} />
           </motion.div>
+
           <motion.div
             className="hidden md:block absolute top-72 left-16 w-[192px] h-[192px]"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -151,7 +152,7 @@ export const Hero = () => {
             <AnimationMath active={true} />
           </motion.div>
 
-          <div className="z-30 my-auto md:my-0 md:mb-0 flex flex-col items-center gap-2 md:max-w-[1088px] max-w-[580px]">
+          <div className="z-30 my-auto md:my-0 md:mb-0 flex flex-col items-center md:max-w-[1088px] max-w-[580px]">
             <HeroText />
 
             <motion.div
