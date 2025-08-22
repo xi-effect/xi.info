@@ -20,7 +20,7 @@ const CookieBanner = ({ acceptCookies }: ICookieBannerProps) => {
         stiffness: 100,
         duration: 0.5,
       }}
-      className="max-[498px]:left-4 right-4 left-auto bottom-4 sm:left-auto sm:right-8 sm:bottom-8 fixed bg-gray-10 rounded-2xl z-50 max-w-[450px] min-h-[180px] p-4"
+      className="max-[498px]:left-4 right-4 left-auto bottom-4 sm:left-auto sm:right-8 sm:bottom-8 fixed bg-gray-0 rounded-2xl z-50 max-w-[450px] min-h-[180px] p-4 border-2 border-gray-20"
     >
       <h2 className="font-semibold text-2xl mb-2">Мы используем файлы куки 🍪</h2>
       <p className="text-s-base mb-4">

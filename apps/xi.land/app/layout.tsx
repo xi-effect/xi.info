@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+ 
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 import { Header } from 'components/Header';
 import { Footer } from 'pkg.landing.footer';
 
-import { CookieBannerWrapper } from 'components/cookieBanner/CookieBannerWrapper';
+import { CookieBannerWrapper } from 'components/CookieBanner';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 import '../index.css';

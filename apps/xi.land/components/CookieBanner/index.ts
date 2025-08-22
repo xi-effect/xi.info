@@ -1,0 +1,1 @@
+export { CookieBannerWrapper } from './CookieBannerWrapper';
