@@ -13,12 +13,12 @@ export const Text = ({
   <section
     data-theme={theme}
     className={cn(
-      'py-[32px] px-[16px] xs:py-[48px] xs:px-[32px] md:py-[64px] lg:px-[96px] relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 w-full transition-all duration-700 ease-in-out',
+      'py-[32px] px-[16px] xs:py-[48px] xs:px-[32px] md:py-[64px] lg:px-[96px] flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 w-full transition-all duration-700 ease-in-out',
       className,
     )}
   >
-    <div className="mx-auto w-full max-w-[1600px] flex flex-col items-center justify-center gap-2">
-      <h2 className="dark:text-gray-0 text-gray-100 text-center text-xl-base leading-[1.2] sm:leading-[1.1] md:leading-[1] xs:text-[40px] md:text-[48px] font-semibold sm:font-medium md:font-semibold whitespace-pre-line">
+    <div className="w-full max-w-[1600px] flex flex-col items-center justify-center gap-2">
+      <h2 className="dark:text-gray-0 text-gray-100 text-center text-xl-base leading-[1.2] sm:leading-[1.1] md:leading-[1] xs:text-[40px] md:text-[48px] font-semibold sm:font-medium md:font-semibold">
         {text}
       </h2>
     </div>
