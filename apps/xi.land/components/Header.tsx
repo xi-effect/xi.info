@@ -58,7 +58,7 @@ export const Header = () => {
     <header
       data-theme="white"
       className={cn(
-        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-100 flex w-full justify-center transition-all duration-700 ease-in-out',
+        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-40 flex w-full justify-center transition-all duration-700 ease-in-out',
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
@@ -67,21 +67,15 @@ export const Header = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="h-[64px]"
         >
-          <Link href="/" className="w-[216px] h-[48px] relative inline-flex items-center gap-4">
+          <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
             <Image
               src="/logoforwhite.svg"
               alt="logo"
               width={216}
               height={48}
-              className="block dark:hidden transition-opacity duration-500 ease-in-out"
-            />
-            <Image
-              src="/logofordark.svg"
-              alt="logo"
-              width={216}
-              height={48}
-              className="hidden dark:block transition-opacity duration-500 ease-in-out"
+              className="block transition-opacity duration-500 ease-in-out"
             />
           </Link>
         </motion.div>

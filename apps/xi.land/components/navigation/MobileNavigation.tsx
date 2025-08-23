@@ -48,12 +48,6 @@ export const MobileNavigation = () => {
     setBurgerIsOpen((prev) => !prev);
   };
 
-  const pathname = usePathname();
-
-  // Определяем тему на основе пути
-  const isMainPage = pathname === '/';
-  const theme = isMainPage ? 'dark' : 'white';
-
   return (
     <Modal open={burgerIsOpen} onOpenChange={setBurgerIsOpen}>
       <ModalTrigger asChild>
@@ -66,13 +60,13 @@ export const MobileNavigation = () => {
       </ModalTrigger>
 
       <ModalContent
-        data-theme={theme}
-        className="bg-gray-0 dark:bg-gray-100 h-[100dvh] w-[100dvw] flex flex-col"
+        data-theme="white"
+        className="z-100 bg-gray-0 dark:bg-gray-100 h-[100dvh] w-[100dvw] flex flex-col"
         variant="full"
       >
         <ModalTitle className="sr-only">Меню</ModalTitle>
         <ModalHeader
-          innerClassName="bg-gray-0 dark:bg-gray-100 border-none"
+          innerClassName="dark:bg-gray-100 border-none"
           className="w-full border-none flex justify-between"
         >
           <motion.div
@@ -80,23 +74,13 @@ export const MobileNavigation = () => {
             animate={{ opacity: 1 }}
             className="bg-transparent inline-flex items-center gap-4"
           >
-            <Link
-              href="/"
-              className="bg-transparent w-[216px] h-[48px] relative inline-flex items-center gap-4"
-            >
+            <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
               <Image
                 src="/logoforwhite.svg"
                 alt="logo"
                 width={216}
                 height={48}
-                className="block dark:hidden transition-opacity duration-500 ease-in-out"
-              />
-              <Image
-                src="/logofordark.svg"
-                alt="logo"
-                width={216}
-                height={48}
-                className="hidden dark:block transition-opacity duration-500 ease-in-out"
+                className="block transition-opacity duration-500 ease-in-out"
               />
             </Link>
           </motion.div>
@@ -104,7 +88,7 @@ export const MobileNavigation = () => {
           <ModalCloseButton
             onClick={() => toggleBurgerMenu()}
             variant="full"
-            className="flex items-center justify-center bg-gray-0 dark:bg-gray-100 w-12 h-12 p-1 m-0"
+            className="flex items-center justify-center bg-gray-0 dark:bg-gray-100 w-12 h-12 p-1 m-0 top-8"
           >
             <Close className="dark:fill-gray-0 fill-gray-100 w-8 h-8" />
           </ModalCloseButton>
