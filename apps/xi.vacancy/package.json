@@ -22,6 +22,7 @@
     "@xipkg/modal": "^4.2.0",
     "@xipkg/select": "^2.2.5",
     "@xipkg/tabs": "^2.1.0",
+    "@xipkg/badge": "^2.0.12",
     "@xipkg/tailwind": "0.8.1",
     "eslint-config-next": "^15.1.6",
     "next": "^15.1.6",

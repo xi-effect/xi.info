@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import Image from 'next/image';
 import { vacancyList } from '../common/const';
+import { Badge } from '@xipkg/badge';
 
 type VacancyT = {
   id: string;
@@ -19,19 +20,29 @@ const Vacancy: FC<VacancyT> = (props) => {
   const { author } = vacancy;
 
   return (
-    <section className=" px-4 sm:px-8 xl:p-[48px] xl:pb-0">
+    <section className="flex flex-col gap-2 px-4 sm:px-8 xl:p-[48px] xl:pb-0">
       <Link
         href="/vacancy"
-        className="leading-[110%] text-brand-80 text-[16px] mb-2 xl:mb-4 sm:text-[24px]"
+        className="leading-[110%] text-brand-80 text-[16px] sm:text-[24px] hover:underline"
       >
         {vacancy.label}
       </Link>
-
-      <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[72px] mb-[32px] xl:mb-[48px]">
+      <h1 className="leading-[130%] font-bold text-[32px] sm:text-[48px] xl:text-[72px]">
         {vacancy.title}
       </h1>
+      {vacancy.hidden && (
+        <Badge size="l" variant="destructive">
+          <span>Неактуально</span>
+        </Badge>
+      )}
 
-      <div className="xl:flex">
+      {!vacancy.hidden && (
+        <Badge size="l" variant="success">
+          <span>Актуально</span>
+        </Badge>
+      )}
+
+      <div className="xl:flex mt-6">
         <div className="xl:basis-[77%] xl:mr-8">
           <Post />
         </div>
