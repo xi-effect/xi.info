@@ -18,9 +18,10 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
-      { link: '/calendar', title: 'Планирование' },
+      { link: '/calendar', title: 'Расписание' },
       { link: '/calls', title: 'Видеозвонки' },
-      { link: '/whiteboard', title: 'Интерактивная доска' },
+      { link: '/whiteboard', title: 'Онлайн-доска' },
+      { link: '/materials', title: 'Материалы' },
       { link: '/payments', title: 'Оплаты' },
     ],
   },

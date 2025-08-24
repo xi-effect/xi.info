@@ -6,6 +6,7 @@ import { Button, buttonVariants } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import type { VariantProps } from 'class-variance-authority';
 import { ResponsiveImage } from './ResponsiveImage';
+import Link from 'next/link';
 
 type HorizontalFeatureCardPropsT = {
   title: string;
@@ -96,14 +97,16 @@ export const HorizontalFeatureCard = ({
       </p>
       {buttonText && (
         <div className="mt-2 sm:mt-6 lg:mt-4">
-          <Button
-            className="w-full sm:w-85 lg:w-116 sm:h-14 text-brand-100 sm:text-l-base rounded-xl sm:rounded-2xl border-none shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
-            variant={buttonVariant ?? 'default'}
-            onClick={onButtonClick}
-            size="m"
-          >
-            {buttonText}
-          </Button>
+          <Link href={'https://t.me/sovlium'}>
+            <Button
+              className="w-full sm:w-85 lg:w-116 sm:h-14 text-brand-100 sm:text-l-base rounded-xl sm:rounded-2xl border-none shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
+              variant={buttonVariant ?? 'default'}
+              onClick={onButtonClick}
+              size="m"
+            >
+              {buttonText}
+            </Button>
+          </Link>
         </div>
       )}
     </div>
