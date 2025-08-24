@@ -179,11 +179,13 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectGroup>
-                            {vacancyList.map((item) => (
-                              <SelectItem value={item.title} key={item.id}>
-                                {item.title}
-                              </SelectItem>
-                            ))}
+                            {vacancyList
+                              .filter((item) => !item.hidden)
+                              .map((item) => (
+                                <SelectItem value={item.title} key={item.id}>
+                                  {item.title}
+                                </SelectItem>
+                              ))}
                           </SelectGroup>
                         </SelectContent>
                       </Select>

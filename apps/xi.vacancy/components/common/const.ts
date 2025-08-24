@@ -12,6 +12,7 @@ export type ProfessionOptionsT = {
     grade: string;
     src: string;
   };
+  hidden?: boolean;
 };
 
 export const professions = [
@@ -68,6 +69,7 @@ export const vacancyList: ProfessionOptionsT[] = [
     grade: 'Junior, Middle, Senior',
     id: 'development-backend',
     title: 'Backend разработчик',
+    hidden: true,
   },
   // {
   //   label: 'Тестирование',
