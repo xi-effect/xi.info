@@ -78,6 +78,12 @@ export const Calls = () => {
             className="w-70.25 sm:w-85 md:w-116 rounded-xl font-medium !text-brand-0 sm:rounded-2xl border-none sm:h-14 text-m-base sm:text-l-base md:text-xl-base md:px-8 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
             variant={'default'}
             size="m"
+            onClick={() => {
+              const el = document.getElementById('become-tester');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Попробовать бесплатно
           </Button>

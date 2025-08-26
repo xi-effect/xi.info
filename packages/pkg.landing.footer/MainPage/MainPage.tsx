@@ -1,19 +1,13 @@
 /* eslint-disable no-irregular-whitespace */
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { CallToActionForm } from './CallToActionForm';
 
 export const MainPage = () => {
-  const pathname = usePathname();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-200px' });
-
-  const isMainPage = pathname === '/';
-
-  if (!isMainPage) return null;
 
   return (
     <div
