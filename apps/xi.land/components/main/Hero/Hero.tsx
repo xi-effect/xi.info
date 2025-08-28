@@ -164,7 +164,7 @@ export const Hero = () => {
               <Button
                 variant="ghost"
                 size="l"
-                className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)] hover:bg-transparent hover:text-gray-0 hover:border-gray-0 hover:border-2 transition-all duration-600"
+                className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)] hover:bg-transparent hover:text-gray-0 hover:border-gray-0 border-2 border-brand-0 transition-all duration-600"
                 onClick={() => {
                   const el = document.getElementById('become-tester');
                   if (el) {
