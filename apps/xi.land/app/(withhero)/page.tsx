@@ -1,6 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { FeaturesBlock, Telegram, Text } from 'components/main';
-import { Faq } from 'components/main/Faq';
+import { FeaturesBlock, Telegram, Text, Faq } from 'components/main';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
 import Script from 'next/script';

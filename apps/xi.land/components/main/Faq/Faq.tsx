@@ -16,9 +16,7 @@ export const Faq = () => {
                 {item.title}
               </AccordionTrigger>
               <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px]">
-                {item.texts.map((text, key) => (
-                  <p key={key}>{text}</p>
-                ))}
+                <p key={key} dangerouslySetInnerHTML={{ __html: item.texts }}></p>
               </AccordionContent>
             </AccordionItem>
           ))}
