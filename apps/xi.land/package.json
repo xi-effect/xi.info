@@ -27,6 +27,7 @@
     "pkg.carousel": "*",
     "pkg.error-page": "*",
     "pkg.landing.footer": "*",
+    "pkg.accordion": "*",
     "pkg.utils": "*",
     "sonner": "^1.7.4",
     "zod": "^3.22.4",

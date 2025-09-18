@@ -4,3 +4,4 @@ export { Telegram } from './Telegram';
 export { FeaturesBlock } from './Features';
 export { MessagesBlock } from './messages';
 export { Text } from './Text';
+export { Faq } from './Faq';
