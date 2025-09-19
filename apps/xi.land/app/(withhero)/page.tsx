@@ -1,5 +1,5 @@
 // import { ScrollSection } from 'components/main/ScrollSection';
-import { FeaturesBlock, Telegram, Text, Faq } from 'components/main';
+import { FeaturesBlock, Telegram, Text, Faq, Benefits } from 'components/main';
 // import { StickyGsap } from 'components/main/StickyGSAP';
 import { Metadata } from 'next';
 import Script from 'next/script';
@@ -92,6 +92,7 @@ export default function MainPage() {
           text="Мы создали sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
         />
         <FeaturesBlock />
+        <Benefits />
         <Faq />
         <Telegram />
         <section className="sr-only">
