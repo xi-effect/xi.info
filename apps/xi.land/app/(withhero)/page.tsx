@@ -89,7 +89,7 @@ export default function MainPage() {
         <Text
           className="text-balance text-center"
           theme="light"
-          text="Поэтому мы создали sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
+          text="Мы создали sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
         />
         <FeaturesBlock />
         <Faq />
