@@ -56,7 +56,7 @@ export const FaqIcon = () => {
     <>
       <StarIcon className="absolute top-[121px] sm:top-[80px] lg:top-[500px] left-[41px] sm:left-[61px] lg:left-[200px] -z-10 h-[143px] w-[143px] lg:h-[80px] lg:w-[80px]" />
       <StarIcon className="hidden lg:block absolute  -z-10 lg:bottom-[360px] lg:right-[270px]" />
-      <GlassesIcon className="absolute bottom-[186px] sm:bottom-[240px]  right-[-101px] sm:right-[-71px] lg:right-auto lg:left-[520px] -z-10" />
+      <GlassesIcon className="absolute bottom-[186px] sm:bottom-[240px] right-[-101px] sm:right-[-71px] lg:right-auto lg:left-[520px] -z-10" />
       <SpringIcon className="hidden lg:block absolute top-0 left-0 -z-10 lg:left-[620px] lg:top-[90px] " />
     </>
   );

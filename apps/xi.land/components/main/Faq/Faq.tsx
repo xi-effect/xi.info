@@ -4,7 +4,7 @@ import { FaqIcon } from './FaqIcons';
 
 export const Faq = () => {
   return (
-    <section className="relative  w-full px-4 py-8 sm:px-[32px] sm:pt-[48px] sm:pb-[56px] lg:px-[160px] lg:pb-[246px] lg:pt-[80px] flex flex-col gap-[52px] lg:gap-[100x] xl:gap-[168px] lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr] ">
+    <section className="relative w-full overflow-hidden px-4 py-8 sm:px-[32px] sm:pt-[48px] sm:pb-[56px] lg:px-[160px] lg:pb-[246px] lg:pt-[80px] flex flex-col gap-[52px] lg:gap-[100x] xl:gap-[168px] lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr] ">
       <h2 className="text-2xl font-bold sm:text-[40px] lg:text-[64px] leading-[29px] sm:leading-[48px] lg:leading-[64px] lg:min-w-[400px] sm:max-w-[488px] ">
         Часто задаваемые вопросы
       </h2>
