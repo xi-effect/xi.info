@@ -98,30 +98,30 @@ const HeroText = () => {
         {config[pathname].title}
       </motion.h1>
 
-      {/* <motion.h2
-        className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.4,
-          ease: 'easeOut',
-          ...(typeof window !== 'undefined' &&
-            window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
-              duration: 0,
-              delay: 0,
-            }),
-        }}
-      >
-        {123}
-      </motion.h2> */}
-
       <div className="flex gap-2">
-        {subTitle.map((ss) => {
+        {subTitle.map((ss, index) => {
           return (
-            <div className={`border rounded-2xl px-4 py-2 ${ss.bgColor}`} key={ss.id}>
+            <motion.div
+              key={ss.id}
+              className={`border rounded-2xl px-4 py-2 ${ss.bgColor}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 20,
+                restDelta: 2,
+                duration: 0.6,
+                delay: 0.4 + index * 0.2,
+                ease: 'easeOut',
+                ...(typeof window !== 'undefined' &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
+                    duration: 0,
+                    delay: 0,
+                  }),
+              }}
+            >
               <p className={`text-xl font-normal ${ss.textColor}`}>{ss.text}</p>
-            </div>
+            </motion.div>
           );
         })}
       </div>
