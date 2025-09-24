@@ -1,4 +1,8 @@
+import { forwardRef } from 'react';
+
 import { cn } from '@xipkg/utils';
+
+import { contentStickers } from './contentStickers';
 
 const stickerStyles = {
   violetSticker: 'bg-violet-20 shadow-[4px_4px_10px_rgba(131,48,196,0.2)]',
@@ -17,25 +21,24 @@ const stickerSizes = {
 
 type StickerType = keyof typeof stickerStyles;
 
-export const Sticker = ({
-  className,
-  type,
-  children,
-}: {
-  className?: string;
-  type?: StickerType;
-  children: React.ReactNode;
-}) => {
-  return (
-    <div
-      className={cn(
-        'w-[258px] h-[218px] overflow-hidden',
-        type && stickerSizes[type],
-        type && stickerStyles[type],
-        className,
-      )}
-    >
-      <div className="w-full h-full box-border p-2 xs:p-4 sm:p-8 lg:p-12">{children}</div>
-    </div>
-  );
-};
+export const Sticker = forwardRef<HTMLDivElement, { className?: string; type: StickerType }>(
+  ({ className, type }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'w-[258px] h-[218px] overflow-hidden',
+          type && stickerSizes[type],
+          type && stickerStyles[type],
+          className,
+        )}
+      >
+        <div className="w-full h-full box-border p-2 xs:p-4 sm:p-8 lg:p-12">
+          {contentStickers[type]}
+        </div>
+      </div>
+    );
+  },
+);
+
+Sticker.displayName = 'Sticker';
