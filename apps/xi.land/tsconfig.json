@@ -3,7 +3,6 @@
   "compilerOptions": {
     "jsx": "preserve",
     "baseUrl": ".",
-    "moduleResolution": "bundler",
     "plugins": [
       {
         "name": "next"

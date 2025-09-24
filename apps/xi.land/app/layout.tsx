@@ -97,6 +97,7 @@ const markerHand = localFont({
   src: '../public/fonts/MarkerHand-Regular.woff2',
   display: 'swap',
   variable: '--font-marker-hand',
+  fallback: ['cursive'],
 });
 
 const inter = Inter({

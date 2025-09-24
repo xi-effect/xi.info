@@ -1,7 +1,7 @@
 import { cn } from '@xipkg/utils';
 
 const fontSticker =
-  'font-marker-hand font-normal text-m-base xs:text-l-base sm:text-xl-base lg:text-h5';
+  'font-family-marker-hand font-normal text-m-base xs:text-l-base sm:text-xl-base lg:text-h5';
 
 const getVioletStickerContent = () => {
   return (
