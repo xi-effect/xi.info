@@ -14,10 +14,9 @@ export const Benefits = () => {
       scale: 1,
       rotate: 0,
       transition: {
-        type: 'spring',
-        stiffness: 700,
-        damping: 15,
-        mass: 0.8,
+        opacity: { duration: 0.6, ease: 'easeOut' },
+        scale: { type: 'spring', stiffness: 120, damping: 20 },
+        rotate: { type: 'spring', stiffness: 120, damping: 20 },
       },
     },
   };
@@ -34,7 +33,8 @@ export const Benefits = () => {
             type="violetSticker"
             variants={stickerAnimation}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           />
 
           <MotionSticker
@@ -42,7 +42,8 @@ export const Benefits = () => {
             type="greenSticker"
             variants={stickerAnimation}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.2 }}
           />
 
@@ -51,7 +52,8 @@ export const Benefits = () => {
             type="yellowSticker"
             variants={stickerAnimation}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.4 }}
           />
         </div>
