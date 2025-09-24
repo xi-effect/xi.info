@@ -1,26 +1,26 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants } from 'motion/react';
 
 import { Sticker } from './Sticker';
 
 const MotionSticker = motion.create(Sticker);
 
-export const Benefits = () => {
-  const stickerAnimation: Variants = {
-    hidden: { opacity: 0, scale: 1.2, rotate: -3 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        opacity: { duration: 0.6, ease: 'easeOut' },
-        scale: { type: 'spring', stiffness: 120, damping: 20 },
-        rotate: { type: 'spring', stiffness: 120, damping: 20 },
-      },
+const stickerAnimation: Variants = {
+  hidden: { opacity: 0, scale: 1.2, rotate: -3 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      opacity: { duration: 0.6, ease: 'easeOut' },
+      scale: { type: 'spring', stiffness: 120, damping: 20 },
+      rotate: { type: 'spring', stiffness: 120, damping: 20 },
     },
-  };
+  },
+};
 
+export const Benefits = () => {
   return (
     <section
       className="relative w-full min-h-screen lg:min-h-[915px] overflow-hidden flex items-center justify-center bg-no-repeat bg-cover bg-center"
