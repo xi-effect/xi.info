@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss';
+import designSystemPreset from '@xipkg/tailwind/design-system-preset.js';
 
 const config: Config = {
-  presets: [require('@xipkg/tailwind/design-system-preset.js')],
+  presets: [designSystemPreset],
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
