@@ -23,6 +23,8 @@
   --animate-accordion-down: accordion-down 0.3s ease-in-out forwards;
   --animate-accordion-up: accordion-up 0.3s ease-in-out forwards;
 
+  --font-family-marker-hand: var(--font-marker-hand), cursive;
+
   @keyframes accordion-down {
     from {
       height: 0;
