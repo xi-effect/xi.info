@@ -23,13 +23,14 @@ const stickerAnimation: Variants = {
 export const Benefits = () => {
   return (
     <section
-      className="relative w-full min-h-screen lg:min-h-[915px] overflow-hidden flex items-center justify-center bg-no-repeat bg-cover bg-center"
+      className="relative w-full lg:min-h-[915px] overflow-hidden flex items-center justify-center bg-no-repeat bg-cover bg-center px-4 lg:px-8 py-16 sm:py-20 lg:py-64"
       style={{ backgroundImage: "url('/assets/main/benefits/bg_benefits.svg')" }}
     >
-      <div className="relative z-10 w-full mx-auto">
-        <div className="h-full w-full grid grid-cols-1 auto-rows-min gap-[10px] sm:grid-cols-3 sm:grid-rows-2 sm:gap-6 items-stretch sm:place-content-center">
+      <div className="relative z-10 w-full max-w-7xl lg:mx-auto h-full flex items-center justify-center">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-center gap-[10px] sm:gap-6 w-full lg:min-h-[1000px]">
+          {/* Первый стикер - всегда сверху */}
           <MotionSticker
-            className="row-start-1"
+            className="flex-shrink-0 lg:self-start"
             type="violetSticker"
             variants={stickerAnimation}
             initial="hidden"
@@ -37,8 +38,9 @@ export const Benefits = () => {
             viewport={{ once: true, amount: 0.3 }}
           />
 
+          {/* Второй стикер - снизу на больших экранах, по центру на мобильных */}
           <MotionSticker
-            className="col-start-2 row-start-2 xs:row-start-3 xs:col-start-1 sm:row-start-2 sm:col-start-2 sm:-translate-y-[20%] lg:-translate-y-[50%]"
+            className="flex-shrink-0 self-end lg:mt-auto"
             type="greenSticker"
             variants={stickerAnimation}
             initial="hidden"
@@ -47,8 +49,9 @@ export const Benefits = () => {
             transition={{ delay: 0.2 }}
           />
 
+          {/* Третий стикер - сверху на больших экранах */}
           <MotionSticker
-            className="row-start-3 xs:row-start-2 xs:col-start-2 sm:row-start-1 sm:col-start-3"
+            className="flex-shrink-0 lg:self-start"
             type="yellowSticker"
             variants={stickerAnimation}
             initial="hidden"
