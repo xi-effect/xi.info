@@ -23,7 +23,7 @@ const stickerAnimation: Variants = {
 export const Benefits = () => {
   return (
     <section
-      className="relative w-full lg:min-h-[915px] overflow-hidden flex items-center justify-center bg-no-repeat bg-cover bg-center px-4 lg:px-8 py-16 sm:py-20 lg:py-64"
+      className="relative w-full overflow-hidden flex items-center justify-center bg-no-repeat bg-cover bg-center px-4 lg:px-8 py-16 sm:py-20 lg:py-[80px]"
       style={{ backgroundImage: "url('/assets/main/benefits/bg_benefits.svg')" }}
     >
       <div className="relative z-10 w-full max-w-7xl lg:mx-auto h-full flex items-center justify-center">
