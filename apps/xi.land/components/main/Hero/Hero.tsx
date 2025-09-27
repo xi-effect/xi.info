@@ -98,12 +98,12 @@ const HeroText = () => {
         {config[pathname].title}
       </motion.h1>
 
-      <div className="flex gap-2">
-        {subTitle.map((ss, index) => {
+      <div className="flex flex-wrap items-center gap-2">
+        {subTitle.map((item, index) => {
           return (
             <motion.div
-              key={ss.id}
-              className={`border rounded-2xl px-4 py-2 ${ss.bgColor}`}
+              key={item.id}
+              className={`rounded-2xl px-4 py-2 ${item.bgColor}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -119,7 +119,7 @@ const HeroText = () => {
                   }),
               }}
             >
-              <p className={`text-xl font-normal ${ss.textColor}`}>{ss.text}</p>
+              <p className={`text-xl font-normal ${item.textColor}`}>{item.text}</p>
             </motion.div>
           );
         })}
