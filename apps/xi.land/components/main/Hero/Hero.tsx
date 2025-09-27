@@ -109,7 +109,6 @@ const HeroText = () => {
               transition={{
                 type: 'spring',
                 stiffness: 20,
-                restDelta: 2,
                 duration: 0.6,
                 delay: 0.4 + index * 0.2,
                 ease: 'easeOut',
