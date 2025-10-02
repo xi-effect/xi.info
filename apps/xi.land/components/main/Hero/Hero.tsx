@@ -119,7 +119,11 @@ const HeroText = () => {
                   }),
               }}
             >
-              <p className={`text-xl font-normal ${item.textColor}`}>{item.text}</p>
+              <p
+                className={`text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal ${item.textColor}`}
+              >
+                {item.text}
+              </p>
             </motion.div>
           );
         })}
