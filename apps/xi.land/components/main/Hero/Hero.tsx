@@ -98,7 +98,7 @@ const HeroText = () => {
         {config[pathname].title}
       </motion.h1>
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-2">
         {subTitle.map((item, index) => {
           return (
             <motion.div
