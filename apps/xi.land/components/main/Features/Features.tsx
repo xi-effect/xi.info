@@ -159,15 +159,15 @@ export const Features = () => {
           <div className="relative w-1/2 flex items-center justify-center h-full">
             <div
               className={cn(
-                'absolute right-0 w-full max-h-[80dvh] h-full overflow-hidden rounded-l-3xl',
-                n !== 6 && 'shadow-2xl',
+                'absolute right-0 w-full max-h-[80dvh] shadow-2xl h-full overflow-hidden rounded-l-3xl',
+                n === 6 && 'shadow-none max-h-[90dvh]',
               )}
             >
               <Image
                 src={`/assets/main/Features/${n}.webp`}
                 alt={`feature-${n}`}
                 fill
-                className="object-left object-cover"
+                className={cn('object-left object-cover', n === 6 && 'object-contain object-right')}
                 priority={n === 1}
               />
             </div>
