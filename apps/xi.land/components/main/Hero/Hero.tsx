@@ -18,6 +18,39 @@ const fallbackStyles = `
   }
 `;
 
+const subTitle = [
+  {
+    id: 1,
+    text: 'видеозвонки',
+    textColor: 'text-orange-80',
+    bgColor: 'bg-yellow-20',
+  },
+  {
+    id: 2,
+    text: 'автоматические напоминания',
+    textColor: 'text-violet-100',
+    bgColor: 'bg-violet-20',
+  },
+  {
+    id: 3,
+    text: 'онлайн-доски',
+    textColor: 'text-green-80',
+    bgColor: 'bg-green-0',
+  },
+  {
+    id: 4,
+    text: 'заметки',
+    textColor: 'text-cyan-100',
+    bgColor: 'bg-cyan-20',
+  },
+  {
+    id: 5,
+    text: 'контроль оплат',
+    textColor: 'text-red-80',
+    bgColor: 'bg-red-0',
+  },
+];
+
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
@@ -65,23 +98,36 @@ const HeroText = () => {
         {config[pathname].title}
       </motion.h1>
 
-      <motion.h2
-        className="text-m-base sm:text-xl-base md:text-[32px] md:!leading-[1.3] font-normal text-gray-5 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.4,
-          ease: 'easeOut',
-          ...(typeof window !== 'undefined' &&
-            window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
-              duration: 0,
-              delay: 0,
-            }),
-        }}
-      >
-        {config[pathname].description}
-      </motion.h2>
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        {subTitle.map((item, index) => {
+          return (
+            <motion.div
+              key={item.id}
+              className={`rounded-2xl px-4 py-2 ${item.bgColor}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 20,
+                duration: 0.6,
+                delay: 0.4 + index * 0.2,
+                ease: 'easeOut',
+                ...(typeof window !== 'undefined' &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
+                    duration: 0,
+                    delay: 0,
+                  }),
+              }}
+            >
+              <p
+                className={`text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal ${item.textColor}`}
+              >
+                {item.text}
+              </p>
+            </motion.div>
+          );
+        })}
+      </div>
     </motion.div>
   );
 };
