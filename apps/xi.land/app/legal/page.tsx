@@ -73,7 +73,6 @@ export default function LegalPage() {
           </p>
           <div className="space-y-2 text-blue-800">
             <p>📧 Email: legal@sovlium.ru</p>
-            <p>📞 Телефон: +7 (800) 123-45-67</p>
           </div>
         </div>
       </div>
