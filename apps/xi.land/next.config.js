@@ -1,16 +1,23 @@
 // Не поддавайтесь соблазну использовать здесь import
 const path = require('path');
+const createMDX = require('@next/mdx');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const plugins = [withBundleAnalyzer];
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
+
+const plugins = [withBundleAnalyzer, withMDX];
 
 const nextConfig = {
   experimental: {
     esmExternals: true,
+    mdxRs: true,
   },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   outputFileTracingRoot: path.join(__dirname, '../../'),
   transpilePackages: [
     '@xipkg/link',
