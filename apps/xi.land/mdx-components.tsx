@@ -43,6 +43,30 @@ const Blockquote = ({ children }: PropsWithChildren) => (
   </blockquote>
 );
 
+const Table = ({ children }: PropsWithChildren) => (
+  <div className="overflow-x-auto my-6">
+    <table className="min-w-full border-collapse border border-gray-300">{children}</table>
+  </div>
+);
+
+const Thead = ({ children }: PropsWithChildren) => <thead className="bg-gray-50">{children}</thead>;
+
+const Tbody = ({ children }: PropsWithChildren) => <tbody className="bg-white">{children}</tbody>;
+
+const Tr = ({ children }: PropsWithChildren) => (
+  <tr className="border-b border-gray-200">{children}</tr>
+);
+
+const Th = ({ children }: PropsWithChildren) => (
+  <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 bg-gray-100">
+    {children}
+  </th>
+);
+
+const Td = ({ children }: PropsWithChildren) => (
+  <td className="border border-gray-300 px-4 py-3 text-gray-700">{children}</td>
+);
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: H1,
@@ -55,6 +79,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     strong: Strong,
     em: Em,
     blockquote: Blockquote,
+    table: Table,
+    thead: Thead,
+    tbody: Tbody,
+    tr: Tr,
+    th: Th,
+    td: Td,
     ...components,
   };
 }

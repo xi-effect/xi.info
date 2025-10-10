@@ -1,13 +1,19 @@
-// Не поддавайтесь соблазну использовать здесь import
-const path = require('path');
-const createMDX = require('@next/mdx');
+import path from 'path';
+import createMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm';
+import bundleAnalyzer from '@next/bundle-analyzer';
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+  },
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
 });
 
 const plugins = [withBundleAnalyzer, withMDX];
@@ -18,7 +24,7 @@ const nextConfig = {
     mdxRs: true,
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  outputFileTracingRoot: path.join(__dirname, '../../'),
+  outputFileTracingRoot: path.join(process.cwd(), '../../'),
   transpilePackages: [
     '@xipkg/link',
     '@xipkg/button',
@@ -49,4 +55,4 @@ const nextConfig = {
   },
 };
 
-module.exports = () => plugins.reduce((acc, next) => next(acc), nextConfig);
+export default () => plugins.reduce((acc, next) => next(acc), nextConfig);
