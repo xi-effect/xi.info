@@ -3,6 +3,7 @@
 import { Button } from '@xipkg/button';
 import { Link } from '@xipkg/link';
 import { motion } from 'motion/react';
+import NextLink from 'next/link';
 
 interface ICookieBannerProps {
   acceptCookies: () => void;
@@ -26,9 +27,9 @@ const CookieBanner = ({ acceptCookies }: ICookieBannerProps) => {
       <p className="text-s-base mb-4">
         Продолжая пользоваться нашим сайтом, вы соглашаетесь на обработку персональных данных в
         соответствии с{' '}
-        <Link href="/privacy-policy" onClick={(e) => e.preventDefault()} className="text-brand-80">
+        <NextLink href="/legal/privacy" target="_blank" className="text-brand-80 underline">
           политикой конфиденциальности
-        </Link>
+        </NextLink>
       </p>
       <Button size={'s'} className="w-full sm:w-auto" onClick={acceptCookies}>
         Принимаю

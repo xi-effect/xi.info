@@ -138,7 +138,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </noscript>
           </>
         )}
-        {/* <CookieBannerWrapper /> */}
+        <CookieBannerWrapper />
         <Toaster />
         <Header />
         {children}
