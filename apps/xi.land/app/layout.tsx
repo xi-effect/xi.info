@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Inter, Caveat } from 'next/font/google';
 import { ReactNode } from 'react';
 
 import { Header } from 'components/Header';
@@ -93,10 +92,12 @@ export const metadata: Metadata = {
   },
 };
 
-const markerHand = localFont({
-  src: '../public/fonts/MarkerHand-Regular.woff2',
+const caveat = Caveat({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal'],
+  subsets: ['latin', 'cyrillic'],
   display: 'swap',
-  variable: '--font-marker-hand',
+  variable: '--font-caveat',
   fallback: ['cursive'],
 });
 
@@ -110,7 +111,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning className={`${inter.variable} ${markerHand.variable}`}>
+    <html lang="ru" suppressHydrationWarning className={`${inter.variable} ${caveat.variable}`}>
       <body>
         {process.env.NODE_ENV === 'development' ? (
           <></>
