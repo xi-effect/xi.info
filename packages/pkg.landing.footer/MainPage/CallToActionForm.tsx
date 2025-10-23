@@ -132,17 +132,15 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
               Записаться
             </Button>
           )}
-          <p className="text-gray-60 text-xxs-base md:text-xs-base mt-2">
-            Нажимая кнопку, вы даёте&nbsp;
+          <p className="text-gray-60 text-xxs-base md:text-xs-base mt-2 text-center">
+            Нажимая кнопку, вы даёте&nbsp; <br />
             <Link
               className="text-gray-60 !text-xxs-base md:!text-xs-base underline"
               variant="hover"
               target="_blank"
               href="/legal/consent"
             >
-              согласие на обработку
-              <br />
-              персональных данных
+              согласие на обработку персональных данных
             </Link>
           </p>
         </div>
