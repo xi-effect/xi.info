@@ -133,13 +133,16 @@ export const CallToActionForm = ({ className = '' }: CallToActionFormPropsT) => 
             </Button>
           )}
           <p className="text-gray-60 text-xxs-base md:text-xs-base mt-2">
-            Нажимая кнопку, вы соглашаетесь с&nbsp;
+            Нажимая кнопку, вы даёте&nbsp;
             <Link
               className="text-gray-60 !text-xxs-base md:!text-xs-base underline"
               variant="hover"
-              href="#"
+              target="_blank"
+              href="/legal/consent"
             >
-              политикой обработки персональных данных
+              согласие на обработку
+              <br />
+              персональных данных
             </Link>
           </p>
         </div>
