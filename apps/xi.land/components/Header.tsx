@@ -63,14 +63,17 @@ export const Header = () => {
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
-      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 lg:gap-12 relative items-center max-w-[1600px] md:mx-auto">
+      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 xl:gap-12 relative items-center max-w-400 md:mx-auto">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="h-[64px]"
+          className="h-16 flex items-center"
         >
-          <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
+          <Link
+            href="/"
+            className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
+          >
             <Image
               src="/logoforwhite.svg"
               alt="logo"
@@ -82,11 +85,15 @@ export const Header = () => {
         </motion.div>
         <Navigation />
 
-        <div className="hidden md:flex items-center gap-4">
-          <Button asChild variant="secondary" className="w-53.5">
+        <div className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-4">
+          <Button
+            asChild
+            variant="secondary"
+            className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5"
+          >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button asChild className="w-24">
+          <Button asChild className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-24">
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
           </Button>
         </div>

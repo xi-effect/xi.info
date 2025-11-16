@@ -40,7 +40,7 @@ export const Navigation = () => {
       onMouseLeave={() => setActive(null)}
       className="z-10 hidden md:block"
     >
-      <div className="flex lg:gap-2">
+      <div className="flex gap-0 lg:gap-2">
         {/* <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="flex flex-col gap-0">
             {subMenu.map((item) => (
