@@ -99,7 +99,7 @@ export const HorizontalFeatureCard = ({
         <div className="mt-2 sm:mt-6 lg:mt-4">
           <Button
             className="w-full sm:w-85 lg:w-116 sm:h-14 text-brand-100 sm:text-l-base rounded-xl sm:rounded-2xl border-none shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
-            variant={buttonVariant ?? 'default'}
+            variant={buttonVariant ?? 'primary'}
             onClick={() => {
               const el = document.getElementById('become-tester');
               if (el) {

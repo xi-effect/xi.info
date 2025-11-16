@@ -113,11 +113,9 @@ export const CallToActionForm = ({
           )}
         />
         <div>
-          {isButtonActive ? (
-            <Button className="rounded-2xl w-full">Записаться</Button>
-          ) : (
-            <Button variant="default-spinner" className="rounded-2xl w-full" disabled />
-          )}
+          <Button className="rounded-2xl w-full" loading={!isButtonActive}>
+            Записаться
+          </Button>
           <p className="text-gray-60 text-xxs-base mt-2">
             Нажимая кнопку, вы соглашаетесь с&nbsp;
             <Link
