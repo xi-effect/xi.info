@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
+import { Button } from '@xipkg/button';
 import { MobileNavigation, Navigation } from './navigation';
 
 const HIDE_AFTER_DOWN = 80; // прячем хедер, если прокрутили вниз дальше 80 px
@@ -80,29 +81,15 @@ export const Header = () => {
           </Link>
         </motion.div>
         <Navigation />
-        {/* <Button
-            asChild
-            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0
-            text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
-            variant="ghost"
-          >
+
+        <div className="hidden md:flex items-center gap-4">
+          <Button asChild variant="secondary" className="w-53.5">
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button
-            asChild
-            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent
-            active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
-            rounded-xl transition-all duration-500 ease-in-out"
-            variant="secondary"
-          >
-            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
-          </Button>
-          <Button
-            asChild
-            className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
-          >
+          <Button asChild className="w-24">
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
-          </Button> */}
+          </Button>
+        </div>
 
         <MobileNavigation />
       </div>

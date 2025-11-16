@@ -3,7 +3,7 @@ export const config = {
     title: 'Все инструменты репетитора \nв одной платформе',
     description:
       'Видеозвонки, онлайн-доски и заметки, контроль оплат\nи автоматические напоминания для учеников — всё в одном клике',
-    button: 'Стать бета-тестером',
+    button: 'Попробовать бесплатно',
     image: '/assets/main/Hero/main.webp',
     imageMobile: '/assets/main/Hero/main-mobile.webp',
   },
