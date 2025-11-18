@@ -42,7 +42,7 @@ export const MenuItem = ({
       <Link
         target={target}
         href={href}
-        className="py-2.5 px-1.5 lg:px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
+        className="py-2.5 px-1 lg:px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
       >
         {item}
       </Link>

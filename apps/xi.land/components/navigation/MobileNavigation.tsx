@@ -118,7 +118,11 @@ export const MobileNavigation = () => {
             animate={{ opacity: 1 }}
             className="grid grid-cols-3 sm:grid-cols-2 justify-center items-center w-full gap-8"
           >
-            <Button asChild variant="secondary" className="col-span-2 sm:col-span-1">
+            <Button
+              asChild
+              variant="secondary"
+              className="col-span-2 sm:col-span-1 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
+            >
               <Link href="https://app.sovlium.ru/signup" onClick={toggleBurgerMenu}>
                 Зарегистрироваться
               </Link>
