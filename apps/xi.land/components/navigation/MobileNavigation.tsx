@@ -116,35 +116,22 @@ export const MobileNavigation = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center w-full gap-4"
+            className="grid grid-cols-3 sm:grid-cols-2 justify-center items-center w-full gap-8"
           >
-            <div className="gap-4 flex w-full">
-              {/* <Button
-                asChild
-                className="w-full dark:hidden flex bg-brand-0 hover:bg-brand-0
-                text-brand-100 hover:text-brand-80 rounded-xl transition-all
-                duration-500 ease-in-out"
-                variant="ghost"
-              >
-                <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
-              </Button>
-              <Button
-                asChild
-                className="w-full dark:flex hidden bg-transparent hover:bg-transparent
-                active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
-                rounded-xl transition-all duration-500 ease-in-out"
-                variant="secondary"
-              >
-                <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
-              </Button>
-              <Button
-                asChild
-                className="w-full dark:text-gray-0 rounded-xl
-                transition-all duration-500 ease-in-out"
-              >
-                <Link href="https://app.sovlium.ru/signin">Войти</Link>
-              </Button> */}
-            </div>
+            <Button
+              asChild
+              variant="secondary"
+              className="col-span-2 sm:col-span-1 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
+            >
+              <Link href="https://app.sovlium.ru/signup" onClick={toggleBurgerMenu}>
+                Зарегистрироваться
+              </Link>
+            </Button>
+            <Button asChild className="col-span-1">
+              <Link href="https://app.sovlium.ru/signin" onClick={toggleBurgerMenu}>
+                Войти
+              </Link>
+            </Button>
           </motion.div>
         </ModalFooter>
       </ModalContent>

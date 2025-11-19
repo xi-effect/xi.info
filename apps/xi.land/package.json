@@ -18,7 +18,7 @@
     "@next/mdx": "^15.5.4",
     "@types/mdx": "^2.0.13",
     "@xipkg/aspect-ratio": "^2.0.11",
-    "@xipkg/button": "^3.1.8",
+    "@xipkg/button": "^4.0.0",
     "@xipkg/dropdown": "^3.0.12",
     "@xipkg/form": "^4.2.0",
     "@xipkg/icons": "^2.4.0",

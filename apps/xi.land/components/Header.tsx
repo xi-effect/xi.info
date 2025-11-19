@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
+import { Button } from '@xipkg/button';
 import { MobileNavigation, Navigation } from './navigation';
 
 const HIDE_AFTER_DOWN = 80; // прячем хедер, если прокрутили вниз дальше 80 px
@@ -62,14 +63,17 @@ export const Header = () => {
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
-      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 lg:gap-12 relative items-center max-w-[1600px] md:mx-auto">
+      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 xl:gap-12 relative items-center max-w-400 md:mx-auto">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="h-[64px]"
+          className="h-16 flex items-center"
         >
-          <Link href="/" className="w-[216px] h-[64px] relative inline-flex items-center gap-4">
+          <Link
+            href="/"
+            className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
+          >
             <Image
               src="/logoforwhite.svg"
               alt="logo"
@@ -80,29 +84,19 @@ export const Header = () => {
           </Link>
         </motion.div>
         <Navigation />
-        {/* <Button
-            asChild
-            className="w-[214px] dark:hidden flex bg-brand-0 hover:bg-brand-0
-            text-brand-100 hover:text-brand-80 rounded-xl transition-all duration-500 ease-in-out"
-            variant="ghost"
-          >
-            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
-          </Button>
+
+        <div className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-4">
           <Button
             asChild
-            className="w-[214px] dark:flex hidden bg-transparent hover:bg-transparent
-            active:bg-transparent focus:bg-transparent text-gray-10 hover:text-gray-20
-            rounded-xl transition-all duration-500 ease-in-out"
             variant="secondary"
+            className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5 bg-brand-0 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
           >
             <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
           </Button>
-          <Button
-            asChild
-            className="w-[96px] dark:text-gray-0 rounded-xl transition-all duration-500 ease-in-out"
-          >
+          <Button asChild className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-24">
             <Link href="https://app.sovlium.ru/signin">Войти</Link>
-          </Button> */}
+          </Button>
+        </div>
 
         <MobileNavigation />
       </div>

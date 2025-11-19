@@ -34,7 +34,7 @@ export const MenuItem = ({
   <div
     onMouseEnter={() => setActive(item)}
     className={cn(
-      'relative text-s-base text-gray-70 dark:text-gray-20 font-normal lg:text-l-base flex items-center',
+      'relative text-s-base md:text-m-base lg:text-[18px] xl:text-l-base text-gray-70 dark:text-gray-20 font-normal flex items-center',
     )}
   >
     {href ? (
@@ -42,7 +42,7 @@ export const MenuItem = ({
       <Link
         target={target}
         href={href}
-        className="py-2.5 px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
+        className="py-2.5 px-1 lg:px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
       >
         {item}
       </Link>
