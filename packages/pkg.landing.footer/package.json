@@ -10,6 +10,7 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
+    "@xipkg/icons": "2.7.2",
     "@xipkg/button": "3.1.8",
     "@xipkg/link": "2.0.12",
     "@xipkg/tailwind": "^0.8.1",
