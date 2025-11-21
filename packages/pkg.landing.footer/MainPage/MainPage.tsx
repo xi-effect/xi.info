@@ -79,11 +79,14 @@ export const MainPage = () => {
     <div
       ref={ref}
       id="become-tester"
-      className="xs:p-8 relative flex w-full flex-col items-center justify-between gap-4 p-4 sm:items-baseline sm:gap-8 md:items-center lg:py-[128px] xl:gap-16 xl:px-24 2xl:px-[160px]"
+      className="xs:p-8 relative flex w-full flex-col items-center justify-between gap-4 p-4 pt-10 sm:items-baseline sm:gap-8 md:items-center lg:py-[128px] xl:gap-16 xl:px-24 2xl:px-[160px]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div ref={containerRef} className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        ref={containerRef}
+        className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block"
+      >
         <>
           <motion.div
             className="pointer-events-none absolute"
@@ -136,13 +139,13 @@ export const MainPage = () => {
         </>
       </div>
       <motion.div
-        className="relative z-10 flex flex-col"
+        className="xs:gap-8 relative z-10 flex flex-col gap-4 md:gap-16"
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <motion.h3
-          className="text-gray-0 z-5 text-center leading-[1.2] font-semibold whitespace-pre-line sm:text-[36px] sm:font-medium md:text-[48px] md:leading-[1.05] md:font-semibold"
+          className="text-gray-0 z-5 text-center text-[24px] leading-[1.2] font-semibold whitespace-pre-line sm:text-[36px] sm:font-medium md:text-[48px] md:leading-[1.05] md:font-semibold"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -150,19 +153,19 @@ export const MainPage = () => {
           Разложите всё по полочкам вместе с sovlium
         </motion.h3>
         <motion.div
-          className="text-gray-0 text-m-base xs:text-l-base sm:text-xl-base md:text-h3 z-5 flex justify-center !leading-[1.3]"
+          className="text-gray-0 text-m-base xs:text-l-base sm:text-xl-base md:text-h3 z-5 flex w-full justify-center !leading-[1.3]"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
         >
-          <Link href="https://app.sovlium.ru/signup">
+          <Link className="w-full md:w-auto" href="https://app.sovlium.ru/signup">
             <Button
               variant="ghost"
-              className="text-brand-100 bg-brand-0 mt-16 h-16 rounded-2xl pr-3 pl-6 text-[24px] leading-[32px]"
+              className="text-brand-100 bg-brand-0 h-12 w-full rounded-2xl pr-3 pl-6 text-[16px] leading-[24px] md:h-16 md:w-auto md:text-[24px] md:leading-[32px]"
               size="l"
             >
               Попробовать бесплатно
-              <ArrowRight className="fill-brand-100 ml-4 h-8 w-8" />
+              <ArrowRight className="fill-brand-100 ml-2 h-6 w-6 md:ml-4 md:h-8 md:w-8" />
             </Button>
           </Link>
         </motion.div>

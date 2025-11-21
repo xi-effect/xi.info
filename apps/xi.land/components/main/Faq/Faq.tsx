@@ -15,8 +15,16 @@ export const Faq = () => {
               <AccordionTrigger className="text-[20px] sm:text-[24px] py-[32px] text-gray-100 font-semibold sm:font-bold">
                 {item.title}
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px]">
-                <p key={key} dangerouslySetInnerHTML={{ __html: item.texts }}></p>
+              <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px] gap-4">
+                {typeof item.texts === 'string' && item.texts.includes('|||') ? (
+                  item.texts
+                    .split('|||')
+                    .map((text, textKey) => (
+                      <p key={textKey} dangerouslySetInnerHTML={{ __html: text.trim() }}></p>
+                    ))
+                ) : (
+                  <p key={key} dangerouslySetInnerHTML={{ __html: item.texts }}></p>
+                )}
               </AccordionContent>
             </AccordionItem>
           ))}

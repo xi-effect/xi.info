@@ -113,7 +113,7 @@ const Footer = () => {
                     {email}
                   </Link>
                 </span>
-                <span className="2xl:w-[330px]">Сделано с ♥ в Санкт-Петербурге</span>
+                <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
               </div>
             </div>
           </div>
