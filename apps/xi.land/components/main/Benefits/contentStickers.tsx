@@ -1,7 +1,7 @@
 import { cn } from '@xipkg/utils';
 
 const fontSticker =
-  'font-family-marker-hand font-normal text-m-base xs:text-l-base sm:text-xl-base lg:text-h5';
+  'font-family-marker-hand font-bold text-l-base xs:text-l-base sm:text-xl-base lg:text-h6 xl:text-h5';
 
 const getVioletStickerContent = () => {
   return (
@@ -44,7 +44,10 @@ const getYellowStickerContent = () => {
         'h-full flex flex-col items-start justify-center sm:justify-start gap-4 sm:gap-6',
       )}
     >
-      <div>Соберите материалы и учеников в одной платформе — и обретите дзен</div>
+      <div>
+        Соберите материалы и учеников
+        <br />в одной платформе — и обретите дзен
+      </div>
       <div>Ваши знания бесценны. Делитесь ими с комфортом</div>
     </div>
   );
