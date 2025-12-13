@@ -57,11 +57,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@xipkg/button';
 import { usePathname } from 'next/navigation';
+import Snowfall from 'react-snowfall';
 import { config } from './config';
 import { AnimationChem } from './AnimationChem';
 import { AnimationMath } from './AnimationMath';
 import { AnimationEng } from './AnimationEng';
 import { AnimationHistory } from './AnimationHistory';
+import { useMediaQuery } from '@xipkg/utils';
 
 const HeroText = () => {
   const pathname = usePathname();
@@ -141,7 +143,9 @@ const Blobs = () => (
 );
 
 export const Hero = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const pathname = usePathname();
+  const [showSnow, setShowSnow] = React.useState(false);
 
   // Добавляем CSS fallback
   React.useEffect(() => {
@@ -154,6 +158,15 @@ export const Hero = () => {
     };
   }, []);
 
+  // Задержка начала анимации снега на 5 секунд
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSnow(true);
+    }, 20000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       data-theme="white"
@@ -161,6 +174,19 @@ export const Hero = () => {
     >
       <div className="w-full max-w-400 sm:h-[calc(100vh-160px)] flex items-start justify-center">
         <div className="relative overflow-hidden bg-brand-80 w-full h-full md:min-h-[560px] z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 sm:pb-0 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
+          {showSnow && !isMobile && (
+            <Snowfall
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                zIndex: -11,
+              }}
+              snowflakeCount={350}
+              wind={[-1, 3]}
+              speed={[0.2, 1]}
+            />
+          )}
           <Blobs />
 
           <motion.div

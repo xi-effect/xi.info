@@ -14,8 +14,8 @@ export const MessagesMobile = () => (
       </h2>
     </div>
     {messages.map((item) => (
-      <section key={item.id} className="p-4 bg-gray-0">
-        <div className="h-full flex flex-col justify-between gap-8">
+      <section key={item.id} className="p-4 pt-8 bg-gray-0">
+        <div className="h-full flex flex-col justify-between gap-4">
           <div className="relative flex items-center justify-center ">
             <Image width={511} height={734} alt="messages image" src={item.mobileImage} />
           </div>
