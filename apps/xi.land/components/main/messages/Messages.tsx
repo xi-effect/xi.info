@@ -14,6 +14,7 @@ export const Messages = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const tailsRef = useRef<HTMLDivElement>(null);
   const imgWrapRef = useRef<HTMLDivElement>(null);
+  const imagesContainerRef = useRef<HTMLDivElement>(null);
   const textElementsRef = useRef<(HTMLParagraphElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTextIndex, setActiveTextIndex] = useState<number | null>(null);
@@ -78,6 +79,16 @@ export const Messages = () => {
     gsap.to(imgs[activeIndex], { autoAlpha: 1, duration: 0.35, ease: 'power1.out' });
   }, [activeIndex]);
 
+  // Анимация переключения изображений при смене текста
+  useEffect(() => {
+    if (!imagesContainerRef.current || activeTextIndex === null) return;
+    gsap.fromTo(
+      imagesContainerRef.current,
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 0.35, ease: 'power1.out' },
+    );
+  }, [activeTextIndex]);
+
   // Инициализация: первый текст активен по умолчанию
   useEffect(() => {
     setActiveTextIndex(0);
@@ -108,9 +119,7 @@ export const Messages = () => {
                   }}
                   className={cn(
                     'animate-gradient-text m-0 text-gray-60 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] transition-all duration-500',
-                    isActive && activeTextIndex !== null
-                      ? messages[idx]?.className
-                      : '',
+                    isActive && activeTextIndex !== null ? messages[idx]?.className : '',
                   )}
                 >
                   {txt}
@@ -129,8 +138,12 @@ export const Messages = () => {
               fill
               className="absolute inset-0 h-full w-full object-contain"
             />
-            <div className="relative flex flex-col h-[75vh] px-6 w-full gap-4 justify-center items-center overflow-y-auto">
-              {messages[0]?.images?.map((image, imgIdx) => (
+            <div
+              key={activeTextIndex ?? 0}
+              ref={imagesContainerRef}
+              className="relative flex flex-col h-[75vh] px-6 w-full gap-4 justify-center items-center overflow-y-auto"
+            >
+              {messages[activeTextIndex ?? 0]?.images?.map((image, imgIdx) => (
                 <div key={imgIdx} className="relative w-full flex-shrink-0 flex justify-center">
                   <Image
                     src={image.src}
