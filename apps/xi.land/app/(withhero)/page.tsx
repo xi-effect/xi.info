@@ -1,6 +1,5 @@
-// import { ScrollSection } from 'components/main/ScrollSection';
-import { FeaturesBlock, Telegram, Text, Faq, Benefits } from 'components/main';
-// import { StickyGsap } from 'components/main/StickyGSAP';
+import { FeaturesBlock, Telegram, Text, Faq, Benefits, MessagesBlock } from 'components/main';
+
 import { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -86,6 +85,7 @@ export default function MainPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <main>
+        <MessagesBlock />
         <Text
           className="text-balance text-center"
           theme="light"
