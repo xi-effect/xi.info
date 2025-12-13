@@ -82,11 +82,30 @@ export const Messages = () => {
   // Анимация переключения изображений при смене текста
   useEffect(() => {
     if (!imagesContainerRef.current || activeTextIndex === null) return;
-    gsap.fromTo(
-      imagesContainerRef.current,
-      { autoAlpha: 0 },
-      { autoAlpha: 1, duration: 0.35, ease: 'power1.out' },
-    );
+
+    const imageElements = Array.from(imagesContainerRef.current.children) as HTMLElement[];
+
+    if (imageElements.length === 0) return;
+
+    // Устанавливаем начальное состояние для всех изображений
+    gsap.set(imageElements, { autoAlpha: 0, y: 20 });
+
+    // Анимация появления по очереди сверху вниз
+    const tl = gsap.timeline();
+    imageElements.forEach((el, idx) => {
+      // Первое изображение появляется более плавно
+      const duration = idx === 0 ? 1.0 : 0.7;
+      tl.to(
+        el,
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration,
+          ease: 'power2.out',
+        },
+        idx === 0 ? 0 : '-=0.2', // Первое изображение без перекрытия, остальные с перекрытием
+      );
+    });
   }, [activeTextIndex]);
 
   // Инициализация: первый текст активен по умолчанию
