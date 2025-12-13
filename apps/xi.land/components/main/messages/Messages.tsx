@@ -15,20 +15,13 @@ export const Messages = () => {
   const tailsRef = useRef<HTMLDivElement>(null);
   const imgWrapRef = useRef<HTMLDivElement>(null);
   const imagesContainerRef = useRef<HTMLDivElement>(null);
-  const textElementsRef = useRef<(HTMLParagraphElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [activeTextIndex, setActiveTextIndex] = useState<number | null>(null);
-  const lastIdxRef = useRef(0);
 
   useGSAP(
     () => {
       if (!sectionRef.current || !tailsRef.current) return;
 
-      const lineEl = tailsRef.current.children[0] as HTMLElement;
-      const gap = parseFloat(getComputedStyle(tailsRef.current).gap || '0');
-      const lineH = lineEl.clientHeight + gap;
       const total = messages.length;
-
       const scrollStep = 1500; // 1500px на каждый переход
       const totalScrollDistance = scrollStep * total; // Для 3 элементов: 4500px
 
@@ -42,16 +35,6 @@ export const Messages = () => {
           pinSpacing: window.innerWidth >= 640,
           anticipatePin: 1,
           onUpdate: (self) => {
-            if (!tailsRef.current) return;
-
-            const y = gsap.getProperty(tailsRef.current, 'y') as number;
-            const index = Math.round(-y / lineH);
-
-            if (index !== lastIdxRef.current && index >= 0 && index < total) {
-              lastIdxRef.current = index;
-              setActiveIndex(index);
-            }
-
             // Логика переключения цветов текста
             const progress = Math.max(0, Math.min(1, self.progress));
             const scrollDistance = progress * totalScrollDistance;
@@ -71,14 +54,6 @@ export const Messages = () => {
     { scope: sectionRef },
   );
 
-  useEffect(() => {
-    if (!imgWrapRef.current) return;
-    const imgs = Array.from(imgWrapRef.current.children) as HTMLElement[];
-
-    gsap.to(imgs, { autoAlpha: 0, duration: 0.35, ease: 'power1.out' });
-    gsap.to(imgs[activeIndex], { autoAlpha: 1, duration: 0.35, ease: 'power1.out' });
-  }, [activeIndex]);
-
   // Анимация переключения изображений при смене текста
   useEffect(() => {
     if (!imagesContainerRef.current || activeTextIndex === null) return;
@@ -94,7 +69,7 @@ export const Messages = () => {
     const tl = gsap.timeline();
     imageElements.forEach((el, idx) => {
       // Первое изображение появляется более плавно
-      const duration = idx === 0 ? 1.0 : 0.7;
+      const duration = idx === 0 ? 1.0 : 0.5;
       tl.to(
         el,
         {
@@ -133,9 +108,6 @@ export const Messages = () => {
               return (
                 <p
                   key={idx}
-                  ref={(el) => {
-                    textElementsRef.current[idx] = el;
-                  }}
                   className={cn(
                     'animate-gradient-text m-0 text-gray-60 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] transition-all duration-500',
                     isActive && activeTextIndex !== null ? messages[idx]?.className : '',
