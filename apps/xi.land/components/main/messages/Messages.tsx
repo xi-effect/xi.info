@@ -7,7 +7,6 @@ import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 import { messages } from './content';
 import { cn } from '@xipkg/utils';
-import { Text } from '../Text';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,16 +28,19 @@ export const Messages = () => {
       const lineH = lineEl.clientHeight + gap;
       const total = messages.length;
 
+      const scrollStep = 1500; // 1500px на каждый переход
+      const totalScrollDistance = scrollStep * total; // Для 3 элементов: 4500px
+
       gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'center center',
-          end: '+=300%',
+          end: `+=${totalScrollDistance}`, // Используем тот же end, что и для анимации цветов
           pin: true,
           scrub: true,
           pinSpacing: window.innerWidth >= 640,
           anticipatePin: 1,
-          onUpdate: () => {
+          onUpdate: (self) => {
             if (!tailsRef.current) return;
 
             const y = gsap.getProperty(tailsRef.current, 'y') as number;
@@ -48,16 +50,22 @@ export const Messages = () => {
               lastIdxRef.current = index;
               setActiveIndex(index);
             }
+
+            // Логика переключения цветов текста
+            const progress = Math.max(0, Math.min(1, self.progress));
+            const scrollDistance = progress * totalScrollDistance;
+            let currentIndex = Math.floor(scrollDistance / scrollStep);
+
+            if (currentIndex >= total) {
+              currentIndex = total - 1;
+            }
+
+            if (currentIndex !== activeTextIndex) {
+              setActiveTextIndex(currentIndex);
+            }
           },
         },
       });
-
-      // for (let i = 1; i < total; i++) {
-      //   const at = i / (total - 1);
-      //   tl.to(tailsRef.current, { y: -lineH * i, ease: 'none' }, at)
-      //     .to(tailsRef.current.children[i], { color: 'var(--color-gray-0)' }, at)
-      //     .to(tailsRef.current.children[i - 1], { color: 'var(--color-gray-70)' }, at);
-      // }
     },
     { scope: sectionRef },
   );
@@ -70,59 +78,10 @@ export const Messages = () => {
     gsap.to(imgs[activeIndex], { autoAlpha: 1, duration: 0.35, ease: 'power1.out' });
   }, [activeIndex]);
 
-  // Отдельная анимация смены цветов текста при скролле
-  useGSAP(
-    () => {
-      if (!sectionRef.current || textElementsRef.current.length === 0) return;
-
-      const textElements = textElementsRef.current.filter(Boolean) as HTMLElement[];
-      if (textElements.length === 0) return;
-
-      const total = messages.length;
-      const scrollStep = 300; // 300px на каждый переход
-
-      // Инициализация: первый текст активен по умолчанию
-      setActiveTextIndex(0);
-
-      let lastActiveIndex = 0;
-
-      // Создаем отдельный ScrollTrigger для анимации цветов
-      // Используем тот же trigger и start, что и в основной анимации
-      const scrollTrigger = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'center center',
-        end: `+=${scrollStep * (total - 1)}`,
-        scrub: true,
-        onUpdate: (self) => {
-          // Используем progress из ScrollTrigger
-          const progress = Math.max(0, Math.min(1, self.progress));
-
-          // Вычисляем текущий индекс на основе прогресса
-          // Для 3 элементов (total = 3) нужно 2 перехода по 300px каждый:
-          // - progress 0.0-0.499 -> index 0 (первый текст активен)
-          // - progress 0.5-0.999 -> index 1 (второй текст активен)
-          // - progress 1.0 -> index 2 (третий текст активен)
-          const rawIndex = progress * (total - 1);
-
-          // Используем Math.floor для плавного переключения
-          // Добавляем небольшую задержку (0.1) чтобы переход был более заметным
-          const currentIndex = Math.floor(rawIndex + 0.1);
-          const clampedIndex = Math.max(0, Math.min(currentIndex, total - 1));
-
-          // Переключаем только когда индекс действительно изменился
-          if (clampedIndex !== lastActiveIndex) {
-            lastActiveIndex = clampedIndex;
-            setActiveTextIndex(clampedIndex);
-          }
-        },
-      });
-
-      return () => {
-        scrollTrigger.kill();
-      };
-    },
-    { scope: sectionRef, dependencies: [messages.length] },
-  );
+  // Инициализация: первый текст активен по умолчанию
+  useEffect(() => {
+    setActiveTextIndex(0);
+  }, []);
 
   const TAILS = messages.map((t) => t.content);
 
@@ -148,8 +107,10 @@ export const Messages = () => {
                     textElementsRef.current[idx] = el;
                   }}
                   className={cn(
-                    'm-0 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] transition-all duration-500',
-                    isActive && activeTextIndex !== null ? messages[idx]?.className : 'text-gray-60',
+                    'animate-gradient-text m-0 text-gray-60 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] transition-all duration-500',
+                    isActive && activeTextIndex !== null
+                      ? messages[idx]?.className
+                      : '',
                   )}
                 >
                   {txt}
@@ -168,18 +129,21 @@ export const Messages = () => {
               fill
               className="absolute inset-0 h-full w-full object-contain"
             />
+            <div className="relative flex flex-col h-[75vh] px-6 w-full gap-4 justify-center items-center overflow-y-auto">
+              {messages[0]?.images?.map((image, imgIdx) => (
+                <div key={imgIdx} className="relative w-full flex-shrink-0 flex justify-center">
+                  <Image
+                    src={image.src}
+                    alt="message image"
+                    width={650}
+                    height={400}
+                    className="max-w-full h-auto object-contain"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          {/* {IMAGES.map((src, idx) => (
-          <Image
-            key={idx}
-            src={src}
-            alt=""
-            fill
-            priority={idx === 0}
-            className="absolute inset-0 h-full w-full object-contain"
-            style={{ opacity: idx === 0 ? 1 : 0 }}
-          />
-        ))} */}
         </div>
       </div>
     </section>
