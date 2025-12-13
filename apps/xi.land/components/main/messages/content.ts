@@ -4,6 +4,7 @@ export const messages = [
     content: 'планирование',
     className: 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] bg-clip-text text-transparent',
     images: [{ src: '/assets/main/Messages/11.webp' }, { src: '/assets/main/Messages/12.webp' }],
+    mobileImage: '/assets/main/Messages/mobile1.webp',
   },
   {
     id: 2,
@@ -11,6 +12,7 @@ export const messages = [
     className:
       'bg-gradient-to-r from-[#764BA2] via-[#D28CFF] to-[#FF5AD9] bg-clip-text text-transparent',
     images: [{ src: '/assets/main/Messages/21.webp' }, { src: '/assets/main/Messages/22.webp' }],
+    mobileImage: '/assets/main/Messages/mobile2.webp',
   },
   {
     id: 3,
@@ -23,5 +25,6 @@ export const messages = [
       { src: '/assets/main/Messages/33.webp' },
       { src: '/assets/main/Messages/34.webp' },
     ],
+    mobileImage: '/assets/main/Messages/mobile3.webp',
   },
 ];
