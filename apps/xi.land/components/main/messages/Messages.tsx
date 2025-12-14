@@ -22,7 +22,7 @@ export const Messages = () => {
       if (!sectionRef.current || !tailsRef.current) return;
 
       const total = messages.length;
-      const scrollStep = 1500; // 1500px на каждый переход
+      const scrollStep = 2500; // 1500px на каждый переход
       const totalScrollDistance = scrollStep * total; // Для 3 элементов: 4500px
 
       gsap.timeline({
