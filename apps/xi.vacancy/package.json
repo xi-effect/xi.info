@@ -55,6 +55,6 @@
     "@unrs/resolver-binding-linux-x64-gnu": "1.11.1"
   },
   "main": ".eslintrc.js",
-  "author": "xi.effect",
+  "author": "Sovlium",
   "license": "ISC"
 }
