@@ -23,7 +23,12 @@ export const metadata: Metadata = {
     'платформа для репетиторов',
   ],
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/assets/favicon.svg', type: 'image/svg+xml' },
+      { url: '/assets/favicon.ico', type: 'image/x-icon', sizes: 'any' },
+      { url: '/assets/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    apple: [{ url: '/assets/apple-touch-icon.png', sizes: '180x180' }],
   },
 };
 
