@@ -1,8 +1,7 @@
-/* eslint-disable no-irregular-whitespace */
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
+import { Link } from '@xipkg/link';
 import { Button } from '@xipkg/button';
-import { SvgColumn } from './SvgColumn';
 import SendResumeModal from '../modal/SendResumeModal';
 
 interface SectionLink {
@@ -19,27 +18,26 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
-      { link: '/calendar', title: 'Расписание' },
-      { link: '/calls', title: 'Видеозвонки' },
-      { link: '/whiteboard', title: 'Онлайн-доска' },
-      { link: '/materials', title: 'Материалы' },
-      { link: '/payments', title: 'Оплаты' },
+      { link: 'https://sovlium.ru/calendar', title: 'Расписание' },
+      { link: 'https://sovlium.ru/calls', title: 'Видеозвонки' },
+      { link: 'https://sovlium.ru/whiteboard', title: 'Онлайн-доска' },
+      { link: 'https://sovlium.ru/materials', title: 'Материалы' },
+      { link: 'https://sovlium.ru/payments', title: 'Оплаты' },
     ],
   },
   {
     title: 'Клиентам',
     links: [
-      { link: '/prices', title: 'Тарифы' },
-      // { link: 'https://support.sovlium.ru/', title: 'Руководства' },
+      { link: 'https://sovlium.ru/prices', title: 'Тарифы' },
       { link: 'https://t.me/sovlium_support_bot', title: 'Поддержка' },
     ],
   },
   {
     title: 'Компания',
     links: [
-      { link: '/about', title: 'О нас' },
-      { link: '/blog', title: 'Блог' },
-      { link: '/legal/terms', title: 'Документы' },
+      { link: 'https://sovlium.ru/about', title: 'О нас' },
+      { link: 'https://sovlium.ru/blog', title: 'Блог' },
+      { link: 'https://sovlium.ru/legal/terms', title: 'Документы' },
       { link: 'https://vacancy.sovlium.ru/', title: 'Вакансии' },
     ],
   },
@@ -56,35 +54,50 @@ const Footer = () => {
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
       <h3 className="text-gray-60 text-m-base xs:text-l-base">{section.title}</h3>
+
       <ul className="xs:gap-6 flex flex-col gap-4">
-        {section.links.map((link, index) => (
-          <li key={index}>
-            <Link
-              className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0"
-              variant="hover"
-              href={link.link}
-              size="l"
-            >
-              {link.title}
-            </Link>
-          </li>
-        ))}
+        {section.links.map((link) => {
+          const isExternal = link.link.startsWith('http');
+
+          return (
+            <li key={link.link}>
+              {isExternal ? (
+                <Link
+                  className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0"
+                  variant="hover"
+                  href={link.link}
+                  size="l"
+                  target="_blank"
+                >
+                  {link.title}
+                </Link>
+              ) : (
+                <NextLink
+                  href={link.link}
+                  className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0 underline-offset-4 hover:underline decoration-gray-0"
+                >
+                  {link.title}
+                </NextLink>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 
   return (
     <div className="mt-4 sm:mt-16">
-      <div className="mx-auto px-8 sm:px-8 2xl:px-[112px] max-w-[1920px]">
+      <div className="mx-auto px-8 2xl:px-[112px] max-w-[1920px]">
         <div className="py-4 sm:py-8 xl:py-[128px] sm:px-8 xl:px-[48px] xl:flex xl:content-center">
-          <div className="mt-[10px] hidden xl:block relative before:rounded-b-full before:absolute before:top-[-140px] before:bg-gray-10 before:w-[240px] before:h-[140px] after:rounded-t-full after:absolute after:top-[240px] after:bg-gray-10 after:w-[240px] after:h-[140px]">
+          <div className="mt-[10px] hidden xl:block relative before:rounded-b-full before:absolute before:top-[-140px] before:bg-gray-10 before:w-[240px] before:h-[140px] before:z-0 after:rounded-t-full after:absolute after:top-[240px] after:bg-gray-10 after:w-[240px] after:h-[140px] after:z-0">
             <Image
               width={789}
               height={1183}
               quality={100}
               alt="team working"
               src="/home/work-together.jpg"
-              className="rounded-full w-[240px] h-[240px] object-cover mr-[167px]"
+              className="rounded-full w-[240px] h-[240px] object-cover mr-[167px] relative z-10"
             />
           </div>
 
@@ -94,7 +107,7 @@ const Footer = () => {
             </h2>
 
             <p className="leading-[130%] mb-[10px] text-[16px] sm:text-[24px] xl:text-[32px] xl:mb-[24px] xl:w-[85%]">
-              Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
+              Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
             </p>
 
             <SendResumeModal>
@@ -105,10 +118,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <footer className="z-10 flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
+        <footer className="z-10 flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center xl:mt-32">
           <div className="text-gray-0 xs:p-8 relative flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
             <div className="relative">
-              <Link
+              <NextLink
                 href="/"
                 className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
               >
@@ -119,12 +132,18 @@ const Footer = () => {
                   height={64}
                   priority={false}
                 />
-              </Link>
-              <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
-                <SvgColumn />
+              </NextLink>
+              <div className="absolute bottom-[-64px] left-0 hidden xl:left-[-100px] xl:block">
+                <Image
+                  alt="sovlium column"
+                  src="/assets/column.svg"
+                  width={480}
+                  height={394}
+                  priority={false}
+                />
               </div>
             </div>
-            <div className="z-5 flex flex-col gap-8 xl:gap-16">
+            <div className="relative z-10 flex flex-col gap-8 xl:gap-16">
               <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
                 {sections.map(renderSection)}
               </div>
