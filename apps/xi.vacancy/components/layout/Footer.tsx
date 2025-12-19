@@ -2,7 +2,9 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { Link } from '@xipkg/link';
 import { Button } from '@xipkg/button';
+
 import SendResumeModal from '../modal/SendResumeModal';
+import { SvgColumn } from '../common/SvgColumn';
 
 interface SectionLink {
   link: string;
@@ -58,26 +60,31 @@ const Footer = () => {
       <ul className="xs:gap-6 flex flex-col gap-4">
         {section.links.map((link) => {
           const isExternal = link.link.startsWith('http');
+          const isVacancyLink = link.link.includes('vacancy.sovlium.ru');
+          const href = isVacancyLink ? '/' : link.link;
+
+          const shouldOpenInNewTab = isExternal && !isVacancyLink;
+          const useNextLink = !isExternal || isVacancyLink;
 
           return (
             <li key={link.link}>
-              {isExternal ? (
-                <Link
-                  className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0"
-                  variant="hover"
-                  href={link.link}
-                  size="l"
-                  target="_blank"
-                >
-                  {link.title}
-                </Link>
-              ) : (
+              {useNextLink ? (
                 <NextLink
-                  href={link.link}
+                  href={href}
                   className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0 underline-offset-4 hover:underline decoration-gray-0"
                 >
                   {link.title}
                 </NextLink>
+              ) : (
+                <Link
+                  className="text-gray-0 xs:text-l-base hover:text-gray-0 hover:decoration-gray-0"
+                  variant="hover"
+                  href={href}
+                  size="l"
+                  target={shouldOpenInNewTab ? '_blank' : undefined}
+                >
+                  {link.title}
+                </Link>
               )}
             </li>
           );
@@ -134,13 +141,7 @@ const Footer = () => {
                 />
               </NextLink>
               <div className="absolute bottom-[-64px] left-0 hidden xl:left-[-100px] xl:block">
-                <Image
-                  alt="sovlium column"
-                  src="/assets/column.svg"
-                  width={480}
-                  height={394}
-                  priority={false}
-                />
+                <SvgColumn />
               </div>
             </div>
             <div className="relative z-10 flex flex-col gap-8 xl:gap-16">
