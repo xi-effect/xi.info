@@ -19,7 +19,8 @@
     "@xipkg/input": "2.2.9",
     "zod": "3.24.2",
     "@hookform/resolvers": "3.10.0",
-    "common.eslint": "*"
+    "common.eslint": "*",
+    "motion": "^12.23.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

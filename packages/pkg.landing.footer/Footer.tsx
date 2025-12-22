@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { SvgColumn } from './SvgColumn';
@@ -11,6 +12,13 @@ interface SectionLink {
 interface Section {
   title: string;
   links: SectionLink[];
+}
+
+interface FooterProps {
+  topContent?: ReactNode;
+  sections?: Section[];
+  logoPath?: string;
+  classNameFooter?: string;
 }
 
 const sections: Section[] = [
@@ -50,7 +58,14 @@ const sections: Section[] = [
 const email = 'support@sovlium.ru';
 const copyrightYear = new Date().getFullYear();
 
-const Footer = () => {
+const Footer = ({
+  topContent,
+  sections: customSections,
+  logoPath = '/logofordark.svg',
+  classNameFooter = 'bg-brand-80',
+}: FooterProps = {}) => {
+  const footerSections = customSections || sections;
+
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
       <h3 className="text-gray-60 text-m-base xs:text-l-base">{section.title}</h3>
@@ -73,10 +88,13 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-brand-80 z-1 mt-0 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px]">
-        <MainPage />
-      </div>
-      <div className="bg-brand-80">
+      {topContent || (
+        <div className="bg-brand-80 z-1 mt-0 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px]">
+          <MainPage />
+        </div>
+      )}
+
+      <div className={classNameFooter}>
         <footer className="z-10 flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
           <div className="text-gray-0 xs:p-8 relative flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40">
             <div className="relative">
@@ -84,13 +102,7 @@ const Footer = () => {
                 href="/"
                 className="xs:h-[24px] xs:w-[202px] relative h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
               >
-                <Image
-                  alt="sovlium logo"
-                  src="/logofordark.svg"
-                  width={216}
-                  height={64}
-                  priority={false}
-                />
+                <Image alt="sovlium logo" src={logoPath} width={216} height={64} priority={false} />
               </Link>
               <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
                 <SvgColumn />
@@ -98,7 +110,7 @@ const Footer = () => {
             </div>
             <div className="z-5 flex flex-col gap-8 xl:gap-16">
               <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
-                {sections.map(renderSection)}
+                {footerSections.map(renderSection)}
               </div>
               <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
                 <span className="2xl:w-[330px]">&copy; sovlium с {copyrightYear} года</span>

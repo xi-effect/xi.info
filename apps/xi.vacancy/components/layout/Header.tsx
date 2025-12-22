@@ -14,12 +14,12 @@ const Header = () => {
       <div className="max-w-[1920px] px-8 sm:px-16 2xl:px-40 mx-auto flex justify-between items-center">
         <Link href="/">
           <Image
-            width={219}
-            height={32}
+            width={216}
+            height={64}
             quality={100}
-            alt="logo xi.effect"
-            src="/iconssite/team.svg"
-            className="w-[165px] h-[24px]"
+            alt="logo sovlium"
+            src="/logoforwhite.svg"
+            className="w-[165px] h-[48px]"
           />
         </Link>
 
