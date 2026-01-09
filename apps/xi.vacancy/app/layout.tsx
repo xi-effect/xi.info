@@ -8,25 +8,27 @@ import { Metadata } from 'next';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'xi.vacancy',
+  title: 'Sovlium Вакансии',
   description:
-    'Рассказываем о вакансиях стартапа xi.effect - разработка, дизайн, тестирование, менеджмент',
+    'Рассказываем о вакансиях стартапа Sovlium - разработка, дизайн, тестирование, менеджмент',
   manifest: '/manifest.webmanifest',
   keywords: [
-    'xi.effect',
-    'кси эффект',
-    'эффект',
+    'sovlium',
+    'совлиум',
     'стартап',
     'вакансии',
     'работа',
     'vacancy',
-    'xi.vacancy',
+    'репетиторы',
+    'платформа для репетиторов',
   ],
   icons: {
     icon: [
-      { url: '/favicon-for-light.svg' },
-      { url: '/favicon-for-dark.svg', media: '(prefers-color-scheme: dark)' },
+      { url: '/assets/favicon.svg', type: 'image/svg+xml' },
+      { url: '/assets/favicon.ico', type: 'image/x-icon', sizes: 'any' },
+      { url: '/assets/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
     ],
+    apple: [{ url: '/assets/apple-touch-icon.png', sizes: '180x180' }],
   },
 };
 
