@@ -27,6 +27,5 @@ export const MessagesMobile = () => (
         </div>
       </section>
     ))}
-    ;
   </>
 );
