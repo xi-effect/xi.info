@@ -7,7 +7,7 @@ import NextLink from 'next/link';
 export const CallToAction = () => (
   <section className="flex flex-col justify-center items-center py-16 px-8 sm:py-32">
     <div className="w-full max-w-[1920px] flex flex-col justify-center items-center gap-4">
-      <h3 className="font-medium text-[24px] sm:text-[40px] xl:text-[64px] leading-[31.2px] sm:leading-[52px] xl:leading-[83.2px] text-gray-100">
+      <h3 className="font-medium text-[24px] sm:text-[40px] xl:text-[48px] leading-[31.2px] sm:leading-[52px] xl:leading-[83.2px] text-gray-100">
         Не нашлось ответа?
       </h3>
       <Button

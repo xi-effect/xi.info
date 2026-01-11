@@ -9,7 +9,7 @@ export const HeaderMain = () => (
     <div className="w-full max-w-[1920px] flex flex-row justify-between items-center gap-4">
       <Link href="/">
         <Image
-          src="/logoforwhite.svg"
+          src="/logofordark.svg"
           alt="Sovlium Support logo"
           width={216}
           height={64}
