@@ -23,7 +23,9 @@
     "turbo": "2.3.3"
   },
   "overrides": {
-    "@types/minimatch": "5.1.2"
+    "@types/minimatch": "5.1.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2"
   },
   "name": "xi.info",
   "packageManager": "npm@10.1.0",

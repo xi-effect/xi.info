@@ -20,7 +20,7 @@ export const HeaderMain = () => (
         <Button
           asChild
           variant="secondary"
-          className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5 bg-brand-0 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
+          className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
         >
           <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
         </Button>
