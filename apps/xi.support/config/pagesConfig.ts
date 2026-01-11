@@ -11,15 +11,10 @@ export const pagesConfig: PageConfigItemT[] = [
   {
     section: 'work-beginning',
     page: 'signup',
-    anchors: [
-      { title: 'Регистрация', link: 'signup' },
-      { title: 'Ошибки', link: 'errors' },
-      { title: 'Такое имя пользователя уже занято', link: 'username-error' },
-      { title: 'Аккаунт с такой почтой уже зарегистрирован', link: 'email-error' },
-      { title: 'Такой пароль легко взломать', link: 'password-error' },
-    ],
+    anchors: [{ title: 'Регистрация', link: 'signup' }],
     relatedLinks: [
-      // { title: 'Создание', link: 'first' },
+      { title: 'Настроить профиль', link: 'welcome' },
+      { title: 'Пригласить учеников', link: 'invite-students' },
     ],
     updateDate: '07.05.2024',
   },
@@ -72,24 +67,13 @@ export const pagesConfig: PageConfigItemT[] = [
     page: 'welcome',
     anchors: [
       {
-        title: 'Профиль',
-        link: 'profile',
-      },
-      {
-        title: 'Создание сообщества',
-        link: 'community-create',
-      },
-      {
-        title: 'Присоединение к сообществу',
-        link: 'community-invite',
-      },
-      {
-        title: 'Окончание настройки профиля',
-        link: 'final',
+        title: 'Настроить профиль',
+        link: 'welcome',
       },
     ],
     relatedLinks: [
-      // { title: 'Создание', link: 'first' },
+      { title: 'Пригласить учеников', link: 'invite-students' },
+      { title: 'Назначить занятие', link: 'create-lesson' },
     ],
     updateDate: '07.05.2024',
   },
@@ -189,18 +173,6 @@ export const pagesConfig: PageConfigItemT[] = [
     section: 'account',
     page: 'change-email',
     anchors: [{ title: 'Как поменять почту, привязанную к аккаунту?', link: 'change-email' }],
-    relatedLinks: [
-      // { title: 'Создание', link: 'first' },
-    ],
-    updateDate: '07.05.2024',
-  },
-  {
-    section: 'account',
-    page: 'confirm-email',
-    anchors: [
-      { title: 'Для чего нужно подтверждать адрес электронной почты?', link: 'why-confirm-email' },
-      { title: 'Как подтвердить адрес электронной почты?', link: 'confirm-email' },
-    ],
     relatedLinks: [
       // { title: 'Создание', link: 'first' },
     ],
@@ -339,5 +311,75 @@ export const pagesConfig: PageConfigItemT[] = [
       // { title: 'Создание', link: 'first' },
     ],
     updateDate: '19.05.2024',
+  },
+  // work-beginning - invite-students
+  {
+    section: 'work-beginning',
+    page: 'invite-students',
+    anchors: [
+      { title: 'Пригласить учеников', link: 'invite' },
+      { title: 'Индивидуальные приглашения', link: 'individually' },
+      { title: 'Приглашения в группу', link: 'group' },
+    ],
+    relatedLinks: [
+      { title: 'Назначить занятие', link: 'create-lesson' },
+      { title: 'Настроить напоминания', link: 'reminders' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  // prepare-for-lesson
+  {
+    section: 'prepare-for-lesson',
+    page: 'create-lesson',
+    anchors: [{ title: 'Назначить занятие', link: 'create_lesson' }],
+    relatedLinks: [
+      { title: 'Подготовить материалы', link: 'materials' },
+      { title: 'Настроить напоминания', link: 'reminders' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'prepare-for-lesson',
+    page: 'materials',
+    anchors: [{ title: 'Подготовить материалы', link: 'materials' }],
+    relatedLinks: [
+      { title: 'Назначить занятие', link: 'create-lesson' },
+      { title: 'Настроить напоминания', link: 'reminders' },
+    ],
+    updateDate: '07.05.2024',
+  },
+  {
+    section: 'prepare-for-lesson',
+    page: 'set-reminders',
+    anchors: [{ title: 'Настроить напоминания', link: 'reminders' }],
+    relatedLinks: [{ title: 'Подготовить материалы', link: 'materials' }],
+    updateDate: '07.05.2024',
+  },
+  // conduct-lesson
+  {
+    section: 'conduct-lesson',
+    page: 'videocall',
+    anchors: [
+      { title: 'Начать видеозвонок', link: 'videocall' },
+      { title: 'Онлайн-доска', link: 'board' },
+    ],
+    relatedLinks: [{ title: 'Контролировать оплату', link: 'analytics' }],
+    updateDate: '07.05.2024',
+  },
+  // control-payments
+  {
+    section: 'control-payments',
+    page: 'analytics',
+    anchors: [
+      { title: 'Контролировать оплату', link: 'сontrol_payments' },
+      { title: 'Как создать счёт', link: 'invoices' },
+      { title: 'Журнал оплат', link: 'jrnl' },
+      { title: 'Аналитика', link: 'analytics' },
+    ],
+    relatedLinks: [
+      { title: 'Назначить занятие', link: 'create-lesson' },
+      { title: 'Пригласить учеников', link: 'invite-students' },
+    ],
+    updateDate: '07.05.2024',
   },
 ];
