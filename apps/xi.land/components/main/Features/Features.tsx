@@ -141,7 +141,7 @@ export const Features = () => {
             {steps[currentStep].href && (
               <Link ref={btnRef} href={steps[currentStep].href!}>
                 <Button
-                  variant="default"
+                  variant="primary"
                   size="l"
                   className="w-96 lg:w-116 h-16 !text-xl-base text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]"
                 >

@@ -10,6 +10,7 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
+    "@xipkg/icons": "2.7.2",
     "@xipkg/button": "3.1.8",
     "@xipkg/link": "2.0.12",
     "@xipkg/tailwind": "^0.8.1",
@@ -18,7 +19,8 @@
     "@xipkg/input": "2.2.9",
     "zod": "3.24.2",
     "@hookform/resolvers": "3.10.0",
-    "common.eslint": "*"
+    "common.eslint": "*",
+    "motion": "^12.23.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

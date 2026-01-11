@@ -1,124 +1,154 @@
 'use client';
 
-/* eslint-disable no-plusplus */
-
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 import { messages } from './content';
+import { cn } from '@xipkg/utils';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const IMAGES = [
-  '/assets/main/Messages/1.webp',
-  '/assets/main/Messages/2.webp',
-  '/assets/main/Messages/3.webp',
-];
 
 export const Messages = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const tailsRef = useRef<HTMLDivElement>(null);
   const imgWrapRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const lastIdxRef = useRef(0);
+  const imagesContainerRef = useRef<HTMLDivElement>(null);
+  const [activeTextIndex, setActiveTextIndex] = useState<number | null>(null);
 
   useGSAP(
     () => {
       if (!sectionRef.current || !tailsRef.current) return;
 
-      const lineEl = tailsRef.current.children[0] as HTMLElement;
-      const gap = parseFloat(getComputedStyle(tailsRef.current).gap || '0');
-      const lineH = lineEl.clientHeight + gap;
-      // const EPS = 0.01;
       const total = messages.length;
+      const scrollStep = 1500; // 1500px на каждый переход
+      const totalScrollDistance = scrollStep * total; // Для 3 элементов: 4500px
 
-      const tl = gsap.timeline({
+      gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'center center',
-          end: '+=300%',
+          end: `+=${totalScrollDistance}`, // Используем тот же end, что и для анимации цветов
           pin: true,
           scrub: true,
           pinSpacing: window.innerWidth >= 640,
-          // snap: {
-          //   snapTo: 1 / total,
-          //   duration: 0.6,
-          //   delay: 0.1,
-          //   ease: 'power2.out',
-          // },
           anticipatePin: 1,
-          onUpdate: () => {
-            if (!tailsRef.current) return;
+          onUpdate: (self) => {
+            // Логика переключения цветов текста
+            const progress = Math.max(0, Math.min(1, self.progress));
+            const scrollDistance = progress * totalScrollDistance;
+            let currentIndex = Math.floor(scrollDistance / scrollStep);
 
-            const y = gsap.getProperty(tailsRef.current, 'y') as number;
-            const index = Math.round(-y / lineH);
+            if (currentIndex >= total) {
+              currentIndex = total - 1;
+            }
 
-            if (index !== lastIdxRef.current && index >= 0 && index < total) {
-              lastIdxRef.current = index;
-              setActiveIndex(index);
+            if (currentIndex !== activeTextIndex) {
+              setActiveTextIndex(currentIndex);
             }
           },
         },
       });
-
-      for (let i = 1; i < total; i++) {
-        const at = i / (total - 1);
-        tl.to(tailsRef.current, { y: -lineH * i, ease: 'none' }, at)
-          .to(tailsRef.current.children[i], { color: 'var(--color-gray-0)' }, at)
-          .to(tailsRef.current.children[i - 1], { color: 'var(--color-gray-70)' }, at);
-      }
     },
     { scope: sectionRef },
   );
 
+  // Анимация переключения изображений при смене текста
   useEffect(() => {
-    if (!imgWrapRef.current) return;
-    const imgs = Array.from(imgWrapRef.current.children) as HTMLElement[];
+    if (!imagesContainerRef.current || activeTextIndex === null) return;
 
-    gsap.to(imgs, { autoAlpha: 0, duration: 0.35, ease: 'power1.out' });
-    gsap.to(imgs[activeIndex], { autoAlpha: 1, duration: 0.35, ease: 'power1.out' });
-  }, [activeIndex]);
+    const imageElements = Array.from(imagesContainerRef.current.children) as HTMLElement[];
+
+    if (imageElements.length === 0) return;
+
+    // Устанавливаем начальное состояние для всех изображений
+    gsap.set(imageElements, { autoAlpha: 0, y: 20 });
+
+    // Анимация появления по очереди сверху вниз
+    const tl = gsap.timeline();
+    imageElements.forEach((el, idx) => {
+      // Первое изображение появляется более плавно
+      const duration = idx === 0 ? 1.0 : 0.5;
+      tl.to(
+        el,
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration,
+          ease: 'power2.out',
+        },
+        idx === 0 ? 0 : '-=0.2', // Первое изображение без перекрытия, остальные с перекрытием
+      );
+    });
+  }, [activeTextIndex]);
+
+  // Инициализация: первый текст активен по умолчанию
+  useEffect(() => {
+    setActiveTextIndex(0);
+  }, []);
 
   const TAILS = messages.map((t) => t.content);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full bg-gray-100 overflow-hidden flex flex-col-reverse md:flex-row items-start justify-center gap-8 px-6 py-12 sm:flex-row sm:items-center md:px-8 2xl:px-[160px] sm:py-0"
+      className="max-w-400 md:mx-auto relative h-screen w-full bg-gray-0 overflow-hidden"
     >
-      {/* ── слева: буква + хвосты ── */}
-      <div className="flex pt-[96px] w-1/2 items-baseline">
-        <span className="font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] leading-tight text-gray-0 select-none">
-          в
-        </span>
-
-        <div ref={tailsRef} className="flex flex-col ml-[12px] gap-8 leading-tight">
-          {TAILS.map((txt, idx) => (
-            <p
-              key={idx}
-              className="m-0 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] first:text-gray-0 [&:not(:first-child)]:text-gray-70"
-            >
-              {txt}
-            </p>
-          ))}
-        </div>
+      <div className="px-6 py-12">
+        <h2 className="dark:text-gray-0 text-gray-100 text-center text-xl-base leading-[1.2] sm:leading-[1.1] md:leading-[1] xs:text-[40px] md:text-[48px] font-semibold sm:font-medium md:font-semibold">
+          Переход в онлайн изменил всё
+        </h2>
       </div>
+      <div className="max-w-400 w-full flex flex-col-reverse md:flex-row items-center justify-center gap-8">
+        <div className="flex items-center justify-center h-full w-1/2">
+          <div ref={tailsRef} className="flex flex-col ml-[12px] gap-8 leading-tight">
+            {TAILS.map((txt, idx) => {
+              const isActive = activeTextIndex === idx;
+              return (
+                <p
+                  key={idx}
+                  className={cn(
+                    'animate-gradient-text m-0 text-gray-60 font-semibold text-[36px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] transition-all duration-500',
+                    isActive && activeTextIndex !== null ? messages[idx]?.className : '',
+                  )}
+                >
+                  {txt}
+                </p>
+              );
+            })}
+          </div>
+        </div>
 
-      {/* ── справа: картинки ── */}
-      <div ref={imgWrapRef} className="relative flex h-full w-full md:w-1/2">
-        {IMAGES.map((src, idx) => (
-          <Image
-            key={idx}
-            src={src}
-            alt=""
-            fill
-            priority={idx === 0}
-            className="absolute inset-0 h-full w-full object-contain"
-            style={{ opacity: idx === 0 ? 1 : 0 }}
-          />
-        ))}
+        {/* ── справа: картинки ── */}
+        <div ref={imgWrapRef} className="relative flex h-full w-full md:w-1/2">
+          <div className="relative h-[75vh] my-auto w-full">
+            <Image
+              src="/assets/main/Messages/background.webp"
+              alt=""
+              fill
+              className="absolute inset-0 h-full w-full object-contain"
+            />
+            <div
+              key={activeTextIndex ?? 0}
+              ref={imagesContainerRef}
+              className="relative flex flex-col h-[75vh] px-6 w-full gap-4 justify-center items-center overflow-y-auto"
+            >
+              {messages[activeTextIndex ?? 0]?.images?.map((image, imgIdx) => (
+                <div key={imgIdx} className="relative w-full flex-shrink-0 flex justify-center">
+                  <Image
+                    src={image.src}
+                    alt="message image"
+                    width={650}
+                    height={400}
+                    className="max-w-full h-auto object-contain"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

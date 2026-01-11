@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 'use client';
+import Link from 'next/link';
 
 // CSS fallback для случаев без JavaScript
 const fallbackStyles = `
@@ -61,6 +62,7 @@ import { AnimationChem } from './AnimationChem';
 import { AnimationMath } from './AnimationMath';
 import { AnimationEng } from './AnimationEng';
 import { AnimationHistory } from './AnimationHistory';
+import { SnowAnimation } from './SnowAnimation';
 
 const HeroText = () => {
   const pathname = usePathname();
@@ -160,6 +162,7 @@ export const Hero = () => {
     >
       <div className="w-full max-w-400 sm:h-[calc(100vh-160px)] flex items-start justify-center">
         <div className="relative overflow-hidden bg-brand-80 w-full h-full md:min-h-[560px] z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 sm:pb-0 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
+          <SnowAnimation />
           <Blobs />
 
           <motion.div
@@ -208,17 +211,12 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
             >
               <Button
+                asChild
                 variant="ghost"
                 size="l"
                 className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)] hover:bg-transparent hover:text-gray-0 hover:border-gray-0 border-2 border-brand-0 transition-all duration-600"
-                onClick={() => {
-                  const el = document.getElementById('become-tester');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
               >
-                {config[pathname].button}
+                <Link href="https://app.sovlium.ru/signup">{config[pathname].button}</Link>
               </Button>
             </motion.div>
 
@@ -228,7 +226,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
             >
-              Подарим бесплатный доступ сейчас и привилегии в будущем
+              Платформа на бета-тестировании
             </motion.span>
           </div>
 

@@ -4,8 +4,8 @@ import Image from 'next/image';
 const AppreciateTheTeam = () => (
   <section className="mb-4 p-4 sm:p-8 sm:mb-16 bg-gray-10 rounded-[16px] sm:rounded-[24px] 2xl:rounded-[32px] 2xl:p-[48px]">
     <h2 className="leading-[110%] font-semibold mb-[32px] sm:mb-[32px] 2xl:mb-[48px] text-[24px] sm:text-[48px] 2xl:text-[64px]">
-      <span className="block mb-[16px]">Xi.effect делают люди</span>
-      Мы ценим коллег и свою команду
+      <span className="block mb-[16px]">Sovlium делают люди</span>
+      Мы ценим коллег и свою команду
     </h2>
 
     <div className="flex flex-col lg:flex-row mb-[32px] 2xl:mb-[48px]">
@@ -24,8 +24,8 @@ const AppreciateTheTeam = () => (
         </h3>
 
         <p className="w-[90%] leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px] lg:w-full">
-          Можешь уделять столько времени, сколько у тебя есть и когда оно есть, неважно из какого
-          ты города и в каком часовом поясе живёшь.
+          Можешь уделять столько времени, сколько у тебя есть и когда оно есть, неважно из какого ты
+          города и в каком часовом поясе живёшь.
         </p>
       </div>
     </div>
@@ -42,11 +42,11 @@ const AppreciateTheTeam = () => (
 
       <div className="lg:basis-[49%] lg:my-auto lg:mr-[32px] lg:order-1">
         <h3 className="leading-[110%] font-semibold mb-2 sm:mb-4 text-[20px] sm:text-[32px] 2xl:text-[32px]">
-          Открытый исходный код
+          Открытый исходный код
         </h3>
 
         <p className="leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px] 2xl:w-[90%]">
-          Возможность добавить строчку в резюме, присоединиться к сообществу OpenSource и создать
+          Возможность добавить строчку в резюме, присоединиться к сообществу OpenSource и создать
           классный продукт.
         </p>
       </div>
@@ -64,11 +64,11 @@ const AppreciateTheTeam = () => (
 
       <div className="lg:basis-[49%] lg:my-auto">
         <h3 className="leading-[110%] font-semibold mb-2 sm:mb-4 text-[20px] sm:text-[32px] 2xl:text-[32px]">
-          Ценим за дело, а не за должность
+          Ценим за дело, а не за должность
         </h3>
 
         <p className="leading-[130%] text-[16px] sm:text-[24px] 2xl:text-[28px]">
-          В Xi.effect можно расти вертикально, как руководитель, или горизонтально, как эксперт.
+          В Sovlium можно расти вертикально, как руководитель, или горизонтально, как эксперт.
         </p>
       </div>
     </div>
