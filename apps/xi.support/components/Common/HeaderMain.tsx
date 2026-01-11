@@ -1,24 +1,33 @@
 'use client';
 
 import Image from 'next/image';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { Button } from '@xipkg/button';
 
 export const HeaderMain = () => (
   <div className="static sm:absolute w-full h-[72px] md:h-[112px] 2xl:h-[176px] p-4 md:p-8 2xl:py-16 2xl:px-40 flex justify-center items-center flex-row z-10">
     <div className="w-full max-w-[1920px] flex flex-row justify-between items-center gap-4">
-      <NextLink className="hidden sm:flex" href="/">
-        <Image src="/xisupport.webp" alt="xi.support logo" height={24} width={243} />
-      </NextLink>
-      <NextLink className="flex sm:hidden" href="/">
-        <Image src="/xisupportlight.webp" alt="xi.support logo" height={24} width={243} />
-      </NextLink>
-      <Button variant="default" className="ml-auto w-24 z-10 max-sm:hidden" asChild>
-        <NextLink href="https://app.xieffect.ru/signin">Войти</NextLink>
-      </Button>
-      <Button variant="secondary" className="w-[214px] z-10 max-sm:hidden border-none" asChild>
-        <NextLink href="https://app.xieffect.ru/signup">Зарегистрироваться</NextLink>
-      </Button>
+      <Link href="/">
+        <Image
+          src="/logoforwhite.svg"
+          alt="Sovlium Support logo"
+          width={216}
+          height={64}
+          className="h-[24px] w-auto sm:h-[40px]"
+        />
+      </Link>
+      <div className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-4 ml-auto">
+        <Button
+          asChild
+          variant="secondary"
+          className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5 bg-brand-0 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
+        >
+          <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
+        </Button>
+        <Button asChild className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-24">
+          <Link href="https://app.sovlium.ru/signin">Войти</Link>
+        </Button>
+      </div>
     </div>
   </div>
 );

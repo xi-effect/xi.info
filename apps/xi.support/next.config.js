@@ -22,7 +22,7 @@ const nextConfig = {
     '@xipkg/button',
     '@xipkg/input',
     '@xipkg/utils',
-    'pkg.footer',
+    'pkg.landing.footer',
     '@xipkg/link',
   ],
   compiler: {
