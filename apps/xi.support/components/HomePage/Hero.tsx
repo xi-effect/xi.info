@@ -14,7 +14,7 @@ export const Hero = () => (
       <div className="w-full z-10">
         <div className="text-[24px] leading-[31.2px] sm:text-[48px] md:text-[64px] sm:leading-[62.4px] md:leading-[83.2px] text-gray-100 sm:text-gray-0 font-medium">
           <h2>Привет 👋</h2>
-          <h2>Это база знаний xi.effect</h2>
+          <h2>Это база знаний sovlium</h2>
         </div>
         <p className="text-[14px] leading-[18.2px] mb-4 sm:text-[20px] sm:leading-[32px] md:text-2xl font-normal sm:mb-8 text-gray-90 sm:text-gray-10">
           Рассказываем как пользоваться приложением

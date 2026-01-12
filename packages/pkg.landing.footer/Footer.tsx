@@ -56,7 +56,6 @@ const sections: Section[] = [
 ];
 
 const email = 'support@sovlium.ru';
-const copyrightYear = new Date().getFullYear();
 
 const Footer = ({
   topContent,
@@ -113,7 +112,7 @@ const Footer = ({
                 {footerSections.map(renderSection)}
               </div>
               <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
-                <span className="2xl:w-[330px]">&copy; sovlium с {copyrightYear} года</span>
+                <span className="2xl:w-[330px]">&copy; sovlium с 2025 года</span>
                 <span className="xs:order-1 2xl:w-[330px]">
                   <Link
                     className="text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]"
