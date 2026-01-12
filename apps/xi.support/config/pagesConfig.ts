@@ -16,7 +16,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Настроить профиль', link: 'welcome' },
       { title: 'Пригласить учеников', link: 'invite-students' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   {
     section: 'work-beginning',
@@ -31,7 +31,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Пригласить учеников', link: 'invite-students' },
       { title: 'Назначить занятие', link: 'create-lesson' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   // work-beginning - invite-students
   {
@@ -46,7 +46,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Назначить занятие', link: 'create-lesson' },
       { title: 'Настроить напоминания', link: 'reminders' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   // prepare-for-lesson
   {
@@ -57,7 +57,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Подготовить материалы', link: 'materials' },
       { title: 'Настроить напоминания', link: 'reminders' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   {
     section: 'prepare-for-lesson',
@@ -67,14 +67,14 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Назначить занятие', link: 'create-lesson' },
       { title: 'Настроить напоминания', link: 'reminders' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   {
     section: 'prepare-for-lesson',
     page: 'set-reminders',
     anchors: [{ title: 'Настроить напоминания', link: 'reminders' }],
     relatedLinks: [{ title: 'Подготовить материалы', link: 'materials' }],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   // conduct-lesson
   {
@@ -85,7 +85,7 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Онлайн-доска', link: 'board' },
     ],
     relatedLinks: [{ title: 'Контролировать оплату', link: 'analytics' }],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
   // control-payments
   {
@@ -101,6 +101,6 @@ export const pagesConfig: PageConfigItemT[] = [
       { title: 'Назначить занятие', link: 'create-lesson' },
       { title: 'Пригласить учеников', link: 'invite-students' },
     ],
-    updateDate: '07.05.2024',
+    updateDate: '13.01.2026',
   },
 ];
