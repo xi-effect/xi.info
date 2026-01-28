@@ -26,9 +26,9 @@
     "@xipkg/badge": "^2.0.12",
     "@xipkg/tailwind": "0.8.1",
     "eslint-config-next": "16.1.4",
-    "next": "16.1.4",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "next": "16.1.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-hook-form": "^7.45.2",
     "sonner": "^1.7.4",
     "uuid": "11.0.5",
@@ -41,7 +41,7 @@
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.17.0",
     "@types/node": "^20.3.1",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "@xipkg/eslint": "4.6.0",
     "@xipkg/typescript": "latest",
@@ -60,7 +60,7 @@
   "author": "Sovlium",
   "license": "ISC",
   "overrides": {
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3"
   }
 }

@@ -17,8 +17,8 @@
     "@eslint/js": "^9.17.0",
     "eslint": "^9.17.0",
     "@types/node": "^20.3.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "@xipkg/eslint": "4.6.0",
     "@xipkg/typescript": "latest",
     "prettier": "3.2.5",
@@ -26,8 +26,8 @@
     "common.eslint": "*"
   },
   "peerDependencies": {
-    "next": "^15.1.6",
-    "react": "^19.0.0"
+    "next": "^16.1.6",
+    "react": "^19.2.4"
   },
   "author": "",
   "description": ""

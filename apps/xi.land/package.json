@@ -30,14 +30,14 @@
     "@xipkg/utils": "^1.8.0",
     "gsap": "^3.13.0",
     "motion": "^12.23.6",
-    "next": "16.1.4",
+    "next": "16.1.6",
     "pkg.accordion": "*",
     "pkg.carousel": "*",
     "pkg.error-page": "*",
     "pkg.landing.footer": "*",
     "pkg.utils": "*",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-hook-form": "^7.45.2",
     "react-snowfall": "^2.4.0",
     "remark-gfm": "^4.0.1",
@@ -49,7 +49,7 @@
     "@eslint/js": "^9.17.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20.3.1",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "@xipkg/eslint": "4.6.0",
     "@xipkg/typescript": "latest",
@@ -65,8 +65,8 @@
     "@unrs/resolver-binding-linux-x64-gnu": "1.11.1"
   },
   "peerDependencies": {
-    "next": "^16.1.4",
-    "react": "^19.2.3",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
     "react-dom": "^19.2.3"
   },
   "main": ".eslintrc.js",
@@ -78,7 +78,7 @@
     "not op_mini all"
   ],
   "overrides": {
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3"
   }
 }
