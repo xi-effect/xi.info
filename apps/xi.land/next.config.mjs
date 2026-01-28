@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 import path from 'path';
 import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
 import bundleAnalyzer from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -8,10 +8,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: ['remark-gfm'],
   },
   pageExtensions: ['ts', 'tsx', 'md', 'mdx', 'js', 'jsx'],
 });
@@ -20,8 +19,7 @@ const plugins = [withBundleAnalyzer, withMDX];
 
 const nextConfig = {
   experimental: {
-    esmExternals: true,
-    mdxRs: true,
+    turbopackFileSystemCacheForDev: true,
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   outputFileTracingRoot: path.join(process.cwd(), '../../'),

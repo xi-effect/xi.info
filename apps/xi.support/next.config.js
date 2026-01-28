@@ -11,10 +11,6 @@ const plugins = [];
 plugins.push(withMDX);
 
 const nextConfig = {
-  experimental: {
-    mdxRs: true,
-    esmExternals: true,
-  },
   outputFileTracingRoot: path.join(__dirname, '../../'),
   transpilePackages: [
     '@xipkg/typescript',
@@ -31,12 +27,12 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
-    domains: [
-      'cdn.discordapp.com',
-      'localhost:3000',
-      'localhost:5000',
-      'sovlium.ru:5000',
-      'sovlium.ru',
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.discordapp.com' },
+      { protocol: 'http', hostname: 'localhost', port: '3000' },
+      { protocol: 'http', hostname: 'localhost', port: '5000' },
+      { protocol: 'https', hostname: 'sovlium.ru', port: '5000' },
+      { protocol: 'https', hostname: 'sovlium.ru' },
     ],
   },
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
