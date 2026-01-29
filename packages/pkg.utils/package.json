@@ -10,12 +10,12 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "dependencies": {
-    "react": "^19.0.0"
+    "react": "^19.2.4"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "@xipkg/eslint": "4.6.0",
     "@xipkg/typescript": "latest",
     "typescript": "^5.1.3",
