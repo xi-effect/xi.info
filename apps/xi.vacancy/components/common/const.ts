@@ -136,19 +136,19 @@ export const vacancyList: ProfessionOptionsT[] = [
   //   id: 'design-uiux',
   //   title: 'UI/UX дизайнер',
   // },
-  {
-    label: 'Product manager',
-    author: {
-      name: 'Игорь',
-      tg: '@unknownproperty',
-      grade: 'CEO, Сo-Founder',
-      src: '/vacancy/unknownproperty.jpg',
-    },
-    date: '2 февраля',
-    grade: 'Junior, Middle',
-    id: 'product-pm',
-    title: 'Product manager',
-  },
+  // {
+  //   label: 'Product manager',
+  //   author: {
+  //     name: 'Игорь',
+  //     tg: '@unknownproperty',
+  //     grade: 'CEO, Сo-Founder',
+  //     src: '/vacancy/unknownproperty.jpg',
+  //   },
+  //   date: '2 февраля',
+  //   grade: 'Junior, Middle',
+  //   id: 'product-pm',
+  //   title: 'Product manager',
+  // },
   // {
   //   label: 'Business analyst',
   //   author: {
