@@ -83,7 +83,7 @@ const SvgColumn = () => (
 );
 
 export const Footer = () => (
-  <footer className="z-10 flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
+  <footer className="w-full flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
     <div className="text-gray-0 relative flex w-full flex-col gap-8 xl:flex-row xl:justify-between px-4 py-8">
       <div className="absolute bottom-0 left-0">
         <SvgColumn />
@@ -101,10 +101,10 @@ export const Footer = () => (
         </Link>
       </div>
       <div className="z-5 flex flex-col gap-8 xl:gap-16">
-        <div className="xs:grid-cols-2 xs:gap-y-10 gap-0 grid grid-cols-1 md:grid-cols-4 2xl:grid-cols-[repeat(4,minmax(0,240px))]  xl:justify-end ">
+        <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 2xl:grid-cols-[repeat(4,minmax(0,240px))] gap-y-10 xl:justify-end ">
           {sections.map(renderSection)}
         </div>
-        <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
+        <div className="text-xs-base xl:text-m-base xl:text-gray-0 text-gray-60 xs:gap-x-8 flex flex-wrap justify-between gap-x-4 gap-y-2">
           <span className="">&copy; sovlium с 2025 года</span>
           <span className="xs:order-1">
             <Link
