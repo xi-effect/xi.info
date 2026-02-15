@@ -1,157 +1,29 @@
 export const sectionsConfig = [
   {
     title: 'Начало работы',
+    description:
+      'Зарегистрируйтесь на платформе, настройте профиль и уведомления. Приглашайте учеников по ссылке и создавайте группы — у каждого будет свой кабинет.',
     pageUrl: 'work-beginning',
     icon: 'start-working.svg',
-    links: [
-      {
-        pageTitle: 'Регистрация',
-        pageUrl: 'регистрация',
-        items: [
-          {
-            title: 'Регистрация',
-            image: 'signup.png',
-            link: 'регистрация',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Настройка профиля после регистрации',
-        pageUrl: 'настройка-профиля-после-регистрации',
-        items: [
-          {
-            title: 'Настроить профиль',
-            image: 'setup_profile.png',
-            link: 'настроить-профиль',
-          },
-          {
-            title: 'Настроить уведомления',
-            image: 'setup_notifications.png',
-            link: 'настроить-уведомления',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Пригласить учеников',
-        pageUrl: 'пригласить-учеников',
-        items: [
-          {
-            title: 'Пригласить учеников',
-            image: 'invite_students.png',
-            description: '',
-            link: 'пригласить-учеников',
-          },
-          {
-            title: 'Индивидуальное приглашение',
-            image: 'invite_individual.png',
-            description: '',
-            link: 'индивидуальное-приглашение',
-          },
-          {
-            title: 'Создать группу',
-            image: 'create_group.png',
-            description: '',
-            link: 'пригласить-учеников',
-          },
-          {
-            title: 'Пригласить в группу',
-            image: 'invite_group.png',
-            description: '',
-            link: 'приглашение-в-группу',
-          },
-        ],
-      },
-    ],
   },
   {
     title: 'Подготовка к занятию',
+    description:
+      'Назначайте занятия, готовьте материалы, заметки и файлы и настраивайте напоминания о уроках.',
     pageUrl: 'prepare-for-lesson',
-    links: [
-      {
-        pageTitle: 'Назначить занятие',
-        pageUrl: 'назначить-занятие',
-        items: [
-          {
-            title: 'Назначить занятие',
-            image: '',
-            link: 'назначить-занятие',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Подготовить материалы',
-        pageUrl: 'подготовить-материалы',
-        items: [
-          {
-            title: 'Подготовить материалы',
-            image: '',
-            link: 'подготовить-материалы',
-          },
-        ],
-      },
-      {
-        pageTitle: 'Настроить напоминания',
-        pageUrl: 'настроить-напоминания',
-        items: [
-          {
-            title: 'Настроить напоминания',
-            image: 'set_reminders.png',
-            link: 'настроить-напоминания',
-          },
-        ],
-      },
-    ],
     icon: 'schedule.svg',
   },
   {
     title: 'Проведение занятия',
+    description: 'Запускайте видеозвонок, демонстрируйте экран и работайте на общей онлайн-доске.',
     pageUrl: 'conduct-lesson',
     icon: 'video.svg',
-    links: [
-      {
-        pageTitle: 'Начать видеозвонок',
-        pageUrl: 'начать-видеозвонок',
-        items: [
-          {
-            title: 'Начать видеозвонок',
-            image: 'begin_videocall.png',
-            link: 'начать-видеозвонок',
-          },
-          {
-            title: 'Онлайн-доска',
-            image: 'online_board.png',
-            link: 'онлайн-доска',
-          },
-        ],
-      },
-    ],
   },
   {
     title: 'Контроль оплат',
+    description:
+      'Создавайте счета для учеников, отслеживайте оплаты в журнале и анализируйте доходы по месяцам и предметам.',
     pageUrl: 'control-payments',
     icon: 'settings.svg',
-    links: [
-      {
-        pageTitle: 'Контролировать оплату',
-        pageUrl: 'контролировать-оплату',
-        items: [
-          {
-            title: 'Создать счёт',
-            image: 'create_invoice.png',
-            link: 'как-создать-счёт',
-          },
-          {
-            title: 'Журнал оплат',
-            image: 'payment_journal.png',
-            link: 'журнал-оплат',
-          },
-          {
-            title: 'Аналитика',
-            image: 'analytics.png',
-            link: 'аналитика',
-          },
-        ],
-      },
-    ],
   },
 ];
