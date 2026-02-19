@@ -32,7 +32,7 @@ const config = {
       { protocol: 'https', hostname: 'sovlium.ru' },
     ],
   },
-  output: 'standalone',
+  output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   typescript: { ignoreBuildErrors: true },
 };
