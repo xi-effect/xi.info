@@ -58,10 +58,6 @@
   --color-fd-ring: hsl(0, 0%, 54.9%);
 }
 
-/* #nd-docs-layout {
-  --fd-sidebar-width: 268px;
+#nd-page > div.grid > a {
+  border-radius: 0;
 }
-
-aside {
-  max-width: 268px;
-} */

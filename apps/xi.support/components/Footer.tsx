@@ -83,7 +83,7 @@ const SvgColumn = () => (
 );
 
 export const Footer = () => (
-  <footer className="w-full flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center">
+  <footer className="w-full flex rounded-t-[32px] bg-gray-100 xl:rounded-t-[64px] 2xl:justify-center mt-10">
     <div className="text-gray-0 relative flex w-full flex-col gap-8 xl:flex-row xl:justify-between px-4 py-8">
       <div className="absolute bottom-0 left-0">
         <SvgColumn />

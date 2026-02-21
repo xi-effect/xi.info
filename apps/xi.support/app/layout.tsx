@@ -98,7 +98,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={inter.variable} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider i18n={i18nUIProvider('ru')}>{children}</RootProvider>
+        <RootProvider i18n={i18nUIProvider('ru')} search={{ enabled: false }}>
+          {children}
+        </RootProvider>
       </body>
     </html>
   );

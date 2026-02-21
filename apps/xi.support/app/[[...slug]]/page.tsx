@@ -15,13 +15,13 @@ export default async function Page(props: PageProps<'/[[...slug]]'>) {
   const MDX = body;
 
   return (
-    <DocsPage toc={toc}>
+    <DocsPage toc={toc} className="gap-0">
       <p className="text-fd-muted-foreground text-sm">Обновлено {updateDate}</p>
 
-      <DocsTitle>{title}</DocsTitle>
+      <DocsTitle className="mt-4">{title}</DocsTitle>
       <DocsDescription>{description}</DocsDescription>
 
-      <DocsBody>
+      <DocsBody className="mt-4">
         <MDX
           components={getMDXComponents({
             a: createRelativeLink(source, page),
