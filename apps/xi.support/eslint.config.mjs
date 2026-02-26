@@ -1,3 +1,8 @@
 import config from 'common.eslint';
 
-export default config;
+export default [
+  ...config,
+  {
+    ignores: ['**/.source/**'],
+  },
+];
