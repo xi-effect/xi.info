@@ -17,7 +17,14 @@ export const MessagesMobile = () => (
       <section key={item.id} className="p-4 pt-8 bg-gray-0">
         <div className="h-full flex flex-col justify-between gap-4">
           <div className="relative flex items-center justify-center ">
-            <Image width={511} height={734} alt="messages image" src={item.mobileImage} />
+            <Image
+              width={511}
+              height={734}
+              alt="messages image"
+              src={item.mobileImage}
+              sizes="(max-width: 768px) 100vw, 0px"
+              loading="lazy"
+            />
           </div>
           <div className="flex gap-3 items-baseline">
             <p className={cn('ml-2 text-[24px] font-medium uppercase', item.className)}>

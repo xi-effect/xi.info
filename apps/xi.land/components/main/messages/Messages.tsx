@@ -127,7 +127,9 @@ export const Messages = () => {
               src="/assets/main/Messages/background.webp"
               alt=""
               fill
+              sizes="(max-width: 767px) 100vw, 50vw"
               className="absolute inset-0 h-full w-full object-contain"
+              loading="lazy"
             />
             <div
               key={activeTextIndex ?? 0}
@@ -141,7 +143,9 @@ export const Messages = () => {
                     alt="message image"
                     width={650}
                     height={400}
+                    sizes="(max-width: 767px) 100vw, 50vw"
                     className="max-w-full h-auto object-contain"
+                    loading="lazy"
                     unoptimized
                   />
                 </div>

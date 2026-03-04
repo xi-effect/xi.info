@@ -167,8 +167,10 @@ export const Features = () => {
                 src={`/assets/main/Features/${n}.webp`}
                 alt={`feature-${n}`}
                 fill
+                sizes="(max-width: 767px) 0px, 50vw"
                 className={cn('object-left object-cover', n === 6 && 'object-contain object-right')}
                 priority={n === 1}
+                loading={n === 1 ? undefined : 'lazy'}
               />
             </div>
           </div>

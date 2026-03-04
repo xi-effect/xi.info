@@ -15,7 +15,9 @@ export const FeaturesMobile = () =>
             src={`/assets/main/Features/${item.id}.webp`}
             width={343}
             height={400}
+            sizes="(max-width: 768px) 100vw, 0px"
             alt="features image"
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col gap-4">
