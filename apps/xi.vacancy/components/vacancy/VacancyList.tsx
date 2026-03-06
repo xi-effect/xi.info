@@ -14,7 +14,7 @@ const VacancyList = () => {
   const searchParams = useSearchParams();
   const [tabsValue, setTabsValue] = useState(searchParams.get('type') ?? 'development');
 
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
   const listOnType = vacancyList.filter(
     (vacancy) => vacancy.id.includes(tabsValue ?? '') && !vacancy.hidden,
