@@ -7,8 +7,8 @@ const EducationalPlatform = () => (
       width={200}
       height={24}
       quality={100}
-      alt="full logo xi.effect"
-      src="/iconssite/full.svg"
+      alt="full logo sovlium"
+      src="/logoforwhite.svg"
       className="mb-[32px]"
     />
 

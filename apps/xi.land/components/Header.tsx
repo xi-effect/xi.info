@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
+import { useMediaQuery } from '@xipkg/utils';
 import { Button } from '@xipkg/button';
 import { MobileNavigation, Navigation } from './navigation';
 
@@ -13,6 +14,7 @@ const SHOW_DELAY_UP = 200; // показываем только после 100 p
 
 export const Header = () => {
   const [isShowHeader, setIsShowHeader] = useState(true);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const lastScrollY = useRef(0); // последний Y
   const scrollUpDistance = useRef(0); // сколько подряд проскроллили вверх
@@ -64,25 +66,42 @@ export const Header = () => {
       )}
     >
       <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 xl:gap-12 relative items-center max-w-400 md:mx-auto">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="h-16 flex items-center"
-        >
-          <Link
-            href="/"
-            className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
+        {isDesktop ? (
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="h-16 flex items-center"
           >
-            <Image
-              src="/logoforwhite.svg"
-              alt="logo"
-              width={216}
-              height={48}
-              className="block transition-opacity duration-500 ease-in-out"
-            />
-          </Link>
-        </motion.div>
+            <Link
+              href="/"
+              className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
+            >
+              <Image
+                src="/logoforwhite.svg"
+                alt="logo"
+                width={216}
+                height={48}
+                className="block transition-opacity duration-500 ease-in-out"
+              />
+            </Link>
+          </motion.div>
+        ) : (
+          <div className="h-16 flex items-center">
+            <Link
+              href="/"
+              className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
+            >
+              <Image
+                src="/logoforwhite.svg"
+                alt="logo"
+                width={216}
+                height={48}
+                className="block transition-opacity duration-500 ease-in-out"
+              />
+            </Link>
+          </div>
+        )}
         <Navigation />
 
         <div className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-4">

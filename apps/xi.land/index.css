@@ -23,13 +23,14 @@
   --animate-accordion-down: accordion-down 0.3s ease-in-out forwards;
   --animate-accordion-up: accordion-up 0.3s ease-in-out forwards;
 
+  --animate-gradient-text: gradient-text 4s ease infinite;
+
   --font-family-marker-hand: var(--font-marker-hand), cursive;
 
   @keyframes accordion-down {
     from {
       height: 0;
     }
-
     to {
       height: var(--radix-accordion-content-height);
     }
@@ -39,9 +40,25 @@
     from {
       height: var(--radix-accordion-content-height);
     }
-
     to {
       height: 0;
     }
+  }
+
+  @keyframes gradient-text {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-gradient-text {
+    animation: var(--animate-gradient-text);
+    background-size: 200% auto;
   }
 }

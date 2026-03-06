@@ -1,8 +1,13 @@
-// import { ScrollSection } from 'components/main/ScrollSection';
-import { FeaturesBlock, Telegram, Text, Faq, Benefits } from 'components/main';
-// import { StickyGsap } from 'components/main/StickyGSAP';
+import dynamic from 'next/dynamic';
+import { FeaturesBlock, Text, MessagesBlock } from 'components/main';
+
 import { Metadata } from 'next';
 import Script from 'next/script';
+
+// Ниже первого экрана — выносим в отдельные чанки, чтобы не раздувать основной бандл
+const Benefits = dynamic(() => import('components/main').then((m) => m.Benefits), { ssr: true });
+const Faq = dynamic(() => import('components/main').then((m) => m.Faq), { ssr: true });
+const Telegram = dynamic(() => import('components/main').then((m) => m.Telegram), { ssr: true });
 
 export const metadata: Metadata = {
   title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
@@ -86,10 +91,11 @@ export default function MainPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <main>
+        <MessagesBlock />
         <Text
           className="text-balance text-center"
           theme="light"
-          text="Мы создали sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
+          text="Поэтому мы создали sovlium — платформу для репетиторов, которая помогает оптимизировать процессы"
         />
         <FeaturesBlock />
         <Benefits />

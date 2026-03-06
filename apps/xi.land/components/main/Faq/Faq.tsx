@@ -12,7 +12,7 @@ export const Faq = () => {
         <Accordion type="single" collapsible className="w-full " defaultValue="item-1">
           {contentFaq.map((item, key) => (
             <AccordionItem key={key} value={`item-${key + 1}`}>
-              <AccordionTrigger className="text-[20px] sm:text-[24px] py-[32px] text-gray-100 font-semibold sm:font-bold">
+              <AccordionTrigger className="text-[20px] sm:text-[24px] py-[32px] text-gray-100 font-semibold sm:font-bold hover:no-underline hover:text-brand-80">
                 {item.title}
               </AccordionTrigger>
               <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px] gap-4">

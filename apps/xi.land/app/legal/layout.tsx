@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 
 type LegalLayoutProps = {
-  children: ReactNode;
+  children: any;
 };
 
 const LegalLayout = ({ children }: LegalLayoutProps) => {

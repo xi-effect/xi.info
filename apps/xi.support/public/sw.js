@@ -203,7 +203,7 @@ define(['./workbox-1051b61c'], function (e) {
         { url: '/favicon-for-dark.svg', revision: '6825e74a748ef61f38418d0a77983974' },
         { url: '/favicon-for-light.svg', revision: 'b1a97d320dba69a91e06391d5db81743' },
         { url: '/favicon.ico', revision: '501d94411940282fef1a69e6a8c1c0d7' },
-        { url: '/full-logo-xieffect.svg', revision: '268405147deeaad752f70fd3540c47f4' },
+        { url: '/logoforwhite.svg', revision: '268405147deeaad752f70fd3540c47f4' },
         { url: '/global.css', revision: '72eeea6f282a3616d04a6cd0014f745c' },
         { url: '/home/appreciate-the-team-1.jpg', revision: 'e40f5a197b95e684952b94e5217abad2' },
         { url: '/home/appreciate-the-team-2.jpg', revision: '73cb78bf3bdbfc99afa2c4a15cc2a4d2' },

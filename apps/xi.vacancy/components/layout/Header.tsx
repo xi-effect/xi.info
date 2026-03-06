@@ -16,12 +16,12 @@ const Header = () => {
       <div className="mx-auto flex max-w-[1920px] items-center justify-between px-8 sm:px-16 2xl:px-40">
         <Link href="/">
           <Image
-            width={219}
-            height={32}
+            width={216}
+            height={64}
             quality={100}
-            alt="logo xi.effect"
-            src="/iconssite/team.svg"
-            className="h-[24px] w-[165px]"
+            alt="logo sovlium"
+            src="/logoforwhite.svg"
+            className="w-[165px] h-[48px]"
           />
         </Link>
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@xipkg/button';
-import { Link } from '@xipkg/link';
 import { motion } from 'motion/react';
 import NextLink from 'next/link';
 
