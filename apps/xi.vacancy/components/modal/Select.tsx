@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { Control, Controller } from 'react-hook-form';
 import { vacancyList } from 'components/common/const';
-import { FormDataT } from './SendResumeButton';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { Control, Controller } from 'react-hook-form';
+
+type FormDataT = {
+  className?: string;
+  label?: string;
+};
 
 type SelectT = {
   error?: boolean;

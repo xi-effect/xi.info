@@ -2,17 +2,19 @@
 // @ts-nocheck
 'use client';
 
-import Link from 'next/link';
 import { Tabs } from '@xipkg/tabs';
-import { useSearchParams } from 'next/navigation';
-import React, { useState } from 'react';
+import SendResumeModal from 'components/modal/SendResumeModal';
 import useVacancyDates from 'hooks/useVacancyDates';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import { professions, vacancyList } from '../common/const';
-import SendResumeButton from '../modal/SendResumeButton';
 
 const VacancyList = () => {
   const searchParams = useSearchParams();
   const [tabsValue, setTabsValue] = useState(searchParams.get('type') ?? 'development');
+
+  const [openModal, setOpenModal] = useState(false)
 
   const listOnType = vacancyList.filter(
     (vacancy) => vacancy.id.includes(tabsValue ?? '') && !vacancy.hidden,
@@ -44,14 +46,14 @@ const VacancyList = () => {
 
   return (
     <section className="px-4 py-[20px] sm:p-8 sm:pb-0 xl:p-[48px] xl:pb-0">
-      <h1 className="leading-[130%] font-bold mb-[24px] xl:mb-[40px] text-[32px] sm:text-[48px] xl:text-[96px]">
+      <h1 className="mb-[24px] text-[32px] leading-[130%] font-bold sm:text-[48px] xl:mb-[40px] xl:text-[96px]">
         Вакансии
       </h1>
 
       <div className="mt-8 overflow-auto pb-2 md:pb-6">
         <Tabs.Root onValueChange={(value) => setTabsValue(value)} value={tabsValue}>
           <Tabs.List
-            className="border-0 gap-6 md:gap-12"
+            className="gap-6 border-0 md:gap-12"
             classNameShadow={`h-0.5 rounded-none bg-${currentProfession[0].color}`}
           >
             {professions.map((el, index) => (
@@ -59,7 +61,7 @@ const VacancyList = () => {
                 style={{
                   color: tabsValue === el.type ? `var(--xi-${professions[index].color})` : '',
                 }}
-                className="text-[16px] md:leading-[17.6px] md:text-[32px] leading-[35.2px] grow-0 pb-0 md:pb-2 transition-colors"
+                className="grow-0 pb-0 text-[16px] leading-[35.2px] transition-colors md:pb-2 md:text-[32px] md:leading-[22.6px]"
                 key={index}
                 value={el.type}
               >
@@ -78,14 +80,15 @@ const VacancyList = () => {
           vacancyCard
         ) : (
           <>
-            <h3 className="leading-[120%] mb-2 text-[32px] xl:text-[64px]">Вакансии отсутствуют</h3>
+            <h3 className="mb-2 text-[32px] leading-[120%] xl:text-[64px]">Вакансии отсутствуют</h3>
 
             <span className="text-[24px] leading-[120%]">Посмотрите другие разделы или</span>
 
-            <SendResumeButton
-              label="заполните форму"
-              className="ml-[10px] text-[24px] bg-transparent underline border-none"
-            />
+            <SendResumeModal open={openModal} onOpenChange={setOpenModal}>
+              <button className="resume-btn ml-[10px] border-none bg-transparent text-[24px] underline">
+                заполните форму
+              </button>
+            </SendResumeModal>
           </>
         )}
       </div>
