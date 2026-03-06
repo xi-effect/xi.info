@@ -2,33 +2,33 @@
 // @ts-nocheck
 'use client';
 
-import React, { ComponentProps, ReactNode } from 'react';
-import { Button } from '@xipkg/button';
-import { toast } from 'sonner';
-import {
-  Modal,
-  ModalContent,
-  ModalTrigger,
-  ModalCloseButton,
-  ModalHeader,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from '@xipkg/modal';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
+import { Button } from '@xipkg/button';
+import { File, FileUploader } from '@xipkg/fileuploader';
 import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xipkg/form';
 import { Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import {
+  Modal,
+  ModalCloseButton,
+  ModalContent,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalTitle,
+  ModalTrigger,
+} from '@xipkg/modal';
+import {
   Select,
-  SelectTrigger,
   SelectContent,
   SelectGroup,
   SelectItem,
+  SelectTrigger,
   SelectValue,
 } from '@xipkg/select';
-import { FileUploader, File } from '@xipkg/fileuploader';
+import React, { ComponentProps, ReactNode, useEffect } from 'react';
+import { toast } from 'sonner';
+import * as z from 'zod';
 import Memoji from '../common/Memoji';
 import { vacancyList } from '../common/const';
 
@@ -46,28 +46,44 @@ const FormSchema = z.object({
 
 type FormValues = z.infer<typeof FormSchema>;
 
-const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
+const DEFAULT_FILE_SIZE = 10 * 1024 * 1024;
+const LIMIT_FILES = 1;
+
+const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeModalPropsT) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: '',
       telegram: '',
-      position: undefined,
+      position: '',
       resume: undefined,
       message: '',
     },
   });
+
+  useEffect(() => {
+    if (!open) {
+      form.reset();
+    }
+  }, [open]);
 
   const [pending, setPending] = React.useState(false);
   const [resumeBinary, setResumeBinary] = React.useState<File>();
 
   const handleFileChange = async (fileList: File | File[]) => {
     setPending(true);
-    const file = Array.isArray(fileList) ? fileList[0] : fileList;
-    if (file) {
-      setResumeBinary(file);
+
+    try {
+      const file = Array.isArray(fileList) ? fileList[0] : fileList;
+      if (file) {
+        setResumeBinary(file);
+      }
+    } catch (error) {
+      console.error('Ошибка при обработке файла:', error);
+      alert('Произошла ошибка при загрузке файла. Пожалуйста, попробуйте снова.');
+    } finally {
+      setPending(false);
     }
-    setPending(false);
   };
 
   const onSubmit = async (data: FormValues) => {
@@ -78,35 +94,53 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('telegram', data.telegram);
-    formData.append('position', data.position || '');
-    formData.append('message', data.message || '');
-    formData.append('resume', resumeBinary);
+    try {
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('telegram', data.telegram);
+      formData.append('position', data.position || '');
+      formData.append('message', data.message || '');
+      formData.append('resume', resumeBinary);
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/public/user-service/v2/vacancy-applications/`,
-      {
-        method: 'POST',
-        cache: 'no-cache',
-        credentials: 'include',
-        body: formData,
-      },
-    );
-
-    if (response.ok) {
-      // если HTTP-статус в диапазоне 200-299
-      // получаем тело ответа (см. про этот метод ниже)
-      toast.success(
-        'Спасибо, мы получили твоё резюме. В ближайшее время мы с ним ознакомимся и свяжемся с тобой, если у нас есть подходящая для тебя роль.',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL_BACKEND}/api/public/user-service/v2/vacancy-applications/`,
         {
-          position: 'top-center',
+          method: 'POST',
+          cache: 'no-cache',
+          credentials: 'include',
+          body: formData,
         },
       );
-      form.reset();
-      setResumeBinary(undefined);
-    } else {
+
+      if (response.ok) {
+        toast.success(
+          'Спасибо, мы получили твоё резюме. В ближайшее время мы с ним ознакомимся и свяжемся с тобой, если у нас есть подходящая для тебя роль.',
+          {
+            position: 'top-center',
+          },
+        );
+        onOpenChange?.(false);
+        form.reset();
+        setResumeBinary(undefined);
+        return;
+      }
+
+      const errorData = await response.json();
+
+      if (errorData.detail && Array.isArray(errorData.detail)) {
+        // Формируем сообщения об ошибках
+        const errorMessages = errorData.detail.map((err) => err.msg).join('\n');
+
+        toast.error(errorMessages, {
+          position: 'top-center',
+        });
+      } else {
+        console.error({ error });
+        toast('Произошла неизвестная ошибка', {
+          position: 'top-center',
+        });
+      }
+    } catch (error) {
       console.error(`Ошибка HTTP: ${response.status}`);
       toast(`Ошибка HTTP: ${response.status}`);
     }
@@ -117,22 +151,22 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
   };
 
   return (
-    <Modal {...props}>
+    <Modal {...props} open={open} onOpenChange={onOpenChange}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent
-        className="w-[calc(100%-32px)] max-w-[calc(100vh-32px)] xs:max-w-[448px] xs:w-[448px] sm:max-w-[556px] sm:w-[556px] xl:w-[1000px] xl:max-w-[1000px] rounded-3xl max-h-dvh"
+        className="xs:max-w-[448px] xs:w-[448px] max-h-dvh w-[calc(100%-32px)] max-w-[calc(100vh-32px)] rounded-3xl sm:w-[556px] sm:max-w-[556px] xl:w-[1000px] xl:max-w-[1000px]"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col xl:flex-row w-full max-h-dvh rounded-3xl overflow-auto">
-          <div className="flex flex-col xl:justify-start gap-4 p-4 sm:p-6 xl:p-12 xl:basis-2/4">
+        <div className="flex max-h-dvh w-full flex-col overflow-auto rounded-3xl xl:flex-row">
+          <div className="flex flex-col gap-4 p-4 sm:p-6 xl:basis-2/4 xl:justify-start xl:p-12">
             <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
-            <ModalHeader className="border-b-transparent p-0 flex flex-col gap-2 sm:gap-4">
+            <ModalHeader className="flex flex-col gap-2 border-b-transparent p-0 sm:gap-4">
               <ModalTitle>
-                <span className="flex text-[24px] leading-8 sm:leading-[42px] font-medium sm:text-[32px]">
+                <span className="flex text-[24px] leading-8 font-medium sm:text-[32px] sm:leading-[42px]">
                   Отправить резюме
                 </span>
               </ModalTitle>
-              <ModalDescription className="text-[16px] font-medium w-[90%] leading-[130%] sm:w-full !mt-0">
+              <ModalDescription className="!mt-0 w-[90%] text-[16px] leading-[130%] font-medium sm:w-full">
                 Напиши пару слов о себе и о том, какая вакансия может быть тебе интересна
               </ModalDescription>
             </ModalHeader>
@@ -140,7 +174,7 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="p-4 bg-gray-5 sm:p-[24px] xl:p-[48px] xl:basis-2/4 flex flex-col gap-4 sm:gap-6"
+              className="bg-gray-5 flex flex-col gap-4 p-4 sm:gap-6 sm:p-[24px] xl:basis-2/4 xl:p-[48px]"
             >
               <FormField
                 control={form.control}
@@ -173,8 +207,8 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                   <FormItem className="flex flex-col gap-2">
                     <FormLabel className="flex">Интересующая специализация *</FormLabel>
                     <FormControl>
-                      <Select onValueChange={field.onChange}>
-                        <SelectTrigger className="w-full data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] sm:!h-[48px]">
+                      <Select onValueChange={field.onChange} value={field.value ?? ''}>
+                        <SelectTrigger className="data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] w-full sm:!h-[48px]">
                           <SelectValue placeholder="Выбери специализацию" />
                         </SelectTrigger>
                         <SelectContent>
@@ -207,8 +241,8 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                       />
                     ) : (
                       <FileUploader
-                        limit={1}
-                        bytesSizeLimit={1024 * 1024 * 10}
+                        limit={LIMIT_FILES}
+                        bytesSizeLimit={DEFAULT_FILE_SIZE}
                         onChange={(fileList) => handleFileChange(fileList)}
                         accept=".pdf"
                         fileTypesHint={['PDF']}
@@ -225,24 +259,24 @@ const SendResumeModal = ({ children, ...props }: SendResumeModalPropsT) => {
                     <FormLabel className="flex gap-0.5">
                       Сообщение <span className="text-gray-30">Не обязательно</span>
                     </FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[70px] !sm:h-[48px]">
+                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !sm:h-[48px] !h-[70px]">
                       <textarea
                         {...field}
-                        className=" w-full h-[70px] resize-none rounded-[8px] border-2 border-gray-30 p-[12px]"
+                        className="border-gray-30 h-[70px] w-full resize-none rounded-[8px] border-2 p-[12px]"
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
               <ModalFooter className="border-t-transparent p-0">
-                <Button className="w-full h-[32px] sm:h-[48px]" type="submit">
+                <Button className="h-[32px] w-full sm:h-[48px]" type="submit">
                   Отправить
                 </Button>
               </ModalFooter>
             </form>
           </Form>
         </div>
-        <ModalCloseButton className="top-4 xs:top-[28px]">
+        <ModalCloseButton className="xs:top-[28px] top-4">
           <Close className="fill-gray-90 sm:fill-gray-0" />
         </ModalCloseButton>
       </ModalContent>

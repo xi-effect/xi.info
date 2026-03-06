@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-import '../public/global.css';
 import '../index.css';
+import '../public/global.css';
 
-import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
@@ -40,11 +40,13 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const DEFAULT_DURATION_TOAST = 5000;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="overflow-x-hidden">
-        <Toaster />
+        <Toaster duration={DEFAULT_DURATION_TOAST} />
         {children}
       </body>
     </html>
