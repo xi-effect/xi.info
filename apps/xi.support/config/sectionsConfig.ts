@@ -26,4 +26,11 @@ export const sectionsConfig = [
     pageUrl: 'control-payments',
     icon: 'settings.svg',
   },
+  {
+    title: 'Технический отчёт',
+    description:
+      'Создайте технический отчёт о вашем браузере и устройстве и передайте его в поддержку Sovlium при возникновении проблем.',
+    pageUrl: 'support-tech-report',
+    icon: 'report.svg',
+  },
 ];

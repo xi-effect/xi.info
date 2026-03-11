@@ -1,4 +1,11 @@
 {
   "title": "База знаний",
-  "pages": ["index", "work-beginning", "prepare-for-lesson", "conduct-lesson", "control-payments"]
+  "pages": [
+    "index",
+    "work-beginning",
+    "prepare-for-lesson",
+    "conduct-lesson",
+    "control-payments",
+    "support-tech-report"
+  ]
 }
