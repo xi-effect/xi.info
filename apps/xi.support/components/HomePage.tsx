@@ -1,5 +1,4 @@
 import { sectionsConfig } from '@/config/sectionsConfig';
-import { Footer } from './Footer';
 import { CallToAction } from './CallToAction';
 import { Card } from './Card';
 
@@ -12,7 +11,6 @@ export const HomePage = () => {
         ))}
       </div>
       <CallToAction />
-      <Footer />
     </div>
   );
 };
