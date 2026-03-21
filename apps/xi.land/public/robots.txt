@@ -2,6 +2,8 @@
 User-agent: *
 Allow: /
 
+Clean-param: etext&ybaip /
+
 # Host
 Host: https://sovlium.ru
 
