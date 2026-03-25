@@ -55,7 +55,7 @@ export const Card = ({
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
-          {price === null ? 'Скоро' : `${price} &#8381;`}
+          {price === null ? 'Скоро' : `${price} ₽`}
         </span>
         <span className={cn('text-s-base', highlight ? 'text-brand-20' : 'text-gray-60')}>
           {billing}
@@ -69,7 +69,7 @@ export const Card = ({
         className={cn(
           'w-full sm:w-85 h-12 sm:h-14 text-base sm:text-l-base font-medium rounded-2xl lg:min-h-[56px]',
           highlight
-            ? 'text-brand-100 bg-brand-0 hover:bg-transparent hover:text-brand-0 border-2 border-brand-0'
+            ? 'text-brand-100 bg-brand-0 border-2 border-brand-0'
             : 'text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]',
         )}
       >

@@ -23,19 +23,13 @@ export default function ProductPage() {
     <main className="flex flex-col w-full min-h-screen bg-gray-0 overflow-x-hidden">
       <section className="w-full px-4 sm:px-8 lg:px-40 pt-20 sm:pt-24 lg:pt-28 pb-10">
         <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
-          <span className="text-brand-80 text-s-base font-semibold tracking-[0.12em] uppercase">
-            Тарифы
-          </span>
-
-          <div className="flex flex-col md:gap-10 gap-6">
+          <div className="flex flex-col md:gap-10 gap-6 mt-10">
             <h1 className={titleClass}>Гибкие тарифы для решения любых задач репетитора</h1>
 
             <div className="flex flex-col gap-4">
               <p className={subtitleClass}>
-                Во время бета-тестирования все функции sovlium доступны бесплатно.
+                Во время бета-тестирования все функции Sovlium доступны бесплатно.
               </p>
-
-              <p className={subtitleClass}>После релиза появятся базовый и PRO-тарифы.</p>
             </div>
           </div>
         </div>
@@ -49,7 +43,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="w-full px-4 sm:px-8 lg:px-40 pb-20">
+      <section className="w-full px-4 sm:px-8 lg:px-40">
         <div className="max-w-[1200px] mx-auto rounded-4xl bg-gray-5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
           <div className="flex flex-col gap-3">
             <h2 className="text-h4 sm:text-h3 text-gray-100">Доступные фичи</h2>
@@ -71,7 +65,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="relative w-full overflow-hidden px-4 py-8 sm:px-8 sm:pt-[52px] sm:pb-[52px] lg:px-[160px] lg:pb-[80px] lg:pt-[80px] flex flex-col gap-[52px] lg:gap-[100px] lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr]">
+      <section className="relative w-full overflow-hidden px-4 py-8 sm:px-8 sm:pt-[52px] sm:pb-[52px] lg:px-[160px] lg:pb-[80px] lg:pt-[80px] flex flex-col gap-6 lg:gap-8 lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr]">
         <h2 className="text-2xl font-bold sm:text-[40px] lg:text-h1-line-height leading-[30px] sm:leading-[48px] lg:leading-[64px] lg:min-w-[400px] sm:max-w-[488px] text-gray-100">
           Вопросы о тарифах
         </h2>
