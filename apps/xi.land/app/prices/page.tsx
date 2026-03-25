@@ -1,10 +1,16 @@
+'use client';
+
 import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'pkg.accordion';
 
 import { plansPricing, availableFeatures, pricingFaq } from './data';
 import { Card } from './Card';
-import type { CardPricingPropsT } from './types';
+
+const handleCardBtnClick = (id: string) => {
+  // Заглушка
+  void id;
+};
 
 const titleClass =
   'text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-100 text-center whitespace-pre-line';
@@ -37,8 +43,8 @@ export default function ProductPage() {
 
       <section className="w-full px-4 sm:px-8 lg:px-40 pb-16">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 gap-6 lg:gap-8 md:grid-cols-2 items-stretch">
-          {plansPricing.map((plan: CardPricingPropsT) => (
-            <Card key={plan.id} {...plan} onClickBtn={() => {}} />
+          {plansPricing.map((plan) => (
+            <Card key={plan.id} {...plan} onClickBtn={() => handleCardBtnClick(plan.id)} />
           ))}
         </div>
       </section>

@@ -7,7 +7,6 @@ import { Check } from '@xipkg/icons';
 import type { CardPricingPropsT } from './types';
 
 export const Card = ({
-  id,
   name,
   highlight = false,
   description = '',
@@ -19,7 +18,6 @@ export const Card = ({
 }: CardPricingPropsT) => {
   return (
     <article
-      key={id}
       className={cn(
         'relative flex flex-col rounded-4xl border border-gray-10 bg-gray-0 p-6 sm:p-8 lg:p-10 gap-6 shadow-[0px_12px_40px_rgba(17,24,39,0.08)] w-full h-full',
         highlight && 'bg-brand-80 border-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
