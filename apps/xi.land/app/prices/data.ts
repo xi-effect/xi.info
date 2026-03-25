@@ -1,11 +1,13 @@
-const plans = [
+import { CardPricingPropsT } from './types';
+
+const plansPricing: CardPricingPropsT[] = [
   {
+    id: 'basic',
     name: 'Базовый',
-    price: '0 ₽',
+    price: 0,
     billing: 'в месяц',
     description: 'Подходит для первых учеников и спокойной нагрузки.',
-    cta: 'Попробовать бесплатно',
-    href: 'https://app.sovlium.ru/signup',
+    btn_name: 'Попробовать бесплатно',
     highlight: false,
     features: [
       'Видеозвонки и онлайн-доски',
@@ -15,12 +17,12 @@ const plans = [
     ],
   },
   {
+    id: 'pro',
     name: 'PRO',
-    price: 'Скоро',
+    price: null,
     billing: 'после релиза',
     description: 'Для тех, кто ведёт больше учеников и хочет максимум возможностей.',
-    cta: 'Запросить доступ',
-    href: 'https://app.sovlium.ru/signup',
+    btn_name: 'Запросить доступ',
     highlight: true,
     features: [
       'Всё из базового тарифа',
@@ -78,4 +80,4 @@ const pricingFaq = [
   },
 ];
 
-export { plans, availableFeatures, pricingFaq };
+export { plansPricing, availableFeatures, pricingFaq };

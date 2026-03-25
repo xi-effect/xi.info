@@ -1,18 +1,28 @@
+'use client';
+
 import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
-import Link from 'next/link';
 
-import type { CardProps } from './types';
+import type { CardPricingPropsT } from './types';
 
-export const Card = ({ name, highlight, description, price, billing, features, href, cta }: CardProps) => {
+export const Card = ({
+  id,
+  name,
+  highlight = false,
+  description = '',
+  price,
+  billing = '',
+  features = [],
+  btn_name,
+  onClickBtn = () => {},
+}: CardPricingPropsT) => {
   return (
     <article
-      key={name}
+      key={id}
       className={cn(
         'relative flex flex-col rounded-4xl border border-gray-10 bg-gray-0 p-6 sm:p-8 lg:p-10 gap-6 shadow-[0px_12px_40px_rgba(17,24,39,0.08)] w-full h-full',
-        highlight &&
-        'bg-brand-80 border-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
+        highlight && 'bg-brand-80 border-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
       )}
     >
       {highlight && (
@@ -47,7 +57,7 @@ export const Card = ({ name, highlight, description, price, billing, features, h
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
-          {price}
+          {price === null ? 'Скоро' : `${price} &#8381;`}
         </span>
         <span className={cn('text-s-base', highlight ? 'text-brand-20' : 'text-gray-60')}>
           {billing}
@@ -55,9 +65,9 @@ export const Card = ({ name, highlight, description, price, billing, features, h
       </div>
 
       <Button
-        asChild
         size="l"
         variant={highlight ? 'ghost' : 'primary'}
+        onClick={onClickBtn}
         className={cn(
           'w-full sm:w-85 h-12 sm:h-14 text-base sm:text-l-base font-medium rounded-2xl lg:min-h-[56px]',
           highlight
@@ -65,7 +75,7 @@ export const Card = ({ name, highlight, description, price, billing, features, h
             : 'text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]',
         )}
       >
-        <Link href={href}>{cta}</Link>
+        {btn_name}
       </Button>
 
       <div className="flex flex-col gap-3 mt-auto">
@@ -80,7 +90,9 @@ export const Card = ({ name, highlight, description, price, billing, features, h
         <ul className="flex flex-col gap-3">
           {features.map((feature) => (
             <li key={feature} className="flex items-center gap-2">
-              <Check className={cn('size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')} />
+              <Check
+                className={cn('size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')}
+              />
 
               <span
                 className={cn(

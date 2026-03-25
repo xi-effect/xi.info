@@ -2,14 +2,15 @@ import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'pkg.accordion';
 
-import { plans, availableFeatures, pricingFaq } from './data';
+import { plansPricing, availableFeatures, pricingFaq } from './data';
 import { Card } from './Card';
-import type { CardProps } from './types';
+import type { CardPricingPropsT } from './types';
 
 const titleClass =
   'text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-100 text-center whitespace-pre-line';
 
-const subtitleClass = 'display-block text-gray-80 text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal';
+const subtitleClass =
+  'display-block text-gray-80 text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal';
 
 export default function ProductPage() {
   return (
@@ -21,18 +22,14 @@ export default function ProductPage() {
           </span>
 
           <div className="flex flex-col md:gap-10 gap-6">
-            <h1 className={titleClass}>
-              Гибкие тарифы для решения любых задач репетитора
-            </h1>
+            <h1 className={titleClass}>Гибкие тарифы для решения любых задач репетитора</h1>
 
             <div className="flex flex-col gap-4">
               <p className={subtitleClass}>
                 Во время бета-тестирования все функции sovlium доступны бесплатно.
               </p>
 
-              <p className={subtitleClass}>
-                После релиза появятся базовый и PRO-тарифы.
-              </p>
+              <p className={subtitleClass}>После релиза появятся базовый и PRO-тарифы.</p>
             </div>
           </div>
         </div>
@@ -40,8 +37,8 @@ export default function ProductPage() {
 
       <section className="w-full px-4 sm:px-8 lg:px-40 pb-16">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 gap-6 lg:gap-8 md:grid-cols-2 items-stretch">
-          {plans.map((plan: CardProps) => (
-            <Card key={plan.name} {...plan} />
+          {plansPricing.map((plan: CardPricingPropsT) => (
+            <Card key={plan.id} {...plan} onClickBtn={() => {}} />
           ))}
         </div>
       </section>
@@ -74,7 +71,6 @@ export default function ProductPage() {
         </h2>
 
         <div className="relative">
-
           <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
             {pricingFaq.map((item, index) => (
               <AccordionItem key={item.title} value={`item-${index + 1}`}>
@@ -87,7 +83,6 @@ export default function ProductPage() {
               </AccordionItem>
             ))}
           </Accordion>
-
         </div>
       </section>
     </main>

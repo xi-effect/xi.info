@@ -1,12 +1,13 @@
-interface CardProps {
+type CardPricingPropsT = {
+  id: string;
   name: string;
-  highlight: boolean;
-  description: string;
-  price: string;
-  billing: string;
-  features: string[];
-  href: string;
-  cta: string;
-}
+  btn_name: string;
+  price: number | null;
+  onClickBtn?: () => void;
+  highlight?: boolean;
+  description?: string;
+  billing?: string;
+  features?: string[];
+};
 
-export type { CardProps };
+export type { CardPricingPropsT };
