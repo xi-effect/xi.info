@@ -13,10 +13,10 @@ const handleCardBtnClick = (id: string) => {
 };
 
 const titleClass =
-  'text-xl-base sm:text-h3 leading-[1.2] sm:leading-[1] md:leading-[1.05] text-gray-100 font-semibold text-center whitespace-pre-line';
+  'text-[28px] leading-[1.2] sm:text-h3 sm:leading-[1] md:leading-[1.05] text-gray-100 font-semibold text-center whitespace-pre-line';
 
 const subtitleClass =
-  'display-block text-gray-80 text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal text-center';
+  'display-block text-gray-80 text-base leading-6 sm:text-l-base sm:leading-7 font-normal text-center';
 
 const basicPlan = plansPricing.find((plan) => plan.id === 'basic');
 const proPlan = plansPricing.find((plan) => plan.id === 'pro');
@@ -28,8 +28,8 @@ export default function ProductPage() {
 
   return (
     <main className="flex flex-col w-full min-h-screen bg-gray-0 overflow-x-hidden">
-      <div className="flex flex-col w-full justify-start items-start mt-10">
-        <section className="w-full px-4 sm:px-8 pt-20 sm:pt-24 lg:pt-28 pb-10">
+      <div className="flex flex-col w-full justify-start items-start mt-6 sm:mt-10">
+        <section className="w-full px-4 sm:px-8 pt-24 lg:pt-28 pb-10">
           <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
             <div className="flex flex-col md:gap-10 gap-6">
               <h1 className={cn(titleClass, 'md:text-h1-line-height font-bold')}>
@@ -54,7 +54,7 @@ export default function ProductPage() {
         </section>
 
         <section className="w-full px-4 sm:px-8 pb-16">
-          <div className="max-w-[1200px] mx-auto rounded-4xl bg-gray-5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
+          <div className="max-w-[1200px] mx-auto rounded-4xl bg-gray-5 p-4 sm:p-8 lg:p-10 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <h2 className={titleClass}>Сравнение тарифов</h2>
 
@@ -65,18 +65,18 @@ export default function ProductPage() {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full border-separate border-spacing-y-2 min-w-[320px]">
+              <table className="w-full min-w-[640px] border-separate border-spacing-y-2">
                 <thead>
-                  <tr className="text-xs-base sm:text-s-base text-gray-60">
-                    <th className="w-2/5 text-left font-normal px-2 sm:px-4 py-2 sm:py-3">
+                  <tr className="text-s-base text-gray-60">
+                    <th className="w-[42%] text-left font-normal px-3 sm:px-4 py-3 sm:py-3">
                       Особенности
                     </th>
 
-                    <th className="w-3/10 text-left font-semibold px-2 sm:px-4 py-2 sm:py-3 text-gray-100">
+                    <th className="w-[29%] text-left font-semibold px-3 sm:px-4 py-3 sm:py-3 text-gray-100">
                       {basicPlan.name}
                     </th>
 
-                    <th className="w-3/10 text-left font-semibold px-2 sm:px-4 py-2 sm:py-3 text-gray-100">
+                    <th className="w-[29%] text-left font-semibold px-3 sm:px-4 py-3 sm:py-3 text-gray-100">
                       {proPlan.name}
                     </th>
                   </tr>
@@ -88,15 +88,15 @@ export default function ProductPage() {
                       key={row.feature}
                       className="align-top rounded-2xl bg-gray-0 [&>td:first-child]:rounded-l-2xl [&>td:last-child]:rounded-r-2xl"
                     >
-                      <td className="px-2 sm:px-4 py-3 sm:py-4 text-xs-base sm:text-m-base text-gray-80">
+                      <td className="px-3 sm:px-4 py-3 sm:py-4 text-s-base sm:text-m-base leading-5 sm:leading-6 text-gray-80 whitespace-normal wrap-break-word">
                         {row.feature}
                       </td>
 
-                      <td className="px-2 sm:px-4 py-3 sm:py-4 text-xs-base sm:text-m-base text-gray-100">
+                      <td className="px-3 sm:px-4 py-3 sm:py-4 text-s-base sm:text-m-base leading-5 sm:leading-6 text-gray-100 whitespace-normal wrap-break-word">
                         {row.valuesByPlanId[basicPlan.id]}
                       </td>
 
-                      <td className="px-2 sm:px-4 py-3 sm:py-4 text-xs-base sm:text-m-base text-gray-100">
+                      <td className="px-3 sm:px-4 py-3 sm:py-4 text-s-base sm:text-m-base leading-5 sm:leading-6 text-gray-100 whitespace-normal wrap-break-word">
                         {row.valuesByPlanId[proPlan.id]}
                       </td>
                     </tr>
@@ -136,7 +136,7 @@ export default function ProductPage() {
             <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
               {pricingFaq.map((item, index) => (
                 <AccordionItem key={item.title} value={`item-${index + 1}`}>
-                  <AccordionTrigger className="text-[20px] sm:text-xl-base-size py-8 text-gray-100 font-semibold sm:font-bold hover:no-underline hover:text-brand-80">
+                  <AccordionTrigger className="text-l-base sm:text-xl-base-size py-6 sm:py-8 text-gray-100 font-semibold sm:font-bold hover:no-underline hover:text-brand-80">
                     {item.title}
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px] gap-4">
