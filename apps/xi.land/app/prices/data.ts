@@ -1,6 +1,16 @@
-import { CardPricingPropsT } from './types';
+type CardPricingPropsT = {
+  id: string;
+  name: string;
+  btn_name: string;
+  price: number | null;
+  onClickBtn?: () => void;
+  highlight?: boolean;
+  description?: string;
+  billing?: string;
+  features?: string[];
+};
 
-const plansPricing: CardPricingPropsT[] = [
+const plansPricing = [
   {
     id: 'basic',
     name: 'Базовый',
@@ -30,6 +40,51 @@ const plansPricing: CardPricingPropsT[] = [
       'Расширенная аналитика занятий',
       'Приоритетная поддержка',
     ],
+  },
+] satisfies CardPricingPropsT[];
+
+type PlanIdT = (typeof plansPricing)[number]['id'];
+
+type ComparisonRowT = {
+  feature: string;
+  valuesByPlanId: Record<PlanIdT, string>;
+};
+
+const comparisonRows: ComparisonRowT[] = [
+  {
+    feature: 'Кому подойдёт',
+    valuesByPlanId: {
+      basic: 'Первые ученики и спокойная нагрузка',
+      pro: 'Больше учеников, группы и интенсивный график',
+    },
+  },
+  {
+    feature: 'Стоимость во время беты',
+    valuesByPlanId: {
+      basic: 'Бесплатно',
+      pro: 'Бесплатно',
+    },
+  },
+  {
+    feature: 'После релиза',
+    valuesByPlanId: {
+      basic: 'Базовый тариф останется бесплатным',
+      pro: 'Платный PRO-тариф с расширенными возможностями',
+    },
+  },
+  {
+    feature: 'Аналитика занятий',
+    valuesByPlanId: {
+      basic: 'Базовая статистика',
+      pro: 'Расширенная аналитика и отчёты',
+    },
+  },
+  {
+    feature: 'Поддержка',
+    valuesByPlanId: {
+      basic: 'Стандартная поддержка',
+      pro: 'Приоритетная поддержка',
+    },
   },
 ];
 
@@ -80,4 +135,6 @@ const pricingFaq = [
   },
 ];
 
-export { plansPricing, availableFeatures, pricingFaq };
+export type { CardPricingPropsT };
+
+export { plansPricing, availableFeatures, pricingFaq, comparisonRows };
