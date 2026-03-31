@@ -12,7 +12,8 @@ const handleCardBtnClick = (id: string) => {
   void id;
 };
 
-const titleClass = 'text-xl-base sm:text-h3 leading-[1.2] sm:leading-[1] md:leading-[1.05] text-gray-100 font-semibold text-center whitespace-pre-line';
+const titleClass =
+  'text-xl-base sm:text-h3 leading-[1.2] sm:leading-[1] md:leading-[1.05] text-gray-100 font-semibold text-center whitespace-pre-line';
 
 const subtitleClass =
   'display-block text-gray-80 text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal text-center';
@@ -31,7 +32,9 @@ export default function ProductPage() {
         <section className="w-full px-4 sm:px-8 pt-20 sm:pt-24 lg:pt-28 pb-10">
           <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
             <div className="flex flex-col md:gap-10 gap-6">
-              <h1 className={cn(titleClass, 'md:text-h1-line-height font-bold')}>Гибкие тарифы для решения любых задач репетитора</h1>
+              <h1 className={cn(titleClass, 'md:text-h1-line-height font-bold')}>
+                Гибкие тарифы для решения любых задач репетитора
+              </h1>
 
               <div className="flex flex-col gap-4">
                 <p className={subtitleClass}>
@@ -53,9 +56,7 @@ export default function ProductPage() {
         <section className="w-full px-4 sm:px-8 pb-16">
           <div className="max-w-[1200px] mx-auto rounded-4xl bg-gray-5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <h2 className={titleClass}>
-                Сравнение тарифов
-              </h2>
+              <h2 className={titleClass}>Сравнение тарифов</h2>
 
               <p className={subtitleClass}>
                 Сравните, чем отличаются базовый и PRO-тарифы, чтобы выбрать подходящий формат
@@ -129,9 +130,7 @@ export default function ProductPage() {
         </section>
 
         <section className="relative w-full overflow-hidden px-4 py-6 sm:px-8 sm:pt-[52px] sm:pb-[52px] lg:pb-[80px] lg:pt-[80px] flex flex-col gap-6 lg:gap-8 lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr]">
-          <h2 className={titleClass}>
-            Вопросы о тарифах
-          </h2>
+          <h2 className={titleClass}>Вопросы о тарифах</h2>
 
           <div className="relative">
             <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
