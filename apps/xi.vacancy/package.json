@@ -34,7 +34,7 @@
     "uuid": "11.0.5",
     "yup": "^1.2.0",
     "zod": "^3.23.8",
-    "pkg.landing.footer": "*"
+    "pkg.footer": "*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",

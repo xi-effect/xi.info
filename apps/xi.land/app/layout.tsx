@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Header } from 'components/Header';
-import { Footer } from 'pkg.landing.footer';
+import { Footer } from 'pkg.footer';
 
 import { CookieBannerWrapper } from 'components/CookieBanner';
 import Script from 'next/script';

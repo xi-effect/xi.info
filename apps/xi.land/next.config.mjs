@@ -32,7 +32,7 @@ const nextConfig = {
     '@xipkg/tabs',
     '@xipkg/form',
     '@xipkg/input',
-    'pkg.landing.footer',
+    'pkg.footer',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

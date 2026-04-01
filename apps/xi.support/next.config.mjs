@@ -16,7 +16,7 @@ const config = {
     '@xipkg/button',
     '@xipkg/input',
     '@xipkg/utils',
-    'pkg.landing.footer',
+    'pkg.footer',
     '@xipkg/link',
   ],
   compiler: {

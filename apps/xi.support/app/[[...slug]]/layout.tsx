@@ -1,7 +1,7 @@
 import { source } from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
-import { Footer } from 'pkg.landing.footer';
+import { Footer } from 'pkg.footer';
 
 export default function Layout({ children }: LayoutProps<'/[[...slug]]'>) {
   return (
