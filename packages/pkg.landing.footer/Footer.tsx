@@ -63,7 +63,10 @@ const sections: Section[] = [
   },
   {
     title: 'Социальные сети',
-    links: [{ link: 'https://t.me/sovlium', title: 'Telegram' }],
+    links: [
+      { link: 'https://vk.com/sovlium', title: 'ВКонтакте' },
+      { link: 'https://t.me/sovlium', title: 'Telegram' },
+    ],
   },
 ];
 
