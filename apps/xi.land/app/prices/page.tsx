@@ -29,7 +29,7 @@ export default function ProductPage() {
   return (
     <main className="flex flex-col w-full min-h-screen bg-gray-0 overflow-x-hidden">
       <div className="flex flex-col w-full justify-start items-start mt-6 sm:mt-10">
-        <section className="w-full px-4 sm:px-8 pt-24 lg:pt-28 pb-10">
+        <section className="w-full px-4 sm:px-8 pt-24 lg:pt-28 pb-16">
           <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
             <div className="flex flex-col md:gap-10 gap-6">
               <h1 className={cn(titleClass, 'md:text-h1-line-height font-bold')}>
@@ -107,7 +107,7 @@ export default function ProductPage() {
           </div>
         </section>
 
-        <section className="w-full px-4 sm:px-8">
+        <section className="w-full px-4 sm:px-8 pb-16">
           <div className="max-w-[1200px] mx-auto rounded-4xl bg-gray-5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <h2 className={titleClass}>Доступные фичи</h2>
@@ -129,24 +129,27 @@ export default function ProductPage() {
           </div>
         </section>
 
-        <section className="relative w-full overflow-hidden px-4 py-6 sm:px-8 sm:pt-[52px] sm:pb-[52px] lg:pb-[80px] lg:pt-[80px] flex flex-col gap-6 lg:gap-8 lg:grid lg:grid-cols-[400px_1fr] xl:grid-cols-[488px_1fr]">
-          <h2 className={titleClass}>Вопросы о тарифах</h2>
+        <section className="w-full px-4 sm:px-8 pb-16">
+          <div className='max-w-[1200px] mx-auto flex flex-col gap-6'>
+            <h2 className={titleClass}>Вопросы о тарифах</h2>
 
-          <div className="relative">
-            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
-              {pricingFaq.map((item, index) => (
-                <AccordionItem key={item.title} value={`item-${index + 1}`}>
-                  <AccordionTrigger className="text-l-base sm:text-xl-base-size py-6 sm:py-8 text-gray-100 font-semibold sm:font-bold hover:no-underline hover:text-brand-80">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px] gap-4">
-                    <p>{item.text}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <div className="relative">
+              <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+                {pricingFaq.map((item, index) => (
+                  <AccordionItem key={item.title} value={`item-${index + 1}`}>
+                    <AccordionTrigger className="text-l-base sm:text-xl-base-size py-6 sm:py-8 text-gray-100 font-semibold hover:no-underline hover:text-brand-80">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="flex flex-col text-balance text-gray-60 text-[14px] sm:text-[16px] gap-4">
+                      <p>{item.text}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
         </section>
+
       </div>
     </main>
   );
