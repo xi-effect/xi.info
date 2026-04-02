@@ -4,9 +4,9 @@ import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 
-import type { CardPricingPropsT } from './data';
+import type { CardPricingPropsT } from './dataForPricing';
 
-export const Card = ({
+export const CardPricing = ({
   name,
   highlight = false,
   description = '',

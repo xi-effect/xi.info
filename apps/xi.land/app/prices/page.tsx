@@ -4,8 +4,13 @@ import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'pkg.accordion';
 
-import { plansPricing, availableFeatures, pricingFaq, comparisonRows } from './data';
-import { Card } from './Card';
+import {
+  CardPricing,
+  plansPricing,
+  availableFeatures,
+  pricingFaq,
+  comparisonRows,
+} from '../../components/cardPricing';
 
 const handleCardBtnClick = (id: string) => {
   // Заглушка
@@ -48,7 +53,7 @@ export default function ProductPage() {
         <section className="w-full px-4 sm:px-8 pb-16">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 gap-6 lg:gap-8 md:grid-cols-2 items-stretch">
             {plansPricing.map((plan) => (
-              <Card key={plan.id} {...plan} onClickBtn={() => handleCardBtnClick(plan.id)} />
+              <CardPricing key={plan.id} {...plan} onClickBtn={() => handleCardBtnClick(plan.id)} />
             ))}
           </div>
         </section>
@@ -130,7 +135,7 @@ export default function ProductPage() {
         </section>
 
         <section className="w-full px-4 sm:px-8 pb-16">
-          <div className='max-w-[1200px] mx-auto flex flex-col gap-6'>
+          <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
             <h2 className={titleClass}>Вопросы о тарифах</h2>
 
             <div className="relative">
@@ -149,7 +154,6 @@ export default function ProductPage() {
             </div>
           </div>
         </section>
-
       </div>
     </main>
   );
