@@ -2,7 +2,7 @@
 
 import { Button } from '@xipkg/button';
 import Image from 'next/image';
-import { Footer } from 'pkg.landing.footer';
+import { Footer } from 'pkg.footer';
 
 import { useState } from 'react';
 import SendResumeModal from '../modal/SendResumeModal';
@@ -46,7 +46,10 @@ const sections: Section[] = [
   },
   {
     title: 'Социальные сети',
-    links: [{ link: 'https://t.me/sovlium', title: 'Telegram' }],
+    links: [
+      { link: 'https://vk.com/sovlium', title: 'ВКонтакте' },
+      { link: 'https://t.me/sovlium', title: 'Telegram' },
+    ],
   },
 ];
 

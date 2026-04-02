@@ -34,7 +34,7 @@
     "pkg.accordion": "*",
     "pkg.carousel": "*",
     "pkg.error-page": "*",
-    "pkg.landing.footer": "*",
+    "pkg.footer": "*",
     "pkg.utils": "*",
     "react": "19.2.4",
     "react-dom": "19.2.4",

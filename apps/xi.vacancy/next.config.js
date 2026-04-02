@@ -27,7 +27,7 @@ const nextConfig = {
     '@xipkg/tailwind',
     '@xipkg/fileuploader',
     '@xipkg/badge',
-    'pkg.landing.footer',
+    'pkg.footer',
   ],
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',

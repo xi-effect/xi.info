@@ -12,7 +12,6 @@
 
 @source "../../node_modules/@xipkg";
 
-@source "../../packages/pkg.landing.footer";
 @source "../../packages/pkg.footer";
 @source "../../packages/pkg.error-page";
 
