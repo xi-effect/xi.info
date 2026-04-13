@@ -6,6 +6,7 @@
     "prepare-for-lesson",
     "conduct-lesson",
     "control-payments",
-    "support-tech-report"
+    "support-tech-report",
+    "clear-browser-cache"
   ]
 }

@@ -33,4 +33,11 @@ export const sectionsConfig = [
     pageUrl: 'support-tech-report',
     icon: 'report.svg',
   },
+  {
+    title: 'Очистка сохранённых данных',
+    description:
+      'Как через встроенную панель браузера сбросить данные только для нашего сайта и снова увидеть актуальную версию.',
+    pageUrl: 'clear-browser-cache',
+    icon: 'settings.svg',
+  },
 ];
