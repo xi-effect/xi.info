@@ -1,6 +1,6 @@
-import { QuarterT } from './types';
+import { QuarterT } from './typesForRoadmap';
 
-export const roadmap2026: QuarterT[] = [
+export const roadmapData: QuarterT[] = [
   {
     quarter: 'Q1',
     accent: 'from-brand-20 via-brand-0 to-brand-10',

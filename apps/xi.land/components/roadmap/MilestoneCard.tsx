@@ -1,8 +1,8 @@
 import { cn } from '@xipkg/utils';
 
-import { MilestoneStatusT, MilestoneT } from './types';
+import { MilestoneStatusT, MilestoneT } from './typesForRoadmap';
 
-type MilestoneCardProps = {
+type MilestoneCardPropsT = {
   milestone: MilestoneT;
 };
 
@@ -13,7 +13,7 @@ const mapBadgeClassNameByStatus: Record<MilestoneStatusT, string> = {
   Масштабирование: 'bg-[#EEE9FF] text-[#5E44A1]',
 };
 
-export function MilestoneCard({ milestone }: MilestoneCardProps) {
+export function MilestoneCard({ milestone }: MilestoneCardPropsT) {
   return (
     <article className="rounded-4xl bg-gray-0 p-4 sm:p-8">
       <div className="flex flex-col gap-3 sm:gap-4">

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { cn } from '@xipkg/utils';
 
-import { QuarterT } from './types';
+import { QuarterT } from './typesForRoadmap';
 import { MilestoneCard } from './MilestoneCard';
 
 type QuarterTimelineT = {
@@ -14,6 +14,7 @@ type QuarterTimelineT = {
 export function QuarterTimeline({ quarter }: QuarterTimelineT) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
+
   const [lineTravel, setLineTravel] = useState(0);
 
   const { scrollYProgress } = useScroll({

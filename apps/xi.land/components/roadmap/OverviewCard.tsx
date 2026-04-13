@@ -11,7 +11,9 @@ export function OverviewCard({ value, label, note }: OverviewCardT) {
         <span className="text-[34px] font-semibold leading-none text-gray-100 sm:text-[40px]">
           {value}
         </span>
+
         <span className="text-m-base font-semibold text-gray-100 sm:text-l-base">{label}</span>
+
         <span className="text-s-base leading-5 text-gray-70">{note}</span>
       </div>
     </article>
