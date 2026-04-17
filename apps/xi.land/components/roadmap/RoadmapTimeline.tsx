@@ -44,7 +44,7 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
 
   const beamY = useTransform(beamProgress, [0, 1], [-36, lineTravel]);
   const revealScale = useTransform(beamProgress, [0, 1], [0.16, 1]);
-  const beamOpacity = useTransform(beamProgress, [0, 0.04, 0.12, 1], [0.45, 0.7, 1, 1]);
+  const beamOpacity = useTransform(beamProgress, [0, 0.04, 0.12, 1], [0.55, 0.75, 1, 1]);
 
   return (
     <section ref={sectionRef} className="w-full px-4 pb-20 pt-8 sm:px-8 sm:pb-24 md:pt-10 lg:px-12">
@@ -63,14 +63,14 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
         <div className="relative">
           <div
             ref={lineRef}
-            className="absolute bottom-0 top-0 hidden w-px rounded-full bg-gray-20 lg:left-[272px] lg:block"
+            className="absolute bottom-[-32px] top-[-32px] hidden w-px rounded-full bg-gray-20 lg:left-[272px] lg:block"
           >
             <motion.div
-              className="absolute inset-x-0 top-0 origin-top rounded-full bg-brand-20"
+              className="absolute inset-x-0 top-0 origin-top rounded-full bg-linear-to-b from-brand-80 via-brand-80 to-brand-20"
               style={{ scaleY: revealScale }}
             />
             <motion.div
-              className="pointer-events-none absolute left-1/2 top-0 h-64 w-2 -translate-x-1/2 rounded-full bg-linear-to-b from-brand-20 via-brand-80 to-brand-0 blur-[5px] lg:h-72"
+              className="pointer-events-none absolute left-1/2 top-0 h-64 w-[3px] -translate-x-1/2 rounded-full bg-linear-to-b from-brand-80 via-brand-80 to-brand-20 blur-[1px] lg:h-72"
               style={{ y: beamY, opacity: beamOpacity }}
             />
           </div>
@@ -85,7 +85,7 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
               >
-                <span className="absolute left-[272px] top-10 hidden size-3 -translate-x-1/2 rounded-full border-[3px] border-gray-0 bg-brand-80 ring-[6px] ring-brand-20 lg:block" />
+                <span className="absolute left-[272px] top-10 z-10 hidden size-3 -translate-x-1/2 rounded-full border-[3px] border-gray-0 bg-brand-80 ring-[6px] ring-brand-20 lg:block" />
 
                 <div className="lg:pr-10 lg:pt-7">
                   <p className="text-s-base font-semibold uppercase leading-[1.1] tracking-[0.06em] text-gray-60 sm:text-m-base lg:text-[22px] lg:leading-[1.02]">
