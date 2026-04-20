@@ -1,5 +1,4 @@
-import { roadmapData } from '../../components/roadmap/dataForRoadmap';
-import { RoadmapTimeline } from '../../components/roadmap/RoadmapTimeline';
+import { roadmapData, RoadmapTimeline } from '../../components/roadmap';
 
 export default function RoadmapPage() {
   return (
