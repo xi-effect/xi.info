@@ -50,13 +50,13 @@ const sections: Section[] = [
       { link: '/prices', title: 'Тарифы' },
       { link: 'https://support.sovlium.ru/', title: 'База знаний' },
       { link: 'https://t.me/sovlium_support_bot', title: 'Поддержка' },
+      { link: '/roadmap', title: 'План развития' },
     ],
   },
   {
     title: 'Компания',
     links: [
       { link: '/about', title: 'О нас' },
-      { link: '/roadmap', title: 'План развития' },
       { link: '/blog', title: 'Блог' },
       { link: '/legal/terms', title: 'Документы' },
       { link: 'https://vacancy.sovlium.ru/', title: 'Вакансии' },
