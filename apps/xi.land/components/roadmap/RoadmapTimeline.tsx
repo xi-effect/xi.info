@@ -10,21 +10,24 @@ type RoadmapTimelinePropsT = {
 };
 
 export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
 
   const [lineTravel, setLineTravel] = useState(0);
 
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
+    target: timelineRef,
     offset: ['start 78%', 'end 22%'],
   });
 
-  const beamProgress = useSpring(scrollYProgress, {
+  const timelineProgress = useTransform(scrollYProgress, [0.18, 1], [0, 1]);
+
+  const beamProgress = useSpring(timelineProgress, {
     stiffness: 120,
     damping: 32,
     mass: 0.4,
   });
+  const beamOffsetY = 32;
 
   useEffect(() => {
     const line = lineRef.current;
@@ -42,31 +45,35 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
     return () => observer.disconnect();
   }, []);
 
-  const beamY = useTransform(beamProgress, [0, 1], [-36, lineTravel]);
+  const beamY = useTransform(beamProgress, [0, 1], [-36 + beamOffsetY, lineTravel + beamOffsetY]);
   const revealScale = useTransform(beamProgress, [0, 1], [0.16, 1]);
   const beamOpacity = useTransform(beamProgress, [0, 0.04, 0.12, 1], [0.55, 0.75, 1, 1]);
 
   return (
-    <section ref={sectionRef} className="w-full px-4 pb-20 pt-8 sm:px-8 sm:pb-24 md:pt-10 lg:px-12">
+    <section className="w-full px-4 pb-20 pt-8 sm:px-8 sm:pb-24 md:pt-10 lg:px-12">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-10 sm:gap-12">
         <div className="mx-auto flex max-w-[880px] flex-col gap-4 text-center">
           <h1 className="text-[28px] leading-[1.2] font-semibold whitespace-pre-line text-gray-100 sm:text-h3 sm:leading-[1] md:text-h1-line-height">
-            Планы развития Sovlium на 2026 год
+            Планы развития Sovlium
           </h1>
 
-          <p className="text-base leading-6 text-gray-80 sm:text-l-base sm:leading-7">
-            Каждый квартал сфокусирован на конкретном блоке роста: от базового опыта преподавателя
-            до масштабирования платформы на более сложные сценарии.
+          <p className="mt-4 text-base leading-6 text-gray-80 sm:text-l-base sm:leading-7">
+            Мы собрали предварительный план развития Sovlium на 2026 год.
+          </p>
+
+          <p className="text-xs-base leading-6 text-gray-80 sm:text-m-base sm:leading-7">
+            Он будет постепенно обновляться и дополняться, чтобы вам было проще понимать, <br />{' '}
+            какие обновления мы готовим в ближайшее время.
           </p>
         </div>
 
-        <div className="relative">
+        <div ref={timelineRef} className="relative mt-16">
           <div
             ref={lineRef}
-            className="absolute bottom-[-32px] top-[-32px] hidden w-px rounded-full bg-gray-20 lg:left-[272px] lg:block"
+            className="absolute inset-y-0 hidden w-px rounded-full bg-gray-20 lg:left-[272px] lg:block"
           >
             <motion.div
-              className="absolute inset-x-0 top-0 origin-top rounded-full bg-linear-to-b from-brand-80 via-brand-80 to-brand-20"
+              className="absolute inset-0 origin-top rounded-full bg-linear-to-b from-brand-80 via-brand-80 to-brand-20"
               style={{ scaleY: revealScale }}
             />
             <motion.div
@@ -75,7 +82,7 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
             />
           </div>
 
-          <div className="flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-8">
+          <div className="flex flex-col gap-5 sm:gap-10 md:gap-15 lg:gap-30">
             {items.map((item, index) => (
               <motion.article
                 key={`${item.period}-${item.title}`}
@@ -129,6 +136,12 @@ export function RoadmapTimeline({ items }: RoadmapTimelinePropsT) {
               </motion.article>
             ))}
           </div>
+        </div>
+        <div className="mt-20 flex w-full items-center justify-center">
+          <p className="max-w-[680px] text-base leading-6 text-gray-80 sm:text-l-base sm:leading-7">
+            Обратите внимание, что это предварительный план и он может быть изменен в зависимости от
+            потребностей рынка и клиентов.
+          </p>
         </div>
       </div>
     </section>
