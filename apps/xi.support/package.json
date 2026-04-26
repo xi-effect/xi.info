@@ -10,6 +10,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@orama/orama": "^3.1.18",
     "@hookform/resolvers": "^3.2.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",

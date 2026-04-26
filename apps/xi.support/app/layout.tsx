@@ -4,6 +4,7 @@ import '../index.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { i18nUIProvider } from '@/lib/i18n';
+import DocsSearchDialog from '@/components/DocsSearchDialog';
 
 export const metadata: Metadata = {
   title: 'База знаний sovlium - документация и поддержка',
@@ -98,7 +99,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={inter.variable} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider i18n={i18nUIProvider('ru')} search={{ enabled: false }}>
+        <RootProvider
+          i18n={i18nUIProvider('ru')}
+          search={{
+            SearchDialog: DocsSearchDialog,
+          }}
+        >
           {children}
         </RootProvider>
       </body>
