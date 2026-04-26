@@ -2,11 +2,14 @@
   "title": "База знаний",
   "pages": [
     "index",
-    "work-beginning",
-    "prepare-for-lesson",
-    "conduct-lesson",
-    "control-payments",
-    "support-tech-report",
-    "clear-browser-cache"
+    "getting-started",
+    "classrooms",
+    "lessons-and-schedule",
+    "board-and-notes",
+    "video-lesson",
+    "payments",
+    "profile-settings",
+    "install-and-help",
+    "troubleshooting"
   ]
 }

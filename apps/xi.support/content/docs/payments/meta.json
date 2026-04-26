@@ -1,0 +1,10 @@
+{
+  "title": "Счета и оплаты",
+  "pages": [
+    "index",
+    "payments-page-tabs",
+    "create-invoice",
+    "approve-incoming-payment",
+    "control-payments"
+  ]
+}

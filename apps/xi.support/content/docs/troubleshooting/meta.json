@@ -1,0 +1,10 @@
+{
+  "title": "Устранение неполадок",
+  "pages": [
+    "index",
+    "call-no-video-audio",
+    "board-file-not-loading",
+    "email-confirmation-missing",
+    "payment-link-issues"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Начало работы",
+  "pages": [
+    "index",
+    "register",
+    "sign-in",
+    "reset-password",
+    "confirm-email",
+    "first-run-after-login",
+    "work-beginning"
+  ]
+}
