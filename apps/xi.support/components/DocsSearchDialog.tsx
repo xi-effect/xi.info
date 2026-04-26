@@ -15,8 +15,8 @@ import {
 import type { SharedProps } from 'fumadocs-ui/contexts/search';
 
 /**
- * Статический поиск: индекс с сервера с language: 'russian' (см. app/api/search).
- * Клиент Orama должен использовать тот же language, иначе русские запросы не матчатся.
+ * Прод: индекс в `out/fumadocs-search.json` (копия после билда, см. scripts/emit-fumadocs-search.mjs),
+ * т.к. `/api/*` на nginx у статики часто 404. Дев: route handler `app/api/search`.
  * @see https://www.fumadocs.dev/docs/headless/search/orama#internationalization
  */
 function initOrama() {
@@ -26,12 +26,16 @@ function initOrama() {
   });
 }
 
+const searchIndexFrom =
+  process.env.NEXT_PUBLIC_FUMADOCS_SEARCH_INDEX ||
+  (process.env.NODE_ENV === 'development' ? '/api/search' : '/fumadocs-search.json');
+
 export default function DocsSearchDialog(props: SharedProps) {
   // Без `locale`: для одноязычного индекса fumadocs хранит БД в Map под ключом "".
-  // Передача locale: "ru" из useI18n ломала поиск — .get("ru") → undefined, всегда 0 результатов.
   const { search, setSearch, query } = useDocsSearch({
     type: 'static',
     initOrama,
+    from: searchIndexFrom,
   });
 
   return (
