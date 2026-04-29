@@ -42,7 +42,10 @@ export const Hero = () => {
   const heroConfig = config[pathname] ?? config['/'];
 
   return (
-    <section data-theme="white" className="w-full bg-gray-0 px-4 pb-14 pt-28 md:px-8 md:pb-20 md:pt-36">
+    <section
+      data-theme="white"
+      className="w-full bg-gray-0 px-4 pb-14 pt-28 md:px-8 md:pb-20 md:pt-36"
+    >
       <div className="mx-auto flex w-full max-w-[2410px] flex-col items-center gap-8 md:gap-12">
         <div className="flex max-w-[1116px] flex-col items-center gap-4 md:gap-12">
           <h1 className="text-center text-[42px] font-medium leading-[105%] tracking-[-0.01em] text-[#1E1E2C] sm:text-[56px] lg:text-[80px]">
