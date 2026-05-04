@@ -17,31 +17,24 @@ export const Hero = () => {
             {HERO_CONTENT.title}
           </h1>
           <p className="text-center text-base font-normal leading-[130%] text-[#5B5F6D] sm:text-xl lg:text-2xl">
-            {HERO_CONTENT.description}
+            {HERO_CONTENT.subtitle}
           </p>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="max-h-[385px] w-full flex justify-center items-center gap-5">
           {HERO_CONTENT.cards.map((card) => (
-            <article
+            <div
               key={card.id}
-              className="flex min-h-[320px] flex-col rounded-[32px] bg-[rgba(243,244,253,0.6)] p-[30px] md:min-h-[385px]"
+              className="h-[385px] w-[385px] rounded-4xl bg-[rgba(243, 244, 252, 0.6)]"
             >
-              <span
-                className={`inline-flex w-fit items-center justify-center rounded-xl px-4 py-2 text-sm font-normal leading-[130%] md:text-base ${card.badgeClass}`}
-              >
-                {card.title}
-              </span>
-              <div className="mt-5 flex grow items-end">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  width={385}
-                  height={385}
-                  className="h-auto w-full rounded-3xl object-cover"
-                />
-              </div>
-            </article>
+              <Image
+                src={card.image}
+                alt={card.title}
+                width={385}
+                height={385}
+                className="object-contain rounded-4xl object-center"
+              />
+            </div>
           ))}
         </div>
 
@@ -54,6 +47,7 @@ export const Hero = () => {
           >
             <Link href="/about">{HERO_CONTENT.secondaryButtonLabel}</Link>
           </Button>
+
           <Button
             asChild
             variant="ghost"
