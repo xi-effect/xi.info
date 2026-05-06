@@ -29,6 +29,7 @@ export const HERO_CONTENT = {
       id: 5,
       title: 'контроль оплат',
       image: '/assets/main/Hero/payments.png',
+      imageClassName: 'scale-[1.08] object-bottom',
     },
   ],
 } as const;
