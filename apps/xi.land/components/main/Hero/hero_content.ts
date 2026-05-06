@@ -1,3 +1,9 @@
+export type HeroCardT = {
+  id: number;
+  title: string;
+  image: string;
+};
+
 export const HERO_CONTENT = {
   title: 'Учите, рутину берем на себя',
   subtitle: 'Все что нужно репетитору - на одной платформе',
@@ -25,11 +31,5 @@ export const HERO_CONTENT = {
       title: 'расписание',
       image: '/assets/main/Hero/calendar.png',
     },
-    {
-      id: 5,
-      title: 'контроль оплат',
-      image: '/assets/main/Hero/payments.png',
-      imageClassName: 'scale-[1.08] object-bottom',
-    },
-  ],
+  ] satisfies readonly HeroCardT[],
 } as const;
