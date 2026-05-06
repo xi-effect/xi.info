@@ -14,7 +14,7 @@ const linkButtonClassName = 'flex w-full items-center justify-center gap-3';
 
 export const Hero = () => {
   return (
-    <section data-theme="white" className="w-full overflow-hidden bg-gray-0 py-20 md:py-40">
+    <section data-theme="white" className="w-full overflow-hidden bg-gray-0 pt-40 pb-20 lg:pb-40">
       <div className="mx-auto flex w-full max-w-[1920px] flex-col items-center gap-8 sm:gap-10 lg:gap-15">
         <div className="flex w-full max-w-[1280px] flex-col items-center gap-4 sm:gap-6 lg:gap-8">
           <h1 className="max-w-[14ch] text-center text-[42px] font-medium leading-[1.05] tracking-[-0.01em] text-gray-100 sm:text-[56px] lg:max-w-none lg:text-[80px]">
