@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { ChevronSmallBottom } from '@xipkg/icons';
 import { cn } from '@xipkg/utils';
 
 type MenuItemPropsT = {
-  setActive: (item: string) => void;
+  setActive: (item: string | null) => void;
   active?: string | null;
   item: string;
   href?: string;
@@ -32,33 +33,43 @@ export const MenuItem = ({
   <div
     onMouseEnter={() => setActive(item)}
     className={cn(
-      'relative text-s-base md:text-m-base lg:text-[18px] xl:text-l-base text-gray-70 dark:text-gray-20 font-normal flex items-center',
+      'relative flex items-center pb-1 text-base font-medium leading-5 text-gray-80 dark:text-gray-20',
     )}
   >
     {href ? (
       <Link
         target={target}
+        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
         href={href}
-        className="py-2.5 px-1 lg:px-3 underline-offset-4 decoration-1 hover:underline transition-colors duration-200"
+        className="px-0 py-1 transition-colors duration-200 hover:text-gray-100 dark:hover:text-gray-0"
       >
         {item}
       </Link>
     ) : (
-      <span className="py-2.5 md:py-3.5 lg:p-2.5 px-3 cursor-pointer">{item}</span>
+      <span className="flex cursor-pointer items-center gap-1 px-0 py-1">
+        <span>{item}</span>
+        <ChevronSmallBottom
+          aria-hidden
+          className={cn(
+            'size-4 shrink-0 fill-current opacity-80 transition-transform duration-200',
+            active === item && 'rotate-180',
+          )}
+        />
+      </span>
     )}
     {!href && active !== null && active === item && (
       <motion.div
         transition={transition}
-        className="absolute top-6 left-[-10px] transform pt-8 w-auto"
+        className="absolute left-0 top-full z-60 w-auto min-w-[232px] -mt-3 pt-3"
       >
         <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          initial={{ opacity: 0, scale: 0.96, y: 6 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
           layoutId="active"
-          className="bg-gray-0 dark:bg-gray-100 rounded-2xl overflow-hidden border-2 border-gray-10 dark:border-gray-80"
+          className="overflow-hidden rounded-2xl border-2 border-gray-10 bg-gray-0 dark:border-gray-80 dark:bg-gray-100"
         >
-          <motion.div layout className="w-[250px] h-full p-2">
+          <motion.div layout className="h-full w-full p-2">
             {children}
           </motion.div>
         </motion.div>

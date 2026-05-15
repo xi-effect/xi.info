@@ -15,8 +15,7 @@ import { Close, Burger } from '@xipkg/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { subMenu } from './Navigation';
+import { mainNavLinks, subMenu } from './nav_config';
 
 // type LinkMenuItemT = {
 //   label: string;
@@ -52,7 +51,7 @@ export const MobileNavigation = () => {
     <Modal open={burgerIsOpen} onOpenChange={setBurgerIsOpen}>
       <ModalTrigger asChild>
         <Button
-          className="z-10 w-12 h-12 p-1 m-0 ml-auto md:hidden bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent"
+          className="z-10 m-0 flex size-12 shrink-0 items-center justify-center p-1 md:hidden bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent"
           variant="ghost"
         >
           <Burger className="dark:fill-gray-0 fill-gray-100 w-8 h-8" />
@@ -94,7 +93,10 @@ export const MobileNavigation = () => {
           </ModalCloseButton>
         </ModalHeader>
 
-        <div className="grow flex flex-col gap-2 w-full mt-4">
+        <div className="mt-4 flex w-full grow flex-col gap-1">
+          <p className="px-6 pt-2 text-xs-base font-medium uppercase tracking-wide text-gray-50 dark:text-gray-40">
+            Возможности
+          </p>
           {subMenu.map((item) => (
             <motion.div
               key={item.title}
@@ -104,10 +106,30 @@ export const MobileNavigation = () => {
             >
               <Link
                 onClick={toggleBurgerMenu}
-                className="text-gray-70 dark:text-gray-20 text-xl font-normal py-4 px-6 w-full hover:text-gray-100 dark:hover:text-gray-0"
+                className="w-full px-6 py-3 pl-10 text-xl font-normal text-gray-70 hover:text-gray-100 dark:text-gray-20 dark:hover:text-gray-0"
                 href={item.href}
               >
                 {item.title}
+              </Link>
+            </motion.div>
+          ))}
+
+          <div className="mt-4 border-t border-gray-10 pt-2 dark:border-gray-80" />
+
+          {mainNavLinks.map((link) => (
+            <motion.div
+              key={link.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex"
+            >
+              <Link
+                onClick={toggleBurgerMenu}
+                className="text-gray-70 dark:text-gray-20 w-full px-6 py-4 text-xl font-normal hover:text-gray-100 dark:hover:text-gray-0"
+                href={link.href}
+                {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {link.title}
               </Link>
             </motion.div>
           ))}
