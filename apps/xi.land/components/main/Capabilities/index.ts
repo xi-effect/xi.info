@@ -1,0 +1,1 @@
+export { CapabilitiesBlock } from './CapabilitiesBlock';

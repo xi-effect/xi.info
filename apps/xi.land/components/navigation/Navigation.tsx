@@ -16,7 +16,7 @@ export const Navigation = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
       onMouseLeave={() => setActive(null)}
-      className="z-10 hidden pb-3 md:block"
+      className="z-10 hidden min-h-0 md:flex md:h-full md:items-center"
     >
       <div className="flex items-center gap-12">
         <MenuItem setActive={setActive} active={active} item="Возможности">

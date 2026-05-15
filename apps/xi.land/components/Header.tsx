@@ -106,7 +106,7 @@ export const Header = () => {
               )}
             </div>
 
-            <div className="hidden min-w-0 flex-1 justify-center md:flex">
+            <div className="hidden min-h-0 flex-1 items-center justify-center md:flex">
               <Navigation />
             </div>
 
