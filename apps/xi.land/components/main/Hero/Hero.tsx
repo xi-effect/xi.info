@@ -100,7 +100,7 @@ const HeroFeatureBadge = ({ feature }: HeroFeatureBadgePropsT) => {
       )}
     >
       <span className="flex size-7 shrink-0 items-center justify-center">
-        <Icon className={cn('size-5 shrink-0 fill-current', feature.labelClassName)} />
+        <Icon className={cn('size-7 shrink-0 fill-current', feature.labelClassName)} />
       </span>
       <span
         className={cn(
