@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
   { id: 0, tail: 'планировании', src: '/assets/main/Messages/plans.svg' },
   { id: 1, tail: 'подаче материала', src: '/assets/main/Messages/materials.svg' },
-  { id: 2, tail: 'общении с учениками', src: '/assets/main/Messages/chat.svg' },
+  { id: 2, tail: 'общении с\u00A0учениками', src: '/assets/main/Messages/chat.svg' },
 ];
 
 export default function Messages() {

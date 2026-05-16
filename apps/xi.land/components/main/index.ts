@@ -1,8 +1,7 @@
 export { Hero } from './Hero';
-export { CallToAction } from './callToAction';
-export { Telegram } from './Telegram';
-export { FeaturesBlock } from './Features';
-export { MessagesBlock } from './messages';
-export { Text } from './Text';
+export { CapabilitiesBlock } from './Capabilities';
+export { TutorIdeasBlock } from './TutorIdeas';
+export { DevicesBlock } from './Devices';
+export { MessagesBlock } from './messages/MessagesBlock';
+export { CommunityBlock } from './Community/CommunityBlock';
 export { Faq } from './Faq';
-export { Benefits } from './Benefits';

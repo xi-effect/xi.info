@@ -7,6 +7,7 @@ import { motion } from 'motion/react';
 import { cn } from '@xipkg/utils';
 import { useMediaQuery } from '@xipkg/utils';
 import { Button } from '@xipkg/button';
+import { ArrowRight } from '@xipkg/icons';
 import { MobileNavigation, Navigation } from './navigation';
 
 const HIDE_AFTER_DOWN = 80; // прячем хедер, если прокрутили вниз дальше 80 px
@@ -59,65 +60,81 @@ export const Header = () => {
 
   return (
     <header
-      data-theme="white"
       className={cn(
-        'bg-gray-0 dark:bg-gray-100 fixed top-0 z-40 flex w-full justify-center transition-all duration-700 ease-in-out',
+        'fixed top-0 z-40 w-full bg-transparent transition-all duration-700 ease-in-out',
         isShowHeader ? 'translate-y-0' : '-translate-y-full',
       )}
     >
-      <div className="bg-transparent z-10 py-6 pl-6 pr-6 justify-between w-full flex gap-0 xl:gap-12 relative items-center max-w-400 md:mx-auto">
-        {isDesktop ? (
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="h-16 flex items-center"
-          >
-            <Link
-              href="/"
-              className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
-            >
-              <Image
-                src="/logoforwhite.svg"
-                alt="logo"
-                width={216}
-                height={48}
-                className="block transition-opacity duration-500 ease-in-out"
-              />
-            </Link>
-          </motion.div>
-        ) : (
-          <div className="h-16 flex items-center">
-            <Link
-              href="/"
-              className="w-54 md:w-38 lg:w-45 xl:w-54 h-16 md:h-12 lg:h-14 xl:h-16 relative inline-flex items-center gap-4"
-            >
-              <Image
-                src="/logoforwhite.svg"
-                alt="logo"
-                width={216}
-                height={48}
-                className="block transition-opacity duration-500 ease-in-out"
-              />
-            </Link>
+      <div className="relative z-10 mx-auto w-full max-w-[1360px] px-4 pt-3 md:px-6 md:pt-4">
+        <div
+          data-theme="white"
+          className={cn(
+            'rounded-[20px] bg-gray-0 p-4 shadow-[0_8px_32px_rgba(15,15,17,0.06)] ring-1 ring-gray-10/70 dark:bg-gray-90 dark:ring-gray-20/80 md:p-5',
+          )}
+        >
+          <div className="mx-auto flex w-full max-w-[1320px] items-center justify-between gap-3 md:gap-6">
+            <div className="flex min-w-0 items-center gap-1.5">
+              {isDesktop ? (
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className="flex h-12 shrink-0 items-center"
+                >
+                  <Link href="/" className="relative inline-flex h-12 w-40 items-center">
+                    <Image
+                      src="/logoforwhite.svg"
+                      alt="logo"
+                      width={216}
+                      height={48}
+                      className="block h-auto max-h-12 w-auto max-w-[160px] transition-opacity duration-500 ease-in-out"
+                    />
+                  </Link>
+                </motion.div>
+              ) : (
+                <div className="flex h-12 shrink-0 items-center">
+                  <Link href="/" className="relative inline-flex h-12 w-40 items-center">
+                    <Image
+                      src="/logoforwhite.svg"
+                      alt="logo"
+                      width={216}
+                      height={48}
+                      className="block h-auto max-h-12 w-auto max-w-[160px] transition-opacity duration-500 ease-in-out"
+                    />
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="hidden min-h-0 flex-1 items-center justify-center md:flex">
+              <Navigation />
+            </div>
+
+            <div className="flex shrink-0 items-center justify-end gap-3">
+              <Button
+                asChild
+                variant="secondary"
+                className="min-w-[96px] hidden rounded-xl border-0 bg-brand-0 px-4 py-2.5 text-sm text-brand-100 hover:text-gray-0 hover:bg-brand-60 md:inline-flex lg:text-m-base"
+              >
+                <Link href="https://app.sovlium.ru/signin">Войти</Link>
+              </Button>
+              <Button
+                asChild
+                variant="primary"
+                className="hidden rounded-xl border-0 px-4 py-2.5 text-sm md:inline-flex lg:text-m-base"
+              >
+                <Link
+                  href="https://app.sovlium.ru/signup"
+                  className="flex items-center justify-center gap-2"
+                >
+                  Зарегистрироваться
+                  <ArrowRight className="size-4 shrink-0 fill-gray-0" aria-hidden />
+                </Link>
+              </Button>
+              <MobileNavigation />
+            </div>
           </div>
-        )}
-        <Navigation />
-
-        <div className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-4">
-          <Button
-            asChild
-            variant="secondary"
-            className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-53.5 bg-brand-0 bg-brand-0 dark:text-brand-80 hover:bg-brand-80 hover:text-brand-0 dark:hover:bg-brand-80 active:bg-brand-20 dark:active:bg-brand-20 focus:bg-brand-20 dark:focus:bg-brand-20"
-          >
-            <Link href="https://app.sovlium.ru/signup">Зарегистрироваться</Link>
-          </Button>
-          <Button asChild className="text-sm lg:text-m-base md:px-3 lg:px-auto xl:w-24">
-            <Link href="https://app.sovlium.ru/signin">Войти</Link>
-          </Button>
         </div>
-
-        <MobileNavigation />
       </div>
     </header>
   );

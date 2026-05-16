@@ -1,378 +1,219 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 'use client';
+
+import { createContext, useContext, useRef, type ComponentType, type PointerEvent } from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-// CSS fallback для случаев без JavaScript
-const fallbackStyles = `
-  @media (prefers-reduced-motion: reduce) {
-    .motion-fallback {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-  }
-  
-  .no-js .motion-fallback {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-`;
-
-const subTitle = [
-  {
-    id: 1,
-    text: 'видеозвонки',
-    textColor: 'text-orange-80',
-    bgColor: 'bg-yellow-20',
-  },
-  {
-    id: 2,
-    text: 'автоматические напоминания',
-    textColor: 'text-violet-100',
-    bgColor: 'bg-violet-20',
-  },
-  {
-    id: 3,
-    text: 'онлайн-доски',
-    textColor: 'text-green-80',
-    bgColor: 'bg-green-0',
-  },
-  {
-    id: 4,
-    text: 'заметки',
-    textColor: 'text-cyan-100',
-    bgColor: 'bg-cyan-20',
-  },
-  {
-    id: 5,
-    text: 'контроль оплат',
-    textColor: 'text-red-80',
-    bgColor: 'bg-red-0',
-  },
-];
-
 import Image from 'next/image';
-import React from 'react';
-import { motion } from 'motion/react';
 import { Button } from '@xipkg/button';
-import { usePathname } from 'next/navigation';
-import { config } from './config';
-import { useMediaQuery } from '@xipkg/utils';
+import {
+  ArrowRight,
+  Calendar,
+  Materials,
+  Notification,
+  Payments,
+  Users,
+  Conference,
+  WhiteBoard,
+} from '@xipkg/icons';
+import { cn } from '@xipkg/utils';
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from 'motion/react';
 
-// Декоративные анимации и снег загружаются лениво — не блокируют первый рендер и не тянут gsap/react-snowfall в основной бандл
-const AnimationChem = dynamic(() => import('./AnimationChem').then((m) => m.AnimationChem), {
-  ssr: false,
-});
-const AnimationMath = dynamic(() => import('./AnimationMath').then((m) => m.AnimationMath), {
-  ssr: false,
-});
-const AnimationEng = dynamic(() => import('./AnimationEng').then((m) => m.AnimationEng), {
-  ssr: false,
-});
-const AnimationHistory = dynamic(
-  () => import('./AnimationHistory').then((m) => m.AnimationHistory),
-  { ssr: false },
-);
-const SnowAnimation = dynamic(() => import('./SnowAnimation').then((m) => m.SnowAnimation), {
-  ssr: false,
-});
+import type { HeroFeatureIconIdT, HeroFeatureT, HeroParallaxLayerT } from './hero_content';
+import {
+  HERO_CONTENT,
+  HERO_MAIN_COLLAGE_IMAGE,
+  HERO_PARALLAX_INTENSITY,
+  HERO_PARALLAX_LAYERS,
+} from './hero_content';
 
-const HeroText = () => {
-  const pathname = usePathname();
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+const FEATURE_ICONS: Record<HeroFeatureIconIdT, ComponentType<{ className?: string }>> = {
+  conference: Conference,
+  whiteboard: WhiteBoard,
+  calendar: Calendar,
+  materials: Materials,
+  payments: Payments,
+  notifications: Notification,
+  rooms: Users,
+};
 
-  const title = config[pathname]?.title ?? config['/'].title;
-  const wrapperClass = 'flex flex-col items-center gap-4 md:gap-6 motion-fallback';
-  const h1Class =
-    'text-xl-base sm:text-h2 md:text-[64px] leading-[1.2] sm:leading-[1] md:leading-[1.05] font-semibold text-gray-0 text-center whitespace-pre-line';
+const buttonClassName =
+  'inline-flex h-auto min-h-12 w-full shrink-0 self-start rounded-2xl border-0 px-7 py-3.5 text-lg font-semibold leading-6 hover:border-0 sm:w-auto lg:max-w-[304px]';
 
-  if (!isDesktop) {
-    return (
-      <div className={wrapperClass}>
-        <h1 className={h1Class}>{title}</h1>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          {subTitle.map((item) => (
-            <div key={item.id} className={`rounded-2xl px-4 py-2 ${item.bgColor}`}>
-              <p
-                className={`text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal ${item.textColor}`}
-              >
-                {item.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+type HeroParallaxContextValueT = {
+  moveX: MotionValue<number>;
+  moveY: MotionValue<number>;
+};
+
+const HeroParallaxContext = createContext<HeroParallaxContextValueT | null>(null);
+
+const useHeroParallaxMotion = () => {
+  const ctx = useContext(HeroParallaxContext);
+  if (!ctx) {
+    throw new Error('useHeroParallaxMotion must be used within Hero parallax provider');
   }
+  return ctx;
+};
+
+type HeroParallaxLayerPropsT = {
+  layer: HeroParallaxLayerT;
+};
+
+const HeroParallaxLayer = ({ layer }: HeroParallaxLayerPropsT) => {
+  const { moveX, moveY } = useHeroParallaxMotion();
+  const depthPx = layer.depth * (layer.depthMultiplier ?? 1) * HERO_PARALLAX_INTENSITY;
+  const tx = useTransform(moveX, (v) => v * depthPx);
+  const ty = useTransform(moveY, (v) => v * depthPx);
 
   return (
     <motion.div
-      className={wrapperClass}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.8,
-        ease: 'easeOut',
-        ...(typeof window !== 'undefined' &&
-          window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
-            duration: 0,
-          }),
-      }}
+      className={cn('absolute block max-w-none will-change-transform', layer.className)}
+      style={{ x: tx, y: ty }}
     >
-      <motion.h1
-        className={h1Class}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.2,
-          ease: 'easeOut',
-          ...(typeof window !== 'undefined' &&
-            window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
-              duration: 0,
-              delay: 0,
-            }),
-        }}
-      >
-        {title}
-      </motion.h1>
-
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {subTitle.map((item, index) => (
-          <motion.div
-            key={item.id}
-            className={`rounded-2xl px-4 py-2 ${item.bgColor}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 20,
-              duration: 0.6,
-              delay: 0.4 + index * 0.2,
-              ease: 'easeOut',
-              ...(typeof window !== 'undefined' &&
-                window.matchMedia('(prefers-reduced-motion: reduce)').matches && {
-                  duration: 0,
-                  delay: 0,
-                }),
-            }}
-          >
-            <p
-              className={`text-xl max-[720px]:text-base max-[720px]:leading-6 max-[376px]:leading-4 max-[376px]:text-xs font-normal ${item.textColor}`}
-            >
-              {item.text}
-            </p>
-          </motion.div>
-        ))}
+      <div className={cn('block w-full', layer.innerClassName)}>
+        <Image
+          src={layer.src}
+          alt={layer.alt}
+          width={layer.width}
+          height={layer.height}
+          sizes="(max-width: 768px) 42vw, 280px"
+          className="h-auto w-full border-0 object-contain select-none"
+          draggable={false}
+        />
       </div>
     </motion.div>
   );
 };
 
-const Blobs = () => (
-  <>
-    <div className="absolute -left-[21px] -top-[173px] z-1 w-[512px] h-[512px] bg-gray-0 opacity-50 blur-[256px] flex-none order-0 flex-grow-0" />
-    <div className="absolute -right-[226px] bottom-[158px] z-1 w-[512px] h-[512px] bg-[#F3F4FC] opacity-50 blur-[256px] sm:flex hidden flex-none order-1 flex-grow-0" />
-  </>
-);
+type HeroFeatureBadgePropsT = {
+  feature: HeroFeatureT;
+};
 
-const IDLE_DELAY_MS = 400;
-
-export const Hero = () => {
-  const pathname = usePathname();
-  const isDesktop = useMediaQuery('(min-width: 768px)');
-  const [showDecorations, setShowDecorations] = React.useState(false);
-
-  // Добавляем CSS fallback
-  React.useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = fallbackStyles;
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
-  // Декоративные анимации (gsap) подгружаем после первого кадра, чтобы не блокировать LCP
-  React.useEffect(() => {
-    const id =
-      typeof requestIdleCallback !== 'undefined'
-        ? requestIdleCallback(() => setShowDecorations(true), { timeout: IDLE_DELAY_MS })
-        : (setTimeout(() => setShowDecorations(true), IDLE_DELAY_MS) as unknown as number);
-
-    return () => {
-      if (typeof cancelIdleCallback !== 'undefined') {
-        cancelIdleCallback(id as number);
-      } else {
-        clearTimeout(id);
-      }
-    };
-  }, []);
-
-  const heroConfig = config[pathname] ?? config['/'];
-  const imageSrc = heroConfig?.image ?? config['/'].image;
-  const imageMobileSrc = heroConfig?.imageMobile ?? config['/'].imageMobile;
+const HeroFeatureBadge = ({ feature }: HeroFeatureBadgePropsT) => {
+  const Icon = FEATURE_ICONS[feature.id];
 
   return (
-    <section
-      data-theme="white"
-      className="relative flex flex-col items-center justify-center z-0 bg-gray-0 dark:bg-gray-100 h-100dvh min-h-100dvh w-full pt-28 px-6 pb-12 transition-all duration-700 ease-in-out"
+    <div
+      className={cn(
+        'inline-flex max-w-full items-center gap-3 rounded-[9.6px] px-3 py-2',
+        feature.pillClassName,
+      )}
     >
-      <div className="w-full max-w-400 sm:h-[calc(100vh-160px)] flex items-start justify-center">
-        <div className="relative overflow-hidden bg-brand-80 w-full h-full md:min-h-[560px] z-0 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] pt-8 md:pt-16 pb-8 sm:pb-0 px-4 sm:px-8 lg:px-12 2xl:px-[128px] flex flex-col items-center gap-8 sm:gap-16 md:gap-16">
-          <SnowAnimation />
-          <Blobs />
+      <span className="flex size-7 shrink-0 items-center justify-center">
+        <Icon className={cn('size-7 shrink-0 fill-current', feature.labelClassName)} />
+      </span>
+      <span
+        className={cn(
+          'text-m-base font-medium leading-5 sm:text-lg sm:leading-6',
+          feature.labelClassName,
+        )}
+      >
+        {feature.label}
+      </span>
+    </div>
+  );
+};
 
-          {showDecorations && (
-            <>
-              <motion.div
-                className="hidden md:block absolute top-0 left-6 w-[192px] h-[192px]"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-              >
-                <AnimationChem active={true} />
-              </motion.div>
+export const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
 
-              <motion.div
-                className="hidden md:block absolute top-0 right-6 w-[192px] h-[192px]"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-              >
-                <AnimationEng active={true} />
-              </motion.div>
+  const spring = shouldReduceMotion
+    ? { stiffness: 500, damping: 48, mass: 0.35 }
+    : { stiffness: 168, damping: 19, mass: 0.42 };
 
-              <motion.div
-                className="hidden md:block absolute top-72 right-16 w-[296px] h-[192px]"
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 4.5, ease: 'easeOut' }}
-              >
-                <AnimationHistory active={true} />
-              </motion.div>
+  const moveX = useSpring(rawX, spring);
+  const moveY = useSpring(rawY, spring);
 
-              <motion.div
-                className="hidden md:block absolute top-72 left-16 w-[192px] h-[192px]"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
-              >
-                <AnimationMath active={true} />
-              </motion.div>
-            </>
-          )}
+  const updatePointer = (e: PointerEvent<HTMLElement>) => {
+    if (shouldReduceMotion) {
+      return;
+    }
+    const el = sectionRef.current;
+    if (!el) {
+      return;
+    }
+    const r = el.getBoundingClientRect();
+    const w = r.width || 1;
+    const h = r.height || 1;
+    rawX.set((e.clientX - r.left) / w - 0.5);
+    rawY.set((e.clientY - r.top) / h - 0.5);
+  };
 
-          <div className="z-30 my-auto md:my-0 md:mb-0 flex flex-col items-center md:max-w-[1088px] max-w-[580px]">
-            <HeroText />
+  const resetPointer = () => {
+    rawX.set(0);
+    rawY.set(0);
+  };
 
-            {isDesktop ? (
-              <motion.div
-                className="flex flex-col items-center w-full"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
-              >
-                <Button
-                  asChild
-                  variant="ghost"
-                  size="l"
-                  className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)] hover:bg-transparent hover:text-gray-0 hover:border-gray-0 border-2 border-brand-0 transition-all duration-600"
-                >
-                  <Link href="https://app.sovlium.ru/signup">{heroConfig.button}</Link>
-                </Button>
-              </motion.div>
-            ) : (
-              <div className="flex flex-col items-center w-full">
-                <Button
-                  asChild
-                  variant="ghost"
-                  size="l"
-                  className="px-4 mt-8 md:mt-10 w-full sm:w-85 md:w-full max-w-77.75 sm:max-w-116 !text-base sm:!text-l-base md:!text-xl-base h-12 md:h-16 text-brand-80 sm:text-brand-100 md:text-brand-80 font-medium bg-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)] hover:bg-transparent hover:text-gray-0 hover:border-gray-0 border-2 border-brand-0 transition-all duration-600"
-                >
-                  <Link href="https://app.sovlium.ru/signup">{heroConfig.button}</Link>
-                </Button>
+  return (
+    <HeroParallaxContext.Provider value={{ moveX, moveY }}>
+      <section
+        ref={sectionRef}
+        data-theme="white"
+        onPointerMove={updatePointer}
+        onPointerLeave={resetPointer}
+        className="w-full overflow-x-clip bg-gray-0 pt-28 pb-14 md:pt-32 lg:pb-24 xl:pt-40"
+      >
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col items-stretch gap-10 px-4 md:gap-14 md:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+          <div className="flex min-w-0 flex-1 flex-col gap-10 lg:max-w-[650px] lg:justify-between lg:self-stretch xl:gap-14">
+            <div className="flex flex-col gap-10 lg:gap-14">
+              <div className="flex flex-col gap-6">
+                <h1 className="font-nevermind text-[28px] font-medium leading-8 tracking-[-0.01em] text-gray-100/90 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10">
+                  {HERO_CONTENT.title}
+                </h1>
+                <p className="font-manrope max-w-xl text-m-base font-medium leading-5 text-slate-800/60 sm:text-lg sm:leading-6">
+                  {HERO_CONTENT.subtitle}
+                </p>
               </div>
-            )}
 
-            {isDesktop ? (
-              <motion.span
-                className="text-gray-10 md:text-gray-20 text-xs-base md:text-s-base font-normal mt-2 text-center md:!leading-[1.3]"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {HERO_CONTENT.features.map((feature) => (
+                  <HeroFeatureBadge key={feature.id} feature={feature} />
+                ))}
+              </div>
+            </div>
+
+            <Button asChild variant="primary" className={buttonClassName}>
+              <Link
+                href={HERO_CONTENT.primaryButtonHref}
+                className="flex items-center justify-center gap-3"
               >
-                Платформа на бета-тестировании
-              </motion.span>
-            ) : (
-              <span className="text-gray-10 md:text-gray-20 text-xs-base md:text-s-base font-normal mt-2 text-center md:!leading-[1.3]">
-                Платформа на бета-тестировании
-              </span>
-            )}
+                {HERO_CONTENT.primaryButtonLabel}
+                <ArrowRight className="size-5 shrink-0 fill-gray-0" />
+              </Link>
+            </Button>
           </div>
 
-          {isDesktop ? (
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
-              className="self-end mr-[-32px] hidden sm:block md:hidden"
-            >
-              <Image
-                src={imageMobileSrc}
-                alt="screenshot of the site"
-                width={1344}
-                height={400}
-                sizes="(min-width: 768px) 0px, (min-width: 640px) 100vw, 0px"
-                priority={!isDesktop}
-              />
-            </motion.div>
-          ) : (
-            <div className="self-end mr-[-32px] hidden sm:block md:hidden">
-              <Image
-                src={imageMobileSrc}
-                alt="screenshot of the site"
-                width={1344}
-                height={400}
-                sizes="(min-width: 768px) 0px, (min-width: 640px) 100vw, 0px"
-                priority={!isDesktop}
-              />
-            </div>
-          )}
+          <div className="relative mx-auto hidden w-full max-w-[600px] shrink-0 overflow-visible md:mx-auto md:block lg:mx-0">
+            <div className="relative aspect-600/620 w-full overflow-visible">
+              <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
+                <img
+                  src={HERO_MAIN_COLLAGE_IMAGE.src}
+                  srcSet={HERO_MAIN_COLLAGE_IMAGE.srcSet}
+                  sizes={HERO_MAIN_COLLAGE_IMAGE.sizes}
+                  width={HERO_MAIN_COLLAGE_IMAGE.width}
+                  height={HERO_MAIN_COLLAGE_IMAGE.height}
+                  alt={HERO_CONTENT.heroImageAlt}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover object-center"
+                />
+              </div>
 
-          {isDesktop ? (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
-              className="hidden md:flex h-full justify-end items-end"
-            >
-              <Image
-                src={imageSrc}
-                alt="screenshot of the site"
-                width={1344}
-                height={756}
-                sizes="(max-width: 767px) 0px, 100vw"
-                priority={isDesktop}
-              />
-            </motion.div>
-          ) : (
-            <div className="hidden md:flex h-full justify-end items-end">
-              <Image
-                src={imageSrc}
-                alt="screenshot of the site"
-                width={1344}
-                height={756}
-                sizes="(max-width: 767px) 0px, 100vw"
-                priority={isDesktop}
-              />
+              {HERO_PARALLAX_LAYERS.map((layer) => (
+                <HeroParallaxLayer key={layer.src} layer={layer} />
+              ))}
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </HeroParallaxContext.Provider>
   );
 };
