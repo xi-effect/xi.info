@@ -183,7 +183,7 @@ export const TutorIdeasBlock = () => {
           <div
             ref={scrollRef}
             role="region"
-            aria-label={`${TUTOR_IDEAS_TITLE_FULL}. Прокрутите по горизонтали`}
+            aria-label={`${TUTOR_IDEAS_TITLE_FULL}. Прокрутите по\u00A0горизонтали`}
             onScroll={updateScrollHint}
             onWheel={dismissBounceHint}
             onTouchStart={dismissBounceHint}

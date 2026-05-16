@@ -186,7 +186,7 @@ export const CapabilitiesBlock = () => {
             <div
               ref={scrollRef}
               role="region"
-              aria-label={`${CAPABILITIES_TITLE_FULL}. Прокрутите по горизонтали, чтобы увидеть все возможности`}
+              aria-label={`${CAPABILITIES_TITLE_FULL}. Прокрутите по\u00A0горизонтали, чтобы увидеть все возможности`}
               onScroll={updateScrollHint}
               onWheel={dismissBounceHint}
               onTouchStart={dismissBounceHint}

@@ -86,12 +86,13 @@ export const HERO_MAIN_COLLAGE_IMAGE = {
 } as const;
 
 export const HERO_CONTENT = {
-  title: 'Все инструменты репетитора в одной платформе',
+  title: 'Все инструменты репетитора в\u00A0одной платформе',
   subtitle:
-    'Легко проводите онлайн-занятия с компьютера, телефона или планшета. Рутину мы берём на себя',
+    'Легко проводите онлайн-занятия с\u00A0компьютера, телефона или планшета. Рутину мы берём на\u00A0себя',
   primaryButtonLabel: 'Попробовать бесплатно',
   primaryButtonHref: 'https://app.sovlium.ru/signup',
-  heroImageAlt: 'Интерфейс платформы Sovlium: видеозвонок с онлайн-доской и элементами расписания',
+  heroImageAlt:
+    'Интерфейс платформы Sovlium: видеозвонок с\u00A0онлайн-доской и элементами расписания',
 
   features: [
     {
@@ -126,7 +127,7 @@ export const HERO_CONTENT = {
     },
     {
       id: 'notifications',
-      label: 'автоматические напоминания о занятиях и оплате',
+      label: 'автоматические напоминания о\u00A0занятиях и оплате',
       pillClassName: 'bg-orange-0',
       labelClassName: 'text-orange-80',
     },
