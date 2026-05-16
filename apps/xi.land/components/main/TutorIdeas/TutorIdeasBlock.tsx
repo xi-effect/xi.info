@@ -14,6 +14,20 @@ import {
   type TutorIdeaCardT,
 } from './tutorIdeas_content';
 
+const cardStaggerDelay = (index: number, reduceMotion: boolean | null) =>
+  reduceMotion ? 0 : 0.11 * index;
+
+const cardRevealTransition = (index: number, reduceMotion: boolean | null) =>
+  reduceMotion
+    ? { duration: 0 }
+    : {
+        type: 'spring' as const,
+        stiffness: 380,
+        damping: 28,
+        mass: 0.85,
+        delay: cardStaggerDelay(index, reduceMotion),
+      };
+
 type IdeaCardPropsT = {
   card: TutorIdeaCardT;
   className?: string;
@@ -123,8 +137,19 @@ export const TutorIdeasBlock = () => {
         </header>
 
         <div className="mx-auto hidden w-max max-w-full grid-cols-[repeat(3,max-content)] gap-7 md:grid md:justify-items-start">
-          {TUTOR_IDEA_CARDS.map((card) => (
-            <IdeaCard key={card.id} card={card} className="w-96 shrink-0" />
+          {TUTOR_IDEA_CARDS.map((card, index) => (
+            <motion.div
+              key={card.id}
+              className="w-96 shrink-0"
+              initial={
+                reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 32, scale: 0.96 }
+              }
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.28, margin: '0px 0px -48px 0px' }}
+              transition={cardRevealTransition(index, reduceMotion)}
+            >
+              <IdeaCard card={card} className="w-full" />
+            </motion.div>
           ))}
         </div>
 
@@ -167,12 +192,21 @@ export const TutorIdeasBlock = () => {
               '-mx-1 px-1 touch-pan-x',
             )}
           >
-            {TUTOR_IDEA_CARDS.map((card) => (
-              <IdeaCard
+            {TUTOR_IDEA_CARDS.map((card, index) => (
+              <motion.div
                 key={card.id}
-                card={card}
                 className="w-[min(calc(100vw-3rem),384px)] min-w-[min(calc(100vw-3rem),384px)] shrink-0 snap-start"
-              />
+                initial={
+                  reduceMotion
+                    ? { opacity: 1, y: 0, scale: 1 }
+                    : { opacity: 0, y: 28, scale: 0.96 }
+                }
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.35, margin: '0px 0px -40px 0px' }}
+                transition={cardRevealTransition(index, reduceMotion)}
+              >
+                <IdeaCard card={card} className="h-full w-full" />
+              </motion.div>
             ))}
           </div>
         </div>

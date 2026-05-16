@@ -74,13 +74,23 @@ export const HERO_PARALLAX_LAYERS: readonly HeroParallaxLayerT[] = [
   },
 ];
 
+/** Фон коллажа hero: при static export Next не режет картинки — свой srcset в Hero.tsx. */
+export const HERO_MAIN_COLLAGE_IMAGE = {
+  src: '/assets/main/Hero/main-hero-1-1200w.webp',
+  srcSet:
+    '/assets/main/Hero/main-hero-1-640w.webp 640w, /assets/main/Hero/main-hero-1-960w.webp 960w, /assets/main/Hero/main-hero-1-1200w.webp 1200w',
+  /** Колонка макета max-w-[600px]; для DPR≤2 достаточно 1200w. */
+  sizes: '600px',
+  width: 1200,
+  height: 1240,
+} as const;
+
 export const HERO_CONTENT = {
   title: 'Все инструменты репетитора в одной платформе',
   subtitle:
     'Легко проводите онлайн-занятия с компьютера, телефона или планшета. Рутину мы берём на себя',
   primaryButtonLabel: 'Попробовать бесплатно',
   primaryButtonHref: 'https://app.sovlium.ru/signup',
-  heroImageSrc: '/assets/main/Hero/main-hero-1.webp',
   heroImageAlt: 'Интерфейс платформы Sovlium: видеозвонок с онлайн-доской и элементами расписания',
 
   features: [

@@ -25,7 +25,7 @@ import {
 } from 'motion/react';
 
 import type { HeroFeatureIconIdT, HeroFeatureT, HeroParallaxLayerT } from './hero_content';
-import { HERO_CONTENT, HERO_PARALLAX_INTENSITY, HERO_PARALLAX_LAYERS } from './hero_content';
+import { HERO_CONTENT, HERO_MAIN_COLLAGE_IMAGE, HERO_PARALLAX_INTENSITY, HERO_PARALLAX_LAYERS } from './hero_content';
 
 const FEATURE_ICONS: Record<HeroFeatureIconIdT, ComponentType<{ className?: string }>> = {
   conference: Conference,
@@ -189,13 +189,16 @@ export const Hero = () => {
           <div className="relative mx-auto hidden w-full max-w-[600px] shrink-0 overflow-visible md:mx-auto md:block lg:mx-0">
             <div className="relative aspect-600/620 w-full overflow-visible">
               <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
-                <Image
-                  src={HERO_CONTENT.heroImageSrc}
+                <img
+                  src={HERO_MAIN_COLLAGE_IMAGE.src}
+                  srcSet={HERO_MAIN_COLLAGE_IMAGE.srcSet}
+                  sizes={HERO_MAIN_COLLAGE_IMAGE.sizes}
+                  width={HERO_MAIN_COLLAGE_IMAGE.width}
+                  height={HERO_MAIN_COLLAGE_IMAGE.height}
                   alt={HERO_CONTENT.heroImageAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 1023px) 100vw, 600px"
-                  className="object-cover object-center"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover object-center"
                 />
               </div>
 

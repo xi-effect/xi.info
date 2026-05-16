@@ -12,6 +12,20 @@ import {
   type CapabilityCardT,
 } from './capabilities_content';
 
+const cardStaggerDelay = (index: number, reduceMotion: boolean | null) =>
+  reduceMotion ? 0 : 0.11 * index;
+
+const cardRevealTransition = (index: number, reduceMotion: boolean | null) =>
+  reduceMotion
+    ? { duration: 0 }
+    : {
+        type: 'spring' as const,
+        stiffness: 380,
+        damping: 28,
+        mass: 0.85,
+        delay: cardStaggerDelay(index, reduceMotion),
+      };
+
 type CapabilityCardPropsT = {
   card: CapabilityCardT;
   className?: string;
@@ -126,8 +140,19 @@ export const CapabilitiesBlock = () => {
           </h2>
 
           <div className="hidden w-full gap-7 md:grid md:grid-cols-3">
-            {CAPABILITY_CARDS.map((card) => (
-              <CapabilityCard key={card.id} card={card} className="min-w-0 w-full" />
+            {CAPABILITY_CARDS.map((card, index) => (
+              <motion.div
+                key={card.id}
+                className="min-w-0 w-full"
+                initial={
+                  reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 32, scale: 0.96 }
+                }
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.28, margin: '0px 0px -48px 0px' }}
+                transition={cardRevealTransition(index, reduceMotion)}
+              >
+                <CapabilityCard card={card} className="min-w-0 w-full" />
+              </motion.div>
             ))}
           </div>
 
@@ -170,12 +195,21 @@ export const CapabilitiesBlock = () => {
                 '-mx-1 px-1 touch-pan-x',
               )}
             >
-              {CAPABILITY_CARDS.map((card) => (
-                <CapabilityCard
+              {CAPABILITY_CARDS.map((card, index) => (
+                <motion.div
                   key={card.id}
-                  card={card}
                   className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start"
-                />
+                  initial={
+                    reduceMotion
+                      ? { opacity: 1, y: 0, scale: 1 }
+                      : { opacity: 0, y: 28, scale: 0.96 }
+                  }
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.35, margin: '0px 0px -40px 0px' }}
+                  transition={cardRevealTransition(index, reduceMotion)}
+                >
+                  <CapabilityCard card={card} className="h-full w-full" />
+                </motion.div>
               ))}
             </div>
           </div>
