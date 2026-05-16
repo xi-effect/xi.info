@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { CapabilitiesBlock, TutorIdeasBlock } from 'components/main';
+import { CapabilitiesBlock, DevicesBlock, TutorIdeasBlock } from 'components/main';
 
 import { Metadata } from 'next';
 import Script from 'next/script';
@@ -92,6 +92,7 @@ export default function MainPage() {
       <main>
         <CapabilitiesBlock />
         <TutorIdeasBlock />
+        <DevicesBlock />
         <Faq />
         <Telegram />
         <section className="sr-only">
