@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
@@ -59,5 +57,15 @@
   .animate-gradient-text {
     animation: var(--animate-gradient-text);
     background-size: 200% auto;
+  }
+
+  .font-nevermind {
+    font-family: var(--font-never-mind), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  body {
+    font-family: ui-sans-serif, system-ui, sans-serif;
   }
 }

@@ -50,7 +50,7 @@ export const DevicesBlock = () => {
   return (
     <section
       data-theme="white"
-      className="w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
+      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-10 overflow-hidden rounded-[28px] bg-violet-50 p-6 dark:bg-violet-950/25 md:rounded-[48px] md:p-14">
         <header className="flex flex-col gap-6">

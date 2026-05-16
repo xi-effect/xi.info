@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Header } from 'components/Header';
@@ -99,17 +98,41 @@ const markerHand = localFont({
   fallback: ['cursive'],
 });
 
-const inter = Inter({
-  weight: ['400', '500', '600', '700'],
-  style: ['normal'],
-  subsets: ['latin', 'cyrillic'],
+const neverMind = localFont({
+  src: [
+    {
+      path: '../public/fonts/NeverMind-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/NeverMind-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/NeverMind-DemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/NeverMind-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-never-mind',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning className={`${inter.variable} ${markerHand.variable}`}>
+    <html
+      lang="ru"
+      suppressHydrationWarning
+      className={`${neverMind.variable} ${markerHand.variable}`}
+    >
       <body>
         {process.env.NODE_ENV === 'development' ? (
           <></>

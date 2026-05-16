@@ -118,7 +118,7 @@ export const CapabilitiesBlock = () => {
     <section
       ref={sectionRef}
       data-theme="white"
-      className="w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
+      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
     >
       <div className="mx-auto max-w-[1360px] rounded-[28px] bg-violet-50 p-6 dark:bg-gray-90 md:rounded-[48px] md:p-14">
         <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-10 md:gap-14">

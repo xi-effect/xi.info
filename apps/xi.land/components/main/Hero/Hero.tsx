@@ -160,7 +160,7 @@ export const Hero = () => {
           <div className="flex min-w-0 flex-1 flex-col gap-10 lg:max-w-[650px] lg:justify-between lg:self-stretch xl:gap-14">
             <div className="flex flex-col gap-10 lg:gap-14">
               <div className="flex flex-col gap-6">
-                <h1 className="text-[28px] font-medium leading-8 tracking-[-0.01em] text-gray-100/90 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10">
+                <h1 className="font-nevermind text-[28px] font-medium leading-8 tracking-[-0.01em] text-gray-100/90 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10">
                   {HERO_CONTENT.title}
                 </h1>
                 <p className="max-w-xl text-m-base font-medium leading-5 text-slate-800/60 sm:text-lg sm:leading-6">
