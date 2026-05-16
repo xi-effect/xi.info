@@ -113,7 +113,7 @@ export const TutorIdeasBlock = () => {
       className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
     >
       <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-10 md:gap-14">
-        <header className="flex flex-col gap-6 text-left md:items-center md:text-center">
+        <header className="flex flex-col gap-6 text-balance text-center md:items-center">
           <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 md:text-4xl md:leading-10 dark:text-gray-0">
             {TUTOR_IDEAS_TITLE}
           </h2>
@@ -122,7 +122,7 @@ export const TutorIdeasBlock = () => {
           </p>
         </header>
 
-        <div className="hidden md:flex md:flex-wrap md:justify-start md:gap-7">
+        <div className="mx-auto hidden w-max max-w-full grid-cols-[repeat(3,max-content)] gap-7 md:grid md:justify-items-start">
           {TUTOR_IDEA_CARDS.map((card) => (
             <IdeaCard key={card.id} card={card} className="w-96 shrink-0" />
           ))}

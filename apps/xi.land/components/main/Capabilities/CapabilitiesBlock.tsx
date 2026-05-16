@@ -24,36 +24,34 @@ const CapabilityCard = ({ card, className }: CapabilityCardPropsT) => {
   return (
     <article
       className={cn(
-        'flex min-h-[176px] flex-col gap-2.5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
-        'md:h-44 md:min-h-[176px]',
+        'flex min-h-[176px] flex-col gap-5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
+        'md:min-h-[12rem]',
         className,
       )}
     >
-      <div className="flex min-h-0 flex-1 flex-col justify-between gap-2.5">
-        <div
-          className={cn(
-            'flex shrink-0 items-center',
-            showBadgeRow ? 'justify-between' : 'justify-start',
-          )}
-        >
-          <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden">
-            <Icon className="size-8 shrink-0 fill-fuchsia-500 dark:fill-fuchsia-400" aria-hidden />
+      <div
+        className={cn(
+          'flex shrink-0 items-center',
+          showBadgeRow ? 'justify-between' : 'justify-start',
+        )}
+      >
+        <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden">
+          <Icon className="size-8 shrink-0 fill-fuchsia-500 dark:fill-fuchsia-400" aria-hidden />
+        </span>
+        {badge === 'new' ? (
+          <span className="shrink-0 rounded-full bg-lime-300 px-4 py-1.5 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100">
+            новинка
           </span>
-          {badge === 'new' ? (
-            <span className="shrink-0 rounded-full bg-lime-300 px-4 py-1.5 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100">
-              новинка
-            </span>
-          ) : null}
-          {badge === 'soon' ? (
-            <span className="shrink-0 rounded-full bg-violet-50 px-4 py-1.5 text-sm font-semibold leading-5 text-slate-600 dark:bg-violet-950/40 dark:text-slate-300">
-              скоро будет
-            </span>
-          ) : null}
-        </div>
-        <p className="text-pretty text-lg font-medium leading-6 text-gray-900/90 dark:text-gray-0/90">
-          {text}
-        </p>
+        ) : null}
+        {badge === 'soon' ? (
+          <span className="shrink-0 rounded-full bg-violet-50 px-4 py-1.5 text-sm font-semibold leading-5 text-slate-600 dark:bg-violet-950/40 dark:text-slate-300">
+            скоро будет
+          </span>
+        ) : null}
       </div>
+      <p className="font-manrope text-pretty text-base font-normal leading-7 text-gray-900/75 dark:text-gray-0/80 md:text-lg md:leading-relaxed">
+        {text}
+      </p>
     </article>
   );
 };
@@ -120,16 +118,16 @@ export const CapabilitiesBlock = () => {
       data-theme="white"
       className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14 dark:bg-gray-100"
     >
-      <div className="mx-auto max-w-[1360px] rounded-[28px] bg-violet-50 p-6 dark:bg-gray-90 md:rounded-[48px] md:p-14">
-        <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-10 md:gap-14">
+      <div className="mx-auto w-full max-w-[1440px] rounded-[28px] bg-violet-50 p-6 dark:bg-gray-90 md:rounded-[48px] md:p-14">
+        <div className="flex w-full flex-col gap-10 md:gap-14">
           <h2 className="max-w-[920px] text-3xl font-medium leading-9 tracking-tight text-gray-900/90 dark:text-gray-0/90 sm:text-4xl sm:leading-10">
             <span className="block">{CAPABILITIES_HEADING.line1}</span>
             <span className="block">{CAPABILITIES_HEADING.line2}</span>
           </h2>
 
-          <div className="hidden md:flex md:flex-wrap md:justify-start md:gap-7">
+          <div className="hidden w-full gap-7 md:grid md:grid-cols-3">
             {CAPABILITY_CARDS.map((card) => (
-              <CapabilityCard key={card.id} card={card} className="w-96 shrink-0" />
+              <CapabilityCard key={card.id} card={card} className="min-w-0 w-full" />
             ))}
           </div>
 
