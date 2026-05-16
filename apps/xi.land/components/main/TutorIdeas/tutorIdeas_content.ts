@@ -28,8 +28,8 @@ export const TUTOR_IDEA_CARDS: readonly TutorIdeaCardT[] = [
     title: 'Аудиофайлы на доске',
     imageSrc: '/assets/main/Features/main-features-audio.webp',
     imageAlt: 'Аудиофайлы на онлайн-доске',
-    bgClassName: 'bg-indigo-500',
-    badgeTextClassName: 'text-blue-900',
+    bgClassName: 'bg-brand-80',
+    badgeTextClassName: 'text-brand-80',
   },
   {
     id: 'chat',

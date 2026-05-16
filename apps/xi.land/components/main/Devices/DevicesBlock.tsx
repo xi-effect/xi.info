@@ -85,7 +85,7 @@ export const DevicesBlock = () => {
               'text-gray-900/90 hover:text-gray-900 dark:text-gray-0/90 dark:hover:text-gray-0',
               'data-[state=active]:font-semibold data-[state=active]:text-white dark:data-[state=active]:text-white',
             )}
-            indicatorClassName="rounded-2xl border-0 bg-indigo-700 shadow-sm dark:bg-indigo-600"
+            indicatorClassName="rounded-2xl border-0 bg-brand-80 shadow-sm dark:bg-brand-80"
           />
 
           <DeviceVisual

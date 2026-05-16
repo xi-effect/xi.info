@@ -100,10 +100,10 @@ const FloatingServiceIcon = ({
   );
 };
 
-const IndigoBadge = ({ children, className }: { children: ReactNode; className?: string }) => (
+const BrandBadge = ({ children, className }: { children: ReactNode; className?: string }) => (
   <div
     className={cn(
-      'flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-indigo-700 text-white',
+      'flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-brand-80 text-brand-0',
       className,
     )}
   >
@@ -122,7 +122,7 @@ const TextColumn = ({
   iconBadgeClassName?: string;
 }) => (
   <div className="flex w-full min-w-0 max-w-[610px] flex-col gap-10 lg:h-full lg:max-h-[340px] lg:justify-center lg:gap-5">
-    <IndigoBadge className={iconBadgeClassName}>{icon}</IndigoBadge>
+    <BrandBadge className={iconBadgeClassName}>{icon}</BrandBadge>
     <div className="flex max-w-[500px] flex-col gap-4">
       <h3 className="font-nevermind text-3xl font-medium leading-10 text-neutral-800 dark:text-neutral-100">
         {row.titleLines.map((line) => (
@@ -263,7 +263,7 @@ export const MessagesBlock = () => {
           <div className="order-2 min-h-0 lg:col-start-1 lg:row-start-1">
             <TextColumn
               row={row1}
-              icon={<LinkIcon className="size-12 shrink-0 fill-white" aria-hidden />}
+              icon={<LinkIcon className="size-12 shrink-0 fill-brand-0" aria-hidden />}
             />
           </div>
         </article>
@@ -301,7 +301,7 @@ export const MessagesBlock = () => {
           <div className="order-2 min-h-0 lg:col-start-1 lg:row-start-1">
             <TextColumn
               row={row3}
-              icon={<Account className="size-12 shrink-0 fill-white" aria-hidden />}
+              icon={<Account className="size-12 shrink-0 fill-brand-0" aria-hidden />}
             />
           </div>
         </article>

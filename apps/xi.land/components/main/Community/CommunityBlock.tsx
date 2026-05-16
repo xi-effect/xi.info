@@ -14,7 +14,7 @@ import {
 const communityLinkClass =
   'inline-flex w-full items-center justify-center gap-3 rounded-xl px-7 py-3.5 text-lg font-semibold leading-6 no-underline transition-opacity hover:opacity-90 sm:w-auto';
 
-const CtaIconVk = () => <ArrowRight className="size-5 shrink-0 fill-gray-0" aria-hidden />;
+const CtaIconVk = () => <ArrowRight className="size-5 shrink-0 fill-brand-0" aria-hidden />;
 
 const CtaIconTelegram = () => <ArrowRight className="size-5 shrink-0 fill-gray-0" aria-hidden />;
 
@@ -69,7 +69,7 @@ export const CommunityBlock = () => {
               href={COMMUNITY_VK_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(communityLinkClass, 'bg-indigo-700 text-white dark:bg-indigo-600')}
+              className={cn(communityLinkClass, 'bg-brand-80 text-brand-0 dark:bg-brand-80')}
             >
               Вконтакте
               <CtaIconVk />
