@@ -114,14 +114,14 @@ export const Header = () => {
               <Button
                 asChild
                 variant="secondary"
-                className="hidden rounded-2xl border-0 bg-brand-0 px-4 py-2.5 text-sm text-brand-100 hover:bg-brand-20 md:inline-flex lg:text-m-base dark:text-brand-80"
+                className="min-w-[96px] hidden rounded-xl border-0 bg-brand-0 px-4 py-2.5 text-sm text-brand-100 hover:text-gray-0 hover:bg-brand-60 md:inline-flex lg:text-m-base"
               >
                 <Link href="https://app.sovlium.ru/signin">Войти</Link>
               </Button>
               <Button
                 asChild
                 variant="primary"
-                className="hidden rounded-2xl border-0 px-4 py-2.5 text-sm md:inline-flex lg:text-m-base"
+                className="hidden rounded-xl border-0 px-4 py-2.5 text-sm md:inline-flex lg:text-m-base"
               >
                 <Link
                   href="https://app.sovlium.ru/signup"

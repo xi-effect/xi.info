@@ -25,7 +25,12 @@ import {
 } from 'motion/react';
 
 import type { HeroFeatureIconIdT, HeroFeatureT, HeroParallaxLayerT } from './hero_content';
-import { HERO_CONTENT, HERO_MAIN_COLLAGE_IMAGE, HERO_PARALLAX_INTENSITY, HERO_PARALLAX_LAYERS } from './hero_content';
+import {
+  HERO_CONTENT,
+  HERO_MAIN_COLLAGE_IMAGE,
+  HERO_PARALLAX_INTENSITY,
+  HERO_PARALLAX_LAYERS,
+} from './hero_content';
 
 const FEATURE_ICONS: Record<HeroFeatureIconIdT, ComponentType<{ className?: string }>> = {
   conference: Conference,
@@ -38,7 +43,7 @@ const FEATURE_ICONS: Record<HeroFeatureIconIdT, ComponentType<{ className?: stri
 };
 
 const buttonClassName =
-  'inline-flex h-auto min-h-12 w-full shrink-0 rounded-2xl border-0 px-7 py-3.5 text-lg font-semibold leading-6 hover:border-0 sm:w-auto';
+  'inline-flex h-auto min-h-12 w-full shrink-0 self-start rounded-2xl border-0 px-7 py-3.5 text-lg font-semibold leading-6 hover:border-0 sm:w-auto lg:max-w-[304px]';
 
 type HeroParallaxContextValueT = {
   moveX: MotionValue<number>;
