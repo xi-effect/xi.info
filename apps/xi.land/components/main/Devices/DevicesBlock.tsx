@@ -60,10 +60,10 @@ export const DevicesBlock = () => {
           <h2 className="hidden text-4xl font-medium leading-10 tracking-tight text-gray-900 lg:block dark:text-gray-0">
             {DEVICES_HEADING_DESKTOP}
           </h2>
-          <p className="text-lg font-medium leading-6 text-gray-900/80 lg:hidden dark:text-gray-0/80">
+          <p className="font-manrope text-lg font-medium leading-6 text-gray-900/80 lg:hidden dark:text-gray-0/80">
             {DEVICES_SUB_MOBILE}
           </p>
-          <p className="hidden text-lg font-medium leading-6 text-gray-900/80 lg:block dark:text-gray-0/80">
+          <p className="font-manrope hidden text-lg font-medium leading-6 text-gray-900/80 lg:block dark:text-gray-0/80">
             {DEVICES_SUB_DESKTOP}
           </p>
         </header>
@@ -113,10 +113,10 @@ export const DevicesBlock = () => {
                 </span>
               ))}
             </h3>
-            <p className="text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:hidden dark:text-neutral-200/70">
+            <p className="font-manrope text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:hidden dark:text-neutral-200/70">
               {variant.descriptionMobile}
             </p>
-            <p className="hidden text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:block dark:text-neutral-200/70">
+            <p className="font-manrope hidden text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:block dark:text-neutral-200/70">
               {variant.description}
             </p>
           </div>

@@ -117,7 +117,7 @@ export const TutorIdeasBlock = () => {
           <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 md:text-4xl md:leading-10 dark:text-gray-0">
             {TUTOR_IDEAS_TITLE}
           </h2>
-          <p className="text-lg font-medium leading-6 text-gray-900/90 dark:text-gray-0/90">
+          <p className="font-manrope text-lg font-medium leading-6 text-gray-900/90 dark:text-gray-0/90">
             {TUTOR_IDEAS_SUBTITLE}
           </p>
         </header>

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Manrope } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Header } from 'components/Header';
@@ -98,6 +99,13 @@ const markerHand = localFont({
   fallback: ['cursive'],
 });
 
+const manrope = Manrope({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  variable: '--font-manrope',
+});
+
 const neverMind = localFont({
   src: [
     {
@@ -131,7 +139,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="ru"
       suppressHydrationWarning
-      className={`${neverMind.variable} ${markerHand.variable}`}
+      className={`${neverMind.variable} ${markerHand.variable} ${manrope.variable}`}
     >
       <body>
         {process.env.NODE_ENV === 'development' ? (

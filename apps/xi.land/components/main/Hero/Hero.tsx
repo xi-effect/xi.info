@@ -163,7 +163,7 @@ export const Hero = () => {
                 <h1 className="font-nevermind text-[28px] font-medium leading-8 tracking-[-0.01em] text-gray-100/90 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10">
                   {HERO_CONTENT.title}
                 </h1>
-                <p className="max-w-xl text-m-base font-medium leading-5 text-slate-800/60 sm:text-lg sm:leading-6">
+                <p className="font-manrope max-w-xl text-m-base font-medium leading-5 text-slate-800/60 sm:text-lg sm:leading-6">
                   {HERO_CONTENT.subtitle}
                 </p>
               </div>

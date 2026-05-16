@@ -62,6 +62,10 @@
   .font-nevermind {
     font-family: var(--font-never-mind), ui-sans-serif, system-ui, sans-serif;
   }
+
+  .font-manrope {
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  }
 }
 
 @layer base {
