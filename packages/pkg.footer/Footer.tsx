@@ -58,7 +58,7 @@ const sections: Section[] = [
     links: [
       { link: '/about', title: 'О нас' },
       { link: '/blog', title: 'Блог' },
-      { link: '/legal/terms', title: 'Документы' },
+      { link: '/legal', title: 'Документы' },
       { link: 'https://vacancy.sovlium.ru/', title: 'Вакансии' },
     ],
   },
@@ -69,6 +69,13 @@ const sections: Section[] = [
       { link: 'https://t.me/sovlium', title: 'Telegram' },
     ],
   },
+];
+
+const legalDocumentLinks: SectionLink[] = [
+  { link: '/legal/terms', title: 'Пользовательское соглашение' },
+  { link: '/legal/privacy', title: 'Политика конфиденциальности' },
+  { link: '/legal/consent', title: 'Согласие на обработку ПДн' },
+  { link: '/legal/marketing-consent', title: 'Согласие на рекламные сообщения' },
 ];
 
 const email = 'support@sovlium.ru';
@@ -98,6 +105,9 @@ const Footer = ({
   const emailLinkClass = themeAwareContent
     ? 'text-gray-90 decoration-gray-90 dark:text-gray-60 dark:xl:text-gray-0 dark:hover:text-gray-0 dark:hover:decoration-gray-0 hover:text-gray-90 hover:decoration-gray-90 xl:text-[16px]'
     : 'text-gray-60 xl:text-gray-0 hover:text-gray-0 hover:decoration-gray-0 xl:text-[16px]';
+  const legalDocLinkClass = themeAwareContent
+    ? 'no-underline text-xxs-base text-gray-80 dark:text-gray-60 hover:text-gray-100 dark:hover:text-gray-40'
+    : 'no-underline text-xxs-base text-gray-60 hover:text-gray-40';
 
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
@@ -175,6 +185,18 @@ const Footer = ({
               <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
                 {footerSections.map(renderSection)}
               </div>
+              <div
+                className={
+                  themeAwareContent
+                    ? 'text-xxs-base xs:text-xs-base text-gray-90 dark:text-gray-60 leading-relaxed'
+                    : 'text-xxs-base xs:text-xs-base text-gray-60 leading-relaxed'
+                }
+              >
+                <p className="m-0">
+                  Индивидуальный предприниматель Букшев Игорь Владимирович · ОГРНИП 326784700178496
+                  · ИНН 781102952900
+                </p>
+              </div>
               <div className={bottomRowClass}>
                 <span className="2xl:w-[330px]">&copy; sovlium с 2025 года</span>
                 <span className="xs:order-1 2xl:w-[330px]">
@@ -190,6 +212,22 @@ const Footer = ({
                 </span>
                 <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
               </div>
+              <nav
+                aria-label="Юридические документы"
+                className="border-gray-80/30 flex flex-wrap gap-x-4 gap-y-2 border-t pt-6"
+              >
+                {legalDocumentLinks.map((link) => (
+                  <Link
+                    key={link.link}
+                    className={legalDocLinkClass}
+                    variant="hover"
+                    href={link.link}
+                    size="s"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </footer>

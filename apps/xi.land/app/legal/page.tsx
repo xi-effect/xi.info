@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Юридические документы | Sovlium',
   description:
-    'Условия использования, политика конфиденциальности и согласие на обработку персональных данных платформы Sovlium.',
+    'Условия использования, политика конфиденциальности, согласие на обработку персональных данных и согласие на рекламные сообщения платформы Sovlium.',
   openGraph: {
     title: 'Юридические документы | Sovlium',
     description:
-      'Условия использования, политика конфиденциальности и согласие на обработку персональных данных платформы Sovlium.',
+      'Условия использования, политика конфиденциальности, согласие на обработку персональных данных и согласие на рекламные сообщения платформы Sovlium.',
     url: 'https://sovlium.ru/legal',
     siteName: 'Sovlium',
     images: [
@@ -29,7 +29,7 @@ export default function LegalPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Юридические документы</h1>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           <Link
             href="/legal/terms"
             className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
@@ -62,6 +62,19 @@ export default function LegalPage() {
             <p className="text-gray-600">
               Ваше согласие на обработку персональных данных в соответствии с российским
               законодательством.
+            </p>
+          </Link>
+
+          <Link
+            href="/legal/marketing-consent"
+            className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+          >
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
+              Согласие на рекламные сообщения
+            </h2>
+            <p className="text-gray-600">
+              Добровольное согласие на получение рекламных и информационных сообщений о сервисе
+              Sovlium.
             </p>
           </Link>
         </div>

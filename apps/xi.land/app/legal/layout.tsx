@@ -48,6 +48,16 @@ const LegalLayout = ({ children }: LegalLayoutProps) => {
             >
               Согласие на обработку данных
             </Link>
+            <Link
+              href="/legal/marketing-consent"
+              className={`transition-colors hover:underline ${
+                isActive('/legal/marketing-consent')
+                  ? 'text-gray-900 font-semibold'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Согласие на рассылки
+            </Link>
           </div>
         </nav>
 
