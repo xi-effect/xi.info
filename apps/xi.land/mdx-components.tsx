@@ -18,15 +18,15 @@ const P = ({ children }: PropsWithChildren) => (
 );
 
 const Li = ({ children }: PropsWithChildren) => (
-  <li className="text-gray-700 mb-2 leading-relaxed">{children}</li>
+  <li className="text-gray-700 leading-relaxed [&>p]:my-0">{children}</li>
 );
 
 const Ul = ({ children }: PropsWithChildren) => (
-  <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
+  <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
 );
 
 const Ol = ({ children }: PropsWithChildren) => (
-  <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
+  <ol className="mb-4 list-decimal space-y-2 pl-6">{children}</ol>
 );
 
 const Strong = ({ children }: PropsWithChildren) => (
