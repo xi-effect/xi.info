@@ -85,7 +85,7 @@ export default function LegalPage() {
             Если у вас есть вопросы по юридическим документам, обращайтесь к нам:
           </p>
           <div className="space-y-2 text-blue-800">
-            <p>📧 Email: legal@sovlium.ru</p>
+            <p>📧 Email: support@sovlium.ru</p>
           </div>
         </div>
       </div>
