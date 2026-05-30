@@ -196,20 +196,12 @@ export const CapabilitiesBlock = () => {
               )}
             >
               {CAPABILITY_CARDS.map((card, index) => (
-                <motion.div
+                <div
                   key={card.id}
                   className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start"
-                  initial={
-                    reduceMotion
-                      ? { opacity: 1, y: 0, scale: 1 }
-                      : { opacity: 0, y: 28, scale: 0.96 }
-                  }
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.35, margin: '0px 0px -40px 0px' }}
-                  transition={cardRevealTransition(index, reduceMotion)}
                 >
                   <CapabilityCard card={card} className="h-full w-full" />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
