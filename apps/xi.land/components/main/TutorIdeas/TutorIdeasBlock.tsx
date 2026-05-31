@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ChevronSmallRight } from '@xipkg/icons';
 import { cn } from '@xipkg/utils';
 import { motion, useReducedMotion } from 'motion/react';
+import { ScrollArea } from '@xipkg/scrollarea';
 
 import {
   TUTOR_IDEA_CARDS,
@@ -162,45 +163,26 @@ export const TutorIdeasBlock = () => {
             aria-hidden
           />
 
-          <motion.div
-            className={cn(
-              'pointer-events-none absolute bottom-3 right-1 z-20 flex items-center justify-center rounded-full bg-white/90 p-1.5 shadow-md ring-1 ring-gray-900/5 transition-opacity duration-300 dark:bg-gray-90/95 dark:ring-gray-0/10',
-              !(fadeRightEdge && showBounceHint) && 'opacity-0',
-            )}
-            animate={
-              reduceMotion || !fadeRightEdge || !showBounceHint ? undefined : { x: [0, 6, 0] }
-            }
-            transition={
-              reduceMotion || !fadeRightEdge || !showBounceHint
-                ? undefined
-                : { repeat: Infinity, duration: 2.1, ease: 'easeInOut' }
-            }
-            aria-hidden
-          >
-            <ChevronSmallRight className="size-5 shrink-0 fill-brand-100 dark:fill-brand-20" />
-          </motion.div>
-
-          <div
-            ref={scrollRef}
-            role="region"
-            aria-label={`${TUTOR_IDEAS_TITLE_FULL}. Прокрутите по\u00A0горизонтали`}
-            onScroll={updateScrollHint}
-            onWheel={dismissBounceHint}
-            onTouchStart={dismissBounceHint}
-            className={cn(
-              'flex snap-x snap-mandatory gap-7 overflow-x-auto overscroll-x-contain pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-              '-mx-1 px-1 touch-pan-x',
-            )}
-          >
-            {TUTOR_IDEA_CARDS.map((card, index) => (
-              <motion.div
-                key={card.id}
-                className="w-[min(calc(100vw-3rem),384px)] min-w-[min(calc(100vw-3rem),384px)] shrink-0 snap-start"
-              >
-                <IdeaCard card={card} className="h-full w-full" />
-              </motion.div>
-            ))}
-          </div>
+          <ScrollArea scrollBarProps={{ orientation: 'horizontal', forceMount: true }}>
+            <div
+              ref={scrollRef}
+              role="region"
+              aria-label={`${TUTOR_IDEAS_TITLE_FULL}. Прокрутите по\u00A0горизонтали`}
+              onScroll={updateScrollHint}
+              onWheel={dismissBounceHint}
+              onTouchStart={dismissBounceHint}
+              className={cn('flex snap-x snap-mandatory gap-7  pb-1', '-ml-1 px-1 touch-pan-x')}
+            >
+              {TUTOR_IDEA_CARDS.map((card, index) => (
+                <div
+                  key={card.id}
+                  className="w-[min(calc(100vw-3rem),384px)] min-w-[min(calc(100vw-3rem),384px)] shrink-0 snap-start"
+                >
+                  <IdeaCard card={card} className="h-full w-full" />
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
         </div>
       </div>
     </section>

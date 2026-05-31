@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ChevronSmallRight } from '@xipkg/icons';
 import { cn } from '@xipkg/utils';
 import { motion, useReducedMotion } from 'motion/react';
+import { ScrollArea } from '@xipkg/scrollarea';
 
 import {
   CAPABILITIES_HEADING,
@@ -165,45 +166,26 @@ export const CapabilitiesBlock = () => {
               aria-hidden
             />
 
-            <motion.div
-              className={cn(
-                'pointer-events-none absolute bottom-3 right-1 z-20 flex items-center justify-center rounded-full bg-white/90 p-1.5 shadow-md ring-1 ring-gray-900/5 transition-opacity duration-300 dark:bg-gray-90/95 dark:ring-gray-0/10',
-                !(fadeRightEdge && showBounceHint) && 'opacity-0',
-              )}
-              animate={
-                reduceMotion || !fadeRightEdge || !showBounceHint ? undefined : { x: [0, 6, 0] }
-              }
-              transition={
-                reduceMotion || !fadeRightEdge || !showBounceHint
-                  ? undefined
-                  : { repeat: Infinity, duration: 2.1, ease: 'easeInOut' }
-              }
-              aria-hidden
-            >
-              <ChevronSmallRight className="size-5 shrink-0 fill-fuchsia-600 dark:fill-fuchsia-400" />
-            </motion.div>
-
-            <div
-              ref={scrollRef}
-              role="region"
-              aria-label={`${CAPABILITIES_TITLE_FULL}. Прокрутите по\u00A0горизонтали, чтобы увидеть все возможности`}
-              onScroll={updateScrollHint}
-              onWheel={dismissBounceHint}
-              onTouchStart={dismissBounceHint}
-              className={cn(
-                'flex snap-x snap-mandatory gap-7 overflow-x-auto overscroll-x-contain pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-                '-mx-1 px-1 touch-pan-x',
-              )}
-            >
-              {CAPABILITY_CARDS.map((card, index) => (
-                <div
-                  key={card.id}
-                  className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start"
-                >
-                  <CapabilityCard card={card} className="h-full w-full" />
-                </div>
-              ))}
-            </div>
+            <ScrollArea scrollBarProps={{ orientation: 'horizontal', forceMount: true }}>
+              <div
+                ref={scrollRef}
+                role="region"
+                aria-label={`${CAPABILITIES_TITLE_FULL}. Прокрутите по\u00A0горизонтали, чтобы увидеть все возможности`}
+                onScroll={updateScrollHint}
+                onWheel={dismissBounceHint}
+                onTouchStart={dismissBounceHint}
+                className={cn('flex snap-x snap-mandatory gap-7 pb-1', '-ml-1 px-1 touch-pan-x')}
+              >
+                {CAPABILITY_CARDS.map((card, index) => (
+                  <div
+                    key={card.id}
+                    className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start"
+                  >
+                    <CapabilityCard card={card} className="h-full w-full" />
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
           </div>
         </div>
       </div>
