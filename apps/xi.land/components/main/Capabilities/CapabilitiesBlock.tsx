@@ -174,7 +174,11 @@ export const CapabilitiesBlock = () => {
                 onScroll={updateScrollHint}
                 onWheel={dismissBounceHint}
                 onTouchStart={dismissBounceHint}
-                className={cn('flex snap-x snap-mandatory gap-7 pb-1', '-ml-1 px-1 touch-pan-x')}
+                className={cn(
+                  'flex snap-x snap-mandatory gap-7 pb-1',
+                  '-ml-1 px-1 touch-pan-x',
+                  'mb-3',
+                )}
               >
                 {CAPABILITY_CARDS.map((card, index) => (
                   <div
