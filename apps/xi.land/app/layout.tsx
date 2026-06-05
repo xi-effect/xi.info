@@ -172,7 +172,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Toaster />
         <Header />
         {children}
-        <Footer />
+        <Footer
+          mobileBackgroundImageUrl="/assets/footer/footerImageMobile.webp"
+          backgroundImageUrl="/assets/footer/footerImage.webp"
+        />
       </body>
     </html>
   );
