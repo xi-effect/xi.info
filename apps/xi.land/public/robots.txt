@@ -9,3 +9,6 @@ Host: https://sovlium.ru
 
 # Sitemap
 Sitemap: https://sovlium.ru/sitemap.xml
+
+# RSS
+# https://sovlium.ru/rss.xml

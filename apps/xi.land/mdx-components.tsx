@@ -1,5 +1,31 @@
 import type { MDXComponents } from 'mdx/types';
+import Link from 'next/link';
 import { PropsWithChildren } from 'react';
+
+type AnchorProps = PropsWithChildren<{
+  href?: string;
+}>;
+
+const A = ({ href, children }: AnchorProps) => {
+  const className =
+    'font-medium text-brand-80 underline underline-offset-4 transition-colors hover:text-brand-100';
+
+  if (href?.startsWith('/')) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
+};
+
+const Hr = () => <hr className="my-8 border-gray-10" />;
 
 const H1 = ({ children }: PropsWithChildren) => (
   <h1 className="text-3xl font-bold text-gray-900 mb-6 mt-8 first:mt-0">{children}</h1>
@@ -85,6 +111,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     tr: Tr,
     th: Th,
     td: Td,
+    a: A,
+    hr: Hr,
     ...components,
   };
 }

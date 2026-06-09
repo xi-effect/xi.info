@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3300",
     "analyze": "ANALYZE=true next build",
-    "build": "next build",
+    "build": "node scripts/generate-rss.mjs && next build",
     "start": "next start",
     "lint": "eslint \"**/*.{ts,tsx}\""
   },

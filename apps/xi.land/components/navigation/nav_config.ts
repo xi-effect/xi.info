@@ -30,6 +30,7 @@ export const subMenu = [
 
 export const mainNavLinks: readonly MainNavLinkT[] = [
   { title: 'Тарифы', href: '/prices' },
+  { title: 'Блог', href: '/blog' },
   { title: 'Поддержка', href: 'https://t.me/sovlium_support_bot', external: true },
   { title: 'База знаний', href: 'https://support.sovlium.ru/', external: true },
   { title: 'О нас', href: '/about' },

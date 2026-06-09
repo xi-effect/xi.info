@@ -1,4 +1,21 @@
+import type { Metadata } from 'next';
 import { roadmapData, RoadmapTimeline } from '../../components/roadmap';
+
+export const metadata: Metadata = {
+  title: 'План развития Sovlium — roadmap продукта',
+  description:
+    'Что уже есть в Sovlium и что появится дальше: видеозвонки, доска, расписание, оплаты и другие инструменты для репетиторов.',
+  alternates: {
+    canonical: '/roadmap',
+  },
+  openGraph: {
+    title: 'План развития Sovlium — roadmap продукта',
+    description: 'Дорожная карта развития платформы Sovlium для репетиторов.',
+    url: 'https://sovlium.ru/roadmap',
+    siteName: 'Sovlium',
+    type: 'website',
+  },
+};
 
 export default function RoadmapPage() {
   return (
