@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { SvgColumn } from './SvgColumn';
-import { MainPage } from './MainPage';
 import { Button } from '@xipkg/button';
 import {
   Calendar,
@@ -93,12 +92,11 @@ const legalDocumentLinks: SectionLink[] = [
 const email = 'support@sovlium.ru';
 
 const Footer = ({
-  topContent,
   sections: customSections,
   logoPath = '/logofordark.svg',
   logoPathLight,
   logoPathDark,
-  classNameFooter = 'bg-brand-80 dark:bg-gray-100',
+  classNameFooter = 'bg-brand-80 dark:bg-gray-100 rounded-t-[64px]',
   innerClassNameFooter = 'bg-gray-100 dark:bg-transparent',
   themeAwareContent = false,
   backgroundImageUrl,
@@ -122,6 +120,7 @@ const Footer = ({
   const legalDocLinkClass = themeAwareContent
     ? 'no-underline text-xxs-base text-gray-80 dark:text-gray-60 hover:text-gray-100 dark:hover:text-gray-40'
     : 'no-underline text-xxs-base text-gray-60 hover:text-gray-40';
+  const footerGradientClass = `bg-[radial-gradient(circle_at_center,_rgba(15,15,17,0)_30%,_rgba(15,15,17,1)_100%)]`;
 
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
@@ -140,20 +139,16 @@ const Footer = ({
 
   return (
     <>
-      {topContent || (
-        <div className="bg-brand-80 z-1 mt-0 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px] dark:bg-gray-100">
-          <MainPage />
-        </div>
-      )}
-
       <div className={classNameFooter}>
         <footer
           className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] 2xl:justify-center ${innerClassNameFooter}`}
         >
           <div className="flex w-full flex-col">
-            <div className="relative flex h-155 flex-col items-center justify-between gap-8 p-6 md:p-12 xl:h-auto xl:px-32 xl:py-16 2xl:px-40">
+            <div className="relative flex h-155 flex-col items-center justify-between gap-8 p-6 md:p-4 xl:h-auto xl:px-32 xl:py-16 2xl:px-40">
               <div className="absolute inset-0 p-6 md:p-0">
-                <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-3xl xl:rounded-t-[64px]">
+                <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-t-3xl md:rounded-b-none xl:rounded-t-[64px]">
+                  <div className={`absolute inset-0 z-9 ${footerGradientClass}`} />
+
                   {mobileBackgroundImageUrl && (
                     <Image
                       src={mobileBackgroundImageUrl}
@@ -167,7 +162,7 @@ const Footer = ({
                       src={backgroundImageUrl}
                       alt="фон футера десктопный"
                       fill
-                      className="hidden object-cover md:block"
+                      className="hidden bg-[radial-gradient(circle,rgba(21,22,36,0)_0%,rgba(21,22,36,1)_100%)] object-cover md:block"
                     />
                   )}
                 </div>
