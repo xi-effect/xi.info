@@ -2,7 +2,16 @@ import { ReactNode } from 'react';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
 import { SvgColumn } from './SvgColumn';
-import { MainPage } from './MainPage';
+import { Button } from '@xipkg/button';
+import {
+  Calendar,
+  BookOpened,
+  Group,
+  Payments,
+  Conference,
+  WhiteBoard,
+  ArrowRight,
+} from '@xipkg/icons';
 
 interface SectionLink {
   link: string;
@@ -31,6 +40,8 @@ interface FooterProps {
    * false/undefined = футер всегда с тёмным фоном (xi.land), текст всегда светлый.
    */
   themeAwareContent?: boolean;
+  backgroundImageUrl?: string;
+  mobileBackgroundImageUrl?: string;
 }
 
 const sections: Section[] = [
@@ -81,14 +92,15 @@ const legalDocumentLinks: SectionLink[] = [
 const email = 'support@sovlium.ru';
 
 const Footer = ({
-  topContent,
   sections: customSections,
   logoPath = '/logofordark.svg',
   logoPathLight,
   logoPathDark,
-  classNameFooter = 'bg-brand-80 dark:bg-gray-100',
+  classNameFooter = 'bg-brand-80 dark:bg-gray-100 rounded-t-[64px]',
   innerClassNameFooter = 'bg-gray-100 dark:bg-transparent',
   themeAwareContent = false,
+  backgroundImageUrl,
+  mobileBackgroundImageUrl,
 }: FooterProps = {}) => {
   const footerSections = customSections || sections;
   const useThemeLogos = logoPathLight != null && logoPathDark != null;
@@ -108,6 +120,7 @@ const Footer = ({
   const legalDocLinkClass = themeAwareContent
     ? 'no-underline text-xxs-base text-gray-80 dark:text-gray-60 hover:text-gray-100 dark:hover:text-gray-40'
     : 'no-underline text-xxs-base text-gray-60 hover:text-gray-40';
+  const footerGradientClass = `bg-[radial-gradient(circle_at_center,_rgba(15,15,17,0)_30%,_rgba(15,15,17,1)_100%)]`;
 
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
@@ -126,108 +139,169 @@ const Footer = ({
 
   return (
     <>
-      {topContent || (
-        <div className="bg-brand-80 z-1 mt-0 flex w-full flex-col items-center justify-center rounded-t-2xl sm:rounded-t-4xl xl:rounded-t-[64px] dark:bg-gray-100">
-          <MainPage />
-        </div>
-      )}
-
       <div className={classNameFooter}>
         <footer
-          className={`z-10 flex rounded-t-[32px] xl:rounded-t-[64px] 2xl:justify-center ${innerClassNameFooter}`}
+          className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] 2xl:justify-center ${innerClassNameFooter}`}
         >
-          <div
-            className={`xs:p-8 relative flex w-full max-w-[1920px] flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40 ${themeAwareContent ? 'text-gray-0 dark:text-gray-0' : 'text-gray-0'}`}
-          >
-            <div className="relative">
-              <Link
-                href="/"
-                className="xs:h-[24px] xs:w-[202px] relative mt-0 mb-0 h-[16px] w-[134px] 2xl:h-[40px] 2xl:w-[336px]"
-              >
-                {useThemeLogos ? (
-                  <>
+          <div className="flex w-full flex-col">
+            <div className="relative flex h-155 flex-col items-center justify-between gap-8 p-6 md:p-4 xl:h-auto xl:px-32 xl:py-16 2xl:px-40">
+              <div className="absolute inset-0 p-6 md:p-0">
+                <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-t-3xl md:rounded-b-none xl:rounded-t-[64px]">
+                  <div className={`absolute inset-0 z-9 ${footerGradientClass}`} />
+
+                  {mobileBackgroundImageUrl && (
                     <Image
-                      alt="sovlium logo"
-                      src={logoPathLight}
-                      width={216}
-                      height={64}
-                      priority={false}
-                      className="mt-0 mb-0 block dark:hidden"
+                      src={mobileBackgroundImageUrl}
+                      alt="фон футера мобильный"
+                      fill
+                      className="block object-cover md:hidden"
                     />
+                  )}
+                  {backgroundImageUrl && (
                     <Image
-                      alt="sovlium logo"
-                      src={logoPathDark}
-                      width={216}
-                      height={64}
-                      priority={false}
-                      className="mt-0 mb-0 hidden dark:block"
+                      src={backgroundImageUrl}
+                      alt="фон футера десктопный"
+                      fill
+                      className="hidden bg-[radial-gradient(circle,rgba(21,22,36,0)_0%,rgba(21,22,36,1)_100%)] object-cover md:block"
                     />
-                  </>
-                ) : (
-                  <Image
-                    alt="sovlium logo"
-                    src={logoPath}
-                    width={216}
-                    height={64}
-                    priority={false}
-                  />
-                )}
-              </Link>
-              <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
-                <SvgColumn
-                  className={
-                    themeAwareContent ? 'text-brand-20 dark:text-[#26262A]' : 'text-[#26262A]'
-                  }
-                />
+                  )}
+                </div>
+              </div>
+              <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-between gap-8 p-6 sm:justify-center md:items-baseline md:justify-baseline xl:py-24 2xl:py-32">
+                <div className="flex flex-col gap-4 text-center md:w-132.5 md:text-left xl:gap-5">
+                  <p className="text-gray-0 text-xl-base md:text-h5 xl:text-h3 font-semibold">
+                    Экономьте до 1 часа в день вместе с sovlium
+                  </p>
+                  <span className="text-m-base leading-[1.3] text-gray-50 md:text-[18px]">
+                    {`Быстро переключайтесь между инструментами\u00A0в единой рабочей среде`}
+                  </span>
+                  <div className="flex justify-center gap-2 md:justify-start xl:mt-10 xl:gap-5">
+                    <div className="bg-cyan-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <Calendar className="fill-cyan-100 xl:size-8 2xl:size-9" />
+                    </div>
+                    <div className="bg-pink-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <BookOpened className="fill-pink-100 xl:size-8 2xl:size-9" />
+                    </div>
+                    <div className="bg-violet-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <Group className="fill-violet-100 xl:size-8 2xl:size-9" />
+                    </div>
+                    <div className="bg-yellow-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <Payments className="fill-yellow-100 xl:size-8 2xl:size-9" />
+                    </div>
+                    <div className="bg-green-0 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <Conference className="fill-green-100 xl:size-8 2xl:size-9" />
+                    </div>
+                    <div className="bg-red-0 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
+                      <WhiteBoard className="fill-red-100 xl:size-8 2xl:size-9" />
+                    </div>
+                  </div>
+                </div>
+                <div className="sm:mt-5 xl:mt-24 2xl:mt-40">
+                  <Link className="w-full md:w-auto" href="https://app.sovlium.ru/signup">
+                    <Button
+                      className="h-12 w-full rounded-2xl pr-3 pl-6 text-[16px] leading-6 md:w-auto"
+                      size="l"
+                    >
+                      Попробовать бесплатно
+                      <ArrowRight className="fill-brand-0 ml-3 h-6 w-6 md:ml-4 md:h-8 md:w-8" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="z-5 flex flex-col gap-8 xl:gap-16">
-              <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
-                {footerSections.map(renderSection)}
+            <div
+              className={`xs:p-8 relative flex w-full max-w-480 flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40 ${themeAwareContent ? 'text-gray-0 dark:text-gray-0' : 'text-gray-0'}`}
+            >
+              <div className="relative">
+                <Link
+                  href="/"
+                  className="xs:h-6 xs:w-50.5 relative mt-0 mb-0 h-4 w-33.5 2xl:h-10 2xl:w-84"
+                >
+                  {useThemeLogos ? (
+                    <>
+                      <Image
+                        alt="sovlium logo"
+                        src={logoPathLight}
+                        width={216}
+                        height={64}
+                        priority={false}
+                        className="mt-0 mb-0 block dark:hidden"
+                      />
+                      <Image
+                        alt="sovlium logo"
+                        src={logoPathDark}
+                        width={216}
+                        height={64}
+                        priority={false}
+                        className="mt-0 mb-0 hidden dark:block"
+                      />
+                    </>
+                  ) : (
+                    <Image
+                      alt="sovlium logo"
+                      src={logoPath}
+                      width={216}
+                      height={64}
+                      priority={false}
+                    />
+                  )}
+                </Link>
+                <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
+                  <SvgColumn
+                    className={
+                      themeAwareContent ? 'text-brand-20 dark:text-[#26262A]' : 'text-[#26262A]'
+                    }
+                  />
+                </div>
               </div>
-              <div
-                className={
-                  themeAwareContent
-                    ? 'text-xxs-base xs:text-xs-base text-gray-90 dark:text-gray-60 leading-relaxed'
-                    : 'text-xxs-base xs:text-xs-base text-gray-60 leading-relaxed'
-                }
-              >
-                <p className="m-0">
-                  Индивидуальный предприниматель Букшев Игорь Владимирович · ОГРНИП 326784700178496
-                  · ИНН 781102952900
-                </p>
+              <div className="z-5 flex flex-col gap-8 xl:gap-16">
+                <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
+                  {footerSections.map(renderSection)}
+                </div>
+                <div
+                  className={
+                    themeAwareContent
+                      ? 'text-xxs-base xs:text-xs-base text-gray-90 dark:text-gray-60 leading-relaxed'
+                      : 'text-xxs-base xs:text-xs-base text-gray-60 leading-relaxed'
+                  }
+                >
+                  <p className="m-0">
+                    Индивидуальный предприниматель Букшев Игорь Владимирович · ОГРНИП
+                    326784700178496 · ИНН 781102952900
+                  </p>
+                </div>
+                <div className={bottomRowClass}>
+                  <span className="2xl:w-[330px]">&copy; sovlium с 2025 года</span>
+                  <span className="xs:order-1 2xl:w-[330px]">
+                    <Link
+                      className={emailLinkClass}
+                      target="_blank"
+                      variant="hover"
+                      href={`mailto:${email}`}
+                      size="s"
+                    >
+                      {email}
+                    </Link>
+                  </span>
+                  <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
+                </div>
+                <nav
+                  aria-label="Юридические документы"
+                  className="border-gray-80/30 flex flex-wrap gap-x-4 gap-y-2 border-t pt-6"
+                >
+                  {legalDocumentLinks.map((link) => (
+                    <Link
+                      key={link.link}
+                      className={legalDocLinkClass}
+                      variant="hover"
+                      href={link.link}
+                      size="s"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+                </nav>
               </div>
-              <div className={bottomRowClass}>
-                <span className="2xl:w-[330px]">&copy; sovlium с 2025 года</span>
-                <span className="xs:order-1 2xl:w-[330px]">
-                  <Link
-                    className={emailLinkClass}
-                    target="_blank"
-                    variant="hover"
-                    href={`mailto:${email}`}
-                    size="s"
-                  >
-                    {email}
-                  </Link>
-                </span>
-                <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
-              </div>
-              <nav
-                aria-label="Юридические документы"
-                className="border-gray-80/30 flex flex-wrap gap-x-4 gap-y-2 border-t pt-6"
-              >
-                {legalDocumentLinks.map((link) => (
-                  <Link
-                    key={link.link}
-                    className={legalDocLinkClass}
-                    variant="hover"
-                    href={link.link}
-                    size="s"
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
             </div>
           </div>
         </footer>
