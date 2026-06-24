@@ -13,6 +13,7 @@ export default function Layout({ children }: LayoutProps<'/[[...slug]]'>) {
         classNameFooter="bg-gray-5 dark:bg-gray-100 mt-10 rounded-t-[32px] xl:rounded-t-[64px]"
         innerClassNameFooter="bg-transparent"
         themeAwareContent
+        showPromoSection={false}
         topContent={<></>}
         logoPathLight="/logoforwhite.svg"
         logoPathDark="/logofordark.svg"
