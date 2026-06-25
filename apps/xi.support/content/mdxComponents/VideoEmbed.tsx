@@ -1,4 +1,4 @@
-const DEFAULT_HD = 5;
+const DEFAULT_HD = 4;
 
 type VideoEmbedProps = {
   oid: number;
@@ -6,7 +6,7 @@ type VideoEmbedProps = {
   hash: string;
   title?: string;
   caption?: string;
-  /** Стартовое качество VK: 1–360p, 2–480p, 3–720p, 4–1080p; 5 — максимум, если доступен */
+  /** Стартовое качество VK: 1–360p, 2–480p, 3–720p, 4–1080p */
   hd?: number;
   autoplay?: boolean;
 };
@@ -29,8 +29,6 @@ const buildEmbedSrc = ({
   return url.toString();
 };
 
-const buildWatchUrl = (oid: number, id: number) => `https://vkvideo.ru/video${oid}_${id}`;
-
 const VideoEmbed = ({
   oid,
   id,
@@ -41,7 +39,6 @@ const VideoEmbed = ({
   autoplay = false,
 }: VideoEmbedProps) => {
   const embedSrc = buildEmbedSrc({ oid, id, hash, hd, autoplay });
-  const watchUrl = buildWatchUrl(oid, id);
 
   return (
     <figure className="my-6">
@@ -55,17 +52,9 @@ const VideoEmbed = ({
           allowFullScreen
         />
       </div>
-      <figcaption className="text-fd-muted-foreground mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm">
-        {caption ? <span>{caption}</span> : <span />}
-        <a
-          href={watchUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-fd-primary shrink-0 hover:underline"
-        >
-          Открыть в VK Video
-        </a>
-      </figcaption>
+      {caption && (
+        <figcaption className="text-fd-muted-foreground mt-2 text-sm">{caption}</figcaption>
+      )}
     </figure>
   );
 };
