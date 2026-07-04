@@ -14,8 +14,9 @@ import { motion } from 'motion/react';
 import { Close, Burger } from '@xipkg/icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { mainNavLinks, subMenu } from './nav_config';
+import { setMobileNavOpen } from './mobileNavState';
 
 // type LinkMenuItemT = {
 //   label: string;
@@ -47,6 +48,11 @@ export const MobileNavigation = () => {
     setBurgerIsOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    setMobileNavOpen(burgerIsOpen);
+    return () => setMobileNavOpen(false);
+  }, [burgerIsOpen]);
+
   return (
     <Modal open={burgerIsOpen} onOpenChange={setBurgerIsOpen}>
       <ModalTrigger asChild>
@@ -60,13 +66,13 @@ export const MobileNavigation = () => {
 
       <ModalContent
         data-theme="white"
-        className="z-100 bg-gray-0 dark:bg-gray-100 h-[100dvh] w-[100dvw] flex flex-col"
+        className="z-[100] fixed inset-0 bg-gray-0 dark:bg-gray-100 h-dvh w-dvw flex flex-col overflow-hidden"
         variant="full"
       >
         <ModalTitle className="sr-only">Меню</ModalTitle>
         <ModalHeader
           innerClassName="dark:bg-gray-100 border-none"
-          className="w-full border-none flex justify-between"
+          className="w-full shrink-0 border-none flex justify-between"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -93,7 +99,7 @@ export const MobileNavigation = () => {
           </ModalCloseButton>
         </ModalHeader>
 
-        <div className="mt-4 flex w-full grow flex-col gap-1">
+        <div className="mt-4 flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain bg-gray-0 dark:bg-gray-100">
           <p className="px-6 pt-2 text-xs-base font-medium uppercase tracking-wide text-gray-50 dark:text-gray-40">
             Возможности
           </p>
@@ -134,7 +140,7 @@ export const MobileNavigation = () => {
             </motion.div>
           ))}
         </div>
-        <ModalFooter className="bg-gray-0 dark:bg-gray-100 px-4 xs:px-8 border-none flex flex-col align-bottom justify-center">
+        <ModalFooter className="shrink-0 bg-gray-0 dark:bg-gray-100 px-4 xs:px-8 border-none flex flex-col align-bottom justify-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
