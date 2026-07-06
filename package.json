@@ -10,7 +10,8 @@
     "prepare": "husky"
   },
   "optionalDependencies": {
-    "@unrs/resolver-binding-linux-x64-gnu": "1.11.1"
+    "@unrs/resolver-binding-linux-x64-gnu": "1.11.1",
+    "lightningcss-linux-x64-gnu": "1.30.2"
   },
   "devDependencies": {
     "common.eslint": "*",

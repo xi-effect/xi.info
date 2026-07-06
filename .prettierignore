@@ -1,2 +1,5 @@
 # Сгенерированные fumadocs-mdx файлы
 **/.source/
+
+# Сгенерированные service worker / workbox файлы
+**/public/workbox-*.js
