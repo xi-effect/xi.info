@@ -15,6 +15,7 @@ import { Close, Burger } from '@xipkg/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { APP_URL } from '../../lib/app_urls';
 import { mainNavLinks, subMenu } from './nav_config';
 import { setMobileNavOpen } from './mobileNavState';
 
@@ -156,7 +157,7 @@ export const MobileNavigation = () => {
               </Link>
             </Button>
             <Button asChild className="col-span-1">
-              <Link href="https://app.sovlium.ru/signin" onClick={toggleBurgerMenu}>
+              <Link href={APP_URL} onClick={toggleBurgerMenu}>
                 Войти
               </Link>
             </Button>

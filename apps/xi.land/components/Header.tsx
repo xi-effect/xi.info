@@ -8,6 +8,7 @@ import { cn } from '@xipkg/utils';
 import { useMediaQuery } from '@xipkg/utils';
 import { Button } from '@xipkg/button';
 import { ArrowRight } from '@xipkg/icons';
+import { APP_URL } from '../lib/app_urls';
 import { MobileNavigation, Navigation } from './navigation';
 
 const HIDE_AFTER_DOWN = 80; // прячем хедер, если прокрутили вниз дальше 80 px
@@ -116,7 +117,7 @@ export const Header = () => {
                 variant="secondary"
                 className="min-w-[96px] hidden rounded-xl border-0 bg-brand-0 px-4 py-2.5 text-sm text-brand-100 hover:text-gray-0 hover:bg-brand-60 md:inline-flex lg:text-m-base"
               >
-                <Link href="https://app.sovlium.ru/signin">Войти</Link>
+                <Link href={APP_URL}>Войти</Link>
               </Button>
               <Button
                 asChild

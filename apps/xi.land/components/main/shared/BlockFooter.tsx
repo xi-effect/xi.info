@@ -3,6 +3,7 @@
 import { Button } from '@xipkg/button';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { APP_URL } from '../../../lib/app_urls';
 
 type BlockFooterPropsT = {
   primaryBtnCn?: string;
@@ -29,7 +30,7 @@ export const BlockFooter = ({
       size="l"
       className={`${primaryBtnCn} h-12 md:h-14 xs:text-xl-base xs:h-[72px] lg:h-[72px] xs:rounded-2xl xs:px-9 rounded-lg  2xl:h-[84px] xl:rounded-3xl 2xl:text-[30px] 2xl:px-12`}
     >
-      <Link href="https://app.sovlium.ru/signin">{primaryBtnText}</Link>
+      <Link href={APP_URL}>{primaryBtnText}</Link>
     </Button>
     <Button
       asChild
