@@ -46,15 +46,40 @@
 - Тестирование бэкенда приложения через HTTP и SocketIO
 - Составление отчётов о тестировании с описанием дефектов
 
-### Что мы используем?
+### Какой у нас стек?
 
-**Frontend**: Typescript, React, Zustand, NextJS, Tailwind
+#### **Frontend**
 
-**Backend**: Python 3.11+, FastAPI, SocketIO, SQLAlchemy, Pytest, PostgreSQL, Redis
+- TypeScript, React, Zustand, Next.js (лендинги), Vite + TanStack/Router (приложение)
+- TanStack/Query (запросы и кеширование)
+- i18next (интернационализация)
+- Tailwind CSS (стили)
+- Storybook (UI-кит)
+- ESLint, Prettier, Husky, Commitlint (качество кода)
+- Shadcn/UI & Radix (библиотека компонентов)
+- npm registry (собственные пакеты)
+- Turborepo & FSD (организация кода)
 
-**Autotests**: Python 3.11+, Pytest, Selenium, HTTPX, Allure, PostgreSQL, Redis
+#### **Backend**
 
-**А также**: Git, GitHub, Discord, Kaiten, Figma, Miro
+- Python 3.12+
+- Poetry, Docker (сборка и управление пакетами)
+- FastAPI (основной фреймворк)
+- PostgreSQL, SQLAlchemy (основная база данных)
+- Redis Streams, FastStream (асинхронные задачи)
+- HTTPX (библиотека взаимодействия с HTTP API)
+- SocketIO (протокол для двухстороннего взаимодействия с клиентом)
+- Pytest (основной фреймворк для организации и запуска тестов)
+- Flake8, Wemake-Style-Guide (статический анализ кода)
+- Isort, Black (форматеры)
+- Mypy (статическая типизация)
+
+#### **Дополнительные инструменты**
+
+- Git (контроль за изменениями и командная работа)
+- GitHub (репозитории, проекты (канбан) и CI/CD пайплайны)
+- Discord (основная платформа для коммуникации внутри команды)
+- Figma (создание и обсуждение макетов)
 
 ### Как у нас дела?
 
