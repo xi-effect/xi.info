@@ -66,10 +66,9 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/niqzart.jpg',
     },
     date: '28 января',
-    grade: 'Junior, Middle, Senior',
+    grade: 'Middle, Senior',
     id: 'development-backend',
     title: 'Backend разработчик',
-    hidden: true,
   },
   // {
   //   label: 'Тестирование',
