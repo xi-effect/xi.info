@@ -4,8 +4,17 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@xipkg/button';
+import { Checkbox } from '@xipkg/checkbox';
 import { File, FileUploader } from '@xipkg/fileuploader';
-import { Form, FormControl, FormField, FormItem, FormLabel, useForm } from '@xipkg/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useForm,
+} from '@xipkg/form';
 import { Close } from '@xipkg/icons';
 import { Input } from '@xipkg/input';
 import {
@@ -42,12 +51,20 @@ const FormSchema = z.object({
   position: z.string().min(2),
   resume: z.string().optional(),
   message: z.string().optional(),
+  acceptsUnpaidFormat: z.boolean().refine((value) => value === true, {
+    message: 'Подтвердите, что вам подходит сотрудничество без зарплаты на текущем этапе',
+  }),
+  acceptsMinHours: z.boolean().refine((value) => value === true, {
+    message: 'Подтвердите, что вы можете уделять стартапу от 10 часов в неделю',
+  }),
 });
 
 type FormValues = z.infer<typeof FormSchema>;
 
 const DEFAULT_FILE_SIZE = 10 * 1024 * 1024;
 const LIMIT_FILES = 1;
+
+const RequiredMark = () => <span className="text-red-60">*</span>;
 
 const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeModalPropsT) => {
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -58,6 +75,8 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
       position: '',
       resume: undefined,
       message: '',
+      acceptsUnpaidFormat: false,
+      acceptsMinHours: false,
     },
   });
 
@@ -68,6 +87,7 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
   }, [open]);
 
   const [pending, setPending] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [resumeBinary, setResumeBinary] = React.useState<File>();
 
   const handleFileChange = async (fileList: File | File[]) => {
@@ -95,6 +115,8 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
     }
 
     try {
+      setIsSubmitting(true);
+
       const formData = new FormData();
       formData.append('name', data.name);
       formData.append('telegram', data.telegram);
@@ -141,8 +163,12 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
         });
       }
     } catch (error) {
-      console.error(`Ошибка HTTP: ${response.status}`);
-      toast(`Ошибка HTTP: ${response.status}`);
+      console.error('Ошибка при отправке формы:', error);
+      toast.error('Не удалось отправить резюме. Попробуйте ещё раз.', {
+        position: 'top-center',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -181,7 +207,9 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
                 name="name"
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Имя *</FormLabel>
+                    <FormLabel className="flex gap-0.5">
+                      Имя <RequiredMark />
+                    </FormLabel>
                     <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
                       <Input {...field} />
                     </FormControl>
@@ -193,7 +221,9 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
                 name="telegram"
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Telegram *</FormLabel>
+                    <FormLabel className="flex gap-0.5">
+                      Telegram <RequiredMark />
+                    </FormLabel>
                     <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
                       <Input {...field} />
                     </FormControl>
@@ -205,7 +235,9 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
                 name="position"
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Интересующая специализация *</FormLabel>
+                    <FormLabel className="flex gap-0.5">
+                      Интересующая специализация <RequiredMark />
+                    </FormLabel>
                     <FormControl>
                       <Select onValueChange={field.onChange} value={field.value ?? ''}>
                         <SelectTrigger className="data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] w-full sm:!h-[48px]">
@@ -251,6 +283,51 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
                   </FormItem>
                 )}
               />
+              <div className="flex flex-col gap-4">
+                <FormField
+                  control={form.control}
+                  name="acceptsUnpaidFormat"
+                  render={({ field, fieldState }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormControl>
+                        <Checkbox
+                          className="items-start"
+                          checked={field.value}
+                          onCheckedChange={(checked) => field.onChange(checked === true)}
+                          state={fieldState.error ? 'error' : 'default'}
+                        >
+                          <>
+                            Мне подходит сотрудничество без зарплаты на текущем этапе{' '}
+                            <RequiredMark />
+                          </>
+                        </Checkbox>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="acceptsMinHours"
+                  render={({ field, fieldState }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormControl>
+                        <Checkbox
+                          className="items-start"
+                          checked={field.value}
+                          onCheckedChange={(checked) => field.onChange(checked === true)}
+                          state={fieldState.error ? 'error' : 'default'}
+                        >
+                          <>
+                            Я могу уделять стартапу от 10 часов в неделю <RequiredMark />
+                          </>
+                        </Checkbox>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               <FormField
                 control={form.control}
                 name="message"
@@ -269,8 +346,13 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
                 )}
               />
               <ModalFooter className="border-t-transparent p-0">
-                <Button className="h-[32px] w-full sm:h-[48px]" type="submit">
-                  Отправить
+                <Button
+                  className="h-[32px] w-full sm:h-[48px]"
+                  type="submit"
+                  variant={isSubmitting ? 'default-spinner' : 'default'}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? <span className="sr-only">Отправка...</span> : 'Отправить'}
                 </Button>
               </ModalFooter>
             </form>
