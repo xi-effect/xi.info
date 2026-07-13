@@ -35,7 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@xipkg/select';
-import React, { ComponentProps, ReactNode, useEffect } from 'react';
+import React, { ComponentProps, ReactNode, useEffect, useLayoutEffect } from 'react';
 import { toast } from 'sonner';
 import * as z from 'zod';
 import Memoji from '../common/Memoji';
@@ -63,6 +63,7 @@ type FormValues = z.infer<typeof FormSchema>;
 
 const DEFAULT_FILE_SIZE = 10 * 1024 * 1024;
 const LIMIT_FILES = 1;
+const MOBILE_MEDIA_QUERY = '(max-width: 639px)';
 
 const RequiredMark = () => <span className="text-red-60">*</span>;
 
@@ -83,12 +84,31 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
   useEffect(() => {
     if (!open) {
       form.reset();
+      return;
     }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
 
   const [pending, setPending] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const [resumeBinary, setResumeBinary] = React.useState<File>();
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
+    const handleChange = () => setIsMobile(mediaQuery.matches);
+
+    handleChange();
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const handleFileChange = async (fileList: File | File[]) => {
     setPending(true);
@@ -180,13 +200,37 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
     <Modal {...props} open={open} onOpenChange={onOpenChange}>
       <ModalTrigger asChild>{children}</ModalTrigger>
       <ModalContent
-        className="xs:max-w-[448px] xs:w-[448px] max-h-dvh w-[calc(100%-32px)] max-w-[calc(100vh-32px)] rounded-3xl sm:w-[556px] sm:max-w-[556px] xl:w-[1000px] xl:max-w-[1000px]"
+        variant={isMobile ? 'full' : 'default'}
+        className={
+          isMobile
+            ? 'fixed inset-0 z-[100] !m-0 flex h-dvh w-full max-w-none flex-col overflow-hidden rounded-none'
+            : 'relative !flex max-h-[90dvh] w-[calc(100%-32px)] flex-col overflow-visible rounded-3xl xs:w-[448px] xs:max-w-[448px] sm:w-[556px] sm:max-w-[556px] xl:w-[1000px] xl:max-w-[1000px]'
+        }
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex max-h-dvh w-full flex-col overflow-auto rounded-3xl xl:flex-row">
-          <div className="flex flex-col gap-4 p-4 sm:p-6 xl:basis-2/4 xl:justify-start xl:p-12">
+        <ModalCloseButton
+          variant={isMobile ? 'full' : 'default'}
+          className={
+            isMobile
+              ? 'absolute top-4 right-4 z-[60] !m-0 flex size-10 items-center justify-center bg-gray-5 p-0'
+              : 'xs:top-[28px] top-4'
+          }
+        >
+          <Close className={isMobile ? 'fill-gray-80 size-6' : 'fill-gray-90 sm:fill-gray-0'} />
+        </ModalCloseButton>
+        <div
+          className={
+            isMobile
+              ? 'flex min-h-0 flex-1 flex-col xl:flex-row xl:overflow-hidden'
+              : 'flex max-h-[90dvh] w-full flex-col overflow-auto rounded-3xl xl:flex-row'
+          }
+        >
+          <div className="flex shrink-0 flex-col gap-4 p-4 sm:p-6 xl:basis-2/4 xl:justify-start xl:p-12">
             <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
-            <ModalHeader className="flex flex-col gap-2 border-b-transparent p-0 sm:gap-4">
+            <ModalHeader
+              innerClassName="p-2 xs:p-6"
+              className="flex flex-col gap-2 border-b-transparent p-0 sm:gap-4"
+            >
               <ModalTitle>
                 <span className="flex text-[24px] leading-8 font-medium sm:text-[32px] sm:leading-[42px]">
                   Отправить резюме
@@ -197,157 +241,178 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
               </ModalDescription>
             </ModalHeader>
           </div>
-          <Form {...form}>
+          <Form
+            {...form}
+            className={isMobile ? 'flex min-h-0 flex-1 flex-col xl:basis-2/4' : 'xl:basis-2/4'}
+          >
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="bg-gray-5 flex flex-col gap-4 p-4 sm:gap-6 sm:p-[24px] xl:basis-2/4 xl:p-[48px]"
+              className={
+                isMobile
+                  ? 'bg-gray-5 flex min-h-0 flex-1 flex-col'
+                  : 'bg-gray-5 flex flex-col gap-4 p-4 sm:gap-6 sm:p-6 xl:p-12'
+              }
             >
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex gap-0.5">
-                      Имя <RequiredMark />
-                    </FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="telegram"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex gap-0.5">
-                      Telegram <RequiredMark />
-                    </FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="position"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex gap-0.5">
-                      Интересующая специализация <RequiredMark />
-                    </FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange} value={field.value ?? ''}>
-                        <SelectTrigger className="data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] w-full sm:!h-[48px]">
-                          <SelectValue placeholder="Выбери специализацию" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectGroup>
-                            {vacancyList
-                              .filter((item) => !item.hidden)
-                              .map((item) => (
-                                <SelectItem value={item.title} key={item.id}>
-                                  {item.title}
-                                </SelectItem>
-                              ))}
-                          </SelectGroup>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="resume"
-                render={() => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex">Приложи резюме</FormLabel>
-                    {resumeBinary !== undefined ? (
-                      <File
-                        name={resumeBinary.name}
-                        onDeleteClick={() => handleDeleteFile()}
-                        isPending={pending}
-                      />
-                    ) : (
-                      <FileUploader
-                        limit={LIMIT_FILES}
-                        bytesSizeLimit={DEFAULT_FILE_SIZE}
-                        onChange={(fileList) => handleFileChange(fileList)}
-                        accept=".pdf"
-                        fileTypesHint={['PDF']}
-                      />
-                    )}
-                  </FormItem>
-                )}
-              />
-              <div className="flex flex-col gap-4">
+              <div
+                className={
+                  isMobile
+                    ? 'flex flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 sm:gap-6 sm:p-6'
+                    : 'flex flex-col gap-4 sm:gap-6'
+                }
+              >
                 <FormField
                   control={form.control}
-                  name="acceptsUnpaidFormat"
-                  render={({ field, fieldState }) => (
+                  name="name"
+                  render={({ field }) => (
                     <FormItem className="flex flex-col gap-2">
-                      <FormControl>
-                        <Checkbox
-                          className="items-start"
-                          checked={field.value}
-                          onCheckedChange={(checked) => field.onChange(checked === true)}
-                          state={fieldState.error ? 'error' : 'default'}
-                        >
-                          <>
-                            Мне подходит сотрудничество без зарплаты на текущем этапе{' '}
-                            <RequiredMark />
-                          </>
-                        </Checkbox>
+                      <FormLabel className="flex gap-0.5">
+                        Имя <RequiredMark />
+                      </FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
+                        <Input {...field} />
                       </FormControl>
-                      <FormMessage />
                     </FormItem>
                   )}
                 />
                 <FormField
                   control={form.control}
-                  name="acceptsMinHours"
-                  render={({ field, fieldState }) => (
+                  name="telegram"
+                  render={({ field }) => (
                     <FormItem className="flex flex-col gap-2">
-                      <FormControl>
-                        <Checkbox
-                          className="items-start"
-                          checked={field.value}
-                          onCheckedChange={(checked) => field.onChange(checked === true)}
-                          state={fieldState.error ? 'error' : 'default'}
-                        >
-                          <>
-                            Я могу уделять стартапу от 10 часов в неделю <RequiredMark />
-                          </>
-                        </Checkbox>
+                      <FormLabel className="flex gap-0.5">
+                        Telegram <RequiredMark />
+                      </FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !h-[32px] sm:!h-[48px]">
+                        <Input {...field} />
                       </FormControl>
-                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="position"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex gap-0.5">
+                        Интересующая специализация <RequiredMark />
+                      </FormLabel>
+                      <FormControl>
+                        <Select onValueChange={field.onChange} value={field.value ?? ''}>
+                          <SelectTrigger className="data-[placeholder]:text-gray-30 hover:border-gray-30 focus:border-gray-30 active:border-gray-30 !h-[32px] w-full sm:!h-[48px]">
+                            <SelectValue placeholder="Выбери специализацию" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              {vacancyList
+                                .filter((item) => !item.hidden)
+                                .map((item) => (
+                                  <SelectItem value={item.title} key={item.id}>
+                                    {item.title}
+                                  </SelectItem>
+                                ))}
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="resume"
+                  render={() => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex">Приложи резюме</FormLabel>
+                      {resumeBinary !== undefined ? (
+                        <File
+                          name={resumeBinary.name}
+                          onDeleteClick={() => handleDeleteFile()}
+                          isPending={pending}
+                        />
+                      ) : (
+                        <FileUploader
+                          limit={LIMIT_FILES}
+                          bytesSizeLimit={DEFAULT_FILE_SIZE}
+                          onChange={(fileList) => handleFileChange(fileList)}
+                          accept=".pdf"
+                          fileTypesHint={['PDF']}
+                        />
+                      )}
+                    </FormItem>
+                  )}
+                />
+                <div className="flex flex-col gap-4">
+                  <FormField
+                    control={form.control}
+                    name="acceptsUnpaidFormat"
+                    render={({ field, fieldState }) => (
+                      <FormItem className="flex flex-col gap-2">
+                        <FormControl>
+                          <Checkbox
+                            className="items-start"
+                            checked={field.value}
+                            onCheckedChange={(checked) => field.onChange(checked === true)}
+                            state={fieldState.error ? 'error' : 'default'}
+                          >
+                            <>
+                              Мне подходит сотрудничество без зарплаты на текущем этапе{' '}
+                              <RequiredMark />
+                            </>
+                          </Checkbox>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="acceptsMinHours"
+                    render={({ field, fieldState }) => (
+                      <FormItem className="flex flex-col gap-2">
+                        <FormControl>
+                          <Checkbox
+                            className="items-start"
+                            checked={field.value}
+                            onCheckedChange={(checked) => field.onChange(checked === true)}
+                            state={fieldState.error ? 'error' : 'default'}
+                          >
+                            <>
+                              Я могу уделять стартапу от 10 часов в неделю <RequiredMark />
+                            </>
+                          </Checkbox>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormLabel className="flex gap-0.5">
+                        Сообщение <span className="text-gray-30">Не обязательно</span>
+                      </FormLabel>
+                      <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !sm:h-[48px] !h-[70px]">
+                        <textarea
+                          {...field}
+                          className="border-gray-30 h-[70px] w-full resize-none rounded-[8px] border-2 p-[12px]"
+                        />
+                      </FormControl>
                     </FormItem>
                   )}
                 />
               </div>
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormLabel className="flex gap-0.5">
-                      Сообщение <span className="text-gray-30">Не обязательно</span>
-                    </FormLabel>
-                    <FormControl className="focus:border-brand-80 active:border-brand-80 hover:border-gray-30 !sm:h-[48px] !h-[70px]">
-                      <textarea
-                        {...field}
-                        className="border-gray-30 h-[70px] w-full resize-none rounded-[8px] border-2 p-[12px]"
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <ModalFooter className="border-t-transparent p-0">
+              <ModalFooter
+                className={
+                  isMobile
+                    ? 'shrink-0 rounded-none border-t-transparent bg-gray-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-6 sm:pb-8'
+                    : 'rounded-none border-t-transparent bg-gray-5 p-0 pt-2 pb-2 sm:pb-4 xl:pb-8'
+                }
+              >
                 <Button
-                  className="h-[32px] w-full sm:h-[48px]"
+                  className="h-10 w-full sm:h-12"
                   type="submit"
                   variant={isSubmitting ? 'default-spinner' : 'default'}
                   disabled={isSubmitting}
@@ -358,9 +423,6 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
             </form>
           </Form>
         </div>
-        <ModalCloseButton className="xs:top-[28px] top-4">
-          <Close className="fill-gray-90 sm:fill-gray-0" />
-        </ModalCloseButton>
       </ModalContent>
     </Modal>
   );
