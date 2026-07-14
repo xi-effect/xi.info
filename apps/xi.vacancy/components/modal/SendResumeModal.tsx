@@ -222,10 +222,10 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
           className={
             isMobile
               ? 'flex min-h-0 flex-1 flex-col xl:flex-row xl:overflow-hidden'
-              : 'flex max-h-[90dvh] w-full flex-col overflow-auto rounded-3xl xl:flex-row'
+              : 'flex max-h-[90dvh] min-h-0 w-full flex-col overflow-hidden rounded-3xl xl:flex-row'
           }
         >
-          <div className="flex shrink-0 flex-col gap-4 p-4 sm:p-6 xl:basis-2/4 xl:justify-start xl:p-12">
+          <div className="flex shrink-0 flex-col gap-4 rounded-bl-3xl p-4 sm:p-6 xl:basis-2/4 xl:justify-start xl:p-12">
             <Memoji imageClassName="w-[64px] h-[64px]" wrapperClassName="" />
             <ModalHeader
               innerClassName="p-2 xs:p-6"
@@ -250,14 +250,14 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
               className={
                 isMobile
                   ? 'bg-gray-5 flex min-h-0 flex-1 flex-col'
-                  : 'bg-gray-5 flex flex-col gap-4 p-4 sm:gap-6 sm:p-6 xl:p-12'
+                  : 'bg-gray-5 flex min-h-0 flex-col gap-4 overflow-hidden rounded-b-3xl p-4 sm:gap-6 sm:p-6 xl:rounded-br-3xl xl:p-12'
               }
             >
               <div
                 className={
                   isMobile
                     ? 'flex flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 sm:gap-6 sm:p-6'
-                    : 'flex flex-col gap-4 sm:gap-6'
+                    : 'flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto sm:gap-6'
                 }
               >
                 <FormField
@@ -407,8 +407,8 @@ const SendResumeModal = ({ children, open, onOpenChange, ...props }: SendResumeM
               <ModalFooter
                 className={
                   isMobile
-                    ? 'shrink-0 rounded-none border-t-transparent bg-gray-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-6 sm:pb-8'
-                    : 'rounded-none border-t-transparent bg-gray-5 p-0 pt-2 pb-2 sm:pb-4 xl:pb-8'
+                    ? 'shrink-0 !rounded-none border-t-transparent !bg-gray-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-6 sm:pb-8'
+                    : '!rounded-none border-t-transparent !bg-gray-5 p-0 pt-2 pb-2 sm:pb-4 xl:pb-8'
                 }
               >
                 <Button
