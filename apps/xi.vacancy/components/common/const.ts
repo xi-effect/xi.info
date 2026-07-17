@@ -144,7 +144,7 @@ export const vacancyList: ProfessionOptionsT[] = [
       src: '/vacancy/unknownproperty.jpg',
     },
     date: '2 февраля',
-    grade: 'Junior, Middle',
+    grade: 'Junior, Middle, Senior',
     id: 'product-pm',
     title: 'Product manager',
   },
