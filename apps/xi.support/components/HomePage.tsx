@@ -7,7 +7,7 @@ const MaintenanceNotice = () => (
     className="w-full rounded-xl border border-amber-200/90 bg-amber-50/90 px-4 py-3 text-sm leading-snug text-amber-950 dark:border-amber-800/50 dark:bg-amber-950/30 dark:text-amber-100"
     role="status"
   >
-    Статьи на портале находятся в процессе актуализации и обновления.
+    Статьи в процессе обновления.
   </div>
 );
 
