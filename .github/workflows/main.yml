@@ -56,11 +56,13 @@ jobs:
       xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
       xi_support_files: ${{ steps.path_filter.outputs.xi_support_files }}
 
-  lint:
-    needs: analyze_files
-    uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
-    with:
-      node-version: 22.22.1
+  # Disabled: xi.actions front-lint-and-format runs `npm@latest`, which currently breaks CI.
+  # Builds already don't depend on lint. Re-enable when the shared action pins npm.
+  # lint:
+  #   needs: analyze_files
+  #   uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
+  #   with:
+  #     node-version: 22.22.1
 
   build_xi_land:
     needs:
