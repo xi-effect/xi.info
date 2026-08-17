@@ -64,7 +64,7 @@ jobs:
         uses: xi-effect/xi.actions/front-lint-and-format@main
         with:
           node-version: 24
-          npm-clean-install: "false"
+          npm-clean-install: 'false'
 
   build_xi_land:
     needs:

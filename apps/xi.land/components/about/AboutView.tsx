@@ -52,7 +52,10 @@ export const AboutView = () => (
       </div>
     </section>
 
-    <section data-theme="white" className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14">
+    <section
+      data-theme="white"
+      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14"
+    >
       <div className="mx-auto grid w-full max-w-[1280px] gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16">
         <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 md:text-4xl md:leading-10">
           {ABOUT_TEAM.title}
@@ -67,10 +70,16 @@ export const AboutView = () => (
       </div>
     </section>
 
-    <section data-theme="white" className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14">
+    <section
+      data-theme="white"
+      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14"
+    >
       <div className="mx-auto grid w-full max-w-[1440px] gap-5 rounded-[28px] bg-violet-50 p-6 md:grid-cols-3 md:rounded-[48px] md:p-14">
         {ABOUT_FACTS.map((fact) => (
-          <article key={fact.title} className="flex flex-col gap-3 rounded-[20px] bg-white px-6 py-6">
+          <article
+            key={fact.title}
+            className="flex flex-col gap-3 rounded-[20px] bg-white px-6 py-6"
+          >
             <h2 className="text-xl font-medium leading-7 text-gray-100">{fact.title}</h2>
             <p className="font-manrope text-base leading-7 text-gray-900/70">{fact.text}</p>
           </article>
@@ -78,7 +87,10 @@ export const AboutView = () => (
       </div>
     </section>
 
-    <section data-theme="white" className="font-nevermind w-full bg-gray-0 px-4 pb-14 md:px-6 md:pb-20">
+    <section
+      data-theme="white"
+      className="font-nevermind w-full bg-gray-0 px-4 pb-14 md:px-6 md:pb-20"
+    >
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 rounded-[28px] bg-violet-50 p-6 md:rounded-[48px] md:p-14">
         <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 md:text-4xl md:leading-10">
           Контакты и вакансии
@@ -95,7 +107,9 @@ export const AboutView = () => (
                   <p className="w-full shrink-0 text-xl font-medium leading-7 text-gray-100 sm:w-48">
                     {item.title}
                   </p>
-                  <p className="font-manrope text-base leading-7 text-gray-900/70">{item.description}</p>
+                  <p className="font-manrope text-base leading-7 text-gray-900/70">
+                    {item.description}
+                  </p>
                 </div>
                 <ArrowRight className="size-5 shrink-0 fill-gray-100 transition-transform group-hover:translate-x-1" />
               </Link>

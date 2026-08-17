@@ -38,7 +38,9 @@ export const ProductLinks = ({ title, related }: ProductLinksPropsT) => (
                   aria-hidden
                 />
               </div>
-              <p className="font-manrope text-base leading-7 text-gray-900/70">{item.description}</p>
+              <p className="font-manrope text-base leading-7 text-gray-900/70">
+                {item.description}
+              </p>
             </Link>
           ))}
         </div>

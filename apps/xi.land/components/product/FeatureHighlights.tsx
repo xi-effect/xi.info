@@ -13,7 +13,10 @@ type FeatureHighlightsPropsT = {
 
 const HighlightCard = ({ card }: { card: FeatureHighlightT }) => (
   <article
-    className={cn('relative h-80 min-h-[280px] w-full overflow-hidden rounded-[20px]', card.bgClassName)}
+    className={cn(
+      'relative h-80 min-h-[280px] w-full overflow-hidden rounded-[20px]',
+      card.bgClassName,
+    )}
   >
     {card.imageNeedsShot === false ? (
       <div className="absolute inset-0 flex items-end justify-center">
@@ -28,7 +31,9 @@ const HighlightCard = ({ card }: { card: FeatureHighlightT }) => (
       </div>
     ) : null}
     <div className="absolute top-5 left-5 z-10 max-w-[calc(100%-2.5rem)] rounded-xl bg-white px-4 py-2">
-      <span className={cn('block text-pretty text-lg font-semibold leading-6', card.badgeTextClassName)}>
+      <span
+        className={cn('block text-pretty text-lg font-semibold leading-6', card.badgeTextClassName)}
+      >
         {card.title}
       </span>
     </div>

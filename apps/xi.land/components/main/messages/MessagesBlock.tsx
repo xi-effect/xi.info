@@ -98,7 +98,10 @@ const FloatingServiceIcon = ({
             feature.pillClassName,
           )}
         >
-          <Icon className={cn('size-10 shrink-0 fill-current', feature.labelClassName)} aria-hidden />
+          <Icon
+            className={cn('size-10 shrink-0 fill-current', feature.labelClassName)}
+            aria-hidden
+          />
         </Link>
       </motion.div>
     </div>
