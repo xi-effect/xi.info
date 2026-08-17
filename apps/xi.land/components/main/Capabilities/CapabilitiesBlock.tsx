@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ChevronSmallRight } from '@xipkg/icons';
 import { cn } from '@xipkg/utils';
 import { motion, useReducedMotion } from 'motion/react';
@@ -33,17 +34,17 @@ type CapabilityCardPropsT = {
 };
 
 const CapabilityCard = ({ card, className }: CapabilityCardPropsT) => {
-  const { Icon, text, badge } = card;
+  const { Icon, text, badge, href } = card;
   const showBadgeRow = badge === 'new' || badge === 'soon';
+  const cardClassName = cn(
+    'flex min-h-[176px] flex-col gap-5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
+    'md:min-h-[12rem]',
+    href && 'transition-colors hover:bg-gray-0',
+    className,
+  );
 
-  return (
-    <article
-      className={cn(
-        'flex min-h-[176px] flex-col gap-5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
-        'md:min-h-[12rem]',
-        className,
-      )}
-    >
+  const inner = (
+    <>
       <div
         className={cn(
           'flex shrink-0 items-center',
@@ -67,8 +68,18 @@ const CapabilityCard = ({ card, className }: CapabilityCardPropsT) => {
       <p className="font-manrope text-pretty text-base font-normal leading-7 text-gray-900/75 dark:text-gray-0/80 md:text-lg md:leading-relaxed">
         {text}
       </p>
-    </article>
+    </>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className={cardClassName}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return <article className={cardClassName}>{inner}</article>;
 };
 
 export const CapabilitiesBlock = () => {

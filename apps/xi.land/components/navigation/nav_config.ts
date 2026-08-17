@@ -7,6 +7,10 @@ export type MainNavLinkT = {
 /** Пункты выпадающего меню «Возможности» */
 export const subMenu = [
   {
+    title: 'Кабинеты',
+    href: '/classrooms',
+  },
+  {
     title: 'Расписание',
     href: '/calendar',
   },

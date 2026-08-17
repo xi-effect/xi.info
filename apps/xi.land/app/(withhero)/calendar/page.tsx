@@ -1,16 +1,15 @@
-import { Calendar } from 'components/calendar';
+import { FeaturePage } from 'components/product';
+import { calendarContent } from 'components/product/content/calendar';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Расписание для репетиторов от sovlium',
-  description:
-    'Гибкая настройка и автоматические напоминания для учеников. Больше никаких пропущенных занятий! Эффективно управляйте своим временем.',
+  title: calendarContent.seoTitle,
+  description: calendarContent.seoDescription,
+  alternates: {
+    canonical: '/calendar',
+  },
 };
 
 export default function CalendarPage() {
-  return (
-    <section className="px-6 py-8 sm:py-12 xl:py-20">
-      <Calendar />
-    </section>
-  );
+  return <FeaturePage content={calendarContent} />;
 }

@@ -14,6 +14,16 @@ export type HeroFeatureT = {
   labelClassName: string;
 };
 
+export const FEATURE_HREF: Record<HeroFeatureIconIdT, string> = {
+  conference: '/calls',
+  whiteboard: '/whiteboard',
+  calendar: '/calendar',
+  materials: '/materials',
+  payments: '/payments',
+  notifications: '/calendar',
+  rooms: '/classrooms',
+};
+
 export type HeroParallaxLayerT = {
   src: string;
   alt: string;

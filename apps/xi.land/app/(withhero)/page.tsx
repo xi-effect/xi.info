@@ -3,6 +3,7 @@ import {
   CapabilitiesBlock,
   CommunityBlock,
   DevicesBlock,
+  Hero,
   MessagesBlock,
   TutorIdeasBlock,
 } from 'components/main';
@@ -95,6 +96,7 @@ export default function MainPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <main>
+        <Hero />
         <CapabilitiesBlock />
         <TutorIdeasBlock />
         <DevicesBlock />

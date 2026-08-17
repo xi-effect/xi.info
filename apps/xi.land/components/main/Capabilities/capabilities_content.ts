@@ -16,6 +16,7 @@ export type CapabilityCardT = {
   id: string;
   Icon: CapabilityIconT;
   text: string;
+  href?: string;
   badge?: 'new' | 'soon';
 };
 
@@ -32,36 +33,43 @@ export const CAPABILITY_CARDS: readonly CapabilityCardT[] = [
     id: 'schedule',
     Icon: Calendar,
     badge: 'new',
+    href: '/calendar',
     text: 'Назначайте и переносите занятия в\u00A0расписании. Ученики получат уведомления',
   },
   {
     id: 'materials',
     Icon: WhiteBoard,
+    href: '/whiteboard',
     text: 'Собирайте материалы для\u00A0занятий на\u00A0онлайн-доске: картинки, аудио, PDF и другие файлы',
   },
   {
     id: 'calls',
     Icon: Conference,
+    href: '/calls',
     text: 'Проводите видеозвонки со\u00A0встроенной онлайн-доской и демонстрацией экрана',
   },
   {
     id: 'rooms',
     Icon: Users,
+    href: '/classrooms',
     text: 'Создавайте кабинеты для\u00A0отдельных учеников и целых групп',
   },
   {
     id: 'knowledge',
     Icon: Section,
+    href: '/materials',
     text: 'Создайте свою базу знаний и делитесь ей с\u00A0учениками',
   },
   {
     id: 'reminders',
     Icon: Notification,
+    href: '/calendar',
     text: 'Настраивайте автоматические уведомления о\u00A0занятиях и оплатах',
   },
   {
     id: 'payments',
     Icon: Payments,
+    href: '/payments',
     text: 'Ведите учёт дохода в\u00A0sovlium с\u00A0помощью счетов, таблиц и диаграмм',
   },
   {

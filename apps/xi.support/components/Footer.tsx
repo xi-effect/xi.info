@@ -15,6 +15,7 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
+      { link: 'https://sovlium.ru/classrooms', title: 'Кабинеты' },
       { link: 'https://sovlium.ru/calendar', title: 'Расписание' },
       { link: 'https://sovlium.ru/calls', title: 'Видеозвонки' },
       { link: 'https://sovlium.ru/whiteboard', title: 'Онлайн-доска' },
