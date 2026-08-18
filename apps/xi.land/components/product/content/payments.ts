@@ -111,7 +111,7 @@ export const paymentsContent: ProductPageContentT = {
     {
       title: 'Расписание',
       href: '/calendar',
-      description: 'В счёт можно внести занятия, которые уже стоят в календаре'
+      description: 'В счёт можно внести занятия, которые уже стоят в календаре',
     },
   ],
   faq: [
