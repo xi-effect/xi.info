@@ -42,25 +42,25 @@ export const ABOUT_LINKS = [
   {
     title: 'Вакансии',
     href: 'https://vacancy.sovlium.ru/',
-    description: 'Можно присоединиться к работе над платформой.',
+    description: 'Можно присоединиться к работе над платформой',
     external: true,
   },
   {
     title: 'Сообщество',
     href: 'https://t.me/sovlium',
-    description: 'Новости и общение с коллегами.',
+    description: 'Новости и общение с коллегами',
     external: true,
   },
   {
     title: 'Поддержка',
     href: 'https://t.me/sovlium_support_bot',
-    description: 'Если на уроке что-то пошло не так.',
+    description: 'Если на уроке что-то пошло не так',
     external: true,
   },
   {
     title: 'План развития',
     href: '/roadmap',
-    description: 'Что появится в платформе дальше.',
+    description: 'Что появится в платформе дальше',
     external: false,
   },
 ] as const;
