@@ -1,40 +1,24 @@
 import Link from 'next/link';
 
-import { Metadata } from 'next';
+import { JsonLd } from 'components/seo/JsonLd';
+import { breadcrumbJsonLd, graphJsonLd, webPageJsonLd } from 'lib/seo/jsonld';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Юридические документы | Sovlium',
-  description:
-    'Условия использования, политика конфиденциальности, согласие на обработку персональных данных и согласие на рекламные сообщения платформы Sovlium.',
-  openGraph: {
-    title: 'Юридические документы | Sovlium',
-    description:
-      'Условия использования, политика конфиденциальности, согласие на обработку персональных данных и согласие на рекламные сообщения платформы Sovlium.',
-    url: 'https://sovlium.ru/legal',
-    siteName: 'Sovlium',
-    images: [
-      {
-        url: 'https://sovlium.ru/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
-      },
-    ],
-    type: 'website',
-  },
-};
+export const metadata = createPageMetadata('/legal');
 
 export default function LegalPage() {
   return (
-    <div className="min-h-screen bg-gray-0">
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Юридические документы</h1>
+    <>
+      <JsonLd data={graphJsonLd(webPageJsonLd('/legal'), breadcrumbJsonLd('/legal'))} />
+      <div>
+        <h1 className="mb-8 text-4xl font-bold text-gray-900">Юридические документы</h1>
 
         <div className="grid gap-6 sm:grid-cols-2">
           <Link
             href="/legal/terms"
-            className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+            className="block rounded-lg border border-gray-200 bg-white p-6 transition-colors hover:border-gray-300"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">Условия использования</h2>
+            <h2 className="mb-3 text-xl font-semibold text-gray-900">Условия использования</h2>
             <p className="text-gray-600">
               Правила и условия использования платформы Sovlium, права и обязанности пользователей.
             </p>
@@ -42,9 +26,9 @@ export default function LegalPage() {
 
           <Link
             href="/legal/privacy"
-            className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+            className="block rounded-lg border border-gray-200 bg-white p-6 transition-colors hover:border-gray-300"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            <h2 className="mb-3 text-xl font-semibold text-gray-900">
               Политика конфиденциальности
             </h2>
             <p className="text-gray-600">
@@ -54,9 +38,9 @@ export default function LegalPage() {
 
           <Link
             href="/legal/consent"
-            className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+            className="block rounded-lg border border-gray-200 bg-white p-6 transition-colors hover:border-gray-300"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            <h2 className="mb-3 text-xl font-semibold text-gray-900">
               Согласие на обработку данных
             </h2>
             <p className="text-gray-600">
@@ -67,9 +51,9 @@ export default function LegalPage() {
 
           <Link
             href="/legal/marketing-consent"
-            className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+            className="block rounded-lg border border-gray-200 bg-white p-6 transition-colors hover:border-gray-300"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            <h2 className="mb-3 text-xl font-semibold text-gray-900">
               Согласие на рекламные сообщения
             </h2>
             <p className="text-gray-600">
@@ -79,16 +63,19 @@ export default function LegalPage() {
           </Link>
         </div>
 
-        <div className="mt-12 p-6 bg-blue-50 rounded-lg">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Нужна помощь?</h3>
-          <p className="text-blue-800 mb-4">
+        <div className="mt-12 rounded-lg bg-blue-50 p-6">
+          <h2 className="mb-2 text-lg font-semibold text-blue-900">Нужна помощь?</h2>
+          <p className="mb-4 text-blue-800">
             Если у вас есть вопросы по юридическим документам, обращайтесь к нам:
           </p>
-          <div className="space-y-2 text-blue-800">
-            <p>📧 Email: support@sovlium.ru</p>
-          </div>
+          <p className="text-blue-800">
+            Email:{' '}
+            <a href="mailto:support@sovlium.ru" className="underline underline-offset-4">
+              support@sovlium.ru
+            </a>
+          </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }

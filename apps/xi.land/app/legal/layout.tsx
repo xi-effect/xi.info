@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { ReactNode } from 'react';
+
 type LegalLayoutProps = {
-  children: any;
+  children: ReactNode;
 };
 
 const LegalLayout = ({ children }: LegalLayoutProps) => {
@@ -62,7 +64,7 @@ const LegalLayout = ({ children }: LegalLayoutProps) => {
         </nav>
 
         {/* Контент страницы */}
-        <div className="prose prose-lg max-w-none">{children}</div>
+        <main className="prose prose-lg max-w-none">{children}</main>
       </div>
     </div>
   );

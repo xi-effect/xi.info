@@ -1,14 +1,8 @@
 import { FeaturePage } from 'components/product';
 import { calendarContent } from 'components/product/content/calendar';
-import { Metadata } from 'next';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: calendarContent.seoTitle,
-  description: calendarContent.seoDescription,
-  alternates: {
-    canonical: '/calendar',
-  },
-};
+export const metadata = createPageMetadata('/calendar');
 
 export default function CalendarPage() {
   return <FeaturePage content={calendarContent} />;

@@ -1,14 +1,8 @@
 import { FeaturePage } from 'components/product';
 import { classroomsContent } from 'components/product/content/classrooms';
-import { Metadata } from 'next';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: classroomsContent.seoTitle,
-  description: classroomsContent.seoDescription,
-  alternates: {
-    canonical: '/classrooms',
-  },
-};
+export const metadata = createPageMetadata('/classrooms');
 
 export default function ClassroomsPage() {
   return <FeaturePage content={classroomsContent} />;

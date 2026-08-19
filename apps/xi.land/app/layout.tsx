@@ -4,34 +4,19 @@ import localFont from 'next/font/local';
 
 import { Header } from 'components/Header';
 import { Footer } from 'pkg.footer';
+import { JsonLd } from 'components/seo/JsonLd';
 
 import { CookieBannerWrapper } from 'components/CookieBanner';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
+import { graphJsonLd, organizationJsonLd, websiteJsonLd } from 'lib/seo/jsonld';
+import { createPageMetadata } from 'lib/seo/metadata';
+import { SITE_URL } from 'lib/seo/site';
 import '../index.css';
 
 export const metadata: Metadata = {
-  title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
-  description:
-    'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
+  ...createPageMetadata('/'),
   manifest: '/manifest.webmanifest',
-  keywords: [
-    'sovlium',
-    'совлиум',
-    'платформа для репетиторов',
-    'онлайн уроки',
-    'видеозвонки',
-    'онлайн доска',
-    'расписание уроков',
-    'контроль оплат',
-    'репетиторство',
-    'дистанционное обучение',
-    'EdTech',
-    'образовательная платформа',
-    'онлайн образование',
-    'видеоконференции',
-    'цифровое обучение',
-  ],
   authors: [{ name: 'Sovlium Team' }],
   creator: 'Sovlium',
   publisher: 'Sovlium',
@@ -40,10 +25,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://sovlium.ru'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -55,46 +37,12 @@ export const metadata: Metadata = {
     google: 'Y4vSUoLC0DZXzBAmNZ5rtQ9UVPlPaiKVSFHGx3ZJj-g',
     yandex: '4b86f3c46a3dc46d',
   },
-  openGraph: {
-    title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
-    description:
-      'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
-    url: 'https://sovlium.ru',
-    siteName: 'Sovlium',
-    locale: 'ru_RU',
-    type: 'website',
-    images: [
-      {
-        url: 'https://sovlium.ru/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Sovlium - Платформа для репетиторов',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Проводите уроки онлайн. Платформа для репетиторов sovlium',
-    description:
-      'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
-    images: ['https://sovlium.ru/web-app-manifest-512x512.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
 };
 
 const markerHand = localFont({
   src: '../public/fonts/MarkerHand-Regular.woff2',
   display: 'swap',
+  preload: false,
   variable: '--font-marker-hand',
   fallback: ['cursive'],
 });
@@ -130,6 +78,7 @@ const neverMind = localFont({
     },
   ],
   display: 'swap',
+  preload: false,
   variable: '--font-never-mind',
   fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
@@ -168,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </noscript>
           </>
         )}
+        <JsonLd data={graphJsonLd(organizationJsonLd, websiteJsonLd)} />
         <CookieBannerWrapper />
         <Toaster />
         <Header />

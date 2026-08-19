@@ -22,7 +22,7 @@ const CookieBanner = ({ acceptCookies }: ICookieBannerProps) => {
       }}
       className="max-[498px]:left-4 right-4 left-auto bottom-4 sm:left-auto sm:right-8 sm:bottom-8 fixed bg-gray-0 rounded-2xl z-50 max-w-[450px] min-h-[180px] p-4 border-2 border-gray-20"
     >
-      <h2 className="font-semibold text-2xl mb-2">Мы используем файлы куки 🍪</h2>
+      <p className="mb-2 text-2xl font-semibold">Мы используем файлы куки 🍪</p>
       <p className="text-s-base mb-4">
         Продолжая пользоваться нашим сайтом, вы соглашаетесь на обработку персональных данных в
         соответствии с{' '}

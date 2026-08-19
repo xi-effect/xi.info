@@ -23,7 +23,7 @@ export const Faq = () => {
                         <p key={textKey} dangerouslySetInnerHTML={{ __html: text.trim() }} />
                       ))
                   ) : (
-                    <p key={key} dangerouslySetInnerHTML={{ __html: item.texts }} />
+                    <p key={item.title} dangerouslySetInnerHTML={{ __html: item.texts }} />
                   )}
                 </AccordionContent>
               </AccordionItem>

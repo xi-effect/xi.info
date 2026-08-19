@@ -54,17 +54,13 @@ export const DevicesBlock = () => {
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-10 overflow-hidden rounded-[28px] bg-violet-50 p-6 dark:bg-violet-950/25 md:rounded-[48px] md:p-14">
         <header className="flex flex-col gap-6">
-          <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 lg:hidden dark:text-gray-0">
-            {DEVICES_HEADING_MOBILE}
+          <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10 dark:text-gray-0">
+            <span className="lg:hidden">{DEVICES_HEADING_MOBILE}</span>
+            <span className="hidden lg:inline">{DEVICES_HEADING_DESKTOP}</span>
           </h2>
-          <h2 className="hidden text-4xl font-medium leading-10 tracking-tight text-gray-900 lg:block dark:text-gray-0">
-            {DEVICES_HEADING_DESKTOP}
-          </h2>
-          <p className="font-manrope text-lg font-medium leading-6 text-gray-900/80 lg:hidden dark:text-gray-0/80">
-            {DEVICES_SUB_MOBILE}
-          </p>
-          <p className="font-manrope hidden text-lg font-medium leading-6 text-gray-900/80 lg:block dark:text-gray-0/80">
-            {DEVICES_SUB_DESKTOP}
+          <p className="font-manrope text-lg font-medium leading-6 text-gray-900/80 dark:text-gray-0/80">
+            <span className="lg:hidden">{DEVICES_SUB_MOBILE}</span>
+            <span className="hidden lg:inline">{DEVICES_SUB_DESKTOP}</span>
           </p>
         </header>
 
@@ -99,25 +95,25 @@ export const DevicesBlock = () => {
             aria-labelledby={`${DEVICES_SWITCHER_LAYOUT_ID}-tab-${activeTab}`}
             className="flex flex-col gap-4 lg:col-start-2 lg:row-start-2 lg:min-h-0"
           >
-            <h3 className="text-pretty text-2xl font-medium leading-8 text-neutral-800 lg:hidden dark:text-neutral-100">
-              {variant.headingLinesMobile.map((line, i) => (
-                <span key={`m-${i}-${line}`} className="block">
-                  {line}
-                </span>
-              ))}
+            <h3 className="text-pretty text-2xl font-medium leading-8 text-neutral-800 dark:text-neutral-100">
+              <span className="lg:hidden">
+                {variant.headingLinesMobile.map((line) => (
+                  <span key={`m-${line}`} className="block">
+                    {line}
+                  </span>
+                ))}
+              </span>
+              <span className="hidden lg:inline">
+                {variant.headingLines.map((line) => (
+                  <span key={`d-${line}`} className="block">
+                    {line}
+                  </span>
+                ))}
+              </span>
             </h3>
-            <h3 className="hidden text-pretty text-2xl font-medium leading-8 text-neutral-800 lg:block dark:text-neutral-100">
-              {variant.headingLines.map((line, i) => (
-                <span key={`d-${i}-${line}`} className="block">
-                  {line}
-                </span>
-              ))}
-            </h3>
-            <p className="font-manrope text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:hidden dark:text-neutral-200/70">
-              {variant.descriptionMobile}
-            </p>
-            <p className="font-manrope hidden text-pretty text-base font-normal leading-5 text-neutral-800/60 lg:block dark:text-neutral-200/70">
-              {variant.description}
+            <p className="font-manrope text-pretty text-base font-normal leading-5 text-neutral-800/60 dark:text-neutral-200/70">
+              <span className="lg:hidden">{variant.descriptionMobile}</span>
+              <span className="hidden lg:inline">{variant.description}</span>
             </p>
           </div>
 

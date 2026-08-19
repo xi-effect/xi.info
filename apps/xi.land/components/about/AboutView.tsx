@@ -80,7 +80,7 @@ export const AboutView = () => (
             key={fact.title}
             className="flex flex-col gap-3 rounded-[20px] bg-white px-6 py-6"
           >
-            <h2 className="text-xl font-medium leading-7 text-gray-100">{fact.title}</h2>
+            <h3 className="text-xl font-medium leading-7 text-gray-100">{fact.title}</h3>
             <p className="font-manrope text-base leading-7 text-gray-900/70">{fact.text}</p>
           </article>
         ))}

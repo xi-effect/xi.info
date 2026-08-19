@@ -1,27 +1,27 @@
-export const metadata = {
-  title: 'Статьи и советы для репетиторов от sovlium',
-  description: 'Делимся новостями, кейсами и лайфхаками.',
-  openGraph: {
-    title: 'Статьи и советы для репетиторов от sovlium',
-    description: 'Делимся новостями, кейсами и лайфхаками.',
-    url: 'https://sovlium.ru',
-    siteName: 'sovlium',
-    images: [
-      {
-        url: 'https://sovlium.ru/web-app-manifest-512x512.png', // Must be an absolute URL
-        width: 512,
-        height: 512,
-      },
-    ],
-    type: 'website',
-  },
-};
+import Link from 'next/link';
 
-export default function ProductPage() {
+import { createPageMetadata } from 'lib/seo/metadata';
+
+export const metadata = createPageMetadata('/blog');
+
+export default function BlogPage() {
   return (
-    <main className="flex flex-row h-full w-full min-h-[100vh] justify-center items-start bg-gray-0 overflow-x-hidden">
-      <div className="flex flex-col w-full justify-start items-start mt-32">
-        <h1 className="p-8 text-h5"> Мы пока работаем над этой страницей 😔</h1>
+    <main className="flex h-full min-h-[100vh] w-full flex-row items-start justify-center overflow-x-hidden bg-gray-0">
+      <div className="mt-32 flex w-full flex-col items-start justify-start">
+        <div className="flex max-w-2xl flex-col gap-4 p-8">
+          <h1 className="text-h5">Мы пока работаем над этой страницей 😔</h1>
+          <p className="text-l-base text-gray-80">
+            Скоро здесь появятся новости и заметки для репетиторов. Пока можно заглянуть в{' '}
+            <Link href="/roadmap" className="text-brand-80 underline underline-offset-4">
+              план развития
+            </Link>{' '}
+            или на страницу{' '}
+            <Link href="/about" className="text-brand-80 underline underline-offset-4">
+              О нас
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     </main>
   );
