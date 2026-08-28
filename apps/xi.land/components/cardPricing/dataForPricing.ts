@@ -263,6 +263,11 @@ const comparisonSections: ComparisonSectionT[] = [
         valuesByPlanId: both(),
       },
       {
+        feature: 'Реакции',
+        hint: 'Эмодзи и живой отклик во время урока',
+        valuesByPlanId: both(),
+      },
+      {
         feature: 'Компактное окно звонка',
         hint: 'Когда открываете доску, урок не прерывается',
         valuesByPlanId: both(),
@@ -281,7 +286,24 @@ const comparisonSections: ComparisonSectionT[] = [
         valuesByPlanId: both(),
       },
       {
-        feature: 'Перо, текст и фигуры',
+        feature: 'Перо и текст',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Геометрические фигуры',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Стикеры',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Шаблоны доски',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Интерактивные задания на доске',
+        hint: 'Задания прямо на холсте, во время урока',
         valuesByPlanId: both(),
       },
       {
@@ -299,6 +321,12 @@ const comparisonSections: ComparisonSectionT[] = [
       },
       {
         feature: 'Аудиофайлы на доске',
+        hint: 'Можно вставлять таймкоды и слушать синхронно вместе с учениками',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Таймкоды в аудио',
+        hint: 'Отмечаете момент на дорожке — ученики слышат то же самое вместе с вами',
         valuesByPlanId: both(),
       },
       {
@@ -352,6 +380,29 @@ const comparisonSections: ComparisonSectionT[] = [
       {
         feature: 'Повторное использование заготовок',
         hint: 'Подготовили раз — открываете снова из библиотеки или кабинета',
+        valuesByPlanId: both(),
+      },
+    ],
+  },
+  {
+    title: 'Файлы',
+    rows: [
+      {
+        feature: 'Загрузка любых файлов',
+        hint: 'В пределах хранилища тарифа',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Поделиться файлами с учениками',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Настройка доступа к файлам',
+        hint: 'Открываете доступ ученику или оставляете файл только себе',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Просмотр файлов на платформе',
         valuesByPlanId: both(),
       },
     ],
@@ -448,6 +499,14 @@ const comparisonSections: ComparisonSectionT[] = [
       },
       {
         feature: 'Компьютер, телефон и планшет',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Тёмная тема',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Смена языка на английский',
         valuesByPlanId: both(),
       },
       {
