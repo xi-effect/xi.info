@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { cn } from '@xipkg/utils';
+import { cn, useMediaQuery } from '@xipkg/utils';
 import { Check, ChevronSmallBottom } from '@xipkg/icons';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'motion/react';
@@ -33,8 +33,8 @@ const ComparisonSoonBadge = () => (
 const ComparisonCell = ({ cell }: { cell: ComparisonCellT }) => {
   if (cell.soon) {
     return (
-      <span className="inline-flex flex-wrap items-center gap-2">
-        {cell.text ? <span>{cell.text}</span> : null}
+      <span className="inline-flex min-w-0 flex-wrap items-center gap-2">
+        {cell.text ? <span className="min-w-0 wrap-break-word">{cell.text}</span> : null}
         <ComparisonSoonBadge />
       </span>
     );
@@ -42,15 +42,60 @@ const ComparisonCell = ({ cell }: { cell: ComparisonCellT }) => {
 
   if (cell.included) {
     return (
-      <span className="inline-flex items-center gap-2">
-        <Check className="size-5 shrink-0 fill-brand-80" />
-        {cell.text ? <span>{cell.text}</span> : <span className="sr-only">Есть</span>}
+      <span className="inline-flex min-w-0 items-start gap-2">
+        <Check className="mt-0.5 size-5 shrink-0 fill-brand-80" />
+        {cell.text ? (
+          <span className="min-w-0 wrap-break-word">{cell.text}</span>
+        ) : (
+          <span className="sr-only">Есть</span>
+        )}
       </span>
     );
   }
 
-  return <span>{cell.text ?? '—'}</span>;
+  return <span className="wrap-break-word">{cell.text ?? '—'}</span>;
 };
+
+const ComparisonRow = ({
+  feature,
+  hint,
+  basicCell,
+  proCell,
+  basicName,
+  proName,
+}: {
+  feature: string;
+  hint?: string;
+  basicCell: ComparisonCellT;
+  proCell: ComparisonCellT;
+  basicName: string;
+  proName: string;
+}) => (
+  <div className="group border-t border-gray-10 px-4 py-3 md:grid md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] md:px-0 md:py-0">
+    <div className="min-w-0 md:px-6 md:py-3 md:transition-colors md:group-hover:bg-brand-0/50">
+      <p className="text-pretty text-s-base leading-6 text-gray-100 sm:text-m-base">{feature}</p>
+      {hint ? (
+        <p className="mt-0.5 text-pretty text-xs-base leading-5 text-gray-60 sm:text-s-base">
+          {hint}
+        </p>
+      ) : null}
+    </div>
+    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 md:contents">
+      <div className="min-w-0 rounded-xl bg-gray-5 px-3 py-2.5 text-s-base leading-5 text-gray-100 md:rounded-none md:bg-transparent md:px-6 md:py-3 md:leading-6 md:transition-colors md:group-hover:bg-brand-0/50 sm:text-m-base">
+        <p className="mb-1 text-[11px] font-semibold tracking-wide text-gray-60 uppercase md:hidden">
+          {basicName}
+        </p>
+        <ComparisonCell cell={basicCell} />
+      </div>
+      <div className="min-w-0 rounded-xl bg-brand-0 px-3 py-2.5 text-s-base leading-5 text-gray-100 md:rounded-none md:px-6 md:py-3 md:leading-6 sm:text-m-base">
+        <p className="mb-1 text-[11px] font-semibold tracking-wide text-brand-100 uppercase md:hidden">
+          {proName}
+        </p>
+        <ComparisonCell cell={proCell} />
+      </div>
+    </div>
+  </div>
+);
 
 const fadeUp = (reduceMotion: boolean | null, delay = 0) =>
   reduceMotion
@@ -68,6 +113,7 @@ const fadeUp = (reduceMotion: boolean | null, delay = 0) =>
 
 export const PricesView = () => {
   const reduceMotion = useReducedMotion();
+  const canHover = useMediaQuery('(hover: hover) and (pointer: fine)');
   const [openSections, setOpenSections] = useState<Set<string>>(
     () => new Set(comparisonSections.map((section) => section.title)),
   );
@@ -124,10 +170,10 @@ export const PricesView = () => {
             <p className="text-s-base font-semibold tracking-[0.08em] text-brand-80 uppercase">
               Тарифы
             </p>
-            <h1 className="text-[32px] leading-[1.1] font-semibold tracking-tight text-gray-100 sm:text-[40px] lg:text-[48px]">
+            <h1 className="text-pretty text-[28px] leading-[1.15] font-semibold tracking-tight text-gray-100 sm:text-[40px] lg:text-[48px]">
               Выберите формат работы с sovlium
             </h1>
-            <p className="text-m-base leading-7 text-gray-80 sm:text-l-base">
+            <p className="text-pretty text-m-base leading-7 text-gray-80 sm:text-l-base">
               Бесплатный Базовый — чтобы начать. Профи — больше кабинетов и хранилища для регулярной
               работы.
             </p>
@@ -148,10 +194,10 @@ export const PricesView = () => {
             {...fadeUp(reduceMotion)}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <h2 className="text-[28px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
+            <h2 className="text-[24px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
               Сравнение тарифов
             </h2>
-            <p className="text-m-base leading-7 text-gray-80">
+            <p className="text-pretty text-m-base leading-7 text-gray-80">
               Все возможности платформы — по разделам. На тарифах отличаются лимиты кабинетов и
               хранилища; остальные функции доступны и на Базовом, и на Профи.
             </p>
@@ -164,7 +210,7 @@ export const PricesView = () => {
                 type="button"
                 onClick={() => jumpToSection(section.title)}
                 className={cn(
-                  'shrink-0 rounded-full px-3 py-1.5 text-s-base transition-colors',
+                  'shrink-0 rounded-full px-2.5 py-1 text-xs-base transition-colors sm:px-3 sm:py-1.5 sm:text-s-base',
                   activeSection === section.title
                     ? 'bg-brand-80 text-brand-0'
                     : 'bg-gray-5 text-gray-80 hover:bg-brand-0 hover:text-brand-100',
@@ -176,7 +222,7 @@ export const PricesView = () => {
             <button
               type="button"
               onClick={toggleAllSections}
-              className="group inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand-80 px-3 py-1.5 text-s-base font-medium text-brand-80 transition-colors hover:bg-brand-80 hover:text-brand-0"
+              className="group inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand-80 px-2.5 py-1 text-xs-base font-medium text-brand-80 transition-colors hover:bg-brand-80 hover:text-brand-0 sm:px-3 sm:py-1.5 sm:text-s-base"
             >
               <ChevronSmallBottom
                 className={cn(
@@ -188,8 +234,8 @@ export const PricesView = () => {
             </button>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="grid min-w-0 grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] px-1 sm:px-2">
+          <div className="flex min-w-0 flex-col gap-2">
+            <div className="hidden min-w-0 grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] px-1 md:grid sm:px-2">
               <span className="px-4 py-3 text-s-base text-gray-60 sm:px-5">Возможность</span>
               <span className="px-4 py-3 text-m-base font-semibold text-gray-100 sm:px-5">
                 {basicPlan.name}
@@ -205,7 +251,7 @@ export const PricesView = () => {
               return (
                 <div
                   key={section.title}
-                  className="overflow-hidden rounded-2xl border border-gray-10 bg-gray-0"
+                  className="min-w-0 overflow-hidden rounded-2xl border border-gray-10 bg-gray-0"
                 >
                   <button
                     type="button"
@@ -213,11 +259,11 @@ export const PricesView = () => {
                     aria-expanded={isOpen}
                     onClick={() => toggleSection(section.title)}
                     className={cn(
-                      'flex w-full scroll-mt-28 items-center justify-between gap-3 px-5 py-3.5 text-left text-s-base font-semibold text-gray-100 transition-colors sm:px-6',
+                      'flex w-full min-w-0 scroll-mt-28 items-center justify-between gap-3 px-4 py-3.5 text-left text-s-base font-semibold text-gray-100 transition-colors sm:px-6',
                       isOpen ? 'bg-brand-0' : 'hover:bg-brand-0',
                     )}
                   >
-                    {section.title}
+                    <span className="min-w-0 wrap-break-word">{section.title}</span>
                     <ChevronSmallBottom
                       className={cn(
                         'size-4 shrink-0 fill-brand-80 transition-transform duration-200',
@@ -228,27 +274,15 @@ export const PricesView = () => {
 
                   {isOpen
                     ? section.rows.map((row) => (
-                        <div
+                        <ComparisonRow
                           key={row.feature}
-                          className="group grid grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] border-t border-gray-10"
-                        >
-                          <div className="px-5 py-3 transition-colors group-hover:bg-brand-0/50 sm:px-6">
-                            <p className="text-s-base leading-6 text-gray-100 sm:text-m-base">
-                              {row.feature}
-                            </p>
-                            {row.hint ? (
-                              <p className="mt-0.5 text-xs-base leading-5 text-gray-60 sm:text-s-base">
-                                {row.hint}
-                              </p>
-                            ) : null}
-                          </div>
-                          <div className="px-5 py-3 text-s-base leading-6 text-gray-100 transition-colors group-hover:bg-brand-0/50 sm:px-6 sm:text-m-base">
-                            <ComparisonCell cell={row.valuesByPlanId[basicPlan.id]} />
-                          </div>
-                          <div className="bg-brand-0 px-5 py-3 text-s-base leading-6 text-gray-100 sm:px-6 sm:text-m-base">
-                            <ComparisonCell cell={row.valuesByPlanId[proPlan.id]} />
-                          </div>
-                        </div>
+                          feature={row.feature}
+                          hint={row.hint}
+                          basicCell={row.valuesByPlanId[basicPlan.id]}
+                          proCell={row.valuesByPlanId[proPlan.id]}
+                          basicName={basicPlan.name}
+                          proName={proPlan.name}
+                        />
                       ))
                     : null}
                 </div>
@@ -265,10 +299,10 @@ export const PricesView = () => {
             {...fadeUp(reduceMotion)}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <h2 className="text-[28px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
+            <h2 className="text-[24px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
               Возможности сервиса
             </h2>
-            <p className="text-m-base leading-7 text-gray-80">
+            <p className="text-pretty text-m-base leading-7 text-gray-80">
               Вот что уже доступно репетитору в sovlium — на любом тарифе, в пределах его лимитов.
             </p>
           </motion.div>
@@ -281,7 +315,7 @@ export const PricesView = () => {
                 initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                whileHover={reduceMotion ? undefined : { y: -3 }}
+                whileHover={reduceMotion || !canHover ? undefined : { y: -3 }}
                 transition={{
                   type: 'spring',
                   stiffness: 400,
@@ -290,7 +324,7 @@ export const PricesView = () => {
                 }}
               >
                 <Check className="mt-0.5 size-5 shrink-0 fill-brand-80" />
-                <span className="text-m-base leading-6 text-gray-80 sm:text-l-base">{feature}</span>
+                <span className="min-w-0 text-pretty text-m-base leading-6 wrap-break-word text-gray-80 sm:text-l-base">{feature}</span>
               </motion.div>
             ))}
           </div>
@@ -320,20 +354,22 @@ export const PricesView = () => {
         <div
           className={cn(
             containerClass,
-            'flex flex-col gap-[52px] lg:grid lg:grid-cols-[1fr_2fr] lg:gap-x-[100px]',
+            'flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_2fr] lg:gap-x-[100px]',
           )}
         >
-          <h2 className="text-2xl leading-[29px] font-medium text-gray-100 sm:max-w-[488px] sm:text-[32px] sm:leading-[48px] lg:max-w-none lg:self-start lg:text-[40px] lg:leading-[40px]">
+          <h2 className="text-2xl leading-[29px] font-medium text-pretty text-gray-100 sm:max-w-[488px] sm:text-[32px] sm:leading-[48px] lg:max-w-none lg:self-start lg:text-[40px] lg:leading-[40px]">
             Вопросы о тарифах
           </h2>
           <div className="relative w-full min-w-0">
             <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
               {pricingFaq.map((item, index) => (
                 <AccordionItem key={item.title} value={`item-${index + 1}`}>
-                  <AccordionTrigger className="py-8 font-manrope text-[20px] font-semibold text-gray-100 hover:text-brand-80 hover:no-underline sm:text-[24px] sm:font-bold">
-                    {item.title}
+                  <AccordionTrigger className="min-w-0 py-5 font-manrope text-[18px] leading-7 font-semibold text-gray-100 hover:text-brand-80 hover:no-underline sm:py-8 sm:text-[24px] sm:leading-8 sm:font-bold">
+                    <span className="min-w-0 flex-1 text-left text-pretty wrap-break-word">
+                      {item.title}
+                    </span>
                   </AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-[14px] text-balance text-gray-60 sm:text-[16px]">
+                  <AccordionContent className="flex flex-col gap-4 text-[14px] leading-6 text-pretty text-gray-60 sm:text-[16px]">
                     <p>{item.text}</p>
                   </AccordionContent>
                 </AccordionItem>
@@ -402,13 +438,13 @@ export const PricesView = () => {
               <motion.article
                 key={card.title}
                 className={cn(
-                  'flex flex-col gap-3 rounded-3xl p-6',
+                  'flex min-w-0 flex-col gap-3 rounded-3xl p-5 sm:p-6',
                   card.highlight ? 'bg-brand-0' : 'bg-gray-5',
                 )}
                 initial={reduceMotion ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
-                whileHover={reduceMotion ? undefined : { y: -4 }}
+                whileHover={reduceMotion || !canHover ? undefined : { y: -4 }}
                 transition={{
                   type: 'spring',
                   stiffness: 380,
@@ -424,7 +460,7 @@ export const PricesView = () => {
             ))}
           </div>
 
-          <div className="mx-auto mt-8 max-w-[720px] text-center text-s-base leading-6 text-gray-60">
+          <div className="mx-auto mt-8 max-w-[720px] text-pretty text-s-base leading-6 text-gray-60 sm:text-center">
             <p>
               Цены указаны в рублях РФ. Услуги оказывает ИП Букшев Игорь Владимирович. НДС не
               облагается в связи с применением УСН.
@@ -443,7 +479,7 @@ export const PricesView = () => {
               </Link>
               .
             </p>
-            <p className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <p className="mt-2 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-2">
               <Link href="/legal/requisites" className="text-brand-80 underline underline-offset-4">
                 Реквизиты
               </Link>
