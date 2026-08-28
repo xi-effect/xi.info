@@ -41,6 +41,7 @@ const sections: Section[] = [
   {
     title: 'Продукт',
     links: [
+      { link: '/classrooms', title: 'Кабинеты' },
       { link: '/calendar', title: 'Расписание' },
       { link: '/calls', title: 'Видеозвонки' },
       { link: '/whiteboard', title: 'Онлайн-доска' },

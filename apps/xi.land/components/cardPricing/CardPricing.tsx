@@ -1,9 +1,11 @@
 'use client';
 
+import Link from 'next/link';
 import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 
+import { SIGNUP_URL } from 'lib/app_urls';
 import type { CardPricingPropsT } from './dataForPricing';
 
 export const CardPricing = ({
@@ -14,17 +16,17 @@ export const CardPricing = ({
   billing = '',
   features = [],
   btn_name,
-  onClickBtn = () => {},
+  onClickBtn,
 }: CardPricingPropsT) => {
   return (
     <article
       className={cn(
-        'relative flex flex-col rounded-4xl border border-gray-10 bg-gray-0 p-6 sm:p-8 lg:p-10 gap-6 shadow-[0px_12px_40px_rgba(17,24,39,0.08)] w-full h-full',
-        highlight && 'bg-brand-80 border-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
+        'relative flex h-full w-full flex-col gap-6 rounded-4xl border border-gray-10 bg-gray-0 p-6 shadow-[0px_12px_40px_rgba(17,24,39,0.08)] sm:p-8 lg:p-10',
+        highlight && 'border-brand-80 bg-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
       )}
     >
       {highlight && (
-        <span className="absolute top-6 right-6 inline-flex rounded-full bg-brand-0 text-brand-100 text-xs-base font-semibold px-4 py-1">
+        <span className="text-xs-base absolute top-6 right-6 inline-flex rounded-full bg-brand-0 px-4 py-1 font-semibold text-brand-100">
           Самый полный доступ
         </span>
       )}
@@ -32,7 +34,7 @@ export const CardPricing = ({
       <div className="flex flex-col gap-3 pt-6 lg:min-h-[140px]">
         <h2
           className={cn(
-            'text-[28px] sm:text-[32px] lg:text-[40px] font-semibold leading-[1.1]',
+            'text-[28px] leading-[1.1] font-semibold sm:text-[32px] lg:text-[40px]',
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
@@ -51,7 +53,7 @@ export const CardPricing = ({
       <div className="flex items-baseline gap-2 lg:min-h-[64px]">
         <span
           className={cn(
-            'text-[40px] sm:text-[48px] font-semibold leading-none',
+            'text-[40px] leading-none font-semibold sm:text-[48px]',
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
@@ -63,17 +65,24 @@ export const CardPricing = ({
       </div>
 
       <Button
+        asChild={!onClickBtn}
         size="l"
         variant={highlight ? 'ghost' : 'primary'}
         onClick={onClickBtn}
         className={cn(
-          'w-full sm:w-85 h-12 sm:h-14 text-base sm:text-l-base font-medium rounded-2xl lg:min-h-[56px]',
+          'sm:w-85 h-12 w-full rounded-2xl text-base font-medium sm:h-14 sm:text-l-base lg:min-h-[56px]',
           highlight
-            ? 'text-brand-100 bg-brand-0 border-2 border-brand-0'
+            ? 'border-2 border-brand-0 bg-brand-0 text-brand-100'
             : 'text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]',
         )}
       >
-        {btn_name}
+        {onClickBtn ? (
+          btn_name
+        ) : (
+          <Link href={SIGNUP_URL} className="inline-flex h-full w-full items-center justify-center">
+            {btn_name}
+          </Link>
+        )}
       </Button>
 
       <div className="flex flex-col gap-3 mt-auto">

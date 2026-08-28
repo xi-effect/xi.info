@@ -1,10 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ChevronSmallRight } from '@xipkg/icons';
+import Link from 'next/link';
 import { cn } from '@xipkg/utils';
 import { motion, useReducedMotion } from 'motion/react';
-import { ScrollArea } from '@xipkg/scrollarea';
 
 import {
   CAPABILITIES_HEADING,
@@ -33,17 +32,17 @@ type CapabilityCardPropsT = {
 };
 
 const CapabilityCard = ({ card, className }: CapabilityCardPropsT) => {
-  const { Icon, text, badge } = card;
+  const { Icon, text, badge, href } = card;
   const showBadgeRow = badge === 'new' || badge === 'soon';
+  const cardClassName = cn(
+    'flex min-h-[176px] flex-col gap-5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
+    'md:min-h-[12rem]',
+    href && 'transition-colors hover:bg-gray-0',
+    className,
+  );
 
-  return (
-    <article
-      className={cn(
-        'flex min-h-[176px] flex-col gap-5 overflow-hidden rounded-[20px] bg-white px-6 py-6 dark:bg-gray-90',
-        'md:min-h-[12rem]',
-        className,
-      )}
-    >
+  const inner = (
+    <>
       <div
         className={cn(
           'flex shrink-0 items-center',
@@ -67,8 +66,18 @@ const CapabilityCard = ({ card, className }: CapabilityCardPropsT) => {
       <p className="font-manrope text-pretty text-base font-normal leading-7 text-gray-900/75 dark:text-gray-0/80 md:text-lg md:leading-relaxed">
         {text}
       </p>
-    </article>
+    </>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className={cardClassName}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return <article className={cardClassName}>{inner}</article>;
 };
 
 export const CapabilitiesBlock = () => {
@@ -77,7 +86,6 @@ export const CapabilitiesBlock = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const hintPlayedRef = useRef(false);
   const [fadeRightEdge, setFadeRightEdge] = useState(true);
-  const [showBounceHint, setShowBounceHint] = useState(true);
 
   const updateScrollHint = useCallback(() => {
     const el = scrollRef.current;
@@ -86,8 +94,6 @@ export const CapabilitiesBlock = () => {
     const nearEnd = maxScroll <= 0 || el.scrollLeft >= maxScroll - 8;
     setFadeRightEdge(!nearEnd);
   }, []);
-
-  const dismissBounceHint = useCallback(() => setShowBounceHint(false), []);
 
   useEffect(() => {
     updateScrollHint();
@@ -140,56 +146,42 @@ export const CapabilitiesBlock = () => {
             <span className="block">{CAPABILITIES_HEADING.line2}</span>
           </h2>
 
-          <div className="hidden w-full gap-7 md:grid md:grid-cols-3">
-            {CAPABILITY_CARDS.map((card, index) => (
-              <motion.div
-                key={card.id}
-                className="min-w-0 w-full"
-                initial={
-                  reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 32, scale: 0.96 }
-                }
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.28, margin: '0px 0px -48px 0px' }}
-                transition={cardRevealTransition(index, reduceMotion)}
-              >
-                <CapabilityCard card={card} className="min-w-0 w-full" />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="relative md:hidden">
+          <div className="relative">
             <div
               className={cn(
-                'pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l from-violet-50 to-transparent transition-opacity duration-300 dark:from-gray-90',
+                'pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-linear-to-l from-violet-50 to-transparent transition-opacity duration-300 md:hidden dark:from-gray-90',
                 !fadeRightEdge && 'opacity-0',
               )}
               aria-hidden
             />
 
-            <ScrollArea scrollBarProps={{ orientation: 'horizontal', forceMount: true }}>
-              <div
-                ref={scrollRef}
-                role="region"
-                aria-label={`${CAPABILITIES_TITLE_FULL}. Прокрутите по\u00A0горизонтали, чтобы увидеть все возможности`}
-                onScroll={updateScrollHint}
-                onWheel={dismissBounceHint}
-                onTouchStart={dismissBounceHint}
-                className={cn(
-                  'flex snap-x snap-mandatory gap-7 pb-1',
-                  '-ml-1 px-1 touch-pan-x',
-                  'mb-3',
-                )}
-              >
-                {CAPABILITY_CARDS.map((card, index) => (
-                  <div
-                    key={card.id}
-                    className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start"
-                  >
-                    <CapabilityCard card={card} className="h-full w-full" />
-                  </div>
-                ))}
-              </div>
-            </ScrollArea>
+            <div
+              ref={scrollRef}
+              role="region"
+              aria-label={`${CAPABILITIES_TITLE_FULL}. На узком экране прокрутите по горизонтали, чтобы увидеть все возможности`}
+              onScroll={updateScrollHint}
+              className={cn(
+                'mb-3 flex snap-x snap-mandatory gap-7 overflow-x-auto pb-1 touch-pan-x -ml-1 px-1',
+                'md:mb-0 md:ml-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0 md:snap-none',
+              )}
+            >
+              {CAPABILITY_CARDS.map((card, index) => (
+                <motion.div
+                  key={card.id}
+                  className="w-[min(calc(100vw-3rem),24rem)] min-w-[min(calc(100vw-3rem),24rem)] shrink-0 snap-start md:w-auto md:min-w-0 md:shrink"
+                  initial={
+                    reduceMotion
+                      ? { opacity: 1, y: 0, scale: 1 }
+                      : { opacity: 0, y: 32, scale: 0.96 }
+                  }
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.28, margin: '0px 0px -48px 0px' }}
+                  transition={cardRevealTransition(index, reduceMotion)}
+                >
+                  <CapabilityCard card={card} className="h-full min-w-0 w-full" />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

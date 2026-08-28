@@ -1,16 +1,6 @@
-import { Metadata } from 'next';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Согласие на рекламные сообщения | Sovlium',
-  description: 'Согласие на получение рекламных и информационных сообщений о сервисе Sovlium.',
-  openGraph: {
-    title: 'Согласие на рекламные сообщения | Sovlium',
-    description: 'Согласие на получение рекламных и информационных сообщений о сервисе Sovlium.',
-    url: 'https://sovlium.ru/legal/marketing-consent',
-    siteName: 'Sovlium',
-    type: 'website',
-  },
-};
+export const metadata = createPageMetadata('/legal/marketing-consent');
 
 export default async function MarketingConsentPage() {
   const { default: MarketingConsentContent } =

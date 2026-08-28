@@ -43,10 +43,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v7
 
       - name: Filter paths
-        uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@v4
         id: path_filter
         with:
           filters: .github/files.yml
@@ -56,18 +56,20 @@ jobs:
       xi_vacancy_files: ${{ steps.path_filter.outputs.xi_vacancy_files }}
       xi_support_files: ${{ steps.path_filter.outputs.xi_support_files }}
 
-  # Disabled: xi.actions front-lint-and-format runs `npm@latest`, which currently breaks CI.
-  # Builds already don't depend on lint. Re-enable when the shared action pins npm.
-  # lint:
-  #   needs: analyze_files
-  #   uses: xi-effect/xi.actions/.github/workflows/front-lint-and-format.yml@main
-  #   with:
-  #     node-version: 22.22.1
+  lint:
+    needs: analyze_files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint and format
+        uses: xi-effect/xi.actions/front-lint-and-format@main
+        with:
+          node-version: 24
+          npm-clean-install: 'false'
 
   build_xi_land:
     needs:
       - analyze_files
-      # - lint  # TODO: uncomment after linter is fixed
+      - lint
     if: needs.analyze_files.outputs.xi_land_files == 'true'
     uses: ./.github/workflows/common_build.yml
     with:
@@ -76,7 +78,7 @@ jobs:
   build_xi_vacancy:
     needs:
       - analyze_files
-      # - lint  # TODO: uncomment after linter is fixed
+      - lint
     if: needs.analyze_files.outputs.xi_vacancy_files == 'true'
     uses: ./.github/workflows/common_build.yml
     with:
@@ -85,7 +87,7 @@ jobs:
   build_xi_support:
     needs:
       - analyze_files
-      # - lint  # TODO: uncomment after linter is fixed
+      - lint
     if: needs.analyze_files.outputs.xi_support_files == 'true'
     uses: ./.github/workflows/common_build.yml
     with:

@@ -1,16 +1,9 @@
-import { Calls } from 'components/calls';
-import { Metadata } from 'next';
+import { FeaturePage } from 'components/product';
+import { callsContent } from 'components/product/content/calls';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Стабильная видеосвязь для репетиторов от sovlium',
-  description:
-    'Встроенная онлайн-доска, быстрый доступ и высокое качество. Протестируйте видеозвонки бесплатно.',
-};
+export const metadata = createPageMetadata('/calls');
 
 export default function CallsPage() {
-  return (
-    <section className="px-6 py-8 sm:py-12 xl:py-20">
-      <Calls />
-    </section>
-  );
+  return <FeaturePage content={callsContent} />;
 }

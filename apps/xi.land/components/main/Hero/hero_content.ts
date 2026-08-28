@@ -14,6 +14,16 @@ export type HeroFeatureT = {
   labelClassName: string;
 };
 
+export const FEATURE_HREF: Record<HeroFeatureIconIdT, string> = {
+  conference: '/calls',
+  whiteboard: '/whiteboard',
+  calendar: '/calendar',
+  materials: '/materials',
+  payments: '/payments',
+  notifications: '/calendar',
+  rooms: '/classrooms',
+};
+
 export type HeroParallaxLayerT = {
   src: string;
   alt: string;
@@ -86,7 +96,7 @@ export const HERO_MAIN_COLLAGE_IMAGE = {
 } as const;
 
 export const HERO_CONTENT = {
-  title: 'Все инструменты репетитора в\u00A0одной платформе',
+  title: 'Все инструменты репетитора на\u00A0одной платформе',
   subtitle:
     'Легко проводите онлайн-занятия с\u00A0компьютера, телефона или планшета. Рутину мы берём на\u00A0себя',
   primaryButtonLabel: 'Попробовать бесплатно',

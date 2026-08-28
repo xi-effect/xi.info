@@ -85,7 +85,7 @@ export const Header = () => {
                   <Link href="/" className="relative inline-flex h-12 w-40 items-center">
                     <Image
                       src="/logoforwhite.svg"
-                      alt="logo"
+                      alt="Sovlium"
                       width={216}
                       height={48}
                       className="block h-auto max-h-12 w-auto max-w-[160px] transition-opacity duration-500 ease-in-out"
@@ -97,7 +97,7 @@ export const Header = () => {
                   <Link href="/" className="relative inline-flex h-12 w-40 items-center">
                     <Image
                       src="/logoforwhite.svg"
-                      alt="logo"
+                      alt="Sovlium"
                       width={216}
                       height={48}
                       className="block h-auto max-h-12 w-auto max-w-[160px] transition-opacity duration-500 ease-in-out"

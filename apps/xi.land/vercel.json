@@ -1,11 +1,29 @@
 {
+  "redirects": [
+    {
+      "source": "/docs",
+      "destination": "https://support.sovlium.ru/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:path*",
+      "destination": "https://support.sovlium.ru/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
       "headers": [
         {
           "key": "x-robots-tag",
-          "value": "noindex"
+          "value": "noindex, nofollow"
         }
       ]
     }

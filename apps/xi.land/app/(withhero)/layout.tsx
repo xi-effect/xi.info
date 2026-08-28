@@ -1,10 +1,3 @@
-import { Hero } from 'components/main';
-
-export default function HeroLayout({ children }: { children: any }) {
-  return (
-    <>
-      <Hero />
-      {children}
-    </>
-  );
+export default function WithHeroLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }

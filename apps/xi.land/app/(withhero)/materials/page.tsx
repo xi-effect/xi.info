@@ -1,16 +1,9 @@
-import { Materials } from 'components/materials';
-import { Metadata } from 'next';
+import { FeaturePage } from 'components/product';
+import { materialsContent } from 'components/product/content/materials';
+import { createPageMetadata } from 'lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Удобное хранение учебных материалов в sovlium',
-  description:
-    'Храните учебники, онлайн-доски, файлы и заметки в единой системе. Настройте собственную цифровую библиотеку.',
-};
+export const metadata = createPageMetadata('/materials');
 
 export default function MaterialsPage() {
-  return (
-    <section className="px-6 py-8 sm:py-12 xl:py-20">
-      <Materials />
-    </section>
-  );
+  return <FeaturePage content={materialsContent} />;
 }

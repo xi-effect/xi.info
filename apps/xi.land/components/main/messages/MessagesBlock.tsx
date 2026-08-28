@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import type { ComponentType, CSSProperties, ReactNode } from 'react';
 import {
   Account,
@@ -17,7 +18,7 @@ import { cn } from '@xipkg/utils';
 import { motion, useReducedMotion } from 'motion/react';
 
 import type { HeroFeatureIconIdT, HeroFeatureT } from '../Hero/hero_content';
-import { HERO_CONTENT } from '../Hero/hero_content';
+import { FEATURE_HREF, HERO_CONTENT } from '../Hero/hero_content';
 import {
   MESSAGES_ASSETS,
   MESSAGES_FLOATING_FEATURES,
@@ -74,18 +75,13 @@ const FloatingServiceIcon = ({
 
   return (
     <div
-      className={cn('pointer-events-none absolute z-[2]', className)}
-      aria-hidden
+      className={cn('absolute z-[2]', className)}
       style={{
         ...style,
         transform: 'translate(-50%, -50%)',
       }}
     >
       <motion.div
-        className={cn(
-          'inline-flex items-center justify-center rounded-xl p-3',
-          feature.pillClassName,
-        )}
         animate={reduceMotion ? undefined : { y: [0, -9, 0], x: [0, 5, 0], rotate: [0, 1.2, 0] }}
         transition={{
           duration: 4.2,
@@ -94,7 +90,19 @@ const FloatingServiceIcon = ({
           delay: motionPhase,
         }}
       >
-        <Icon className={cn('size-10 shrink-0 fill-current', feature.labelClassName)} aria-hidden />
+        <Link
+          href={FEATURE_HREF[featureId]}
+          aria-label={feature.label}
+          className={cn(
+            'inline-flex items-center justify-center rounded-xl p-3 transition-opacity hover:opacity-80',
+            feature.pillClassName,
+          )}
+        >
+          <Icon
+            className={cn('size-10 shrink-0 fill-current', feature.labelClassName)}
+            aria-hidden
+          />
+        </Link>
       </motion.div>
     </div>
   );

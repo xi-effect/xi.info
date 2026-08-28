@@ -26,6 +26,7 @@ import {
 
 import type { HeroFeatureIconIdT, HeroFeatureT, HeroParallaxLayerT } from './hero_content';
 import {
+  FEATURE_HREF,
   HERO_CONTENT,
   HERO_MAIN_COLLAGE_IMAGE,
   HERO_PARALLAX_INTENSITY,
@@ -98,9 +99,10 @@ const HeroFeatureBadge = ({ feature }: HeroFeatureBadgePropsT) => {
   const Icon = FEATURE_ICONS[feature.id];
 
   return (
-    <div
+    <Link
+      href={FEATURE_HREF[feature.id]}
       className={cn(
-        'inline-flex max-w-full items-center gap-3 rounded-[9.6px] px-3 py-2',
+        'inline-flex max-w-full items-center gap-3 rounded-[9.6px] px-3 py-2 transition-opacity hover:opacity-80',
         feature.pillClassName,
       )}
     >
@@ -115,7 +117,7 @@ const HeroFeatureBadge = ({ feature }: HeroFeatureBadgePropsT) => {
       >
         {feature.label}
       </span>
-    </div>
+    </Link>
   );
 };
 
