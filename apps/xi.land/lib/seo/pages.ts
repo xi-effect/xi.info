@@ -123,14 +123,14 @@ export const SEO_PAGES = {
     description:
       'Условия использования, оферта, оплата и возврат, политика конфиденциальности, согласия и реквизиты сервиса sovlium.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/terms': {
     path: '/legal/terms',
     title: 'Условия использования | Sovlium',
     description: 'Условия использования платформы Sovlium для проведения онлайн-уроков.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/offer': {
     path: '/legal/offer',
@@ -138,7 +138,7 @@ export const SEO_PAGES = {
     description:
       'Условия оплаты тарифа, предоставления доступа к сервису sovlium, отмены подписки и возврата.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/payment-refund': {
     path: '/legal/payment-refund',
@@ -146,14 +146,14 @@ export const SEO_PAGES = {
     description:
       'Способы оплаты, порядок предоставления доступа к тарифу sovlium, отмена подписки и возврат.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/requisites': {
     path: '/legal/requisites',
     title: 'Реквизиты ИП — sovlium',
     description: 'Реквизиты индивидуального предпринимателя, оказывающего услуги сервиса sovlium.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/privacy': {
     path: '/legal/privacy',
@@ -161,7 +161,7 @@ export const SEO_PAGES = {
     description:
       'Политика конфиденциальности платформы Sovlium. Как мы собираем, используем и защищаем ваши персональные данные.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/consent': {
     path: '/legal/consent',
@@ -169,7 +169,7 @@ export const SEO_PAGES = {
     description:
       'Согласие на обработку персональных данных платформы Sovlium в соответствии с российским законодательством.',
     index: true,
-    lastmod: '2026-08-28',
+    lastmod: '2026-09-01',
   },
   '/legal/marketing-consent': {
     path: '/legal/marketing-consent',

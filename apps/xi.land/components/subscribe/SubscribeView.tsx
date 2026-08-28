@@ -9,7 +9,9 @@ import { SIGNUP_URL } from 'lib/app_urls';
 export const SubscribeView = () => {
   const [marketingConsent, setMarketingConsent] = useState(false);
 
-  // TODO: после подключения эквайринга Точки заменить переход на защищённую платёжную страницу и передавать marketingConsent в биллинг-поток.
+  // TODO: после подключения эквайринга проверить точные названия статусов/терминов в API Точки.
+  // TODO: после подключения эквайринга проверить точное наименование платёжного партнёра в договоре/личном кабинете Точки.
+  // TODO: после подключения эквайринга заменить переход на защищённую платёжную страницу и передавать marketingConsent в биллинг-поток.
   const paymentHref = SIGNUP_URL;
 
   return (
@@ -32,6 +34,10 @@ export const SubscribeView = () => {
               <h2 className="text-xl-base-size font-semibold text-gray-100">Профи</h2>
               <p className="text-xl-base-size font-semibold text-gray-100">1 499 ₽ / месяц</p>
             </div>
+            <p className="text-s-base leading-6 text-gray-60">
+              1 499 ₽ / месяц. Подписка продлевается автоматически каждый месяц, пока вы её не
+              отмените.
+            </p>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-m-base text-gray-80 sm:text-l-base">
               <li>До 30 кабинетов</li>
               <li>20 ГБ хранилища</li>
@@ -59,7 +65,8 @@ export const SubscribeView = () => {
           </label>
 
           <p className="text-s-base leading-6 text-gray-60 sm:text-m-base">
-            Нажимая «Оплатить», вы принимаете{' '}
+            Нажимая «Оплатить», вы оформляете подписку Профи за 1 499 ₽/мес. Подписка будет
+            автоматически продлеваться каждый месяц до отмены. Вы принимаете{' '}
             <Link href="/legal/offer" className="text-brand-80 underline underline-offset-4">
               Оферту
             </Link>

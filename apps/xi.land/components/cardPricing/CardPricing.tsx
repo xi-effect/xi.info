@@ -16,6 +16,7 @@ export const CardPricing = ({
   description = '',
   price,
   billing = '',
+  caption = '',
   features = [],
   btn_name,
   href = SIGNUP_URL,
@@ -66,6 +67,12 @@ export const CardPricing = ({
           {billing}
         </span>
       </div>
+
+      {caption ? (
+        <p className={cn('text-s-base leading-6', highlight ? 'text-brand-20' : 'text-gray-60')}>
+          {caption}
+        </p>
+      ) : null}
 
       <Button
         asChild={!onClickBtn}
