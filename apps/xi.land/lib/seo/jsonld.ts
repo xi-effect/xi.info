@@ -74,7 +74,7 @@ export const pricesOffersJsonLd = {
   '@type': 'Product',
   name: 'sovlium',
   description:
-    'Доступ к функциональности сервиса sovlium для репетиторов: тариф Базовый и тариф Профи.',
+    'Доступ к функциональности сервиса sovlium для репетиторов: тариф Базовый и тариф Про.',
   brand: { '@type': 'Brand', name: SITE_NAME },
   offers: [
     {
@@ -86,7 +86,7 @@ export const pricesOffersJsonLd = {
     },
     {
       '@type': 'Offer',
-      name: 'Профи',
+      name: 'Про',
       price: '1499',
       priceCurrency: 'RUB',
       url: absoluteUrl('/prices'),

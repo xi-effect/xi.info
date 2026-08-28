@@ -174,7 +174,7 @@ export const PricesView = () => {
               Выберите формат работы с sovlium
             </h1>
             <p className="text-pretty text-m-base leading-7 text-gray-80 sm:text-l-base">
-              Бесплатный Базовый — чтобы начать. Профи — больше кабинетов и хранилища для регулярной
+              Бесплатный Базовый — чтобы начать. Про — больше кабинетов и хранилища для регулярной
               работы.
             </p>
           </motion.div>
@@ -199,7 +199,8 @@ export const PricesView = () => {
             </h2>
             <p className="text-pretty text-m-base leading-7 text-gray-80">
               Все возможности платформы — по разделам. На тарифах отличаются лимиты кабинетов и
-              хранилища; остальные функции доступны и на Базовом, и на Профи.
+              хранилища; количество учеников не ограничено. Остальные функции доступны и на Базовом,
+              и на Про.
             </p>
           </motion.div>
 
@@ -324,7 +325,9 @@ export const PricesView = () => {
                 }}
               >
                 <Check className="mt-0.5 size-5 shrink-0 fill-brand-80" />
-                <span className="min-w-0 text-pretty text-m-base leading-6 wrap-break-word text-gray-80 sm:text-l-base">{feature}</span>
+                <span className="min-w-0 text-pretty text-m-base leading-6 wrap-break-word text-gray-80 sm:text-l-base">
+                  {feature}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -419,7 +422,7 @@ export const PricesView = () => {
                 body: (
                   <p className="text-s-base leading-6 text-gray-80 sm:text-m-base sm:leading-7">
                     Подписку можно отменить в любой момент в приложении или через поддержку. После
-                    отмены доступ к тарифу Профи сохранится до конца оплаченного периода.
+                    отмены доступ к тарифу Про сохранится до конца оплаченного периода.
                   </p>
                 ),
               },
@@ -458,38 +461,6 @@ export const PricesView = () => {
                 {card.body}
               </motion.article>
             ))}
-          </div>
-
-          <div className="mx-auto mt-8 max-w-[720px] text-pretty text-s-base leading-6 text-gray-60 sm:text-center">
-            <p>
-              Цены указаны в рублях РФ. Услуги оказывает ИП Букшев Игорь Владимирович. НДС не
-              облагается в связи с применением УСН.
-            </p>
-            <p className="mt-2">
-              Оформляя подписку, пользователь принимает{' '}
-              <Link href="/legal/offer" className="text-brand-80 underline underline-offset-4">
-                Оферту
-              </Link>{' '}
-              и{' '}
-              <Link
-                href="/legal/payment-refund"
-                className="text-brand-80 underline underline-offset-4"
-              >
-                условия оплаты и возврата
-              </Link>
-              .
-            </p>
-            <p className="mt-2 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-2">
-              <Link href="/legal/requisites" className="text-brand-80 underline underline-offset-4">
-                Реквизиты
-              </Link>
-              <Link href="/legal/privacy" className="text-brand-80 underline underline-offset-4">
-                Политика конфиденциальности
-              </Link>
-              <Link href="/legal/consent" className="text-brand-80 underline underline-offset-4">
-                Согласие на обработку персональных данных
-              </Link>
-            </p>
           </div>
         </div>
       </section>

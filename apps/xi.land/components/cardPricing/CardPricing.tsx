@@ -137,7 +137,8 @@ export const CardPricing = ({
         onClick={onClickBtn}
         className={cn(
           'mt-6 h-auto min-h-12 w-full self-start rounded-2xl py-3 text-base font-medium sm:h-14 sm:py-0 sm:text-l-base',
-          !reduceMotion && 'max-md:active:scale-[0.99] md:transition-transform md:duration-200 md:hover:scale-[1.015] md:active:scale-[0.99]',
+          !reduceMotion &&
+            'max-md:active:scale-[0.99] md:transition-transform md:duration-200 md:hover:scale-[1.015] md:active:scale-[0.99]',
           highlight
             ? 'border-0 bg-brand-0 text-brand-100 hover:bg-gray-0'
             : 'text-brand-0 shadow-[0px_4px_16px_rgba(69,84,201,0.2)]',
