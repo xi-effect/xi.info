@@ -8,6 +8,8 @@ import { Check } from '@xipkg/icons';
 import { SIGNUP_URL } from 'lib/app_urls';
 import type { CardPricingPropsT } from './dataForPricing';
 
+const formatPrice = (price: number) => `${price.toLocaleString('ru-RU')} ₽`;
+
 export const CardPricing = ({
   name,
   highlight = false,
@@ -16,6 +18,7 @@ export const CardPricing = ({
   billing = '',
   features = [],
   btn_name,
+  href = SIGNUP_URL,
   onClickBtn,
 }: CardPricingPropsT) => {
   return (
@@ -27,7 +30,7 @@ export const CardPricing = ({
     >
       {highlight && (
         <span className="text-xs-base absolute top-6 right-6 inline-flex rounded-full bg-brand-0 px-4 py-1 font-semibold text-brand-100">
-          Самый полный доступ
+          Для регулярной работы
         </span>
       )}
 
@@ -57,7 +60,7 @@ export const CardPricing = ({
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
-          {price === null ? 'Скоро' : `${price} ₽`}
+          {formatPrice(price)}
         </span>
         <span className={cn('text-s-base', highlight ? 'text-brand-20' : 'text-gray-60')}>
           {billing}
@@ -79,7 +82,7 @@ export const CardPricing = ({
         {onClickBtn ? (
           btn_name
         ) : (
-          <Link href={SIGNUP_URL} className="inline-flex h-full w-full items-center justify-center">
+          <Link href={href} className="inline-flex h-full w-full items-center justify-center">
             {btn_name}
           </Link>
         )}

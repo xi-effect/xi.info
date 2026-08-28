@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import type { AnchorHTMLAttributes } from 'react';
 import { PropsWithChildren } from 'react';
 
 const H1 = ({ children }: PropsWithChildren) => (
@@ -67,6 +68,12 @@ const Td = ({ children }: PropsWithChildren) => (
   <td className="border border-gray-300 px-4 py-3 text-gray-700">{children}</td>
 );
 
+const A = ({ href, children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  <a href={href} className="text-brand-80 underline underline-offset-4" {...props}>
+    {children}
+  </a>
+);
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: H1,
@@ -85,6 +92,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     tr: Tr,
     th: Th,
     td: Td,
+    a: A,
     ...components,
   };
 }

@@ -22,6 +22,8 @@ export const PricesView = () => {
     throw new Error('Ошибка в тарифных планы для сравнения');
   }
 
+  // TODO: перед включением ограничений подготовить in-app уведомление для текущих пользователей и grace period.
+
   return (
     <main className="flex min-h-screen w-full flex-col overflow-x-hidden bg-gray-0">
       <div className="mt-6 flex w-full flex-col items-start justify-start sm:mt-10">
@@ -29,23 +31,84 @@ export const PricesView = () => {
           <div className="mx-auto flex max-w-[1200px] flex-col gap-6">
             <div className="flex flex-col gap-6 md:gap-10">
               <h1 className={cn(titleClass, 'md:text-h1-line-height font-bold')}>
-                Гибкие тарифы для решения любых задач репетитора
+                Тарифы для репетиторов
               </h1>
 
               <div className="flex flex-col gap-4">
                 <p className={subtitleClass}>
-                  Во время бета-тестирования все функции Sovlium доступны бесплатно.
+                  Бесплатный тариф Базовый и платный тариф Профи — выберите формат работы с sovlium.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="w-full px-4 pb-16 sm:px-8">
+        <section className="w-full px-4 pb-10 sm:px-8">
           <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
             {plansPricing.map((plan) => (
               <CardPricing key={plan.id} {...plan} />
             ))}
+          </div>
+        </section>
+
+        <section className="w-full px-4 pb-16 sm:px-8">
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-4 text-center text-s-base leading-6 text-gray-60 sm:text-m-base sm:leading-7">
+            <p>
+              Цены указаны в рублях РФ. Услуги оказывает ИП Букшев Игорь Владимирович. НДС не
+              облагается в связи с применением УСН.
+            </p>
+            <p>
+              Оплачивая тариф, пользователь принимает{' '}
+              <Link href="/legal/offer" className="text-brand-80 underline underline-offset-4">
+                Оферту
+              </Link>{' '}
+              и{' '}
+              <Link
+                href="/legal/payment-refund"
+                className="text-brand-80 underline underline-offset-4"
+              >
+                условия оплаты подписки
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+
+        <section className="w-full px-4 pb-16 sm:px-8">
+          <div className="mx-auto grid max-w-[1200px] gap-6 md:grid-cols-2">
+            <div className="flex flex-col gap-3 rounded-4xl bg-gray-5 p-6 sm:p-8">
+              <h2 className="text-xl-base-size font-semibold text-gray-100">Что вы оплачиваете</h2>
+              <p className="text-m-base leading-7 text-gray-80 sm:text-l-base">
+                Вы оплачиваете доступ к функциональности сервиса sovlium на выбранный период.
+                sovlium не оказывает образовательные услуги, не является стороной отношений между
+                репетитором и учеником и не отвечает за результат обучения.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 rounded-4xl bg-gray-5 p-6 sm:p-8">
+              <h2 className="text-xl-base-size font-semibold text-gray-100">Способы оплаты</h2>
+              <p className="text-m-base leading-7 text-gray-80 sm:text-l-base">
+                К оплате принимаются банковские карты платёжных систем МИР, Visa и Mastercard,
+                выпущенные российскими банками, а также СБП, если такой способ доступен на странице
+                оплаты.
+              </p>
+              <p className="text-m-base leading-7 text-gray-80 sm:text-l-base">
+                Оплата проходит через защищённую платёжную страницу банка или платёжного партнёра.
+                Данные банковской карты не передаются и не хранятся в sovlium.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full px-4 pb-16 sm:px-8">
+          <div className="mx-auto max-w-[1200px] rounded-4xl border border-gray-10 bg-gray-0 p-6 sm:p-8">
+            <h2 className="mb-3 text-xl-base-size font-semibold text-gray-100">
+              Если вы уже пользуетесь sovlium
+            </h2>
+            <p className="text-m-base leading-7 text-gray-80 sm:text-l-base">
+              Если вы уже пользуетесь sovlium, мы заранее предупредим об изменениях в тарифах и
+              ограничениях. Данные и кабинеты не будут удалены внезапно: перед применением новых
+              лимитов мы дадим время подготовиться или перейти на подходящий тариф.
+            </p>
           </div>
         </section>
 
@@ -55,8 +118,8 @@ export const PricesView = () => {
               <h2 className={titleClass}>Сравнение тарифов</h2>
 
               <p className={subtitleClass}>
-                Сравните, чем отличаются базовый и PRO-тарифы, чтобы выбрать подходящий формат
-                работы.
+                Базовый — основные возможности с лимитами. Профи — больше кабинетов и хранилища,
+                меньше ограничений.
               </p>
             </div>
 
@@ -106,11 +169,11 @@ export const PricesView = () => {
         <section className="w-full px-4 pb-16 sm:px-8">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-6 rounded-4xl bg-gray-5 p-6 sm:p-8 lg:p-10">
             <div className="flex flex-col gap-4">
-              <h2 className={titleClass}>Доступные фичи</h2>
+              <h2 className={titleClass}>Возможности сервиса</h2>
 
               <p className={subtitleClass}>
-                Мы собираем Sovlium вокруг реальных сценариев репетиторов. <br />
-                Вот что уже доступно на платформе.
+                sovlium собирается вокруг реальных сценариев репетиторов. Вот что уже доступно на
+                платформе.
               </p>
             </div>
 

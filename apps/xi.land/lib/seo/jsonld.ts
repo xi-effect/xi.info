@@ -16,9 +16,21 @@ export const organizationJsonLd = {
   '@type': 'Organization',
   '@id': ORGANIZATION_ID,
   name: SITE_NAME,
+  legalName: 'Индивидуальный предприниматель Букшев Игорь Владимирович',
   url: SITE_URL,
   logo: absoluteUrl('/logoforwhite.svg'),
   email: SUPPORT_EMAIL,
+  taxID: '781102952900',
+  identifier: [
+    { '@type': 'PropertyValue', name: 'ИНН', value: '781102952900' },
+    { '@type': 'PropertyValue', name: 'ОГРНИП', value: '326784700178496' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Санкт-Петербург',
+    addressCountry: 'RU',
+    postalCode: '193318',
+  },
   sameAs: [...SOCIAL_PROFILES],
 };
 
@@ -41,10 +53,11 @@ export const softwareApplicationJsonLd = {
   description:
     'Платформа для репетиторов с видеозвонками, онлайн-досками, расписанием и контролем оплат',
   offers: {
-    '@type': 'Offer',
-    price: '0',
+    '@type': 'AggregateOffer',
+    lowPrice: '0',
+    highPrice: '1499',
     priceCurrency: 'RUB',
-    description: 'Бесплатная пробная версия',
+    offerCount: '2',
   },
   provider: { '@id': ORGANIZATION_ID },
   featureList: [
@@ -54,6 +67,30 @@ export const softwareApplicationJsonLd = {
     whiteboardContent.title,
     materialsContent.title,
     paymentsContent.title,
+  ],
+};
+
+export const pricesOffersJsonLd = {
+  '@type': 'Product',
+  name: 'sovlium',
+  description:
+    'Доступ к функциональности сервиса sovlium для репетиторов: тариф Базовый и тариф Профи.',
+  brand: { '@type': 'Brand', name: SITE_NAME },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Базовый',
+      price: '0',
+      priceCurrency: 'RUB',
+      url: absoluteUrl('/prices'),
+    },
+    {
+      '@type': 'Offer',
+      name: 'Профи',
+      price: '1499',
+      priceCurrency: 'RUB',
+      url: absoluteUrl('/prices'),
+    },
   ],
 };
 

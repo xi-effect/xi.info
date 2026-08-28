@@ -20,7 +20,7 @@ export const SEO_PAGES = {
     description:
       'Видеозвонки, онлайн-доски, расписание и контроль оплат. Делитесь знаниями с комфортом, а рутину оставьте нам. Попробуйте sovlium бесплатно.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
   },
   '/classrooms': {
     path: '/classrooms',
@@ -66,17 +66,25 @@ export const SEO_PAGES = {
     path: '/payments',
     title: 'Контроль оплат для репетиторов — sovlium',
     description:
-      'Выставляйте счета из кабинета, ученик получает уведомление, статусы видны в журнале. Деньги идут напрямую, платформа фиксирует оплату.',
+      'Выставляйте счета из кабинета, ученик получает уведомление, статусы видны в журнале. Перевод за занятия идёт напрямую, платформа фиксирует оплату.',
     index: true,
     lastmod: '2026-08-19',
   },
   '/prices': {
     path: '/prices',
-    title: 'Тарифы sovlium — бесплатно на бета-тесте',
+    title: 'Тарифы sovlium',
     description:
-      'Во время бета-тестирования все функции доступны бесплатно. После релиза останется бесплатный базовый тариф и платный PRO.',
+      'Бесплатный тариф и тариф Профи для репетиторов: кабинеты, хранилище, ВКС, домашние задания и другие возможности сервиса sovlium.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
+  },
+  '/subscribe': {
+    path: '/subscribe',
+    title: 'Оплата тарифа Профи — sovlium',
+    description:
+      'Оформление подписки на тариф Профи: доступ к расширенной функциональности сервиса sovlium.',
+    index: false,
+    follow: true,
   },
   '/roadmap': {
     path: '/roadmap',
@@ -113,16 +121,39 @@ export const SEO_PAGES = {
     path: '/legal',
     title: 'Юридические документы | Sovlium',
     description:
-      'Условия использования, политика конфиденциальности, согласие на обработку персональных данных и согласие на рекламные сообщения платформы Sovlium.',
+      'Условия использования, оферта, оплата и возврат, политика конфиденциальности, согласия и реквизиты сервиса sovlium.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
   },
   '/legal/terms': {
     path: '/legal/terms',
     title: 'Условия использования | Sovlium',
     description: 'Условия использования платформы Sovlium для проведения онлайн-уроков.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
+  },
+  '/legal/offer': {
+    path: '/legal/offer',
+    title: 'Оферта на доступ к сервису sovlium',
+    description:
+      'Условия оплаты тарифа, предоставления доступа к сервису sovlium, отмены подписки и возврата.',
+    index: true,
+    lastmod: '2026-08-28',
+  },
+  '/legal/payment-refund': {
+    path: '/legal/payment-refund',
+    title: 'Оплата и возврат — sovlium',
+    description:
+      'Способы оплаты, порядок предоставления доступа к тарифу sovlium, отмена подписки и возврат.',
+    index: true,
+    lastmod: '2026-08-28',
+  },
+  '/legal/requisites': {
+    path: '/legal/requisites',
+    title: 'Реквизиты ИП — sovlium',
+    description: 'Реквизиты индивидуального предпринимателя, оказывающего услуги сервиса sovlium.',
+    index: true,
+    lastmod: '2026-08-28',
   },
   '/legal/privacy': {
     path: '/legal/privacy',
@@ -130,7 +161,7 @@ export const SEO_PAGES = {
     description:
       'Политика конфиденциальности платформы Sovlium. Как мы собираем, используем и защищаем ваши персональные данные.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
   },
   '/legal/consent': {
     path: '/legal/consent',
@@ -138,14 +169,14 @@ export const SEO_PAGES = {
     description:
       'Согласие на обработку персональных данных платформы Sovlium в соответствии с российским законодательством.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
   },
   '/legal/marketing-consent': {
     path: '/legal/marketing-consent',
     title: 'Согласие на рекламные сообщения | Sovlium',
     description: 'Согласие на получение рекламных и информационных сообщений о сервисе Sovlium.',
     index: true,
-    lastmod: '2026-08-19',
+    lastmod: '2026-08-28',
   },
 } as const satisfies Record<string, SeoPageConfigT>;
 

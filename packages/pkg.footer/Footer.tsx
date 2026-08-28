@@ -77,9 +77,13 @@ const sections: Section[] = [
 ];
 
 const legalDocumentLinks: SectionLink[] = [
-  { link: '/legal/terms', title: 'Пользовательское соглашение' },
+  { link: '/prices', title: 'Тарифы' },
+  { link: '/legal/terms', title: 'Условия использования' },
+  { link: '/legal/offer', title: 'Оферта' },
+  { link: '/legal/payment-refund', title: 'Оплата и возврат' },
+  { link: '/legal/requisites', title: 'Реквизиты' },
   { link: '/legal/privacy', title: 'Политика конфиденциальности' },
-  { link: '/legal/consent', title: 'Согласие на обработку ПДн' },
+  { link: '/legal/consent', title: 'Согласие на обработку персональных данных' },
   { link: '/legal/marketing-consent', title: 'Согласие на рекламные сообщения' },
 ];
 
@@ -222,20 +226,23 @@ const Footer = ({
                   <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
                 </div>
                 <nav
-                  aria-label="Юридические документы"
-                  className="border-gray-80/30 flex flex-wrap gap-x-4 gap-y-2 border-t pt-6"
+                  aria-label="Документы"
+                  className="border-gray-80/30 flex flex-col gap-3 border-t pt-6"
                 >
-                  {legalDocumentLinks.map((link) => (
-                    <Link
-                      key={link.link}
-                      className={legalDocLinkClass}
-                      variant="hover"
-                      href={link.link}
-                      size="s"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
+                  <p className={titleClass}>Документы</p>
+                  <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    {legalDocumentLinks.map((link) => (
+                      <Link
+                        key={link.link}
+                        className={legalDocLinkClass}
+                        variant="hover"
+                        href={link.link}
+                        size="s"
+                      >
+                        {link.title}
+                      </Link>
+                    ))}
+                  </div>
                 </nav>
               </div>
             </div>
