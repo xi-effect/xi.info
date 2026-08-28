@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@xipkg/button';
 import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
+import { motion, useReducedMotion } from 'motion/react';
 
 import { SIGNUP_URL } from 'lib/app_urls';
 import type { CardPricingPropsT, PlanFeatureT } from './dataForPricing';
@@ -47,11 +48,23 @@ export const CardPricing = ({
   btn_name,
   href = SIGNUP_URL,
   onClickBtn,
-}: CardPricingPropsT) => {
+  appearIndex = 0,
+}: CardPricingPropsT & { appearIndex?: number }) => {
+  const reduceMotion = useReducedMotion();
   const isExternal = href.startsWith('http://') || href.startsWith('https://');
 
   return (
-    <article
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileHover={reduceMotion ? undefined : { y: -8 }}
+      transition={{
+        type: 'spring',
+        stiffness: 380,
+        damping: 28,
+        delay: reduceMotion ? 0 : 0.1 * appearIndex,
+      }}
       className={cn(
         'relative flex h-full w-full flex-col rounded-4xl border p-6 sm:p-8 md:row-span-7 md:grid md:grid-rows-subgrid md:gap-0',
         highlight
@@ -117,7 +130,8 @@ export const CardPricing = ({
         variant={highlight ? 'ghost' : 'primary'}
         onClick={onClickBtn}
         className={cn(
-          'mt-6 h-12 w-full self-start rounded-2xl text-base font-medium sm:h-14 sm:text-l-base',
+          'mt-6 h-12 w-full self-start rounded-2xl text-base font-medium transition-transform duration-200 sm:h-14 sm:text-l-base',
+          !reduceMotion && 'hover:scale-[1.015] active:scale-[0.99]',
           highlight
             ? 'border-0 bg-brand-0 text-brand-100 hover:bg-gray-0'
             : 'text-brand-0 shadow-[0px_4px_16px_rgba(69,84,201,0.2)]',
@@ -158,6 +172,6 @@ export const CardPricing = ({
           ))}
         </ul>
       </div>
-    </article>
+    </motion.article>
   );
 };
