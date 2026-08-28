@@ -9,6 +9,16 @@
       "source": "/docs/:path*",
       "destination": "https://support.sovlium.ru/:path*",
       "permanent": true
+    },
+    {
+      "source": "/subscribe",
+      "destination": "https://app.sovlium.ru/login?redirect=%2Fbilling%2Fsubscribe%3Fplan%3Dpro",
+      "permanent": false
+    },
+    {
+      "source": "/subscribe/",
+      "destination": "https://app.sovlium.ru/login?redirect=%2Fbilling%2Fsubscribe%3Fplan%3Dpro",
+      "permanent": false
     }
   ],
   "headers": [

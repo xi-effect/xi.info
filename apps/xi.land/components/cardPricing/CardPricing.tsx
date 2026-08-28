@@ -6,9 +6,35 @@ import { cn } from '@xipkg/utils';
 import { Check } from '@xipkg/icons';
 
 import { SIGNUP_URL } from 'lib/app_urls';
-import type { CardPricingPropsT } from './dataForPricing';
+import type { CardPricingPropsT, PlanFeatureT } from './dataForPricing';
 
 const formatPrice = (price: number) => `${price.toLocaleString('ru-RU')} ₽`;
+
+const SoonBadge = ({ highlight }: { highlight: boolean }) => (
+  <span
+    className={cn(
+      'inline-flex shrink-0 rounded-full px-2 py-0.5 text-[11px] leading-none font-semibold',
+      highlight ? 'bg-brand-0 text-brand-100' : 'bg-gray-5 text-gray-70',
+    )}
+  >
+    Скоро
+  </span>
+);
+
+const FeatureItem = ({ feature, highlight }: { feature: PlanFeatureT; highlight: boolean }) => (
+  <li className="flex items-start gap-3">
+    <Check className={cn('mt-0.5 size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')} />
+    <span
+      className={cn(
+        'flex flex-wrap items-center gap-x-2 gap-y-1 text-m-base leading-6 sm:text-l-base',
+        highlight ? 'text-brand-0' : 'text-gray-80',
+      )}
+    >
+      {feature.text}
+      {feature.soon ? <SoonBadge highlight={highlight} /> : null}
+    </span>
+  </li>
+);
 
 export const CardPricing = ({
   name,
@@ -22,57 +48,68 @@ export const CardPricing = ({
   href = SIGNUP_URL,
   onClickBtn,
 }: CardPricingPropsT) => {
+  const isExternal = href.startsWith('http://') || href.startsWith('https://');
+
   return (
     <article
       className={cn(
-        'relative flex h-full w-full flex-col gap-6 rounded-4xl border border-gray-10 bg-gray-0 p-6 shadow-[0px_12px_40px_rgba(17,24,39,0.08)] sm:p-8 lg:p-10',
-        highlight && 'border-brand-80 bg-brand-80 shadow-[0px_24px_60px_rgba(69,84,201,0.25)]',
+        'relative flex h-full w-full flex-col rounded-4xl border p-6 sm:p-8 md:row-span-7 md:grid md:grid-rows-subgrid md:gap-0',
+        highlight
+          ? 'border-brand-80 bg-brand-80 text-brand-0 shadow-[0px_24px_60px_rgba(69,84,201,0.28)]'
+          : 'border-gray-10 bg-gray-0 text-gray-100 shadow-[0px_8px_32px_rgba(17,24,39,0.06)]',
       )}
     >
-      {highlight && (
-        <span className="text-xs-base absolute top-6 right-6 inline-flex rounded-full bg-brand-0 px-4 py-1 font-semibold text-brand-100">
-          Для регулярной работы
-        </span>
-      )}
-
-      <div className="flex flex-col gap-3 pt-6 lg:min-h-[140px]">
+      <div className="flex flex-wrap items-center gap-3">
         <h2
           className={cn(
-            'text-[28px] leading-[1.1] font-semibold sm:text-[32px] lg:text-[40px]',
+            'text-[28px] leading-none font-semibold sm:text-[32px]',
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
           {name}
         </h2>
-        <p
-          className={cn(
-            'text-m-base sm:text-l-base lg:min-h-[64px]',
-            highlight ? 'text-brand-20' : 'text-gray-80',
-          )}
-        >
-          {description}
-        </p>
+        {highlight ? (
+          <span className="inline-flex rounded-full bg-brand-0 px-3 py-1 text-xs-base font-semibold text-brand-100">
+            Для регулярной работы
+          </span>
+        ) : (
+          <span className="inline-flex rounded-full bg-gray-5 px-3 py-1 text-xs-base font-semibold text-gray-80">
+            Бесплатно
+          </span>
+        )}
       </div>
 
-      <div className="flex items-baseline gap-2 lg:min-h-[64px]">
+      <p
+        className={cn(
+          'mt-4 text-m-base leading-6 sm:text-l-base sm:leading-7',
+          highlight ? 'text-brand-20' : 'text-gray-80',
+        )}
+      >
+        {description}
+      </p>
+
+      <div className="mt-8 flex items-end gap-2">
         <span
           className={cn(
-            'text-[40px] leading-none font-semibold sm:text-[48px]',
+            'text-[44px] leading-none font-semibold tracking-tight sm:text-[52px]',
             highlight ? 'text-brand-0' : 'text-gray-100',
           )}
         >
           {formatPrice(price)}
         </span>
-        <span className={cn('text-s-base', highlight ? 'text-brand-20' : 'text-gray-60')}>
+        <span
+          className={cn(
+            'mb-1.5 text-s-base sm:text-m-base',
+            highlight ? 'text-brand-20' : 'text-gray-60',
+          )}
+        >
           {billing}
         </span>
       </div>
 
-      {caption ? (
-        <p className={cn('text-s-base leading-6', highlight ? 'text-brand-20' : 'text-gray-60')}>
-          {caption}
-        </p>
-      ) : null}
+      <p className={cn('mt-3 text-s-base leading-5', highlight ? 'text-brand-20' : 'text-gray-60')}>
+        {caption || 'Без подписки и автосписаний'}
+      </p>
 
       <Button
         asChild={!onClickBtn}
@@ -80,14 +117,18 @@ export const CardPricing = ({
         variant={highlight ? 'ghost' : 'primary'}
         onClick={onClickBtn}
         className={cn(
-          'sm:w-85 h-12 w-full rounded-2xl text-base font-medium sm:h-14 sm:text-l-base lg:min-h-[56px]',
+          'mt-6 h-12 w-full self-start rounded-2xl text-base font-medium sm:h-14 sm:text-l-base',
           highlight
-            ? 'border-2 border-brand-0 bg-brand-0 text-brand-100'
-            : 'text-brand-0 shadow-[0px_4px_4px_rgba(69,84,201,0.25)]',
+            ? 'border-0 bg-brand-0 text-brand-100 hover:bg-gray-0'
+            : 'text-brand-0 shadow-[0px_4px_16px_rgba(69,84,201,0.2)]',
         )}
       >
         {onClickBtn ? (
           btn_name
+        ) : isExternal ? (
+          <a href={href} className="inline-flex h-full w-full items-center justify-center">
+            {btn_name}
+          </a>
         ) : (
           <Link href={href} className="inline-flex h-full w-full items-center justify-center">
             {btn_name}
@@ -95,10 +136,17 @@ export const CardPricing = ({
         )}
       </Button>
 
-      <div className="flex flex-col gap-3 mt-auto">
+      <div
+        className={cn(
+          'mt-8 mb-5 h-px w-full self-start',
+          highlight ? 'bg-brand-0/40' : 'bg-gray-10',
+        )}
+      />
+
+      <div className="flex flex-col gap-3">
         <span
           className={cn(
-            'text-xs-base font-semibold uppercase tracking-[0.12em]',
+            'text-xs-base font-semibold tracking-[0.08em] uppercase',
             highlight ? 'text-brand-20' : 'text-gray-50',
           )}
         >
@@ -106,20 +154,7 @@ export const CardPricing = ({
         </span>
         <ul className="flex flex-col gap-3">
           {features.map((feature) => (
-            <li key={feature} className="flex items-center gap-2">
-              <Check
-                className={cn('size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')}
-              />
-
-              <span
-                className={cn(
-                  'text-m-base sm:text-l-base',
-                  highlight ? 'text-brand-0' : 'text-gray-80',
-                )}
-              >
-                {feature}
-              </span>
-            </li>
+            <FeatureItem key={feature.text} feature={feature} highlight={highlight} />
           ))}
         </ul>
       </div>

@@ -1,4 +1,9 @@
-import { SIGNUP_URL } from 'lib/app_urls';
+import { SIGNUP_URL, SUBSCRIBE_PRO_URL } from 'lib/app_urls';
+
+type PlanFeatureT = {
+  text: string;
+  soon?: boolean;
+};
 
 type CardPricingPropsT = {
   id: string;
@@ -11,7 +16,7 @@ type CardPricingPropsT = {
   description?: string;
   billing?: string;
   caption?: string;
-  features?: string[];
+  features?: PlanFeatureT[];
 };
 
 const plansPricing = [
@@ -25,13 +30,12 @@ const plansPricing = [
     href: SIGNUP_URL,
     highlight: false,
     features: [
-      'До 10 кабинетов',
-      '500 МБ хранилища',
+      { text: 'До 10 кабинетов' },
+      { text: '500 МБ хранилища' },
+      { text: 'Базовые возможности сервиса' },
+      { text: 'Ограничения по домашним заданиям' },
       // TODO: уточнить финальную формулировку ограничений ВКС для бесплатного тарифа.
-      'Видеозвонки с базовыми ограничениями',
-      // TODO: уточнить финальный лимит домашних заданий для бесплатного тарифа.
-      'Ограниченный доступ к домашним заданиям',
-      'Доступ к базовым функциям sovlium',
+      { text: 'Ограничения по видеозвонкам' },
     ],
   },
   {
@@ -42,72 +46,415 @@ const plansPricing = [
     description:
       'Для репетиторов, которые регулярно проводят занятия и хотят использовать sovlium без базовых ограничений.',
     btn_name: 'Оформить подписку',
-    href: '/subscribe',
+    href: SUBSCRIBE_PRO_URL,
     highlight: true,
-    caption:
-      '1 499 ₽ / месяц. Подписка продлевается автоматически каждый месяц, пока вы её не отмените.',
+    caption: 'Подписка продлевается автоматически каждый месяц, пока вы её не отмените.',
     features: [
-      'До 30 кабинетов',
-      '20 ГБ хранилища',
-      'ВКС без ограничений',
-      'Расширенные домашние задания без базовых ограничений',
-      'Дополнительные функции для регулярной работы репетитора',
-      'Приоритетное развитие платных возможностей',
+      { text: 'До 30 кабинетов' },
+      { text: '20 ГБ хранилища' },
+      { text: 'Видеозвонки без ограничений' },
+      { text: 'Расширенные домашние задания', soon: true },
+      { text: 'Дополнительные возможности для регулярной работы' },
     ],
   },
 ] satisfies CardPricingPropsT[];
 
 type PlanIdT = (typeof plansPricing)[number]['id'];
 
-type ComparisonRowT = {
-  feature: string;
-  valuesByPlanId: Record<PlanIdT, string>;
+type ComparisonCellT = {
+  text?: string;
+  included?: boolean;
+  soon?: boolean;
 };
 
-const comparisonRows: ComparisonRowT[] = [
+type ComparisonRowT = {
+  feature: string;
+  hint?: string;
+  valuesByPlanId: Record<PlanIdT, ComparisonCellT>;
+};
+
+type ComparisonSectionT = {
+  title: string;
+  rows: ComparisonRowT[];
+};
+
+const yes = (): ComparisonCellT => ({ included: true });
+const both = (): Record<PlanIdT, ComparisonCellT> => ({ basic: yes(), pro: yes() });
+const soon = (): Record<PlanIdT, ComparisonCellT> => ({
+  basic: { soon: true },
+  pro: { soon: true },
+});
+const values = (basic: string, pro: string): Record<PlanIdT, ComparisonCellT> => ({
+  basic: { text: basic },
+  pro: { text: pro },
+});
+
+const comparisonSections: ComparisonSectionT[] = [
   {
-    feature: 'Кому подойдёт',
-    valuesByPlanId: {
-      basic: 'Небольшая нагрузка и знакомство с сервисом',
-      pro: 'Регулярные занятия без базовых ограничений',
-    },
+    title: 'Тариф',
+    rows: [
+      {
+        feature: 'Стоимость',
+        valuesByPlanId: values('0 ₽ / месяц', '1 499 ₽ / месяц'),
+      },
+      {
+        feature: 'Кому подойдёт',
+        valuesByPlanId: values(
+          'Небольшая нагрузка и знакомство с сервисом',
+          'Регулярные занятия и больше пространства',
+        ),
+      },
+      {
+        feature: 'Кабинеты',
+        valuesByPlanId: values('До 10', 'До 30'),
+      },
+      {
+        feature: 'Хранилище файлов и материалов',
+        valuesByPlanId: values('500 МБ', '20 ГБ'),
+      },
+      {
+        feature: 'Подписка с автопродлением',
+        valuesByPlanId: values('Нет, без автосписаний', 'Да, пока не отмените'),
+      },
+      {
+        feature: 'Для учеников',
+        valuesByPlanId: values('Бесплатно', 'Бесплатно'),
+      },
+      {
+        feature: 'Приоритетное развитие платных возможностей',
+        valuesByPlanId: {
+          basic: { text: '—' },
+          pro: yes(),
+        },
+      },
+    ],
   },
   {
-    feature: 'Кабинеты',
-    valuesByPlanId: {
-      basic: 'До 10',
-      pro: 'До 30',
-    },
+    title: 'Кабинеты',
+    rows: [
+      {
+        feature: 'Индивидуальный кабинет',
+        hint: 'Одно рабочее пространство на ученика',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Групповой кабинет',
+        hint: 'До 15 учеников, общее расписание, материалы и оплаты',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Приглашение по ссылке',
+        hint: 'Ученик регистрируется и принимает приглашение сам',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Одна ссылка для нескольких учеников',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Название индивидуального кабинета видит только репетитор',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Вкладки кабинета',
+        hint: 'Сводка, материалы, расписание, оплаты',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Вкладка «Информация» у репетитора',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Старт занятия из шапки кабинета',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Ученик присоединяется кнопкой из кабинета',
+        hint: 'Без ссылки на сторонний сервис',
+        valuesByPlanId: both(),
+      },
+    ],
   },
   {
-    feature: 'Хранилище',
-    valuesByPlanId: {
-      basic: '500 МБ',
-      pro: '20 ГБ',
-    },
+    title: 'Расписание',
+    rows: [
+      {
+        feature: 'Календарь на день, неделю и месяц',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Создание занятия из календаря и из кабинета',
+        hint: 'Одна и та же форма',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Название, кабинет, дата, время и длительность',
+        hint: 'Время окончания считается само',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Повтор по дням недели',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Перенос одного урока или всей серии',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Отмена занятия',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Карточка занятия',
+        hint: 'Материалы, настройки и кнопка «Начать»',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Ближайший урок на главной',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Расписание внутри кабинета',
+        hint: 'Только уроки с этим учеником или группой',
+        valuesByPlanId: both(),
+      },
+    ],
   },
   {
-    feature: 'Видеозвонки',
-    valuesByPlanId: {
-      // TODO: уточнить финальную формулировку ограничений ВКС для бесплатного тарифа.
-      basic: 'С базовыми ограничениями',
-      pro: 'Без ограничений',
-    },
+    title: 'Видеозвонки',
+    rows: [
+      {
+        feature: 'Встроенный видеоурок',
+        hint: 'Без отдельного сервиса конференций',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Лимиты по звонкам',
+        // TODO: уточнить финальную формулировку ограничений ВКС для бесплатного тарифа.
+        valuesByPlanId: values('С базовыми ограничениями', 'Без ограничений'),
+      },
+      {
+        feature: 'Проверка камеры и микрофона до входа',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Выбор камеры, микрофона и динамиков',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Размытие фона',
+        hint: 'Если браузер его поддерживает',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Сетка участников',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Демонстрация экрана',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Чат на всех участников',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Кнопка «Поднять руку»',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Компактное окно звонка',
+        hint: 'Когда открываете доску, урок не прерывается',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Открытие доски из панели звонка',
+        valuesByPlanId: both(),
+      },
+    ],
   },
   {
-    feature: 'Домашние задания',
-    valuesByPlanId: {
-      // TODO: уточнить финальный лимит домашних заданий для бесплатного тарифа.
-      basic: 'Ограниченный доступ',
-      pro: 'Расширенные без базовых ограничений',
-    },
+    title: 'Онлайн-доска',
+    rows: [
+      {
+        feature: 'Подготовка доски заранее',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Перо, текст и фигуры',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Отмена и повтор действий',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'PDF на доске',
+        hint: 'Можно рисовать поверх страницы учебника',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Картинки на доске',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Аудиофайлы на доске',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Фреймы',
+        hint: 'Зоны холста для этапов урока',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Таймер урока',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Совместная работа с учеником на холсте',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Та же доска в звонке и в материалах',
+        valuesByPlanId: both(),
+      },
+    ],
   },
   {
-    feature: 'Стоимость',
-    valuesByPlanId: {
-      basic: '0 ₽ / месяц',
-      pro: '1 499 ₽ / месяц',
-    },
+    title: 'Материалы',
+    rows: [
+      {
+        feature: 'Библиотека досок и заметок',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Заметки и конспекты',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Материалы внутри кабинета',
+        hint: 'Ученик видит только то, что привязано к его кабинету',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Доступ «совместная работа»',
+        hint: 'Ученик видит материал и может его править',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Доступ «только репетитор»',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Черновики, которые ученик не видит',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Повторное использование заготовок',
+        hint: 'Подготовили раз — открываете снова из библиотеки или кабинета',
+        valuesByPlanId: both(),
+      },
+    ],
+  },
+  {
+    title: 'Оплаты за занятия',
+    rows: [
+      {
+        feature: 'Журнал счетов и статусов',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Счёт из кабинета и из раздела оплат',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Строки занятий и автоподсчёт суммы',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Шаблоны счетов',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Уведомление ученику о счёте',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Напоминание, если оплата задерживается',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Подтверждение получения перевода',
+        hint: 'Деньги за уроки идут напрямую, вне платформы',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Доход в таблицах и диаграммах',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Ученик видит только свои счета',
+        valuesByPlanId: both(),
+      },
+    ],
+  },
+  {
+    title: 'Напоминания',
+    rows: [
+      {
+        feature: 'Напоминание о новом занятии',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Напоминание о переносе',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Напоминание об оплате',
+        valuesByPlanId: both(),
+      },
+    ],
+  },
+  {
+    title: 'Домашние задания',
+    rows: [
+      {
+        feature: 'Доступ к домашним заданиям',
+        valuesByPlanId: {
+          basic: { text: 'С ограничениями' },
+          pro: { soon: true, text: 'Расширенные' },
+        },
+      },
+      {
+        feature: 'Конструктор заданий',
+        valuesByPlanId: soon(),
+      },
+      {
+        feature: 'Выдача, проверка и отслеживание',
+        valuesByPlanId: soon(),
+      },
+      {
+        feature: 'Привязка к урокам и ученикам',
+        valuesByPlanId: soon(),
+      },
+    ],
+  },
+  {
+    title: 'Платформа',
+    rows: [
+      {
+        feature: 'Работа в браузере без установки',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Компьютер, телефон и планшет',
+        valuesByPlanId: both(),
+      },
+      {
+        feature: 'Для учеников ничего покупать не нужно',
+        valuesByPlanId: both(),
+      },
+    ],
   },
 ];
 
@@ -125,7 +472,11 @@ const availableFeatures = [
 const pricingFaq = [
   {
     title: 'Чем отличаются тарифы?',
-    text: 'Базовый — бесплатный тариф с лимитами по кабинетам, хранилищу, видеозвонкам и домашним заданиям. Профи — 1 499 ₽ в месяц: больше кабинетов и хранилища, меньше ограничений и расширенные функции для регулярной работы.',
+    text: 'Базовый — бесплатный тариф с лимитами по кабинетам и хранилищу. Профи — 1 499 ₽ в месяц: больше кабинетов, больше хранилища и расширенные функции для регулярной работы. Подписка Профи продлевается автоматически каждый месяц, пока вы её не отмените.',
+  },
+  {
+    title: 'Можно ли отменить подписку?',
+    text: 'Да. Подписку можно отменить в любой момент в приложении или через поддержку. После отмены доступ к тарифу Профи сохранится до конца оплаченного периода.',
   },
   {
     title: 'Можно ли остаться на бесплатном тарифе?',
@@ -137,11 +488,11 @@ const pricingFaq = [
   },
   {
     title: 'Что именно оплачивается?',
-    text: 'Вы оплачиваете доступ к функциональности сервиса sovlium на выбранный период. sovlium не оказывает образовательные услуги и не является стороной отношений между репетитором и учеником.',
+    text: 'Вы оплачиваете доступ к функциональности сервиса sovlium на выбранный период. sovlium не оказывает образовательные услуги, не является стороной отношений между репетитором и учеником и не отвечает за результат обучения.',
   },
   {
     title: 'Какие способы оплаты доступны?',
-    text: 'К оплате принимаются банковские карты платёжных систем МИР, Visa и Mastercard, выпущенные российскими банками, а также СБП, если такой способ доступен на странице оплаты.',
+    text: 'К оплате принимаются банковские карты платёжных систем МИР, Visa и Mastercard, выпущенные российскими банками, а также СБП, если такой способ доступен на странице оплаты. Оплата проходит через защищённую платёжную страницу банка или платёжного партнёра. Данные банковской карты не передаются и не хранятся в sovlium.',
   },
   {
     title: 'Сколько стоит sovlium для ученика?',
@@ -153,10 +504,10 @@ const pricingFaq = [
   },
   {
     title: 'Как устроена подписка Профи?',
-    text: 'Профи оформляется как подписка с автоматическим ежемесячным продлением. Отменить подписку можно в любой момент. После отмены доступ к Профи сохранится до конца оплаченного периода.',
+    text: 'Профи оформляется в приложении как подписка с автоматическим ежемесячным продлением. Отменить подписку можно в любой момент в приложении или через поддержку. После отмены доступ к Профи сохранится до конца оплаченного периода.',
   },
 ];
 
-export type { CardPricingPropsT };
+export type { CardPricingPropsT, PlanFeatureT, ComparisonCellT, ComparisonSectionT };
 
-export { plansPricing, availableFeatures, pricingFaq, comparisonRows };
+export { plansPricing, availableFeatures, pricingFaq, comparisonSections };

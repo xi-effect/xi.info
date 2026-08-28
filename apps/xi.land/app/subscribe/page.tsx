@@ -1,8 +1,15 @@
-import { SubscribeView } from 'components/subscribe/SubscribeView';
-import { createPageMetadata } from 'lib/seo/metadata';
+import type { Metadata } from 'next';
 
-export const metadata = createPageMetadata('/subscribe');
+import { SubscribeRedirect } from 'components/subscribe/SubscribeRedirect';
+
+export const metadata: Metadata = {
+  title: 'Оформление подписки — sovlium',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function SubscribePage() {
-  return <SubscribeView />;
+  return <SubscribeRedirect />;
 }
