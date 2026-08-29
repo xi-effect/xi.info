@@ -158,8 +158,12 @@ for (const match of pageBlocks) {
     errors.push(`${route}: нет og:title`);
   }
 
-  if (ogImage && !ogImage.startsWith('http')) {
+  if (!ogImage) {
+    errors.push(`${route}: нет og:image`);
+  } else if (!ogImage.startsWith('http')) {
     errors.push(`${route}: og:image не абсолютный`);
+  } else if (!/opengraph-image/.test(ogImage)) {
+    errors.push(`${route}: og:image должен быть сгенерированным Open Graph PNG`);
   }
 
   if (h1s.length === 0) {

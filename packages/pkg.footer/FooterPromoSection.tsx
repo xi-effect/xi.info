@@ -1,7 +1,6 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
-import Image from 'next/image';
 import { Link } from '@xipkg/link';
 import { Button } from '@xipkg/button';
 import {
@@ -13,127 +12,140 @@ import {
   WhiteBoard,
   ArrowRight,
 } from '@xipkg/icons';
+import { motion, useReducedMotion } from 'motion/react';
 import { shouldHideFooterPromo } from './shouldHideFooterPromo';
 
 interface FooterPromoSectionProps {
   showPromoSection?: boolean;
-  backgroundImageUrl?: string;
-  mobileBackgroundImageUrl?: string;
-  footerGradientClass: string;
 }
 
 const subscribe = () => () => {};
 
-const useFooterPromoVisibility = ({
-  showPromoSection,
-  backgroundImageUrl,
-  mobileBackgroundImageUrl,
-}: Pick<
-  FooterPromoSectionProps,
-  'showPromoSection' | 'backgroundImageUrl' | 'mobileBackgroundImageUrl'
->) => {
-  const hasBackgroundImages = Boolean(backgroundImageUrl || mobileBackgroundImageUrl);
-
-  return useSyncExternalStore(
+const useFooterPromoVisibility = (showPromoSection?: boolean) =>
+  useSyncExternalStore(
     subscribe,
-    () => {
-      if (showPromoSection !== undefined) {
-        return showPromoSection;
-      }
-
-      return !shouldHideFooterPromo(window.location.hostname);
-    },
-    () => {
-      if (showPromoSection !== undefined) {
-        return showPromoSection;
-      }
-
-      return hasBackgroundImages;
-    },
+    () => showPromoSection ?? !shouldHideFooterPromo(window.location.hostname),
+    () => showPromoSection ?? true,
   );
-};
 
-export const FooterPromoSection = ({
-  showPromoSection,
-  backgroundImageUrl,
-  mobileBackgroundImageUrl,
-  footerGradientClass,
-}: FooterPromoSectionProps) => {
-  const isVisible = useFooterPromoVisibility({
-    showPromoSection,
-    backgroundImageUrl,
-    mobileBackgroundImageUrl,
-  });
+const PROMO_TOOLS = [
+  { id: 'calendar', Icon: Calendar, wrapClassName: 'bg-cyan-20', iconClassName: 'fill-cyan-100' },
+  {
+    id: 'materials',
+    Icon: BookOpened,
+    wrapClassName: 'bg-pink-20',
+    iconClassName: 'fill-pink-100',
+  },
+  { id: 'group', Icon: Group, wrapClassName: 'bg-violet-20', iconClassName: 'fill-violet-100' },
+  {
+    id: 'payments',
+    Icon: Payments,
+    wrapClassName: 'bg-yellow-20',
+    iconClassName: 'fill-yellow-100',
+  },
+  {
+    id: 'conference',
+    Icon: Conference,
+    wrapClassName: 'bg-green-0',
+    iconClassName: 'fill-green-100',
+  },
+  { id: 'board', Icon: WhiteBoard, wrapClassName: 'bg-red-0', iconClassName: 'fill-red-100' },
+] as const;
+
+export const FooterPromoSection = ({ showPromoSection }: FooterPromoSectionProps) => {
+  const isVisible = useFooterPromoVisibility(showPromoSection);
+  const reduceMotion = useReducedMotion();
 
   if (!isVisible) {
     return null;
   }
 
   return (
-    <div className="relative flex h-155 flex-col items-center justify-between gap-8 p-6 md:p-4 xl:h-auto xl:px-32 xl:py-16 2xl:px-40">
-      <div className="absolute inset-0 p-6 md:p-0">
-        <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-t-3xl md:rounded-b-none xl:rounded-t-[64px]">
-          <div className={`absolute inset-0 z-9 ${footerGradientClass}`} />
-
-          {mobileBackgroundImageUrl && (
-            <Image
-              src={mobileBackgroundImageUrl}
-              alt="фон футера мобильный"
-              fill
-              className="block object-cover md:hidden"
-            />
-          )}
-          {backgroundImageUrl && (
-            <Image
-              src={backgroundImageUrl}
-              alt="фон футера десктопный"
-              fill
-              className="hidden bg-[radial-gradient(circle,rgba(21,22,36,0)_0%,rgba(21,22,36,1)_100%)] object-cover md:block"
-            />
-          )}
-        </div>
-      </div>
-      <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-between gap-8 p-6 sm:justify-center md:items-baseline md:justify-baseline xl:py-24 2xl:py-32">
-        <div className="flex flex-col gap-4 text-center md:w-132.5 md:text-left xl:gap-5">
-          <p className="text-gray-0 text-xl-base md:text-h5 xl:text-h3 font-semibold">
+    <section
+      data-theme="white"
+      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14"
+    >
+      <motion.div
+        className="relative mx-auto flex w-full max-w-[1320px] flex-col gap-8 overflow-hidden rounded-[28px] bg-violet-50 p-6 md:rounded-[48px] md:p-14 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
+        initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+      >
+        <div className="relative flex max-w-[640px] flex-col gap-4">
+          <motion.p
+            className="text-2xl leading-8 font-medium tracking-tight text-gray-100 md:text-4xl md:leading-10"
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.06 }}
+          >
             Экономьте до 1 часа в день вместе с sovlium
-          </p>
-          <span className="text-m-base leading-[1.3] text-gray-50 md:text-[18px]">
-            {`Быстро переключайтесь между инструментами\u00A0в единой рабочей среде`}
-          </span>
-          <div className="flex justify-center gap-2 md:justify-start xl:mt-10 xl:gap-5">
-            <div className="bg-cyan-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <Calendar className="fill-cyan-100 xl:size-8 2xl:size-9" />
-            </div>
-            <div className="bg-pink-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <BookOpened className="fill-pink-100 xl:size-8 2xl:size-9" />
-            </div>
-            <div className="bg-violet-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <Group className="fill-violet-100 xl:size-8 2xl:size-9" />
-            </div>
-            <div className="bg-yellow-20 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <Payments className="fill-yellow-100 xl:size-8 2xl:size-9" />
-            </div>
-            <div className="bg-green-0 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <Conference className="fill-green-100 xl:size-8 2xl:size-9" />
-            </div>
-            <div className="bg-red-0 rounded-lg p-2 xl:p-2 2xl:rounded-xl 2xl:p-3">
-              <WhiteBoard className="fill-red-100 xl:size-8 2xl:size-9" />
-            </div>
+          </motion.p>
+          <motion.span
+            className="text-m-base leading-6 text-gray-80 md:text-lg"
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.12 }}
+          >
+            Быстро переключайтесь между инструментами в единой рабочей среде
+          </motion.span>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {PROMO_TOOLS.map((tool, index) => (
+              <motion.div
+                key={tool.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.92 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 420,
+                  damping: 24,
+                  delay: reduceMotion ? 0 : 0.18 + index * 0.06,
+                }}
+              >
+                <motion.div
+                  className={`rounded-lg p-2 ${tool.wrapClassName}`}
+                  animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
+                  transition={{
+                    duration: 3.2 + index * 0.18,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: index * 0.22,
+                  }}
+                >
+                  <tool.Icon className={tool.iconClassName} />
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
-        <div className="sm:mt-5 xl:mt-24 2xl:mt-40">
-          <Link className="w-full md:w-auto" href="https://app.sovlium.ru/signup">
+
+        <motion.div
+          className="relative w-full shrink-0 md:w-auto"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.22 }}
+        >
+          <Link className="block w-full md:w-auto" href="https://app.sovlium.ru/signup">
             <Button
-              className="h-12 w-full rounded-2xl pr-3 pl-6 text-[16px] leading-6 md:w-auto"
               size="l"
+              className="h-auto min-h-12 w-full rounded-2xl border-0 px-7 py-3.5 text-lg leading-6 md:w-auto"
             >
               Попробовать бесплатно
-              <ArrowRight className="fill-brand-0 ml-3 h-6 w-6 md:ml-4 md:h-8 md:w-8" />
+              <motion.span
+                className="ml-3 inline-flex"
+                animate={reduceMotion ? undefined : { x: [0, 4, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+              >
+                <ArrowRight className="size-5 fill-gray-0" />
+              </motion.span>
             </Button>
           </Link>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };

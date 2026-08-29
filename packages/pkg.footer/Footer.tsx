@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from '@xipkg/link';
 import Image from 'next/image';
-import { SvgColumn } from './SvgColumn';
 import { FooterPromoSection } from './FooterPromoSection';
 
 interface SectionLink {
@@ -94,11 +93,9 @@ const Footer = ({
   logoPath = '/logofordark.svg',
   logoPathLight,
   logoPathDark,
-  classNameFooter = 'bg-brand-80 dark:bg-gray-100 rounded-t-[64px]',
+  classNameFooter = '',
   innerClassNameFooter = 'bg-gray-100 dark:bg-transparent',
   themeAwareContent = false,
-  backgroundImageUrl,
-  mobileBackgroundImageUrl,
   showPromoSection,
 }: FooterProps = {}) => {
   const footerSections = customSections || sections;
@@ -119,7 +116,6 @@ const Footer = ({
   const legalDocLinkClass = themeAwareContent
     ? 'no-underline text-xxs-base text-gray-80 dark:text-gray-60 hover:text-gray-100 dark:hover:text-gray-40'
     : 'no-underline text-xxs-base text-gray-60 hover:text-gray-40';
-  const footerGradientClass = `bg-[radial-gradient(circle_at_center,_rgba(15,15,17,0)_30%,_rgba(15,15,17,1)_100%)]`;
 
   const renderSection = (section: Section) => (
     <div key={section.title} className="xs:gap-6 flex flex-col gap-4">
@@ -138,21 +134,16 @@ const Footer = ({
 
   return (
     <>
+      <FooterPromoSection showPromoSection={showPromoSection} />
       <div className={classNameFooter}>
         <footer
-          className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] 2xl:justify-center ${innerClassNameFooter}`}
+          className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] ${innerClassNameFooter}`}
         >
-          <div className="flex w-full flex-col">
-            <FooterPromoSection
-              showPromoSection={showPromoSection}
-              backgroundImageUrl={backgroundImageUrl}
-              mobileBackgroundImageUrl={mobileBackgroundImageUrl}
-              footerGradientClass={footerGradientClass}
-            />
+          <div className="mx-auto flex w-full max-w-[1320px] flex-col px-4 md:px-6">
             <div
-              className={`xs:p-8 relative flex w-full max-w-480 flex-col gap-8 px-4 py-8 xl:flex-row xl:justify-between xl:px-32 xl:py-16 2xl:px-40 ${themeAwareContent ? 'text-gray-0 dark:text-gray-0' : 'text-gray-0'}`}
+              className={`relative flex w-full flex-col gap-8 py-8 xl:flex-row xl:justify-between xl:gap-16 xl:py-16 ${themeAwareContent ? 'text-gray-0 dark:text-gray-0' : 'text-gray-0'}`}
             >
-              <div className="relative">
+              <div className="relative shrink-0">
                 <Link
                   href="/"
                   className="xs:h-6 xs:w-50.5 relative mt-0 mb-0 h-4 w-33.5 2xl:h-10 2xl:w-84"
@@ -186,13 +177,6 @@ const Footer = ({
                     />
                   )}
                 </Link>
-                <div className="absolute bottom-[-64px] left-0 hidden max-[1760px]:left-[-100px] min-[1760px]:left-0 xl:left-[-100px] xl:block">
-                  <SvgColumn
-                    className={
-                      themeAwareContent ? 'text-brand-20 dark:text-[#26262A]' : 'text-[#26262A]'
-                    }
-                  />
-                </div>
               </div>
               <div className="z-5 flex flex-col gap-8 xl:gap-16">
                 <div className="xs:grid-cols-2 xs:gap-y-10 grid grid-cols-1 gap-8 md:grid-cols-4 xl:justify-end 2xl:grid-cols-[repeat(4,minmax(0,240px))]">
@@ -214,8 +198,8 @@ const Footer = ({
                   </p>
                 </div>
                 <div className={bottomRowClass}>
-                  <span className="2xl:w-[330px]">&copy; sovlium с 2025 года</span>
-                  <span className="xs:order-1 2xl:w-[330px]">
+                  <span>&copy; sovlium с 2025 года</span>
+                  <span className="xs:order-1">
                     <Link
                       className={emailLinkClass}
                       target="_blank"
@@ -226,7 +210,7 @@ const Footer = ({
                       {email}
                     </Link>
                   </span>
-                  <span className="2xl:w-[330px]">Сделано с ♥ в России</span>
+                  <span>Сделано с ♥ в России</span>
                 </div>
                 <nav
                   aria-label="Документы"
