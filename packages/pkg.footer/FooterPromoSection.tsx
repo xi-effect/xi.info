@@ -63,7 +63,7 @@ export const FooterPromoSection = ({ showPromoSection }: FooterPromoSectionProps
   return (
     <section
       data-theme="white"
-      className="font-nevermind w-full bg-gray-0 px-4 py-10 md:px-6 md:py-14"
+      className="font-nevermind bg-gray-0 w-full px-4 py-10 md:px-6 md:py-14"
     >
       <motion.div
         className="relative mx-auto flex w-full max-w-[1320px] flex-col gap-8 overflow-hidden rounded-[28px] bg-violet-50 p-6 md:rounded-[48px] md:p-14 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
@@ -78,16 +78,26 @@ export const FooterPromoSection = ({ showPromoSection }: FooterPromoSectionProps
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.06 }}
+            transition={{
+              type: 'spring',
+              stiffness: 360,
+              damping: 28,
+              delay: reduceMotion ? 0 : 0.06,
+            }}
           >
             Экономьте до 1 часа в день вместе с sovlium
           </motion.p>
           <motion.span
-            className="text-m-base leading-6 text-gray-80 md:text-lg"
+            className="text-m-base text-gray-80 leading-6 md:text-lg"
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.12 }}
+            transition={{
+              type: 'spring',
+              stiffness: 360,
+              damping: 28,
+              delay: reduceMotion ? 0 : 0.12,
+            }}
           >
             Быстро переключайтесь между инструментами в единой рабочей среде
           </motion.span>
@@ -127,7 +137,12 @@ export const FooterPromoSection = ({ showPromoSection }: FooterPromoSectionProps
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ type: 'spring', stiffness: 360, damping: 28, delay: reduceMotion ? 0 : 0.22 }}
+          transition={{
+            type: 'spring',
+            stiffness: 360,
+            damping: 28,
+            delay: reduceMotion ? 0 : 0.22,
+          }}
         >
           <Link className="block w-full md:w-auto" href="https://app.sovlium.ru/signup">
             <Button
@@ -140,7 +155,7 @@ export const FooterPromoSection = ({ showPromoSection }: FooterPromoSectionProps
                 animate={reduceMotion ? undefined : { x: [0, 4, 0] }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
               >
-                <ArrowRight className="size-5 fill-gray-0" />
+                <ArrowRight className="fill-gray-0 size-5" />
               </motion.span>
             </Button>
           </Link>

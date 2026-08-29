@@ -136,9 +136,7 @@ const Footer = ({
     <>
       <FooterPromoSection showPromoSection={showPromoSection} />
       <div className={classNameFooter}>
-        <footer
-          className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] ${innerClassNameFooter}`}
-        >
+        <footer className={`z-10 flex rounded-t-4xl xl:rounded-t-[64px] ${innerClassNameFooter}`}>
           <div className="mx-auto flex w-full max-w-[1320px] flex-col px-4 md:px-6">
             <div
               className={`relative flex w-full flex-col gap-8 py-8 xl:flex-row xl:justify-between xl:gap-16 xl:py-16 ${themeAwareContent ? 'text-gray-0 dark:text-gray-0' : 'text-gray-0'}`}
