@@ -115,14 +115,14 @@ export const SEO_PAGES = {
     description:
       'Условия использования, оферта, оплата и возврат, политика конфиденциальности, согласия и реквизиты сервиса sovlium.',
     index: true,
-    lastmod: '2026-09-01',
+    lastmod: '2026-09-10',
   },
   '/legal/terms': {
     path: '/legal/terms',
     title: 'Условия использования | Sovlium',
     description: 'Условия использования платформы Sovlium для проведения онлайн-уроков.',
     index: true,
-    lastmod: '2026-09-01',
+    lastmod: '2026-09-10',
   },
   '/legal/offer': {
     path: '/legal/offer',
@@ -130,7 +130,7 @@ export const SEO_PAGES = {
     description:
       'Условия оплаты тарифа, предоставления доступа к сервису sovlium, отмены подписки и возврата.',
     index: true,
-    lastmod: '2026-09-01',
+    lastmod: '2026-09-10',
   },
   '/legal/payment-refund': {
     path: '/legal/payment-refund',

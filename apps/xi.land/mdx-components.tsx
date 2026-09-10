@@ -6,8 +6,10 @@ const H1 = ({ children }: PropsWithChildren) => (
   <h1 className="text-3xl font-bold text-gray-900 mb-6 mt-8 first:mt-0">{children}</h1>
 );
 
-const H2 = ({ children }: PropsWithChildren) => (
-  <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-6">{children}</h2>
+const H2 = ({ children, id }: PropsWithChildren<{ id?: string }>) => (
+  <h2 id={id} className="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+    {children}
+  </h2>
 );
 
 const H3 = ({ children }: PropsWithChildren) => (
