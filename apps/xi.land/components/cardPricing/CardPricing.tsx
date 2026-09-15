@@ -14,7 +14,7 @@ const formatPrice = (price: number) => `${price.toLocaleString('ru-RU')} ₽`;
 const SoonBadge = ({ highlight }: { highlight: boolean }) => (
   <span
     className={cn(
-      'inline-flex shrink-0 rounded-full px-2 py-0.5 text-[11px] leading-none font-semibold',
+      'ml-1.5 inline-flex shrink-0 -translate-y-px rounded-full px-2 py-0.5 align-middle text-[11px] leading-none font-semibold',
       highlight ? 'bg-brand-0 text-brand-100' : 'bg-gray-5 text-gray-70',
     )}
   >
@@ -23,17 +23,12 @@ const SoonBadge = ({ highlight }: { highlight: boolean }) => (
 );
 
 const FeatureItem = ({ feature, highlight }: { feature: PlanFeatureT; highlight: boolean }) => (
-  <li className="flex items-start gap-3">
-    <Check className={cn('mt-0.5 size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')} />
-    <span
-      className={cn(
-        'flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-m-base leading-6 wrap-break-word sm:text-l-base',
-        highlight ? 'text-brand-0' : 'text-gray-80',
-      )}
-    >
+  <li className="flex items-start gap-2.5">
+    <Check className={cn('mt-px size-5 shrink-0', highlight ? 'fill-brand-0' : 'fill-brand-80')} />
+    <p className={cn('min-w-0 text-m-base leading-6', highlight ? 'text-brand-0' : 'text-gray-80')}>
       {feature.text}
       {feature.soon ? <SoonBadge highlight={highlight} /> : null}
-    </span>
+    </p>
   </li>
 );
 
@@ -164,7 +159,7 @@ export const CardPricing = ({
         )}
       />
 
-      <div className="flex flex-col gap-3">
+      <div className="flex min-w-0 flex-col gap-3">
         <span
           className={cn(
             'text-xs-base font-semibold tracking-[0.08em] uppercase',

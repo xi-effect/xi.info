@@ -1,3 +1,3 @@
 export { CardPricing } from './CardPricing';
-export type { CardPricingPropsT } from './dataForPricing';
-export { plansPricing, availableFeatures, pricingFaq, comparisonSections } from './dataForPricing';
+export type { CardPricingPropsT, ComparisonSectionT } from './dataForPricing';
+export { plansPricing, pricingFaq, comparisonSections } from './dataForPricing';

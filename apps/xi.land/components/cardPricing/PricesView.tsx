@@ -2,22 +2,13 @@
 
 import { useState } from 'react';
 import { cn, useMediaQuery } from '@xipkg/utils';
-import { Check, ChevronSmallBottom } from '@xipkg/icons';
+import { ChevronSmallBottom } from '@xipkg/icons';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'motion/react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'pkg.accordion';
 
 import { CardPricing } from './CardPricing';
-import {
-  plansPricing,
-  availableFeatures,
-  pricingFaq,
-  comparisonSections,
-  type ComparisonCellT,
-} from './dataForPricing';
-
-const basicPlan = plansPricing.find((plan) => plan.id === 'basic');
-const proPlan = plansPricing.find((plan) => plan.id === 'pro');
+import { plansPricing, pricingFaq, comparisonSections } from './dataForPricing';
 
 const sectionClass = 'w-full px-4 sm:px-8 md:px-6';
 const containerClass = 'mx-auto w-full max-w-[1320px]';
@@ -25,77 +16,18 @@ const containerClass = 'mx-auto w-full max-w-[1320px]';
 const sectionId = (title: string) => `cmp-${title}`;
 
 const ComparisonSoonBadge = () => (
-  <span className="inline-flex rounded-full bg-gray-5 px-2 py-0.5 text-[11px] leading-none font-semibold text-gray-70">
+  <span className="inline-flex shrink-0 rounded-full border border-gray-20 px-2 py-0.5 text-[11px] leading-none font-semibold text-gray-70">
     Скоро
   </span>
 );
 
-const ComparisonCell = ({ cell }: { cell: ComparisonCellT }) => {
-  if (cell.soon) {
-    return (
-      <span className="inline-flex min-w-0 flex-wrap items-center gap-2">
-        {cell.text ? <span className="min-w-0 wrap-break-word">{cell.text}</span> : null}
-        <ComparisonSoonBadge />
-      </span>
-    );
-  }
-
-  if (cell.included) {
-    return (
-      <span className="inline-flex min-w-0 items-start gap-2">
-        <Check className="mt-0.5 size-5 shrink-0 fill-brand-80" />
-        {cell.text ? (
-          <span className="min-w-0 wrap-break-word">{cell.text}</span>
-        ) : (
-          <span className="sr-only">Есть</span>
-        )}
-      </span>
-    );
-  }
-
-  return <span className="wrap-break-word">{cell.text ?? '—'}</span>;
-};
-
-const ComparisonRow = ({
-  feature,
-  hint,
-  basicCell,
-  proCell,
-  basicName,
-  proName,
-}: {
-  feature: string;
-  hint?: string;
-  basicCell: ComparisonCellT;
-  proCell: ComparisonCellT;
-  basicName: string;
-  proName: string;
-}) => (
-  <div className="group border-t border-gray-10 px-4 py-3 md:grid md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] md:px-0 md:py-0">
-    <div className="min-w-0 md:px-6 md:py-3 md:transition-colors md:group-hover:bg-brand-0/50">
-      <p className="text-pretty text-s-base leading-6 text-gray-100 sm:text-m-base">{feature}</p>
-      {hint ? (
-        <p className="mt-0.5 text-pretty text-xs-base leading-5 text-gray-60 sm:text-s-base">
-          {hint}
-        </p>
-      ) : null}
-    </div>
-    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 md:contents">
-      <div className="min-w-0 rounded-xl bg-gray-5 px-3 py-2.5 text-s-base leading-5 text-gray-100 md:rounded-none md:bg-transparent md:px-6 md:py-3 md:leading-6 md:transition-colors md:group-hover:bg-brand-0/50 sm:text-m-base">
-        <p className="mb-1 text-[11px] font-semibold tracking-wide text-gray-60 uppercase md:hidden">
-          {basicName}
-        </p>
-        <ComparisonCell cell={basicCell} />
-      </div>
-      <div className="min-w-0 rounded-xl bg-brand-0 px-3 py-2.5 text-s-base leading-5 text-gray-100 md:rounded-none md:px-6 md:py-3 md:leading-6 sm:text-m-base">
-        <p className="mb-1 text-[11px] font-semibold tracking-wide text-brand-100 uppercase md:hidden">
-          {proName}
-        </p>
-        <ComparisonCell cell={proCell} />
-      </div>
-    </div>
-  </div>
-);
+const chipClass = (active: boolean) =>
+  cn(
+    'shrink-0 rounded-full border px-3 py-1.5 text-s-base transition-colors',
+    active
+      ? 'border-brand-80 bg-white text-brand-80'
+      : 'border-gray-20 bg-white text-gray-80 hover:border-brand-80 hover:text-brand-80',
+  );
 
 const fadeUp = (reduceMotion: boolean | null, delay = 0) =>
   reduceMotion
@@ -117,13 +49,6 @@ export const PricesView = () => {
   const [openSections, setOpenSections] = useState<Set<string>>(
     () => new Set(comparisonSections.map((section) => section.title)),
   );
-  const [activeSection, setActiveSection] = useState(comparisonSections[0]?.title ?? '');
-
-  if (!basicPlan || !proPlan) {
-    throw new Error('Ошибка в тарифных планы для сравнения');
-  }
-
-  // TODO: перед включением ограничений подготовить in-app уведомление для текущих пользователей и grace period.
 
   const allOpen = openSections.size === comparisonSections.length;
 
@@ -137,24 +62,12 @@ export const PricesView = () => {
       }
       return next;
     });
-    setActiveSection(title);
   };
 
   const toggleAllSections = () => {
     setOpenSections(
       allOpen ? new Set() : new Set(comparisonSections.map((section) => section.title)),
     );
-  };
-
-  const jumpToSection = (title: string) => {
-    setOpenSections((current) => new Set(current).add(title));
-    setActiveSection(title);
-    requestAnimationFrame(() => {
-      document.getElementById(sectionId(title))?.scrollIntoView({
-        behavior: reduceMotion ? 'auto' : 'smooth',
-        block: 'start',
-      });
-    });
   };
 
   return (
@@ -174,8 +87,8 @@ export const PricesView = () => {
               Выберите формат работы с sovlium
             </h1>
             <p className="text-pretty text-m-base leading-7 text-gray-80 sm:text-l-base">
-              Бесплатный Базовый — чтобы начать. Про — больше кабинетов и хранилища для регулярной
-              работы.
+              Бесплатный Базовый — чтобы начать. Про — больше активных кабинетов, без ограничений по
+              ВКС и увеличенный размер для загрузки файлов.
             </p>
           </motion.div>
 
@@ -184,50 +97,52 @@ export const PricesView = () => {
               <CardPricing key={plan.id} appearIndex={index} {...plan} />
             ))}
           </div>
+
+          <motion.aside
+            id="basic-plan-note"
+            className="mx-auto mt-8 max-w-[1080px] scroll-mt-28 rounded-[28px] border border-gray-20 bg-white px-5 py-5 sm:mt-10 sm:rounded-4xl sm:px-8 sm:py-7"
+            {...fadeUp(reduceMotion, 0.12)}
+            viewport={{ once: true, amount: 0.35 }}
+          >
+            <p className="text-s-base font-semibold tracking-[0.08em] text-brand-80 uppercase">
+              Про Базовый тариф
+            </p>
+            <h2 className="mt-3 text-pretty text-[22px] leading-7 font-medium tracking-tight text-gray-100 sm:text-[28px] sm:leading-9">
+              Мы специально не стали прятать функции
+            </h2>
+            <p className="mt-3 text-pretty text-m-base leading-7 text-gray-80 sm:text-l-base sm:leading-8">
+              Лимиты на Базовом касаются нагрузки, а не самого инструмента. Так вы можете
+              попробовать платформу целиком: от интерактивных упражнений на доске до свободных окон
+              в расписании, куда ещё помещается урок, от таймкодов в аудировании до готовых задач из
+              банка заданий.
+            </p>
+          </motion.aside>
         </div>
       </section>
 
       <section className={cn(sectionClass, 'pb-16 lg:pb-20')}>
         <div className={containerClass}>
-          <motion.div
-            className="mb-8 flex max-w-[640px] flex-col gap-3"
-            {...fadeUp(reduceMotion)}
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <h2 className="text-[24px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
-              Сравнение тарифов
-            </h2>
-            <p className="text-pretty text-m-base leading-7 text-gray-80">
-              Все возможности платформы — по разделам. На тарифах отличаются лимиты кабинетов и
-              хранилища; количество учеников не ограничено. Остальные функции доступны и на Базовом,
-              и на Про.
-            </p>
-          </motion.div>
-
-          <div className="mb-4 flex flex-wrap items-center gap-2">
-            {comparisonSections.map((section) => (
-              <button
-                key={section.title}
-                type="button"
-                onClick={() => jumpToSection(section.title)}
-                className={cn(
-                  'shrink-0 rounded-full px-2.5 py-1 text-xs-base transition-colors sm:px-3 sm:py-1.5 sm:text-s-base',
-                  activeSection === section.title
-                    ? 'bg-brand-80 text-brand-0'
-                    : 'bg-gray-5 text-gray-80 hover:bg-brand-0 hover:text-brand-100',
-                )}
-              >
-                {section.title}
-              </button>
-            ))}
+          <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+            <motion.div
+              className="flex max-w-[640px] flex-col gap-3"
+              {...fadeUp(reduceMotion)}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <h2 className="text-[24px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
+                Возможности платформы
+              </h2>
+              <p className="text-pretty text-m-base leading-7 text-gray-80">
+                Все функции sovlium — в одном списке. Лимиты тарифов указаны в карточках выше.
+              </p>
+            </motion.div>
             <button
               type="button"
               onClick={toggleAllSections}
-              className="group inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand-80 px-2.5 py-1 text-xs-base font-medium text-brand-80 transition-colors hover:bg-brand-80 hover:text-brand-0 sm:px-3 sm:py-1.5 sm:text-s-base"
+              className={cn(chipClass(false), 'inline-flex w-fit items-center gap-1.5 font-medium')}
             >
               <ChevronSmallBottom
                 className={cn(
-                  'size-4 fill-brand-80 transition-transform duration-200 group-hover:fill-brand-0',
+                  'size-4 fill-current transition-transform duration-200',
                   allOpen && 'rotate-180',
                 )}
               />
@@ -235,101 +150,57 @@ export const PricesView = () => {
             </button>
           </div>
 
-          <div className="flex min-w-0 flex-col gap-2">
-            <div className="hidden min-w-0 grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)_minmax(0,1fr)] px-1 md:grid sm:px-2">
-              <span className="px-4 py-3 text-s-base text-gray-60 sm:px-5">Возможность</span>
-              <span className="px-4 py-3 text-m-base font-semibold text-gray-100 sm:px-5">
-                {basicPlan.name}
-              </span>
-              <span className="rounded-2xl bg-brand-0 px-4 py-3 text-m-base font-semibold text-brand-100 sm:px-5">
-                {proPlan.name}
-              </span>
-            </div>
-
-            {comparisonSections.map((section) => {
+          <div className="min-w-0 overflow-hidden rounded-[20px] border border-gray-20 bg-white">
+            {comparisonSections.map((section, index) => {
               const isOpen = openSections.has(section.title);
 
               return (
-                <div
-                  key={section.title}
-                  className="min-w-0 overflow-hidden rounded-2xl border border-gray-10 bg-gray-0"
-                >
+                <div key={section.title} className={cn(index > 0 && 'border-t border-gray-20')}>
                   <button
                     type="button"
                     id={sectionId(section.title)}
                     aria-expanded={isOpen}
                     onClick={() => toggleSection(section.title)}
                     className={cn(
-                      'flex w-full min-w-0 scroll-mt-28 items-center justify-between gap-3 px-4 py-3.5 text-left text-s-base font-semibold text-gray-100 transition-colors sm:px-6',
-                      isOpen ? 'bg-brand-0' : 'hover:bg-brand-0',
+                      'flex w-full min-w-0 scroll-mt-28 items-center justify-between gap-3 bg-transparent px-4 py-4 text-left text-m-base font-semibold transition-colors sm:px-6 sm:text-l-base',
+                      isOpen ? 'text-brand-80' : 'text-gray-100 hover:text-brand-80',
                     )}
                   >
                     <span className="min-w-0 wrap-break-word">{section.title}</span>
                     <ChevronSmallBottom
                       className={cn(
-                        'size-4 shrink-0 fill-brand-80 transition-transform duration-200',
+                        'size-4 shrink-0 fill-current transition-transform duration-200',
                         isOpen && 'rotate-180',
                       )}
                     />
                   </button>
 
                   {isOpen
-                    ? section.rows.map((row) => (
-                        <ComparisonRow
+                    ? section.rows.map((row, rowIndex) => (
+                        <div
                           key={row.feature}
-                          feature={row.feature}
-                          hint={row.hint}
-                          basicCell={row.valuesByPlanId[basicPlan.id]}
-                          proCell={row.valuesByPlanId[proPlan.id]}
-                          basicName={basicPlan.name}
-                          proName={proPlan.name}
-                        />
+                          className={cn(
+                            'flex items-start justify-between gap-3 border-t border-gray-10 px-4 py-3 sm:px-6',
+                            rowIndex % 2 === 1 ? 'bg-brand-0' : 'bg-transparent',
+                          )}
+                        >
+                          <div className="min-w-0">
+                            <p className="text-pretty text-s-base leading-6 text-gray-100 sm:text-m-base">
+                              {row.feature}
+                            </p>
+                            {row.hint ? (
+                              <p className="mt-0.5 text-pretty text-xs-base leading-5 text-gray-60 sm:text-s-base">
+                                {row.hint}
+                              </p>
+                            ) : null}
+                          </div>
+                          {row.soon ? <ComparisonSoonBadge /> : null}
+                        </div>
                       ))
                     : null}
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className={cn(sectionClass, 'pb-16 lg:pb-20')}>
-        <div className={containerClass}>
-          <motion.div
-            className="mb-8 flex max-w-[640px] flex-col gap-3"
-            {...fadeUp(reduceMotion)}
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <h2 className="text-[24px] leading-8 font-medium tracking-tight text-gray-100 sm:text-[32px] sm:leading-10 lg:text-[40px] lg:leading-10">
-              Возможности сервиса
-            </h2>
-            <p className="text-pretty text-m-base leading-7 text-gray-80">
-              Вот что уже доступно репетитору в sovlium — на любом тарифе, в пределах его лимитов.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {availableFeatures.map((feature, index) => (
-              <motion.div
-                key={feature}
-                className="flex items-start gap-3 rounded-[20px] bg-gray-5 px-4 py-4 transition-colors hover:bg-gray-10"
-                initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                whileHover={reduceMotion || !canHover ? undefined : { y: -3 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 400,
-                  damping: 28,
-                  delay: reduceMotion ? 0 : 0.04 * index,
-                }}
-              >
-                <Check className="mt-0.5 size-5 shrink-0 fill-brand-80" />
-                <span className="min-w-0 text-pretty text-m-base leading-6 wrap-break-word text-gray-80 sm:text-l-base">
-                  {feature}
-                </span>
-              </motion.div>
-            ))}
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -341,11 +212,7 @@ export const PricesView = () => {
               { href: '/materials', label: 'Материалы' },
               { href: '/payments', label: 'Оплаты' },
             ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full bg-gray-5 px-4 py-2 text-s-base text-gray-80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-0 hover:text-brand-100"
-              >
+              <Link key={item.href} href={item.href} className={chipClass(false)}>
                 {item.label}
               </Link>
             ))}
