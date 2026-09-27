@@ -53,9 +53,8 @@ export const ABOUT_LINKS = [
   },
   {
     title: 'Поддержка',
-    href: 'https://t.me/sovlium_support_bot',
     description: 'Если на уроке что-то пошло не так',
-    external: true,
+    action: 'support',
   },
   {
     title: 'План развития',

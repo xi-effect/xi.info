@@ -18,7 +18,7 @@ export const Navigation = () => {
       onMouseLeave={() => setActive(null)}
       className="z-10 hidden min-h-0 md:flex md:h-full md:items-center"
     >
-      <div className="flex items-center gap-12">
+      <div className="flex items-center gap-6 xl:gap-12">
         <MenuItem setActive={setActive} active={active} item="Возможности">
           <div className="flex flex-col gap-0 py-1">
             {subMenu.map((item) => (
