@@ -4,10 +4,16 @@ import { ArrowRight } from '@xipkg/icons';
 import { Button } from '@xipkg/button';
 
 import { SIGNUP_URL } from 'lib/app_urls';
+import { SupportAboutLink } from 'components/support/SupportAboutLink';
 import { ABOUT_FACTS, ABOUT_HERO, ABOUT_LINKS, ABOUT_TEAM } from './about_content';
 
 const buttonClassName =
   'inline-flex h-auto min-h-12 w-full shrink-0 self-start rounded-2xl border-0 px-7 py-3.5 text-lg font-semibold leading-6 hover:border-0 sm:w-auto';
+
+const isSupportLink = (
+  item: (typeof ABOUT_LINKS)[number],
+): item is Extract<(typeof ABOUT_LINKS)[number], { action: 'support' }> =>
+  'action' in item && item.action === 'support';
 
 export const AboutView = () => (
   <main>
@@ -98,21 +104,25 @@ export const AboutView = () => (
         <ul className="flex flex-col">
           {ABOUT_LINKS.map((item) => (
             <li key={item.title} className="border-b border-gray-900/10 last:border-b-0">
-              <Link
-                href={item.href}
-                {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="group flex items-center justify-between gap-6 py-6 md:py-7"
-              >
-                <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-8">
-                  <p className="w-full shrink-0 text-xl font-medium leading-7 text-gray-100 sm:w-48">
-                    {item.title}
-                  </p>
-                  <p className="font-manrope text-base leading-7 text-gray-900/70">
-                    {item.description}
-                  </p>
-                </div>
-                <ArrowRight className="size-5 shrink-0 fill-gray-100 transition-transform group-hover:translate-x-1" />
-              </Link>
+              {isSupportLink(item) ? (
+                <SupportAboutLink title={item.title} description={item.description} />
+              ) : (
+                <Link
+                  href={item.href}
+                  {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="group flex items-center justify-between gap-6 py-6 md:py-7"
+                >
+                  <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-8">
+                    <p className="w-full shrink-0 text-xl font-medium leading-7 text-gray-100 sm:w-48">
+                      {item.title}
+                    </p>
+                    <p className="font-manrope text-base leading-7 text-gray-900/70">
+                      {item.description}
+                    </p>
+                  </div>
+                  <ArrowRight className="size-5 shrink-0 fill-gray-100 transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
             </li>
           ))}
         </ul>

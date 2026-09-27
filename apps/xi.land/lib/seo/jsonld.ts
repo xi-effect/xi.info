@@ -5,6 +5,7 @@ import { materialsContent } from 'components/product/content/materials';
 import { paymentsContent } from 'components/product/content/payments';
 import { whiteboardContent } from 'components/product/content/whiteboard';
 
+import { blogPosts } from 'lib/blog/posts';
 import { absoluteUrl, SITE_NAME, SITE_URL, SOCIAL_PROFILES, SUPPORT_EMAIL } from './site';
 import { getSeoPage, type SeoPathT } from './pages';
 
@@ -131,6 +132,87 @@ export const breadcrumbJsonLd = (path: SeoPathT) => {
   return {
     '@type': 'BreadcrumbList',
     itemListElement: items,
+  };
+};
+
+const blogPostKeywords = (tags: readonly string[] | undefined) => (tags ?? []).join(', ');
+
+export const blogJsonLd = () => ({
+  '@type': 'Blog',
+  '@id': `${SITE_URL}/blog#blog`,
+  name: 'Журнал sovlium',
+  description: getSeoPage('/blog').description,
+  url: absoluteUrl('/blog'),
+  inLanguage: 'ru-RU',
+  publisher: { '@id': ORGANIZATION_ID },
+  isPartOf: { '@id': WEBSITE_ID },
+  about: { '@id': APP_ID },
+  blogPost: blogPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    articleSection: post.category,
+    keywords: blogPostKeywords(post.tags),
+    url: absoluteUrl(`/blog/${post.slug}`),
+  })),
+});
+
+export const blogPostingJsonLd = (slug: string) => {
+  const post = blogPosts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return null;
+  }
+
+  const url = absoluteUrl(`/blog/${post.slug}`);
+
+  return {
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: post.category,
+    keywords: blogPostKeywords(post.tags),
+    inLanguage: 'ru-RU',
+    url,
+    mainEntityOfPage: url,
+    isPartOf: { '@id': `${SITE_URL}/blog#blog` },
+    author: { '@id': ORGANIZATION_ID },
+    publisher: { '@id': ORGANIZATION_ID },
+  };
+};
+
+export const blogPostBreadcrumbJsonLd = (slug: string) => {
+  const post = blogPosts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return null;
+  }
+
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: SITE_NAME,
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Блог',
+        item: absoluteUrl('/blog'),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: absoluteUrl(`/blog/${post.slug}`),
+      },
+    ],
   };
 };
 
