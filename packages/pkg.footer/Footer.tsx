@@ -6,6 +6,7 @@ import { FooterPromoSection } from './FooterPromoSection';
 interface SectionLink {
   link: string;
   title: string;
+  onClick?: () => void;
 }
 
 interface Section {
@@ -36,7 +37,7 @@ interface FooterProps {
   showPromoSection?: boolean;
 }
 
-const sections: Section[] = [
+export const defaultFooterSections: Section[] = [
   {
     title: 'Продукт',
     links: [
@@ -98,7 +99,7 @@ const Footer = ({
   themeAwareContent = false,
   showPromoSection,
 }: FooterProps = {}) => {
-  const footerSections = customSections || sections;
+  const footerSections = customSections || defaultFooterSections;
   const useThemeLogos = logoPathLight != null && logoPathDark != null;
 
   const titleClass = themeAwareContent
@@ -123,9 +124,19 @@ const Footer = ({
       <ul className="xs:gap-6 mt-0 mb-0 flex flex-col gap-6 pl-0">
         {section.links.map((link, index) => (
           <li key={index} className="mt-0 mb-0 list-none">
-            <Link className={linkClass} variant="hover" href={link.link} size="l">
-              {link.title}
-            </Link>
+            {link.onClick ? (
+              <button
+                type="button"
+                onClick={link.onClick}
+                className={`${linkClass} cursor-pointer border-0 bg-transparent p-0 text-left underline-offset-4 transition hover:underline`}
+              >
+                {link.title}
+              </button>
+            ) : (
+              <Link className={linkClass} variant="hover" href={link.link} size="l">
+                {link.title}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

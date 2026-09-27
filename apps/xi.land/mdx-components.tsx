@@ -2,19 +2,43 @@ import type { MDXComponents } from 'mdx/types';
 import type { AnchorHTMLAttributes } from 'react';
 import { PropsWithChildren } from 'react';
 
+import { BlogFaq, BlogFaqItem } from 'components/blog';
+
 const H1 = ({ children }: PropsWithChildren) => (
   <h1 className="text-3xl font-bold text-gray-900 mb-6 mt-8 first:mt-0">{children}</h1>
 );
 
+const HeadingAnchor = ({ id }: { id: string }) => (
+  <a
+    href={`#${id}`}
+    aria-label="Ссылка на этот раздел"
+    className="ml-2 text-brand-80 no-underline opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100"
+  >
+    <span aria-hidden="true">#</span>
+  </a>
+);
+
 const H2 = ({ children, id }: PropsWithChildren<{ id?: string }>) => (
-  <h2 id={id} className="text-2xl font-semibold text-gray-900 mb-4 mt-6">
+  <h2
+    id={id}
+    className="group scroll-mt-28 text-2xl font-semibold text-gray-900 mb-4 mt-6 md:scroll-mt-32"
+  >
     {children}
+    {id ? <HeadingAnchor id={id} /> : null}
   </h2>
 );
 
-const H3 = ({ children }: PropsWithChildren) => (
-  <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-4">{children}</h3>
+const H3 = ({ children, id }: PropsWithChildren<{ id?: string }>) => (
+  <h3
+    id={id}
+    className="group scroll-mt-28 text-xl font-semibold text-gray-900 mb-3 mt-4 md:scroll-mt-32"
+  >
+    {children}
+    {id ? <HeadingAnchor id={id} /> : null}
+  </h3>
 );
+
+const Hr = () => <hr className="my-12 border-t border-gray-300 md:my-16" />;
 
 const P = ({ children }: PropsWithChildren) => (
   <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>
@@ -95,6 +119,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     th: Th,
     td: Td,
     a: A,
+    hr: Hr,
+    Faq: BlogFaq,
+    FaqItem: BlogFaqItem,
     ...components,
   };
 }

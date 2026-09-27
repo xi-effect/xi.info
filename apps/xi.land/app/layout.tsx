@@ -3,8 +3,9 @@ import { Manrope } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Header } from 'components/Header';
-import { Footer } from 'pkg.footer';
 import { JsonLd } from 'components/seo/JsonLd';
+import { LandFooter } from 'components/support/LandFooter';
+import { SupportModalProvider } from 'components/support/SupportModalContext';
 
 import { CookieBannerWrapper } from 'components/CookieBanner';
 import Script from 'next/script';
@@ -120,9 +121,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={graphJsonLd(organizationJsonLd, websiteJsonLd)} />
         <CookieBannerWrapper />
         <Toaster />
-        <Header />
-        {children}
-        <Footer />
+        <SupportModalProvider>
+          <Header />
+          {children}
+          <LandFooter />
+        </SupportModalProvider>
       </body>
     </html>
   );
