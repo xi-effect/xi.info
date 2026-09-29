@@ -12,12 +12,12 @@
     },
     {
       "source": "/subscribe",
-      "destination": "https://app.sovlium.ru/login?redirect=%2Fbilling%2Fsubscribe%3Fplan%3Dpro",
+      "destination": "https://app.sovlium.ru/?profile=subscription",
       "permanent": false
     },
     {
       "source": "/subscribe/",
-      "destination": "https://app.sovlium.ru/login?redirect=%2Fbilling%2Fsubscribe%3Fplan%3Dpro",
+      "destination": "https://app.sovlium.ru/?profile=subscription",
       "permanent": false
     }
   ],
