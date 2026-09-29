@@ -86,10 +86,6 @@ export const PricesView = () => {
             <h1 className="text-pretty text-[28px] leading-[1.15] font-semibold tracking-tight text-gray-100 sm:text-[40px] lg:text-[48px]">
               Выберите формат работы с sovlium
             </h1>
-            <p className="text-pretty text-m-base leading-7 text-gray-80 sm:text-l-base">
-              Бесплатный Базовый — чтобы начать. Про — больше активных кабинетов, без ограничений по
-              ВКС и увеличенный размер для загрузки файлов.
-            </p>
           </motion.div>
 
           <div className="mx-auto flex max-w-[1080px] flex-col gap-5 md:grid md:grid-cols-2 md:grid-rows-[auto_auto_auto_auto_auto_auto_1fr] md:gap-x-6 md:gap-y-0 lg:gap-x-6">

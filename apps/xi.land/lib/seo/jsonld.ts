@@ -4,6 +4,7 @@ import { classroomsContent } from 'components/product/content/classrooms';
 import { materialsContent } from 'components/product/content/materials';
 import { paymentsContent } from 'components/product/content/payments';
 import { whiteboardContent } from 'components/product/content/whiteboard';
+import { PRO_MONTHLY_PRICE, PRO_YEARLY_PRICE } from 'components/cardPricing/dataForPricing';
 
 import { absoluteUrl, SITE_NAME, SITE_URL, SOCIAL_PROFILES, SUPPORT_EMAIL } from './site';
 import { getSeoPage, type SeoPathT } from './pages';
@@ -55,9 +56,9 @@ export const softwareApplicationJsonLd = {
   offers: {
     '@type': 'AggregateOffer',
     lowPrice: '0',
-    highPrice: '1499',
+    highPrice: String(PRO_YEARLY_PRICE),
     priceCurrency: 'RUB',
-    offerCount: '2',
+    offerCount: '3',
   },
   provider: { '@id': ORGANIZATION_ID },
   featureList: [
@@ -87,7 +88,14 @@ export const pricesOffersJsonLd = {
     {
       '@type': 'Offer',
       name: 'Про',
-      price: '1499',
+      price: String(PRO_MONTHLY_PRICE),
+      priceCurrency: 'RUB',
+      url: absoluteUrl('/prices'),
+    },
+    {
+      '@type': 'Offer',
+      name: 'Про за год',
+      price: String(PRO_YEARLY_PRICE),
       priceCurrency: 'RUB',
       url: absoluteUrl('/prices'),
     },

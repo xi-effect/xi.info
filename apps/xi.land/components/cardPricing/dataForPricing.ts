@@ -5,6 +5,13 @@ type PlanFeatureT = {
   soon?: boolean;
 };
 
+type YearlyBillingT = {
+  price: number;
+  billing: string;
+  caption: string;
+  equivalentLabel: string;
+};
+
 type CardPricingPropsT = {
   id: string;
   name: string;
@@ -16,15 +23,21 @@ type CardPricingPropsT = {
   description?: string;
   billing?: string;
   caption?: string;
+  yearly?: YearlyBillingT;
   features?: PlanFeatureT[];
 };
+
+export const PRO_MONTHLY_PRICE = 1499;
+export const PRO_YEARLY_PRICE = 14999;
+export const PRO_YEARLY_DISCOUNT_PERCENT = 20;
+export const PRO_YEARLY_MONTHLY_EQUIVALENT = Math.round(PRO_YEARLY_PRICE / 12);
 
 const plansPricing = [
   {
     id: 'basic',
     name: 'Базовый',
     price: 0,
-    billing: '/ месяц',
+    billing: '/ 30 дней',
     description: 'Для старта, небольшой нагрузки и\u00A0знакомства с возможностями sovlium',
     btn_name: 'Начать бесплатно',
     href: SIGNUP_URL,
@@ -34,6 +47,8 @@ const plansPricing = [
       { text: 'До 10 часов ВКС' },
       { text: 'Без ограничений по количеству учеников' },
       { text: '500 МБ хранилища' },
+      { text: 'Загрузка изображений до 1 МБ' },
+      { text: 'Загрузка файлов до 5 МБ' },
       { text: 'Ограничения по домашним заданиям' },
       { text: 'Базовые возможности сервиса' },
     ],
@@ -41,20 +56,28 @@ const plansPricing = [
   {
     id: 'pro',
     name: 'Про',
-    price: 1499,
-    billing: '/ месяц',
+    price: PRO_MONTHLY_PRICE,
+    billing: '/ 30 дней',
     description:
       'Для репетиторов, которые регулярно проводят занятия и\u00A0хотят использовать sovlium без базовых ограничений',
     btn_name: 'Оформить подписку',
     href: SUBSCRIBE_PRO_URL,
     highlight: true,
-    caption: 'Подписка продлевается автоматически каждый месяц, пока вы её не отмените',
+    caption: 'Подписка продлевается автоматически каждые 30 дней, пока вы её не отмените',
+    yearly: {
+      price: PRO_YEARLY_PRICE,
+      billing: '/ 365 дней',
+      equivalentLabel: `${PRO_YEARLY_MONTHLY_EQUIVALENT.toLocaleString('ru-RU')} ₽ за 30 дней при оплате сразу за год`,
+      caption:
+        'Подписка продлевается автоматически каждые 360 дней, пока вы её не отмените. Скидка уже включена в цену',
+    },
     features: [
-      { text: 'До 30 активных кабинетов' },
+      { text: 'До 60 активных кабинетов' },
       { text: 'Без ограничений по ВКС' },
       { text: 'Без ограничений по количеству учеников' },
       { text: '20 ГБ хранилища' },
-      { text: 'Увеличенный размер для загрузки файлов', soon: true },
+      { text: 'Загрузка изображений до 5 МБ' },
+      { text: 'Загрузка файлов до 30 МБ', soon: true },
       { text: 'Расширенные домашние задания', soon: true },
       { text: 'Дополнительные возможности' },
     ],
@@ -225,6 +248,10 @@ const comparisonSections: ComparisonSectionT[] = [
         hint: 'Открываете доступ ученику или оставляете файл только себе',
       },
       { feature: 'Просмотр файлов на платформе' },
+      {
+        feature: 'Размер загрузки изображений',
+        hint: 'Базовый — до 1 МБ, Про — до 5 МБ',
+      },
     ],
   },
   {
@@ -272,10 +299,12 @@ const comparisonSections: ComparisonSectionT[] = [
   },
 ];
 
+const formatFaqPrice = (price: number) => price.toLocaleString('ru-RU');
+
 const pricingFaq = [
   {
     title: 'Чем отличаются тарифы?',
-    text: 'Базовый — бесплатный тариф: до 3 активных кабинетов и до 10 часов ВКС. Про — 1 499 ₽ в месяц: до 30 активных кабинетов, без ограничений по ВКС и увеличенный размер для загрузки файлов. Подписка Про продлевается автоматически каждый месяц, пока вы её не отмените.',
+    text: `Базовый — бесплатный тариф: до 3 активных кабинетов, до 10 часов ВКС и загрузка изображений до 1 МБ. Про — ${formatFaqPrice(PRO_MONTHLY_PRICE)} ₽ за 30 дней или ${formatFaqPrice(PRO_YEARLY_PRICE)} ₽ за 360 дней со скидкой ${PRO_YEARLY_DISCOUNT_PERCENT}%: до 30 активных кабинетов, без ограничений по ВКС и загрузка файлов до 5 МБ. Подписка Про продлевается автоматически, пока вы её не отмените.`,
   },
   {
     title: 'Можно ли отменить подписку?',
@@ -307,10 +336,10 @@ const pricingFaq = [
   },
   {
     title: 'Как устроена подписка Про?',
-    text: 'Тариф Про оформляется в приложении как подписка с автоматическим ежемесячным продлением. Отменить подписку можно в любой момент в приложении или через поддержку. После отмены доступ к тарифу Про сохранится до конца оплаченного периода.',
+    text: `Тариф Про оформляется в приложении как подписка с автоматическим продлением: каждые 30 дней за ${formatFaqPrice(PRO_MONTHLY_PRICE)} ₽ или сразу за 365 дней за ${formatFaqPrice(PRO_YEARLY_PRICE)} ₽ со скидкой ${PRO_YEARLY_DISCOUNT_PERCENT}%. Отменить подписку можно в любой момент в приложении или через поддержку. После отмены доступ к тарифу Про сохранится до конца оплаченного периода.`,
   },
 ];
 
-export type { CardPricingPropsT, PlanFeatureT, ComparisonSectionT };
+export type { CardPricingPropsT, PlanFeatureT, ComparisonSectionT, YearlyBillingT };
 
 export { plansPricing, pricingFaq, comparisonSections };
