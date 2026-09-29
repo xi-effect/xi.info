@@ -115,30 +115,30 @@ export const SEO_PAGES = {
     description:
       'Условия использования, оферта, оплата и возврат, политика конфиденциальности, согласия и реквизиты сервиса sovlium.',
     index: true,
-    lastmod: '2026-09-10',
+    lastmod: '2026-09-29',
   },
   '/legal/terms': {
     path: '/legal/terms',
     title: 'Условия использования | Sovlium',
     description: 'Условия использования платформы Sovlium для проведения онлайн-уроков.',
     index: true,
-    lastmod: '2026-09-10',
+    lastmod: '2026-09-29',
   },
   '/legal/offer': {
     path: '/legal/offer',
     title: 'Оферта на доступ к сервису sovlium',
     description:
-      'Условия оплаты тарифа, предоставления доступа к сервису sovlium, отмены подписки и возврата.',
+      'Условия оплаты тарифа Про за 30 или 360 дней, предоставления доступа к сервису sovlium, отмены подписки и возврата.',
     index: true,
-    lastmod: '2026-09-10',
+    lastmod: '2026-09-29',
   },
   '/legal/payment-refund': {
     path: '/legal/payment-refund',
     title: 'Оплата и возврат — sovlium',
     description:
-      'Способы оплаты, порядок предоставления доступа к тарифу sovlium, отмена подписки и возврат.',
+      'Способы оплаты, периоды подписки 30 и 360 дней, порядок предоставления доступа к тарифу sovlium, отмена подписки и возврат.',
     index: true,
-    lastmod: '2026-09-01',
+    lastmod: '2026-09-29',
   },
   '/legal/requisites': {
     path: '/legal/requisites',
@@ -153,7 +153,7 @@ export const SEO_PAGES = {
     description:
       'Политика конфиденциальности платформы Sovlium. Как мы собираем, используем и защищаем ваши персональные данные.',
     index: true,
-    lastmod: '2026-09-01',
+    lastmod: '2026-09-29',
   },
   '/legal/consent': {
     path: '/legal/consent',
