@@ -34,7 +34,18 @@ interface FooterProps {
   mobileBackgroundImageUrl?: string;
   /** Явное управление промо-блоком; без пропа скрывается на поддоменах support, wiki, vacancy, jobs, job */
   showPromoSection?: boolean;
+  /**
+   * Origin для ссылок от корня (/prices, /legal/...).
+   * На xi.land пустой: страницы живут на том же хосте.
+   * На сателлитах (support, vacancy) — https://sovlium.ru, иначе пути резолвятся в 404.
+   */
+  linkOrigin?: string;
 }
+
+const withLinkOrigin = (href: string, origin: string) => {
+  if (!origin || !href.startsWith('/') || href.startsWith('//')) return href;
+  return `${origin.replace(/\/$/, '')}${href}`;
+};
 
 const sections: Section[] = [
   {
@@ -97,8 +108,10 @@ const Footer = ({
   innerClassNameFooter = 'bg-gray-100 dark:bg-transparent',
   themeAwareContent = false,
   showPromoSection,
+  linkOrigin = '',
 }: FooterProps = {}) => {
   const footerSections = customSections || sections;
+  const href = (path: string) => withLinkOrigin(path, linkOrigin);
   const useThemeLogos = logoPathLight != null && logoPathDark != null;
 
   const titleClass = themeAwareContent
@@ -123,7 +136,12 @@ const Footer = ({
       <ul className="xs:gap-6 mt-0 mb-0 flex flex-col gap-6 pl-0">
         {section.links.map((link, index) => (
           <li key={index} className="mt-0 mb-0 list-none">
-            <Link className={linkClass} variant="hover" href={link.link} size="l">
+            <Link
+              className={linkClass}
+              variant="hover"
+              href={customSections ? link.link : href(link.link)}
+              size="l"
+            >
               {link.title}
             </Link>
           </li>
@@ -221,7 +239,7 @@ const Footer = ({
                         key={link.link}
                         className={legalDocLinkClass}
                         variant="hover"
-                        href={link.link}
+                        href={href(link.link)}
                         size="s"
                       >
                         {link.title}

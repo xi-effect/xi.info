@@ -101,6 +101,7 @@ const VacancyFooter = () => {
       logoPath="/assets/logofordark.svg"
       classNameFooter="bg-gray-100 rounded-t-[32px] xl:rounded-t-[64px]"
       showPromoSection={false}
+      linkOrigin="https://sovlium.ru"
     />
   );
 };

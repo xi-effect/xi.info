@@ -17,6 +17,7 @@ export default function Layout({ children }: LayoutProps<'/[[...slug]]'>) {
         topContent={<></>}
         logoPathLight="/logoforwhite.svg"
         logoPathDark="/logofordark.svg"
+        linkOrigin="https://sovlium.ru"
       />
     </>
   );
