@@ -13,8 +13,8 @@ type BlogPostPageProps = {
 
 const loadBlogPostContent = (slug: string) => {
   switch (slug) {
-    case 'sovlium-zavershenie-testirovaniya-2026':
-      return import('../../../markdown/blog/sovlium-zavershenie-testirovaniya-2026.mdx');
+    case 'pochti-god-s-sovlium':
+      return import('../../../markdown/blog/pochti-god-s-sovlium.mdx');
     default:
       return null;
   }
