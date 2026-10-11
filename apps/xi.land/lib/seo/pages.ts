@@ -96,10 +96,10 @@ export const SEO_PAGES = {
   },
   '/blog': {
     path: '/blog',
-    title: 'Статьи и советы для репетиторов от sovlium',
-    description: 'Делимся новостями, кейсами и лайфхаками. Раздел пока в работе.',
-    index: false,
-    follow: true,
+    title: 'Журнал для репетиторов — блог sovlium',
+    description: 'Заметки команды sovlium для репетиторов.',
+    index: true,
+    lastmod: '2026-09-25',
   },
   '/docs': {
     path: '/docs',

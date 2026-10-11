@@ -6,6 +6,7 @@ import { FooterPromoSection } from './FooterPromoSection';
 interface SectionLink {
   link: string;
   title: string;
+  onClick?: () => void;
 }
 
 interface Section {
@@ -47,7 +48,7 @@ const withLinkOrigin = (href: string, origin: string) => {
   return `${origin.replace(/\/$/, '')}${href}`;
 };
 
-const sections: Section[] = [
+export const defaultFooterSections: Section[] = [
   {
     title: 'Продукт',
     links: [
@@ -110,7 +111,7 @@ const Footer = ({
   showPromoSection,
   linkOrigin = '',
 }: FooterProps = {}) => {
-  const footerSections = customSections || sections;
+  const footerSections = customSections || defaultFooterSections;
   const href = (path: string) => withLinkOrigin(path, linkOrigin);
   const useThemeLogos = logoPathLight != null && logoPathDark != null;
 
@@ -136,14 +137,24 @@ const Footer = ({
       <ul className="xs:gap-6 mt-0 mb-0 flex flex-col gap-6 pl-0">
         {section.links.map((link, index) => (
           <li key={index} className="mt-0 mb-0 list-none">
-            <Link
-              className={linkClass}
-              variant="hover"
-              href={customSections ? link.link : href(link.link)}
-              size="l"
-            >
-              {link.title}
-            </Link>
+            {link.onClick ? (
+              <button
+                type="button"
+                onClick={link.onClick}
+                className={`${linkClass} cursor-pointer border-0 bg-transparent p-0 text-left underline-offset-4 transition hover:underline`}
+              >
+                {link.title}
+              </button>
+            ) : (
+              <Link
+                className={linkClass}
+                variant="hover"
+                href={customSections ? link.link : href(link.link)}
+                size="l"
+              >
+                {link.title}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
