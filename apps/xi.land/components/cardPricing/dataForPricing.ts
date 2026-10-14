@@ -28,7 +28,7 @@ type CardPricingPropsT = {
 };
 
 export const PRO_MONTHLY_PRICE = 1499;
-export const PRO_YEARLY_PRICE = 14999;
+export const PRO_YEARLY_PRICE = 14990;
 export const PRO_YEARLY_DISCOUNT_PERCENT = 20;
 export const PRO_YEARLY_MONTHLY_EQUIVALENT = Math.round(PRO_YEARLY_PRICE / 12);
 
