@@ -1,0 +1,11 @@
+{
+  "title": "Установка и помощь",
+  "pages": [
+    "index",
+    "install-pwa",
+    "hints-tour-again",
+    "knowledge-base-external",
+    "contact-support",
+    "clear-browser-cache"
+  ]
+}

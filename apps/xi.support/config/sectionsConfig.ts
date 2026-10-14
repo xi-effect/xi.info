@@ -1,73 +1,127 @@
-export const sectionsConfig = [
-  {
-    title: 'Начало работы',
-    description:
-      'Как зарегистрироваться, подтвердить почту, настроить профиль и восстановить пароль',
-    pageUrl: 'getting-started',
-    icon: 'start-working.svg',
-  },
-  {
-    title: 'Кабинеты',
-    description: 'Как пригласить ученика и выдать ему доступ к материалам, для чего нужны кабинеты',
-    pageUrl: 'classrooms',
-    icon: 'team.svg',
-  },
-  {
-    title: 'Расписание и занятия',
-    description: 'Как назначить, перенести или отменить занятие',
-    pageUrl: 'lessons-and-schedule',
-    icon: 'schedule.svg',
-  },
-  {
-    title: 'Доски и заметки',
-    description:
-      'Как управлять досками и заметками, добавлять текст и картинки, работать с доской в видеозвонке',
-    pageUrl: 'board-and-notes',
-    icon: 'assignments.svg',
-  },
-  {
-    title: 'Видеозвонок',
-    description: 'Как настроить оборудование, запустить видеозвонок и провести занятие',
-    pageUrl: 'video-lesson',
-    icon: 'video.svg',
-  },
-  {
-    title: 'Счета и оплаты',
-    description: 'Зачем нужна вкладка «Оплаты», как выставить счёт и учесть его в доходах',
-    pageUrl: 'payments',
-    icon: 'settings.svg',
-  },
+type Section = {
+  title: string;
+  description: string;
+  pageUrl: string;
+  icon: string;
+};
+
+const sharedTail: Section[] = [
   {
     title: 'Профиль и настройки',
-    description:
-      'Как настроить данные для входа и звук в видеозвонке, включить напоминания о занятиях',
+    description: 'Имя, почта, уведомления, звук на занятии и технический отчёт',
     pageUrl: 'profile-settings',
     icon: 'chat.svg',
   },
   {
     title: 'Установка и помощь',
-    description: 'Как работает веб-приложение и куда обращаться, если что-то идёт не так',
+    description: 'Как открыть sovlium с устройства и куда написать, если что-то не открывается',
     pageUrl: 'install-and-help',
     icon: 'announcements.svg',
   },
   {
     title: 'Устранение неполадок',
-    description: 'Что делать, если нет видео или звука, не грузятся файлы, почта, ссылки на счета.',
+    description: 'Нет видео или звука, не грузится файл, не пришло письмо, не открылся счёт',
     pageUrl: 'troubleshooting',
     icon: 'tests.svg',
   },
   {
     title: 'Технический отчёт',
-    description:
-      'Как скопировать техническую информацию о браузере в один клик и передать её в поддержку.',
+    description: 'Как скопировать данные браузера и передать их в поддержку',
     pageUrl: 'profile-settings/support-tech-report',
     icon: 'report.svg',
   },
   {
     title: 'Очистка сохранённых данных',
-    description:
-      'Как сбросить кэш и данные сайта в браузере, чтобы увидеть актуальную версию страницы.',
+    description: 'Как сбросить данные сайта в браузере и открыть актуальную версию страницы',
     pageUrl: 'install-and-help/clear-browser-cache',
     icon: 'settings.svg',
   },
 ];
+
+export const tutorSections: Section[] = [
+  {
+    title: 'Начало работы',
+    description: 'Регистрация, вход, почта и пароль',
+    pageUrl: 'getting-started',
+    icon: 'start-working.svg',
+  },
+  {
+    title: 'Кабинеты',
+    description: 'Список кабинетов, приглашение ученика и вкладки кабинета',
+    pageUrl: 'classrooms',
+    icon: 'team.svg',
+  },
+  {
+    title: 'Расписание и занятия',
+    description: 'Главная, расписание и назначение занятия',
+    pageUrl: 'lessons-and-schedule',
+    icon: 'schedule.svg',
+  },
+  {
+    title: 'Доски и заметки',
+    description: 'Где лежат доски и заметки и как открыть их из кабинета',
+    pageUrl: 'board-and-notes',
+    icon: 'assignments.svg',
+  },
+  {
+    title: 'Видеозвонок',
+    description: 'Кнопка «Начать занятие», устройства, экран и чат',
+    pageUrl: 'video-lesson',
+    icon: 'video.svg',
+  },
+  {
+    title: 'Счета и оплаты',
+    description: 'Как выставить счёт и отметить оплату',
+    pageUrl: 'payments',
+    icon: 'settings.svg',
+  },
+  ...sharedTail,
+];
+
+export const studentSections: Section[] = [
+  {
+    title: 'Начало работы',
+    description: 'Регистрация, вход, почта и пароль',
+    pageUrl: 'getting-started',
+    icon: 'start-working.svg',
+  },
+  {
+    title: 'Кабинеты',
+    description: 'Как принять приглашение и что видно в кабинете',
+    pageUrl: 'classrooms',
+    icon: 'team.svg',
+  },
+  {
+    title: 'Расписание и занятия',
+    description: 'Где смотреть занятия, которые назначил репетитор',
+    pageUrl: 'lessons-and-schedule',
+    icon: 'schedule.svg',
+  },
+  {
+    title: 'Доски и заметки',
+    description: 'Где в кабинете лежат доски и заметки',
+    pageUrl: 'board-and-notes',
+    icon: 'assignments.svg',
+  },
+  {
+    title: 'Видеозвонок',
+    description: 'Как присоединиться к занятию и проверить камеру',
+    pageUrl: 'video-lesson',
+    icon: 'video.svg',
+  },
+  {
+    title: 'Счета и оплаты',
+    description: 'Где смотреть счета от репетитора',
+    pageUrl: 'payments',
+    icon: 'settings.svg',
+  },
+  ...sharedTail,
+];
+
+export function sectionsForRole(role: 'tutor' | 'student') {
+  const sections = role === 'student' ? studentSections : tutorSections;
+  return sections.map((section) => ({
+    ...section,
+    href: `/${role}/${section.pageUrl}`,
+  }));
+}

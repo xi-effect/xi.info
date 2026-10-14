@@ -1,0 +1,4 @@
+{
+  "title": "Счета и оплаты",
+  "pages": ["index", "payments-page-tabs", "approve-incoming-payment"]
+}

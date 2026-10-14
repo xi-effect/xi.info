@@ -9,5 +9,287 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/tutor",
+      "permanent": false
+    },
+    {
+      "source": "/board-and-notes/board-attachments-pdf-image-audio",
+      "destination": "/tutor/board-and-notes/board-attachments-pdf-image-audio",
+      "permanent": true
+    },
+    {
+      "source": "/board-and-notes/board-drawing-and-text",
+      "destination": "/tutor/board-and-notes/board-drawing-and-text",
+      "permanent": true
+    },
+    {
+      "source": "/board-and-notes/board-during-call",
+      "destination": "/tutor/board-and-notes/board-during-call",
+      "permanent": true
+    },
+    {
+      "source": "/board-and-notes",
+      "destination": "/tutor/board-and-notes",
+      "permanent": true
+    },
+    {
+      "source": "/board-and-notes/open-board-from-materials-or-classroom",
+      "destination": "/tutor/board-and-notes/open-board-from-materials-or-classroom",
+      "permanent": true
+    },
+    {
+      "source": "/board-and-notes/where-are-boards",
+      "destination": "/tutor/board-and-notes/where-are-boards",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/accept-invite",
+      "destination": "/student/classrooms/accept-invite",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/classroom-list",
+      "destination": "/tutor/classrooms/classroom-list",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/classroom-tabs",
+      "destination": "/tutor/classrooms/classroom-tabs",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/create-group",
+      "destination": "/tutor/classrooms/create-group",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/group-classroom-manage",
+      "destination": "/tutor/classrooms/group-classroom-manage",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms",
+      "destination": "/tutor/classrooms",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/invite-tutor-flow",
+      "destination": "/tutor/classrooms/invite-tutor-flow",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/student-material-access",
+      "destination": "/tutor/classrooms/student-material-access",
+      "permanent": true
+    },
+    {
+      "source": "/classrooms/tutor-and-student",
+      "destination": "/tutor/classrooms/tutor-and-student",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/confirm-email",
+      "destination": "/tutor/getting-started/confirm-email",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/first-run-after-login",
+      "destination": "/tutor/getting-started/first-run-after-login",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started",
+      "destination": "/tutor/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/register",
+      "destination": "/tutor/getting-started/register",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/reset-password",
+      "destination": "/tutor/getting-started/reset-password",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/sign-in",
+      "destination": "/tutor/getting-started/sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/work-beginning",
+      "destination": "/tutor/getting-started/work-beginning",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help/clear-browser-cache",
+      "destination": "/tutor/install-and-help/clear-browser-cache",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help/contact-support",
+      "destination": "/tutor/install-and-help/contact-support",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help/hints-tour-again",
+      "destination": "/tutor/install-and-help/hints-tour-again",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help",
+      "destination": "/tutor/install-and-help",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help/install-pwa",
+      "destination": "/tutor/install-and-help/install-pwa",
+      "permanent": true
+    },
+    {
+      "source": "/install-and-help/knowledge-base-external",
+      "destination": "/tutor/install-and-help/knowledge-base-external",
+      "permanent": true
+    },
+    {
+      "source": "/lessons-and-schedule/create-move-lesson",
+      "destination": "/tutor/lessons-and-schedule/create-move-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/lessons-and-schedule/home-dashboard",
+      "destination": "/tutor/lessons-and-schedule/home-dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/lessons-and-schedule",
+      "destination": "/tutor/lessons-and-schedule",
+      "permanent": true
+    },
+    {
+      "source": "/lessons-and-schedule/prepare-for-lesson",
+      "destination": "/tutor/lessons-and-schedule/prepare-for-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/lessons-and-schedule/schedule-overview",
+      "destination": "/tutor/lessons-and-schedule/schedule-overview",
+      "permanent": true
+    },
+    {
+      "source": "/payments/approve-incoming-payment",
+      "destination": "/tutor/payments/approve-incoming-payment",
+      "permanent": true
+    },
+    {
+      "source": "/payments/control-payments",
+      "destination": "/tutor/payments/control-payments",
+      "permanent": true
+    },
+    {
+      "source": "/payments/create-invoice",
+      "destination": "/tutor/payments/create-invoice",
+      "permanent": true
+    },
+    {
+      "source": "/payments",
+      "destination": "/tutor/payments",
+      "permanent": true
+    },
+    {
+      "source": "/payments/payments-page-tabs",
+      "destination": "/tutor/payments/payments-page-tabs",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings/effects-sound",
+      "destination": "/tutor/profile-settings/effects-sound",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings/email-and-password",
+      "destination": "/tutor/profile-settings/email-and-password",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings",
+      "destination": "/tutor/profile-settings",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings/notifications-bell-and-settings",
+      "destination": "/tutor/profile-settings/notifications-bell-and-settings",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings/personal-and-role",
+      "destination": "/tutor/profile-settings/personal-and-role",
+      "permanent": true
+    },
+    {
+      "source": "/profile-settings/support-tech-report",
+      "destination": "/tutor/profile-settings/support-tech-report",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/board-file-not-loading",
+      "destination": "/tutor/troubleshooting/board-file-not-loading",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/call-no-video-audio",
+      "destination": "/tutor/troubleshooting/call-no-video-audio",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/email-confirmation-missing",
+      "destination": "/tutor/troubleshooting/email-confirmation-missing",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting",
+      "destination": "/tutor/troubleshooting",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/payment-link-issues",
+      "destination": "/tutor/troubleshooting/payment-link-issues",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson/background-blur",
+      "destination": "/tutor/video-lesson/background-blur",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson/compact-mode-while-browsing",
+      "destination": "/tutor/video-lesson/compact-mode-while-browsing",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson/conduct-lesson",
+      "destination": "/tutor/video-lesson/conduct-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson/during-call-screen-chat",
+      "destination": "/tutor/video-lesson/during-call-screen-chat",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson",
+      "destination": "/tutor/video-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/video-lesson/prejoin-devices",
+      "destination": "/tutor/video-lesson/prejoin-devices",
+      "permanent": true
+    }
   ]
 }

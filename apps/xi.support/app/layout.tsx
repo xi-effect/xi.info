@@ -9,7 +9,7 @@ import DocsSearchDialog from '@/components/DocsSearchDialog';
 export const metadata: Metadata = {
   title: 'База знаний sovlium - документация и поддержка',
   description:
-    'Документация платформы sovlium для репетиторов. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
+    'Документация платформы sovlium для репетиторов и учеников. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
   manifest: '/manifest.webmanifest',
   keywords: [
     'sovlium',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'База знаний sovlium - документация и поддержка',
     description:
-      'Документация платформы sovlium для репетиторов. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
+      'Документация платформы sovlium для репетиторов и учеников. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
     url: 'https://support.sovlium.ru',
     siteName: 'Sovlium Support',
     locale: 'ru_RU',
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'База знаний sovlium - документация и поддержка',
     description:
-      'Документация платформы sovlium для репетиторов. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
+      'Документация платформы sovlium для репетиторов и учеников. Руководства по использованию функций, ответы на вопросы и полезные материалы.',
     images: ['https://support.sovlium.ru/web-app-manifest-512x512.png'],
   },
   robots: {
