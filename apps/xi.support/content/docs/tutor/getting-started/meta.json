@@ -6,7 +6,6 @@
     "sign-in",
     "reset-password",
     "confirm-email",
-    "first-run-after-login",
-    "work-beginning"
+    "first-run-after-login"
   ]
 }

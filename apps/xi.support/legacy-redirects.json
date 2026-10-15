@@ -41,7 +41,7 @@
   },
   {
     "source": "/classrooms/group-classroom-manage",
-    "destination": "/tutor/classrooms/group-classroom-manage"
+    "destination": "/tutor/classrooms/create-group"
   },
   {
     "source": "/classrooms",
@@ -85,7 +85,7 @@
   },
   {
     "source": "/getting-started/work-beginning",
-    "destination": "/tutor/getting-started/work-beginning"
+    "destination": "/tutor/getting-started"
   },
   {
     "source": "/install-and-help/clear-browser-cache",
@@ -125,7 +125,7 @@
   },
   {
     "source": "/lessons-and-schedule/prepare-for-lesson",
-    "destination": "/tutor/lessons-and-schedule/prepare-for-lesson"
+    "destination": "/tutor/lessons-and-schedule"
   },
   {
     "source": "/lessons-and-schedule/schedule-overview",
@@ -137,7 +137,7 @@
   },
   {
     "source": "/payments/control-payments",
-    "destination": "/tutor/payments/control-payments"
+    "destination": "/tutor/payments"
   },
   {
     "source": "/payments/create-invoice",
@@ -205,7 +205,7 @@
   },
   {
     "source": "/video-lesson/conduct-lesson",
-    "destination": "/tutor/video-lesson/conduct-lesson"
+    "destination": "/tutor/video-lesson"
   },
   {
     "source": "/video-lesson/during-call-screen-chat",
@@ -218,5 +218,41 @@
   {
     "source": "/video-lesson/prejoin-devices",
     "destination": "/tutor/video-lesson/prejoin-devices"
+  },
+  {
+    "source": "/tutor/getting-started/work-beginning",
+    "destination": "/tutor/getting-started"
+  },
+  {
+    "source": "/student/getting-started/work-beginning",
+    "destination": "/student/getting-started"
+  },
+  {
+    "source": "/tutor/lessons-and-schedule/prepare-for-lesson",
+    "destination": "/tutor/lessons-and-schedule"
+  },
+  {
+    "source": "/student/lessons-and-schedule/prepare-for-lesson",
+    "destination": "/student/lessons-and-schedule"
+  },
+  {
+    "source": "/tutor/video-lesson/conduct-lesson",
+    "destination": "/tutor/video-lesson"
+  },
+  {
+    "source": "/student/video-lesson/conduct-lesson",
+    "destination": "/student/video-lesson"
+  },
+  {
+    "source": "/tutor/payments/control-payments",
+    "destination": "/tutor/payments"
+  },
+  {
+    "source": "/tutor/classrooms/group-classroom-manage",
+    "destination": "/tutor/classrooms/create-group"
+  },
+  {
+    "source": "/student/payments/payments-page-tabs",
+    "destination": "/student/payments"
   }
 ]

@@ -1,10 +1,4 @@
 {
   "title": "Расписание и уроки",
-  "pages": [
-    "index",
-    "home-dashboard",
-    "schedule-overview",
-    "create-move-lesson",
-    "prepare-for-lesson"
-  ]
+  "pages": ["index", "home-dashboard", "schedule-overview", "create-move-lesson"]
 }

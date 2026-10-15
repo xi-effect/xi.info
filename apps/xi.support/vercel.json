@@ -68,7 +68,7 @@
     },
     {
       "source": "/classrooms/group-classroom-manage",
-      "destination": "/tutor/classrooms/group-classroom-manage",
+      "destination": "/tutor/classrooms/create-group",
       "permanent": true
     },
     {
@@ -123,7 +123,7 @@
     },
     {
       "source": "/getting-started/work-beginning",
-      "destination": "/tutor/getting-started/work-beginning",
+      "destination": "/tutor/getting-started",
       "permanent": true
     },
     {
@@ -173,7 +173,7 @@
     },
     {
       "source": "/lessons-and-schedule/prepare-for-lesson",
-      "destination": "/tutor/lessons-and-schedule/prepare-for-lesson",
+      "destination": "/tutor/lessons-and-schedule",
       "permanent": true
     },
     {
@@ -188,7 +188,7 @@
     },
     {
       "source": "/payments/control-payments",
-      "destination": "/tutor/payments/control-payments",
+      "destination": "/tutor/payments",
       "permanent": true
     },
     {
@@ -273,7 +273,7 @@
     },
     {
       "source": "/video-lesson/conduct-lesson",
-      "destination": "/tutor/video-lesson/conduct-lesson",
+      "destination": "/tutor/video-lesson",
       "permanent": true
     },
     {
@@ -289,6 +289,51 @@
     {
       "source": "/video-lesson/prejoin-devices",
       "destination": "/tutor/video-lesson/prejoin-devices",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/getting-started/work-beginning",
+      "destination": "/tutor/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/student/getting-started/work-beginning",
+      "destination": "/student/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/lessons-and-schedule/prepare-for-lesson",
+      "destination": "/tutor/lessons-and-schedule",
+      "permanent": true
+    },
+    {
+      "source": "/student/lessons-and-schedule/prepare-for-lesson",
+      "destination": "/student/lessons-and-schedule",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/video-lesson/conduct-lesson",
+      "destination": "/tutor/video-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/student/video-lesson/conduct-lesson",
+      "destination": "/student/video-lesson",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/payments/control-payments",
+      "destination": "/tutor/payments",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/classrooms/group-classroom-manage",
+      "destination": "/tutor/classrooms/create-group",
+      "permanent": true
+    },
+    {
+      "source": "/student/payments/payments-page-tabs",
+      "destination": "/student/payments",
       "permanent": true
     }
   ]

@@ -1,4 +1,4 @@
 {
   "title": "Расписание и уроки",
-  "pages": ["index", "home-dashboard", "schedule-overview", "prepare-for-lesson"]
+  "pages": ["index", "home-dashboard", "schedule-overview"]
 }
