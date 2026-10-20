@@ -2,8 +2,8 @@
   "title": "Кабинеты",
   "pages": [
     "index",
-    "tutor-and-student",
     "classroom-list",
+    "classroom-statuses",
     "invite-tutor-flow",
     "create-group",
     "classroom-tabs",

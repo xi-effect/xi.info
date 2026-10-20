@@ -88,7 +88,7 @@
     },
     {
       "source": "/classrooms/tutor-and-student",
-      "destination": "/tutor/classrooms/tutor-and-student",
+      "destination": "/tutor/classrooms",
       "permanent": true
     },
     {
@@ -163,7 +163,7 @@
     },
     {
       "source": "/lessons-and-schedule/home-dashboard",
-      "destination": "/tutor/lessons-and-schedule/home-dashboard",
+      "destination": "/tutor/lessons-and-schedule",
       "permanent": true
     },
     {
@@ -334,6 +334,26 @@
     {
       "source": "/student/payments/payments-page-tabs",
       "destination": "/student/payments",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/classrooms/tutor-and-student",
+      "destination": "/tutor/classrooms",
+      "permanent": true
+    },
+    {
+      "source": "/student/classrooms/tutor-and-student",
+      "destination": "/student/classrooms",
+      "permanent": true
+    },
+    {
+      "source": "/tutor/lessons-and-schedule/home-dashboard",
+      "destination": "/tutor/lessons-and-schedule",
+      "permanent": true
+    },
+    {
+      "source": "/student/lessons-and-schedule/home-dashboard",
+      "destination": "/student/lessons-and-schedule",
       "permanent": true
     }
   ]

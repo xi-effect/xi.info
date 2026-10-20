@@ -1,4 +1,4 @@
 {
   "title": "Кабинеты",
-  "pages": ["index", "tutor-and-student", "classroom-list", "accept-invite", "classroom-tabs"]
+  "pages": ["index", "classroom-list", "accept-invite", "classroom-tabs"]
 }
