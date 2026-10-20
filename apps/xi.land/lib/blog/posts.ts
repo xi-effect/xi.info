@@ -10,6 +10,16 @@ export type BlogPostT = {
 
 export const blogPosts: readonly BlogPostT[] = [
   {
+    slug: 'sovlium-zavershenie-testirovaniya-2026',
+    title: 'Завершаем тестирование sovlium: что изменится для пользователей',
+    description:
+      'В октябре мы завершаем тестирование sovlium и переходим к тарифам. Базовый тариф останется бесплатным, для большего числа кабинетов появится Про. Рассказываем, что изменится и что будет дальше.',
+    date: '2026-10-16',
+    category: 'Новости sovlium',
+    tags: ['sovlium', 'репетиторы', 'онлайн-образование', 'EdTech', 'тарифы', 'тестирование'],
+    index: true,
+  },
+  {
     slug: 'pochti-god-s-sovlium',
     title: 'Почти год с sovlium: как изменилась платформа за время бета-теста',
     description:
