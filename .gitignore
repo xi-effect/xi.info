@@ -37,3 +37,11 @@ yarn-error.log*
 .idea
 .vscode
 
+# docs agent: credentials, browser profiles, local reports scratch
+docs-agent/.env.docs.local
+docs-agent/.playwright-profiles/
+docs-agent/.auth/
+docs-agent/.tmp/
+.cursor/tmp/
+.playwright-mcp/
+

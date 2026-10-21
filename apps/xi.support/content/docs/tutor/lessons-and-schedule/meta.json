@@ -1,0 +1,4 @@
+{
+  "title": "Расписание и уроки",
+  "pages": ["index", "schedule-overview", "create-move-lesson"]
+}

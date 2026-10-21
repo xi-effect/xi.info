@@ -1,6 +1,7 @@
 import { createMDX } from 'fumadocs-mdx/next';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import legacyRedirects from './legacy-redirects.json' with { type: 'json' };
 
 const withMDX = createMDX();
 
@@ -16,6 +17,7 @@ const config = {
     '@xipkg/button',
     '@xipkg/input',
     '@xipkg/utils',
+    '@xipkg/switcher-animate',
     'pkg.footer',
     '@xipkg/link',
   ],
@@ -35,6 +37,16 @@ const config = {
   output: process.env.NODE_ENV === 'development' ? 'standalone' : 'export',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   typescript: { ignoreBuildErrors: true },
+  async redirects() {
+    return [
+      { source: '/', destination: '/tutor', permanent: false },
+      ...legacyRedirects.map((item) => ({
+        source: item.source,
+        destination: item.destination,
+        permanent: true,
+      })),
+    ];
+  },
 };
 
 export default withMDX(config);

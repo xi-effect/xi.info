@@ -13,6 +13,7 @@ import {
   SearchDialogOverlay,
 } from 'fumadocs-ui/components/dialog/search';
 import type { SharedProps } from 'fumadocs-ui/contexts/search';
+import { usePathname } from 'next/navigation';
 
 /**
  * Прод: индекс в `out/fumadocs-search.json` (копия после билда, см. scripts/emit-fumadocs-search.mjs),
@@ -30,13 +31,24 @@ const searchIndexFrom =
   process.env.NEXT_PUBLIC_FUMADOCS_SEARCH_INDEX ||
   (process.env.NODE_ENV === 'development' ? '/api/search' : '/fumadocs-search.json');
 
+function matchesRole(url: string, pathname: string) {
+  const role = pathname === '/student' || pathname.startsWith('/student/') ? 'student' : 'tutor';
+  return url === `/${role}` || url.startsWith(`/${role}/`);
+}
+
 export default function DocsSearchDialog(props: SharedProps) {
+  const pathname = usePathname() || '/';
   // Без `locale`: для одноязычного индекса fumadocs хранит БД в Map под ключом "".
   const { search, setSearch, query } = useDocsSearch({
     type: 'static',
     initOrama,
     from: searchIndexFrom,
   });
+
+  const items =
+    query.data === 'empty' || !query.data
+      ? null
+      : query.data.filter((item) => matchesRole(item.url, pathname));
 
   return (
     <SearchDialog search={search} onSearchChange={setSearch} isLoading={query.isLoading} {...props}>
@@ -47,7 +59,7 @@ export default function DocsSearchDialog(props: SharedProps) {
           <SearchDialogInput />
           <SearchDialogClose />
         </SearchDialogHeader>
-        <SearchDialogList items={query.data !== 'empty' ? query.data : null} />
+        <SearchDialogList items={items} />
       </SearchDialogContent>
     </SearchDialog>
   );

@@ -1,0 +1,12 @@
+{
+  "title": "Кабинеты",
+  "pages": [
+    "index",
+    "classroom-list",
+    "classroom-statuses",
+    "invite-tutor-flow",
+    "create-group",
+    "classroom-tabs",
+    "student-material-access"
+  ]
+}

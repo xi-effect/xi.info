@@ -2,11 +2,23 @@ import { source } from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
 import { Footer } from 'pkg.footer';
+import { DocsRoleSwitcher } from '@/components/DocsRoleSwitcher';
+import { roleFromSlug, treeForRole } from '@/lib/docs-role';
 
-export default function Layout({ children }: LayoutProps<'/[[...slug]]'>) {
+export default async function Layout({ children, params }: LayoutProps<'/[[...slug]]'>) {
+  const { slug } = await params;
+  const tree = treeForRole(source.getPageTree(), roleFromSlug(slug));
+
   return (
     <>
-      <DocsLayout tree={source.getPageTree()} {...baseOptions()}>
+      <DocsLayout
+        tree={tree}
+        {...baseOptions()}
+        sidebar={{
+          tabs: false,
+          banner: <DocsRoleSwitcher />,
+        }}
+      >
         {children}
       </DocsLayout>
       <Footer

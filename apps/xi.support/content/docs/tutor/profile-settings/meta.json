@@ -1,0 +1,11 @@
+{
+  "title": "Профиль и настройки",
+  "pages": [
+    "index",
+    "personal-and-role",
+    "email-and-password",
+    "notifications-bell-and-settings",
+    "effects-sound",
+    "support-tech-report"
+  ]
+}
