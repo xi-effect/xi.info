@@ -8,7 +8,12 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'pkg.accordion';
 
 import { CardPricing } from './CardPricing';
-import { plansPricing, pricingFaq, comparisonSections } from './dataForPricing';
+import {
+  PRO_YEARLY_DISCOUNT_PERCENT,
+  plansPricing,
+  pricingFaq,
+  comparisonSections,
+} from './dataForPricing';
 
 const sectionClass = 'w-full px-4 sm:px-8 md:px-6';
 const containerClass = 'mx-auto w-full max-w-[1320px]';
@@ -93,6 +98,11 @@ export const PricesView = () => {
               <CardPricing key={plan.id} appearIndex={index} {...plan} />
             ))}
           </div>
+
+          <p className="mx-auto mt-6 max-w-[1080px] text-center text-pretty text-s-base leading-6 text-gray-60 sm:mt-8 sm:text-m-base sm:leading-7">
+            Скидка {PRO_YEARLY_DISCOUNT_PERCENT}% на годовом тарифе примерная: при оплате за год вы
+            платите за 10 месяцев и получаете 12.
+          </p>
 
           <motion.aside
             id="basic-plan-note"

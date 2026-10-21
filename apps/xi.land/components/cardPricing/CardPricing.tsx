@@ -213,7 +213,11 @@ export const CardPricing = ({
       </p>
 
       <div className="mt-5 sm:mt-6">
-        {yearly ? <BillingToggle value={billingPeriod} onChange={setBillingPeriod} /> : null}
+        {yearly ? (
+          <BillingToggle value={billingPeriod} onChange={setBillingPeriod} />
+        ) : (
+          <div className="mb-4 hidden h-9 md:block" aria-hidden />
+        )}
         <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
           <MorphingPrice
             value={displayedPrice}
@@ -264,7 +268,9 @@ export const CardPricing = ({
         )}
       >
         <MorphingText
-          text={displayedCaption || 'Без подписки и автосписаний'}
+          text={
+            displayedCaption || 'Без подписки и автосписаний. Банковская карта\u00A0не\u00A0нужна'
+          }
           reduceMotion={reduceMotion}
           className="block"
         />
