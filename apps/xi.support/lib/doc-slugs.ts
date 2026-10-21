@@ -16,6 +16,7 @@ export const tutorSlugs = [
   'getting-started',
   'getting-started/confirm-email',
   'getting-started/first-run-after-login',
+  'getting-started/first-steps',
   'getting-started/register',
   'getting-started/reset-password',
   'getting-started/sign-in',
