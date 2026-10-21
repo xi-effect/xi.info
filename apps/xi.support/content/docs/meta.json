@@ -1,15 +1,4 @@
 {
   "title": "База знаний",
-  "pages": [
-    "index",
-    "getting-started",
-    "classrooms",
-    "lessons-and-schedule",
-    "board-and-notes",
-    "video-lesson",
-    "payments",
-    "profile-settings",
-    "install-and-help",
-    "troubleshooting"
-  ]
+  "pages": ["index", "tutor", "student"]
 }

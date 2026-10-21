@@ -65,3 +65,21 @@
 button {
   background-color: transparent;
 }
+
+.docs-role-switcher {
+  width: 100%;
+  background-color: var(--xi-gray-5);
+}
+
+.docs-role-switcher [role='tab'] {
+  color: var(--xi-gray-90);
+}
+
+.docs-role-switcher [role='tab'][data-state='active'] {
+  color: var(--xi-gray-0);
+}
+
+.docs-role-switcher [role='tab'] > span.absolute {
+  background-color: var(--xi-brand-100);
+  border-radius: 6px;
+}

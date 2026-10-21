@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "playwright_tutor": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated",
+        "--secrets=docs-agent/.env.docs.local",
+        "--viewport-size=1440x900"
+      ]
+    },
+    "playwright_student": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated",
+        "--secrets=docs-agent/.env.docs.local",
+        "--viewport-size=1440x900"
+      ]
+    }
+  }
+}
