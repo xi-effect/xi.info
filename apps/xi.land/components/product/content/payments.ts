@@ -12,24 +12,24 @@ import type { ProductPageContentT } from '../types';
  */
 export const paymentsContent: ProductPageContentT = {
   slug: 'payments',
-  seoTitle: 'Контроль оплат для репетиторов — sovlium',
+  seoTitle: 'Контроль оплат для репетиторов в sovlium',
   seoDescription:
-    'Выставляйте счета из кабинета, ученик получает уведомление, статусы видны в журнале. Перевод за занятия идёт напрямую, платформа фиксирует оплату.',
-  title: 'Счета и контроль оплат',
+    'Как репетитору вести учёт оплат за онлайн-занятия',
+  title: 'Счета и\u00A0контроль оплат',
   subtitle:
-    'Счёт можно выставить из кабинета или из раздела оплат. Ученик получит уведомление. Перевод за занятия идёт напрямую, вне платформы. sovlium запоминает, кто и за что уже заплатил. Оплата тарифа самого сервиса оформляется отдельно.',
+    'В sovlium можно создавать счета за\u00A0занятия и\u00A0следить за\u00A0статусом их оплаты. Напоминания об\u00A0оплате приходят ученикам автоматически.',
   heroImageSrc: '/assets/main/Messages/messages-dashboard.webp',
   heroImageAlt: 'Контроль оплат в sovlium',
   heroImageNeedsShot: true,
   pills: productPills('rooms', 'calendar', 'notifications', 'materials'),
   journeyTitle: 'Как проходит оплата',
-  journeySubtitle: 'Вы выставляете счёт — система напоминает, вы подтверждаете факт оплаты.',
+  journeySubtitle: 'Вы выставляете счёт, получаете деньги переводом или\u00A0наличными и\u00A0подтверждаете оплату',
   steps: [
     {
       id: 'invoice',
-      title: 'Создайте счёт там, где уже есть ученик',
+      title: 'Создайте счёт на\u00A0оплату в\u00A0кабинете или\u00A0разделе «Оплаты»',
       description:
-        'Кнопка «Создать счёт на оплату» — на странице «Контроль оплат» и во вкладке кабинета. Выберите кабинет, добавьте строки занятий, стоимость и количество. Сумма посчитается сама. Можно взять шаблон.',
+        'Вы можете создать счёт за\u00A0несколько занятий сразу.',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Создание счёта на оплату',
       imageNeedsShot: true,
@@ -37,9 +37,9 @@ export const paymentsContent: ProductPageContentT = {
     },
     {
       id: 'notify',
-      title: 'Ученик получает уведомление',
+      title: 'Ученики получают автоматические уведомления о\u00A0новых счетах',
       description:
-        'После создания счёт появляется в журнале, ученик видит его в своём кабинете. Сумму в конце урока произносить не нужно.',
+        'Напоминать об\u00A0оплате отдельно больше не нужно.',
       imageSrc: '/assets/main/Devices/main-devices-tablet.webp',
       imageAlt: 'Уведомление ученику о счёте',
       imageNeedsShot: true,
@@ -47,9 +47,9 @@ export const paymentsContent: ProductPageContentT = {
     },
     {
       id: 'status',
-      title: 'Статусы в одном журнале',
+      title: 'Статусы оплат — в\u00A0журнале у\u00A0репетитора',
       description:
-        'Имя, дата, сумма, статус. Репетитор видит журнал и шаблоны счетов. Ученик — только свои счета. Открыть счёт можно из списка или по ссылке из письма.',
+        'Все счета в\u00A0одном разделе — это позволяет легко следить за\u00A0историей оплат.',
       imageSrc: '/assets/main/Devices/main-devices-desktop.webp',
       imageAlt: 'Журнал оплат',
       imageNeedsShot: true,
@@ -57,20 +57,20 @@ export const paymentsContent: ProductPageContentT = {
     },
     {
       id: 'remind',
-      title: 'Напоминание, если оплата задерживается',
+      title: 'Пришлём ученику напоминание, если оплата задержится',
       description:
-        'Напоминание отправит система. Когда деньги пришли напрямую, подтвердите получение. История остаётся в кабинете.',
+        'Делать это вручную больше не нужно.',
       imageSrc: '/assets/main/Hero/main-hero-lesson-card.webp',
       imageAlt: 'Напоминание об оплате',
       imageNeedsShot: true,
       imageClassName: 'object-contain object-center p-8',
     },
   ],
-  highlightsTitle: 'Что есть в оплатах',
+  highlightsTitle: 'Что есть в\u00A0оплатах',
   highlights: [
     {
       id: 'journal',
-      title: 'Журнал счетов и статусов',
+      title: 'Журнал счетов и\u00A0статусы оплаты',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Журнал оплат',
       bgClassName: 'bg-red-0',
@@ -86,50 +86,50 @@ export const paymentsContent: ProductPageContentT = {
     },
     {
       id: 'from-room',
-      title: 'Счёт из кабинета',
+      title: 'Возможность создать счёт в\u00A0кабинете',
       imageSrc: '/assets/main/Devices/main-devices-desktop.webp',
-      imageAlt: 'Оплаты во вкладке кабинета',
+      imageAlt: 'Оплаты в кабинете',
       bgClassName: 'bg-violet-20',
       badgeTextClassName: 'text-violet-100',
     },
     {
       id: 'charts',
-      title: 'Доход в таблицах и диаграммах',
+      title: 'Доход в\u00A0таблицах и\u00A0диаграммах',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Диаграммы дохода',
       bgClassName: 'bg-pink-20',
       badgeTextClassName: 'text-fuchsia-900',
     },
   ],
-  relatedTitle: 'Рядом с оплатами',
+  relatedTitle: 'В связке с\u00A0оплатами',
   related: [
     {
       title: 'Кабинеты',
       href: '/classrooms',
-      description: 'Счёт всегда на кабинет ученика или группы — история во вкладке «Оплаты»',
+      description: 'Счёт всегда на кабинет ученика или\u00A0группы — история на\u00A0вкладке «Оплаты»',
     },
     {
       title: 'Расписание',
       href: '/calendar',
-      description: 'В счёт можно внести занятия, которые уже стоят в календаре',
+      description: 'В\u00A0счёт можно внести занятия, которые уже стоят в\u00A0расписании',
     },
   ],
   faq: [
     {
-      title: 'sovlium принимает деньги за уроки?',
-      text: 'Нет. Перевод за занятия идёт напрямую от ученика вам, вне сервиса. Платформа фиксирует выставление счёта и факт оплаты. Оплата тарифа sovlium за доступ к функциональности сервиса оформляется отдельно.',
+      title: 'sovlium принимает деньги за\u00A0занятия?',
+      text: 'Ученик оплачивает счёт напрямую, платформа лишь фиксирует факт оплаты.',
     },
     {
       title: 'Сколько стоит платформа для ученика?',
-      text: 'Для учеников sovlium бесплатен. За сервис платит репетитор.',
+      text: 'Для учеников sovlium бесплатен. За\u00A0подписку на платформу платит репетитор.',
     },
     {
-      title: 'Что видит ученик в оплатах?',
-      text: 'Журнал своих счетов. Шаблоны и создание счетов — только у репетитора.',
+      title: 'Что видит ученик в\u00A0оплатах?',
+      text: 'Ученик видит только свои счета. Создать счёт может только репетитор.',
     },
   ],
   supportHref: `${SUPPORT_URL}/payments`,
   supportLabel: 'Как выставить счёт',
   ctaTitle: 'Выставите первый счёт',
-  ctaSubtitle: 'После регистрации ученик получит уведомление сам.',
+  ctaSubtitle: 'После регистрации ученик получит уведомление.',
 };
