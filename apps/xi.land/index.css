@@ -77,7 +77,8 @@
   }
 
   .font-manrope {
-    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+    font-family:
+      var(--font-manrope-latin), var(--font-manrope-cyrillic), ui-sans-serif, system-ui, sans-serif;
   }
 
   .animate-messages-shield-ring {
