@@ -11,34 +11,33 @@ import type { ProductPageContentT } from '../types';
  */
 export const materialsContent: ProductPageContentT = {
   slug: 'materials',
-  seoTitle: 'Учебные материалы для репетиторов — sovlium',
-  seoDescription:
-    'Библиотека досок и заметок репетитора и то, что видит ученик в кабинете. Доступ: совместная работа, только репетитор или черновик.',
-  title: 'Материалы репетитора и то, что видит ученик',
+  seoTitle: 'Учебные материалы для репетиторов в sovlium',
+  seoDescription: 'Где репетитору хранить онлайн-доски, заметки, учебники и файлы',
+  title: 'Учебные материалы',
   subtitle:
-    'У вас — общая библиотека досок и заметок. У ученика — только материалы его кабинета и только с тем доступом, который вы выбрали.',
+    'В sovlium вы можете собрать собственную библиотеку материалов и\u00A0легко управлять доступом к\u00A0ней.',
   heroImageSrc: '/assets/main/Messages/messages-dashboard.webp',
   heroImageAlt: 'Библиотека материалов в sovlium',
   heroImageNeedsShot: true,
   pills: productPills('whiteboard', 'rooms', 'conference', 'calendar'),
-  journeyTitle: 'Как устроена библиотека',
-  journeySubtitle: 'Сначала ваши материалы, потом — то, что видит ученик.',
+  journeyTitle: 'Как хранить материалы в\u00A0sovlium',
+  journeySubtitle: 'И\u00A0делиться ими с\u00A0учениками',
   steps: [
     {
       id: 'library',
-      title: 'Все доски и заметки в одном разделе',
+      title: 'Все ваши доски, файлы и\u00A0заметки — в\u00A0одном разделе',
       description:
-        'В боковом меню — «Материалы». Вверху переключатель «Доски | Заметки». Здесь лежит всё ваше, не только то, что уже выдано ученику.',
+        'Вы можете управлять материалами: создавать копии для\u00A0разных кабинетов, добавлять теги для\u00A0удобной сортировки.',
       imageSrc: '/assets/main/Devices/main-devices-desktop.webp',
-      imageAlt: 'Раздел материалы',
+      imageAlt: 'Раздел «Материалы»',
       imageNeedsShot: true,
       imageClassName: 'object-cover object-[center_38%]',
     },
     {
       id: 'classroom',
-      title: 'В кабинете — только нужное этому ученику',
+      title: 'Ученик видит только те материалы, к\u00A0которым ему открыли доступ',
       description:
-        'Вкладка «Материалы» в кабинете показывает доски и заметки, привязанные к этому ученику или группе. Для ученика это основной способ увидеть файлы.',
+        'Вы можете создавать в\u00A0кабинете черновики материалов и\u00A0открывать доступ к\u00A0ним, когда захотите.',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Материалы внутри кабинета',
       imageNeedsShot: true,
@@ -46,9 +45,9 @@ export const materialsContent: ProductPageContentT = {
     },
     {
       id: 'access',
-      title: 'Три уровня доступа',
+      title: 'Несколько уровней доступа',
       description:
-        'Совместная работа — ученик видит материал и может его править. «Только репетитор» и «черновик» — ученик материал не видит. Доступ меняется из меню карточки в любой момент.',
+        'Разрешите ученику редактировать материал или\u00A0оставьте материал в\u00A0статусе «Только чтение».',
       imageSrc: '/assets/main/Features/main-features-pdf.webp',
       imageAlt: 'Настройка доступа к материалу',
       imageNeedsShot: true,
@@ -56,27 +55,27 @@ export const materialsContent: ProductPageContentT = {
     },
     {
       id: 'reuse',
-      title: 'Подготовили раз — используете снова',
+      title: 'Ничто не\u00A0теряется',
       description:
-        'Доска или заметка остаётся в библиотеке. Её можно открыть из материалов или из кабинета и вынести в урок, не копируя файлы по ученикам вручную.',
+        'Доски, заметки и\u00A0файлы остаются в\u00A0библиотеке. Вы можете использовать их заново в\u00A0других кабинетах.',
       imageSrc: '/assets/main/Features/main-features-frames.webp',
       imageAlt: 'Повторное использование материалов',
       imageClassName: 'object-contain object-bottom',
     },
   ],
-  highlightsTitle: 'Что лежит в материалах',
+  highlightsTitle: 'Что есть в\u00A0Материалах',
   highlights: [
     {
       id: 'boards',
       title: 'Доски',
       imageSrc: '/assets/main/Features/main-features-frames.webp',
-      imageAlt: 'Доски в материалах',
+      imageAlt: 'Онлайн-доски',
       bgClassName: 'bg-green-0',
       badgeTextClassName: 'text-green-80',
     },
     {
       id: 'notes',
-      title: 'Заметки и конспекты',
+      title: 'Заметки с\u00A0картинками',
       imageSrc: '/assets/main/Features/main-features-pdf.webp',
       imageAlt: 'Заметки',
       bgClassName: 'bg-cyan-20',
@@ -84,7 +83,7 @@ export const materialsContent: ProductPageContentT = {
     },
     {
       id: 'files',
-      title: 'PDF, картинки, аудио',
+      title: 'PDF, изображения, аудио',
       imageSrc: '/assets/main/Features/main-features-audio.webp',
       imageAlt: 'Файлы на доске',
       bgClassName: 'bg-brand-80',
@@ -92,52 +91,52 @@ export const materialsContent: ProductPageContentT = {
     },
     {
       id: 'drafts',
-      title: 'Черновики, которые ученик не видит',
+      title: 'Презентации',
       imageSrc: '/assets/main/Hero/main-hero-lesson-card.webp',
       imageAlt: 'Черновик материала',
       bgClassName: 'bg-violet-20',
       badgeTextClassName: 'text-violet-100',
     },
   ],
-  relatedTitle: 'Рядом с материалами',
+  relatedTitle: 'В\u00A0связке с\u00A0материалами',
   related: [
     {
       title: 'Онлайн-доска',
       href: '/whiteboard',
-      description: 'Как рисовать, крепить PDF и открывать холст в звонке',
+      description: 'Можно рисовать, добавлять элементы и\u00A0открывать доску в\u00A0звонке',
     },
     {
       title: 'Кабинеты',
       href: '/classrooms',
-      description: 'Ученик видит только то, что лежит в его кабинете с нужным доступом',
+      description: 'Ученик видит только то, что вы откроете для\u00A0него',
     },
     {
       title: 'Видеозвонки',
       href: '/calls',
-      description: 'Во время урока доска кабинета открывается из панели звонка',
+      description: 'Во\u00A0время занятия доска встраивается в\u00A0видеозвонок',
     },
     {
       title: 'Расписание',
       href: '/calendar',
-      description: 'К занятию можно заранее привязать подготовленные материалы',
+      description: 'К\u00A0занятию можно заранее привязать подготовленные материалы',
     },
   ],
   faq: [
     {
-      title: 'Ученик видит всю мою библиотеку?',
-      text: 'Нет. Ученик видит материалы только внутри своего кабинета и только с доступом «совместная работа». Черновики и «только репетитор» ему недоступны.',
+      title: 'Ученик видит все мои материалы?',
+      text: 'Нет. Ученик видит материалы только внутри своего кабинета. Ученики также не\u00A0видят черновики материалов в\u00A0своём кабинете.',
     },
     {
-      title: 'Чем доска отличается от заметки?',
-      text: 'Доска — интерактивный холст: рисунок, файлы, фреймы. Заметка — текстовый конспект. Оба типа живут в материалах и могут быть привязаны к кабинету.',
+      title: 'Чем доска отличается от\u00A0заметки?',
+      text: 'Доска — интерактивный холст: рисунок, файлы, фреймы. Заметка — конспект с\u00A0текстом и\u00A0картинками.',
     },
     {
-      title: 'Можно подготовить материал и не показывать его сразу?',
-      text: 'Да. Поставьте доступ «черновик» или «только репетитор», а перед уроком переключите на совместную работу.',
+      title: 'Можно подготовить материал и\u00A0не показывать его сразу?',
+      text: 'Да. Переведите его в\u00A0статус «Черновик», а\u00A0перед занятием откройте к\u00A0нему доступ.',
     },
   ],
   supportHref: `${SUPPORT_URL}/board-and-notes/where-are-boards`,
-  supportLabel: 'Где лежат доски и конспекты',
+  supportLabel: 'Где лежат доски и\u00A0заметки',
   ctaTitle: 'Добавьте первый материал',
-  ctaSubtitle: 'Зарегистрируйтесь и загрузите файл. Доступ ученику можно выдать позже.',
+  ctaSubtitle: 'Зарегистрируйтесь и\u00A0загрузите материал. Доступ ученику можно выдать позже.',
 };
