@@ -12,8 +12,7 @@ import type { ProductPageContentT } from '../types';
 export const materialsContent: ProductPageContentT = {
   slug: 'materials',
   seoTitle: 'Учебные материалы для репетиторов в sovlium',
-  seoDescription:
-    'Где репетитору хранить онлайн-доски, заметки, учебники и файлы',
+  seoDescription: 'Где репетитору хранить онлайн-доски, заметки, учебники и файлы',
   title: 'Учебные материалы',
   subtitle:
     'В sovlium вы можете собрать собственную библиотеку материалов и\u00A0легко управлять доступом к\u00A0ней.',

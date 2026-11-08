@@ -13,8 +13,7 @@ import type { ProductPageContentT } from '../types';
 export const paymentsContent: ProductPageContentT = {
   slug: 'payments',
   seoTitle: 'Контроль оплат для репетиторов в sovlium',
-  seoDescription:
-    'Как репетитору вести учёт оплат за онлайн-занятия',
+  seoDescription: 'Как репетитору вести учёт оплат за онлайн-занятия',
   title: 'Счета и\u00A0контроль оплат',
   subtitle:
     'В sovlium можно создавать счета за\u00A0занятия и\u00A0следить за\u00A0статусом их оплаты. Напоминания об\u00A0оплате приходят ученикам автоматически.',
@@ -23,13 +22,13 @@ export const paymentsContent: ProductPageContentT = {
   heroImageNeedsShot: true,
   pills: productPills('rooms', 'calendar', 'notifications', 'materials'),
   journeyTitle: 'Как проходит оплата',
-  journeySubtitle: 'Вы выставляете счёт, получаете деньги переводом или\u00A0наличными и\u00A0подтверждаете оплату',
+  journeySubtitle:
+    'Вы выставляете счёт, получаете деньги переводом или\u00A0наличными и\u00A0подтверждаете оплату',
   steps: [
     {
       id: 'invoice',
       title: 'Создайте счёт на\u00A0оплату в\u00A0кабинете или\u00A0разделе «Оплаты»',
-      description:
-        'Вы можете создать счёт за\u00A0несколько занятий сразу.',
+      description: 'Вы можете создать счёт за\u00A0несколько занятий сразу.',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Создание счёта на оплату',
       imageNeedsShot: true,
@@ -38,8 +37,7 @@ export const paymentsContent: ProductPageContentT = {
     {
       id: 'notify',
       title: 'Ученики получают автоматические уведомления о\u00A0новых счетах',
-      description:
-        'Напоминать об\u00A0оплате отдельно больше не нужно.',
+      description: 'Напоминать об\u00A0оплате отдельно больше не нужно.',
       imageSrc: '/assets/main/Devices/main-devices-tablet.webp',
       imageAlt: 'Уведомление ученику о счёте',
       imageNeedsShot: true,
@@ -58,8 +56,7 @@ export const paymentsContent: ProductPageContentT = {
     {
       id: 'remind',
       title: 'Пришлём ученику напоминание, если оплата задержится',
-      description:
-        'Делать это вручную больше не нужно.',
+      description: 'Делать это вручную больше не нужно.',
       imageSrc: '/assets/main/Hero/main-hero-lesson-card.webp',
       imageAlt: 'Напоминание об оплате',
       imageNeedsShot: true,
@@ -106,7 +103,8 @@ export const paymentsContent: ProductPageContentT = {
     {
       title: 'Кабинеты',
       href: '/classrooms',
-      description: 'Счёт всегда на кабинет ученика или\u00A0группы — история на\u00A0вкладке «Оплаты»',
+      description:
+        'Счёт всегда на кабинет ученика или\u00A0группы — история на\u00A0вкладке «Оплаты»',
     },
     {
       title: 'Расписание',

@@ -27,10 +27,9 @@ export const whiteboardContent: ProductPageContentT = {
     {
       id: 'prepare',
       title: 'Доски хранятся в\u00A0разделе «Материалы»',
-      description:
-        'Вы можете подготовить доску заранее или\u00A0создать новую.',
+      description: 'Вы можете подготовить доску заранее или\u00A0создать новую.',
       imageSrc: '/assets/main/Features/main-features-frames.webp',
-      imageAlt: 'Подготовка доски до урока',
+      imageAlt: 'Подготовка доски до занятия',
       imageNeedsShot: true,
       imageClassName: 'object-contain object-bottom',
     },

@@ -7,14 +7,13 @@ import type { ProductPageContentT } from '../types';
  * Нужные кадры:
  * — страница «Расписание»
  * — форма «Добавить занятие»
- * — карточка урока
+ * — карточка занятия
  * — окно переноса
  */
 export const calendarContent: ProductPageContentT = {
   slug: 'calendar',
   seoTitle: 'Расписание занятий для репетиторов в sovlium',
-  seoDescription:
-    'Как онлайн-репетитору назначать, отменять и переносить занятия',
+  seoDescription: 'Как онлайн-репетитору назначать, отменять и переносить занятия',
   title: 'Расписание занятий',
   subtitle:
     'В\u00A0sovlium легко назначить, перенести или\u00A0отменить занятие, если нужно. Все участники получают напоминания о\u00A0занятиях.',
@@ -38,8 +37,7 @@ export const calendarContent: ProductPageContentT = {
     {
       id: 'create',
       title: 'Создайте занятие',
-      description:
-        'Добавьте пару слов о\u00A0занятии, настройте время и\u00A0режим повторов.',
+      description: 'Добавьте пару слов о\u00A0занятии, настройте время и\u00A0режим повторов.',
       imageSrc: '/assets/main/Hero/main-hero-timer.webp',
       imageAlt: 'Создание занятия',
       imageNeedsShot: true,
@@ -94,7 +92,7 @@ export const calendarContent: ProductPageContentT = {
     },
     {
       id: 'home',
-      title: 'Ближайший урок на\u00A0главной',
+      title: 'Ближайшее занятие на\u00A0главной',
       imageSrc: '/assets/main/Messages/messages-dashboard.webp',
       imageAlt: 'Ближайшее занятие на главной',
       bgClassName: 'bg-violet-20',
@@ -111,7 +109,8 @@ export const calendarContent: ProductPageContentT = {
     {
       title: 'Видеозвонки',
       href: '/calls',
-      description: 'Из карточки занятия можно попасть сразу в\u00A0видеозвонок с\u00A0доской и\u00A0чатом',
+      description:
+        'Из карточки занятия можно попасть сразу в\u00A0видеозвонок с\u00A0доской и\u00A0чатом',
     },
     {
       title: 'Доска',
@@ -130,7 +129,7 @@ export const calendarContent: ProductPageContentT = {
       text: 'Нет. Создавать и переносить занятия может только репетитор. Ученик видит расписание своего кабинета и\u00A0получает напоминания о занятиях.',
     },
     {
-      title: 'Как перенести повторяющиееся занятие?',
+      title: 'Как перенести повторяющееся занятие?',
       text: 'Откройте занятие и выберите, что перенести: только это занятие или всю серию. Для серии можно сразу задать новые дни недели и\u00A0время.',
     },
     {

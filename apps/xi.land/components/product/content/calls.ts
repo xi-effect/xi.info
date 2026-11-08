@@ -13,8 +13,7 @@ import type { ProductPageContentT } from '../types';
 export const callsContent: ProductPageContentT = {
   slug: 'calls',
   seoTitle: 'Видеозвонки для репетиторов в sovlium',
-  seoDescription:
-    'Видеозвонки для репетиторов со встроенной онлайн-доской и демонстрацией экрана.',
+  seoDescription: 'Видеозвонки для репетиторов со встроенной онлайн-доской и демонстрацией экрана.',
   title: 'Как проводить онлайн-занятия в\u00A0sovlium',
   subtitle:
     'Видеозвонок — часть рабочей среды в\u00A0sovlium. Он настроен специально для\u00A0репетиторов.',
@@ -41,7 +40,7 @@ export const callsContent: ProductPageContentT = {
       description:
         'В\u00A0sovlium можно размыть фон, отразить изображение и\u00A0улучшить микрофон, чтобы вас было лучше слышно.',
       imageSrc: '/assets/main/Hero/main-hero-student.webp',
-      imageAlt: 'Экран ожидания перед уроком',
+      imageAlt: 'Экран ожидания перед занятием',
       imageNeedsShot: true,
       imageClassName: 'object-contain object-center p-10',
     },
@@ -79,7 +78,7 @@ export const callsContent: ProductPageContentT = {
       id: 'hand',
       title: 'Кнопка «Поднять руку»',
       imageSrc: '/assets/main/Features/main-features-raise-hand.webp',
-      imageAlt: 'Поднять руку на уроке',
+      imageAlt: 'Поднять руку на занятии',
       bgClassName: 'bg-sky-300',
       badgeTextClassName: 'text-slate-600',
     },
