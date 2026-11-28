@@ -91,3 +91,33 @@
     font-family: ui-sans-serif, system-ui, sans-serif;
   }
 }
+
+/*
+ * Hero на низкой высоте окна (десктоп, две колонки).
+ * Левая колонка тянется на высоту коллажа и через justify-between
+ * уводит кнопку вниз — на коротком экране она не попадает в первый экран.
+ * Здесь отступы сжимаются, а кнопка встаёт сразу под плашками.
+ */
+@media (min-width: 64rem) and (max-height: 800px) {
+  .hero-short-section {
+    padding-top: clamp(7.25rem, 11svh, 8rem);
+    padding-bottom: clamp(1.25rem, 3svh, 2.5rem);
+  }
+
+  .hero-short-copy {
+    justify-content: flex-start;
+    gap: clamp(1rem, 2.4svh, 1.75rem);
+  }
+
+  .hero-short-stack {
+    gap: clamp(1rem, 2.8svh, 2rem);
+  }
+
+  .hero-short-lead {
+    gap: clamp(0.5rem, 1.6svh, 1rem);
+  }
+
+  .hero-short-pills {
+    gap: clamp(0.375rem, 1.2svh, 0.75rem);
+  }
+}

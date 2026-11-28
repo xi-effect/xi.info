@@ -161,12 +161,12 @@ export const Hero = () => {
         data-theme="white"
         onPointerMove={updatePointer}
         onPointerLeave={resetPointer}
-        className="w-full overflow-x-clip bg-gray-0 pt-28 pb-14 md:pt-32 lg:pb-24 xl:pt-40"
+        className="hero-short-section w-full overflow-x-clip bg-gray-0 pt-28 pb-14 md:pt-32 lg:pb-24 xl:pt-40"
       >
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-stretch gap-10 px-4 md:gap-14 md:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-          <div className="flex min-w-0 flex-1 flex-col gap-10 lg:max-w-[650px] lg:justify-between lg:self-stretch xl:gap-14">
-            <div className="flex flex-col gap-10 lg:gap-14">
-              <div className="flex flex-col gap-6">
+          <div className="hero-short-copy flex min-w-0 flex-1 flex-col gap-10 lg:max-w-[650px] lg:justify-between lg:self-stretch xl:gap-14">
+            <div className="hero-short-stack flex flex-col gap-10 lg:gap-14">
+              <div className="hero-short-lead flex flex-col gap-6">
                 <h1 className="font-nevermind text-[28px] font-medium leading-8 tracking-[-0.01em] text-gray-100/90 sm:text-4xl sm:leading-10 lg:text-4xl lg:leading-10">
                   {HERO_CONTENT.title}
                 </h1>
@@ -175,7 +175,7 @@ export const Hero = () => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3 sm:gap-4">
+              <div className="hero-short-pills flex flex-wrap gap-3 sm:gap-4">
                 {HERO_CONTENT.features.map((feature) => (
                   <HeroFeatureBadge key={feature.id} feature={feature} />
                 ))}
